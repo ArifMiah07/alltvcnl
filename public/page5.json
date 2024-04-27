@@ -1,0 +1,101 @@
+[
+    {
+      "id": 62,
+      "name": "Sky Sports Football UK",
+      "logo": "https://raw.githubusercontent.com/Vipdt5k49/linh_tinh/main/SD.jpg",
+      "url": "https://salamus2023.onlinehdhls.ru/ddh2/premium35/playlist.m3u8",
+      "origin": "https://claplivehdplay.ru/",
+      "referer": "https://claplivehdplay.ru/"
+    },
+    {
+      "id": 63,
+      "name": "Super Sports Cricket",
+      "url": "https://catowrap.live/mrgamingsscric.m3u8"
+    },
+    {
+      "id": 64,
+      "name": "Super Sports Premier League",
+      "url": "https://catowrap.live/mrgamingpremier.m3u8"
+    },
+    {
+      "id": 65,
+      "name": "Super Sports laliga",
+      "url": "https://salamus2023.onlinehdhls.ru/ddh2/premium31/playlist.m3u8",
+      "origin": "https://claplivehdplay.ru/",
+      "referer": "https://claplivehdplay.ru/"
+    },
+    {
+      "id": 66,
+      "name": "USA Network",
+      "url": "https://salamus2023.onlinehdhls.ru/ddh2/premium343/playlist.m3u8",
+      "origin": "https://claplivehdplay.ru/",
+      "referer": "https://claplivehdplay.ru/"
+    },
+    {
+      "id": 67,
+      "name": "SPOTV 1",
+      "url": "http://202.150.161.68/spotv1/index.m3u8"
+    },
+    {
+      "id": 68,
+      "name": "SPOTV 2",
+      "url": "http://202.150.161.68/spotv2/index.m3u8"
+    },
+    {
+      "id": 69,
+      "name": "ARENA SPORT 1",
+      "url": "http://80.252.37.194:5000/udp/233.233.233.3:12000"
+    },
+    {
+      "id": 70,
+      "name": "ARENA SPORT 2",
+      "url": "http://80.252.37.194:5000/udp/233.233.233.4:12000"
+    },
+    {
+      "id": 71,
+      "name": "ARENA SPORT 3",
+      "url": "http://80.252.37.194:5000/udp/233.233.233.5:12000"
+    },
+    {
+      "id": 72,
+      "name": "ARENA SPORT 4",
+      "url": "http://80.252.37.194:5000/udp/233.233.233.6:12000"
+    },
+    {
+      "id": 73,
+      "name": "ARENA SPORT 5",
+      "url": "http://80.252.37.194:5000/udp/233.233.233.7:12000"
+    },
+    {
+      "id": 74,
+      "name": "ARENA SPORT 6",
+      "url": "http://80.252.37.194:5000/udp/233.233.233.8:12000"
+    },
+    {
+      "id": 75,
+      "name": "SPORTV",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4hkU20hCa4zm1D6QhOXzbP8Muxw8YARIG0Q&usqp=CAU",
+      "url": "https://newedge.eu-central-1.edge.mycdn.live/live/vintequatrohrs2/playlist.m3u8",
+      "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+      "referrer": "https://futebolplayhd.com/"
+    },
+    {
+      "id": 76,
+      "name": "SPORTV 2",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEMDERRTRWwNNDwhwCyiiz9yNeklRS5Bpl6g&usqp=CAU",
+      "url": "https://newedge.eu-central-1.edge.mycdn.live/live/sportv224ha/playlist.m3u8",
+      "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+      "referrer": "https://futebolplayhd.com/"
+    },
+    {
+      "id": 77,
+      "name": "BEIN SPORTS EXTRA",
+      "url": "http://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/5df975e2b27cf5000921c102livestitch/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=1YNY&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimittrueofileFloor=&embedPartner=samsung-tvplus&profilesFromStream=true"
+    },
+    {
+      "id": 78,
+      "name": "BEIN sports 1",
+      "url": "https://edge1.laotv.la/live/Bsport1/index.m3u8"
+    }
+  ]
+  

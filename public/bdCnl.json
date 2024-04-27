@@ -1,0 +1,165 @@
+[
+
+{
+        "id" : 1, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Somoy TV",
+        "url" : "http://livess.jagobd.com.bd/live-orgin/somoyt000011226615544544.stream/chunks.m3u8"
+    },
+{
+        "id" : 2, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Ekhon TV",
+        "url" : "http://livess.jagobd.com.bd/live-orgin/globaltv.stream/chunks.m3u8"
+    },
+{
+        "id" : 3, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Gaan Bangla",
+        "url" : "http://cdn01.palki.tv/live/GaanBangla-M/tracks-v2a1/mono.m3u8"
+    },
+{
+        "id" : 4, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Nexus TV",
+        "url" : "https://livess.jagobd.com.bd/live-orgin/nexustv.stream/chunks.m3u8"
+    },
+{
+        "id" : 5, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "ATN Bangla",
+        "url" : "https://livess.jagobd.com.bd/live-orgin/atnbd-8-org.stream/chunks.m3u8"
+    },
+{
+        "id" : 6, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Banglavision HD",
+        "url" : "https://livess.jagobd.com.bd/live-orgin/banglav000.stream/chunks.m3u8"
+    },
+{
+        "id" : 7, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Boishakhi TV",
+        "url" : "https://livess.jagobd.com.bd/live-orgin/boishakhitv-org.stream/chunks.m3u8"
+    },
+{
+        "id" : 8, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Bijoy TV",
+        "url" : "https://livess.jagobd.com.bd/live-orgin/bijoy00.stream/chunks.m3u8"
+    },
+{
+        "id" : 9, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Ekhon TV",
+        "url" : "https://livess.jagobd.com.bd/live-orgin/globaltv.stream/chunks.m3u8"
+    },
+{
+        "id" : 10, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Green TV",
+        "url" : "https://livess.jagobd.com.bd/live-orgin/greentv.stream/chunks.m3u8"
+    },
+{
+        "id" : 11, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Independent TV",
+        "url" : "https://livess.jagobd.com.bd/live-orgin/independent-8-org.stream/chunks.m3u8"
+    },
+{
+        "id" : 12, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Jamuna TV",
+        "url" : "https://livess.jagobd.com.bd/live-orgin/jamuna-test-sample-ok.stream/chunks.m3u8"
+    },
+{
+        "id" : 13, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Mohona TV HD",
+        "url" : "https://livess.jagobd.com.bd/live-orgin/mohonatv00000223232244556633.stream/chunks.m3u8"
+    },
+{
+        "id" : 14, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "News 24 HD",
+        "url" : "https://livess.jagobd.com.bd/live-orgin/news24local.stream/chunks.m3u8"
+    },
+{
+        "id" : 15, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "RTV HD",
+        "url" : "https://livess.jagobd.com.bd/live-orgin/rtv-sg.stream/chunks.m3u8"
+    },
+{
+        "id" : 16, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "SATV HD",
+        "url" : "https://livess.jagobd.com.bd/live-orgin/satvoff5666.stream/chunks.m3u8"
+    },
+{
+        "id" : 17, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Dipto TV",
+        "url" : "https://byphdgllyk.gpcdn.net/DeeptoTV/deeptotv-manifest.m3u8"
+    },
+{
+        "id" : 18, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Maasranga TV(BD)",
+        "url" : "https://niptv.kitv.live/MAASRANGA-TV/tracks-v1a1/mono.m3u8"
+    },
+{
+        "id" : 19, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Ekushay TV(BDIX)",
+        "url" : "https://ekusheyserver.com/etvlivesn.m3u8"
+    },
+{
+        "id" : 20, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Ekushey TV(BD2)",
+        "url" : "http://210.4.72.204/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8"
+    },
+{
+        "id" : 21, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "CHANNEL S HD",
+        "url" : "http://208.86.19.13:81/519.stream/index.m3u8"
+    },
+{
+        "id" : 22, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "TBN 24 USA",
+        "url" : "https://dog.dg21bd.com:443/TBN242/tracks-v1a1/mono.m3u8"
+    },
+{
+        "id" : 23, 
+        "cnl_img" : "",
+        "country" : "Bangladesh",
+        "title" : "Peace TV ENG",
+        "url" : "http://82.114.67.178:8081/hls/PeaceTV.m3u8"
+    }
+
+]

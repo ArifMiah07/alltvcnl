@@ -1,0 +1,91 @@
+[
+    {
+      "id": 15,
+      "title": "kuwait tv 1🇰🇼",
+      "tvg-id": "https://www.media.gov.kw/LiveTV.aspx",
+      "url": "https://kwtktv1ta.cdn.mangomolo.com/ktv1/smil:ktv1.stream.smil/chunklist_b8000000_t64MTA4MHA=.m3u8"
+    },
+    {
+      "id": 16,
+      "title": "kuwait sports🇰🇼",
+      "tvg-id": "https://www.media.gov.kw/LiveTV.aspx",
+      "url": "https://kwtspta.cdn.mangomolo.com/sp/smil:sp.stream.smil/chunklist_b900000_t64MzYwcA==.m3u8"
+    },
+    {
+      "id": 17,
+      "title": "SSC 1",
+      "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzbv7IPJ9S7pCLASaulxvkxSx8FCrlIsCVQA&usqp=CAU",
+      "http-user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+      "http-referrer": "https://olalivehdplay.ru/",
+      "url": "http://carmeltv.live:80/EXCHANGEukmed/QHZ5pjF7UdKx/54799.m3u8"
+    },
+    {
+      "id": 18,
+      "title": "SSC 2",
+      "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzbv7IPJ9S7pCLASaulxvkxSx8FCrlIsCVQA&usqp=CAU",
+      "http-user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+      "http-referrer": "https://weblivehdplay.ru/",
+      "url": "https://webudit.webhd.ru/lb/premium615/index.m3u8?|Referer=https://weblivehdplay.ru/"
+    },
+    {
+      "id": 19,
+      "title": "SSC 5",
+      "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzbv7IPJ9S7pCLASaulxvkxSx8FCrlIsCVQA&usqp=CAU",
+      "http-user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+      "http-referrer": "https://weblivehdplay.ru/",
+      "url": "https://webudit.webhd.ru/lb/premium618/index.m3u8?|Referer=https://weblivehdplay.ru/"
+    },
+    {
+      "id": 20,
+      "title": "SSC EXTRA 1",
+      "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzbv7IPJ9S7pCLASaulxvkxSx8FCrlIsCVQA&usqp=CAU",
+      "http-user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+      "http-referrer": "https://weblivehdplay.ru/",
+      "url": "https://webudit.webhd.ru/lb/premium619/index.m3u8?|Referer=https://weblivehdplay.ru/"
+    },
+    {
+      "id": 21,
+      "title": "SSC EXTRA 2",
+      "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzbv7IPJ9S7pCLASaulxvkxSx8FCrlIsCVQA&usqp=CAU",
+      "http-user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+      "http-referrer": "https://weblivehdplay.ru/",
+      "url": "https://webudit.webhd.ru/lb/premium620/index.m3u8?|Referer=https://weblivehdplay.ru/"
+    },
+    {
+      "id": 22,
+      "title": "SSC EXTARA 3",
+      "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzbv7IPJ9S7pCLASaulxvkxSx8FCrlIsCVQA&usqp=CAU",
+      "http-user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+      "http-referrer": "https://weblivehdplay.ru/",
+      "url": "https://webudit.webhd.ru/lb/premium621/index.m3u8?|Referer=https://weblivehdplay.ru/"
+    },
+    {
+      "id": 23,
+      "title": "Premier Sports 1",
+      "url": "http://202.21.104.6:88/sps-prime/index.m3u8"
+    },
+    {
+      "id": 24,
+      "title": "Premier Sports 2",
+      "url": "http://202.21.104.6:88/sps-play/index.m3u8"
+    },
+    {
+      "id": 25,
+      "title": "discovery bangla",
+      "tvg-id": "discovery.com",
+      "url": "https://varun-iptv.netlify.app/m3u/discoverybengali.m3u8"
+    },
+    {
+      "id": 26,
+      "title": "National Geographic HD",
+      "tvg-id": "natgeo.com",
+      "url": "http://103.107.79.87:8080/CH8110SD07/tracks-v1a1/mono.m3u8"
+    },
+    {
+      "id": 27,
+      "title": "super sports cricket🇿🇦",
+      "tvg-id": "supersports.com",
+      "url": "https://catowrap.live/mrgamingsscric.m3u8"
+    }
+  ]
+  

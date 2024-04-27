@@ -1,0 +1,170 @@
+[
+    {
+      "id": 122,
+      "name": "CNN Bangla",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/k46ZZcgk/image.jpg",
+      "url": "http://d1zuxgm0d4hmth.cloudfront.net/cnnbangla/01.m3u8"
+    },
+    {
+      "id": 123,
+      "name": "Cumilla 24 TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/ZnXPq0RL/Cumilla-TV.jpg",
+      "url": "http://103.149.142.133/0.m3u8"
+    },
+    {
+      "id": 124,
+      "name": "DBC News [Jagobd]",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/43dZL7vq/djAX8Rc.png",
+      "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/dbcnews.stream/live-orgin/dbcnews.stream/chunks.m3u8"
+    },
+    {
+      "id": 125,
+      "name": "DBC News",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/43dZL7vq/djAX8Rc.png",
+      "url": "http://mag.trexlive.me:80/Michael88/Michael88/165517"
+    },
+    {
+      "id": 126,
+      "name": "Deepto TV [Jagobd]",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/RhjVCpnJ/tPZKfLr.png",
+      "url": "https://livess.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/deeptotv.stream/chunks.m3u8"
+    },
+    {
+      "id": 127,
+      "name": "Deepto TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/RhjVCpnJ/tPZKfLr.png",
+      "url": "https://byphdgllyk.gpcdn.net/DeeptoTV/deeptotv-manifest.m3u8"
+    },
+    {
+      "id": 128,
+      "name": "Desh TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/pX8gbwgq/Desh-TV.jpg",
+      "url": "http://mag.trexlive.me:80/Michael88/Michael88/225743"
+    },
+    {
+      "id": 129,
+      "name": "Desh TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/pX8gbwgq/Desh-TV.jpg",
+      "url": "http://mag.trexlive.me:80/Michael88/Michael88/165523"
+    },
+    {
+      "id": 130,
+      "name": "Deshi TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/X7F0P50N/GKBkm2e.png",
+      "url": "https://deshitv.deshitv24.net/live/myStream/playlist.m3u8"
+    },
+    {
+      "id": 131,
+      "name": "Ekattor TV [Pgplex]",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/8c9Y58zZ/1200px-Ekattor-TV-logo-svg.png",
+      "url": "http://pgplex.net:8080/EkattorTV/index.m3u8"
+    },
+    {
+      "id": 132,
+      "name": "Ekattor TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/8c9Y58zZ/1200px-Ekattor-TV-logo-svg.png",
+      "url": "http://ott1.co:8080/live/22552255/22552255/428.ts"
+    },
+    {
+      "id": 133,
+      "name": "Ekattor TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/8c9Y58zZ/1200px-Ekattor-TV-logo-svg.png",
+      "url": "https://ythls.armelin.one/channel/UCtqvtAVmad5zywaziN6CbfA.m3u8"
+    },
+    {
+      "id": 134,
+      "name": "Ekhon TV [Jagobd]",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/SNnz9nWH/Ekhon-Logo.png",
+      "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/globaltv.stream/live-orgin/globaltv.stream/chunks.m3u8"
+    },
+    {
+      "id": 135,
+      "name": "Ekhon TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/SNnz9nWH/Ekhon-Logo.png",
+      "url": "https://ythls.armelin.one/channel/UCWVqdPTigfQ-cSNwG7O9MeA.m3u8"
+    },
+    {
+      "id": 136,
+      "name": "Ekushey TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/1tx4Nqw8/Ekushey-TV.jpg",
+      "url": "https://ekusheyserver.com/etvlivesn.m3u8"
+    },
+    {
+      "id": 137,
+      "name": "Ekushey TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/1tx4Nqw8/Ekushey-TV.jpg",
+      "url": "http://210.4.72.204/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8"
+    },
+    {
+      "id": 138,
+      "name": "Florida Bangla TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/dQzvq7M2/FBTV.jpg",
+      "url": "http://162.244.81.200:1935/live/livestream/playlist.m3u8"
+    },
+    {
+      "id": 139,
+      "name": "Gazi TV HD",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/GtH5RXyk/K7b1Bbz.png",
+      "url": "http://103.142.80.22:8080/GAZI/index.m3u8"
+    },
+    {
+      "id": 140,
+      "name": "Gazi TV HD [Pgplex]",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/GtH5RXyk/K7b1Bbz.png",
+      "url": "http://pgplex.net:8080/GaziTVHD/index.m3u8"
+    },
+    {
+      "id": 141,
+      "name": "Gazi TV HD",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/GtH5RXyk/K7b1Bbz.png",
+      "url": "http://38.96.178.201/live/GaziTV/index.m3u8"
+    },
+    {
+      "id": 142,
+      "name": "Gazi TV HD",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/GtH5RXyk/K7b1Bbz.png",
+      "url": "http://ott1.co:8080/live/22552255/22552255/767.ts"
+    },
+    {
+      "id": 143,
+      "name": "Global TV HD",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/4yvcQjGn/Logo-Global-Television.png",
+      "url": "http://ott1.co:8080/live/22552255/22552255/4231.ts"
+    },
+    {
+      "id": 144,
+      "name": "Green TV [Jagobd]",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/fLrwFw4Q/Green-TV.jpg",
+      "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/greentv.stream/live-orgin/greentv.stream/chunks.m3u8"
+    },
+    {
+      "id": 145,
+      "name": "10 Bold Sydney",
+      "group-title": "Ten Network Holdings Ltd",
+      "tvg-logo": "https://i.imgur.com/2xglh33.png",
+      "url": "https://i.mjh.nz/10bold-nsw.m3u8"
+    }
+  ]

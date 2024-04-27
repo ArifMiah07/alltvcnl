@@ -1,0 +1,99 @@
+[
+    {
+      "id": 1,
+      "tvg-id": "pbc.ps",
+      "name": "PALESTINE LIVE🇵🇸",
+      "url": "https://pbc.furrera.ps/palestinelivehd/index.m3u8?v=1740303930"
+    },
+    {
+      "id": 2,
+      "tvg-id": "saudiatv.sa",
+      "name": "KSA 1🇸🇦",
+      "urls": [
+        "https://edge.taghtia.com/sa/2.m3u8",
+        "https://shls-masr2-ak.akamaized.net/out/v1/5ae66b453b62403199811ab78da9982a/index.m3u8"
+      ]
+    },
+    {
+      "id": 3,
+      "tvg-logo": "https://images.app.goo.gl/K1b231RTptN3uFhP6",
+      "group-title": "TV",
+      "name": "MAKKAH🇸🇦",
+      "urls": [
+        "https://edge.taghtia.com/sa/7.m3u8",
+        "http://m.live.net.sa:1935/live/quran/playlist.m3u8",
+        "https://al-ekhbaria-prod-dub.shahid.net/out/v1/9885cab0a3ec4008b53bae57a27ca76b/index.m3u8"
+      ]
+    },
+    {
+      "id": 4,
+      "tvg-id": "peacetv.com",
+      "name": "PEACE TV BANGLA",
+      "url": "http://176.119.29.52/live/00:1A:79:75:C2:64/D0EA41E1A7E7F/237.m3u8"
+    },
+    {
+      "id": 5,
+      "tvg-id": "AlSunnahAlNabawiyahTV.sa",
+      "name": "Medina (1080p) 🇸🇦",
+      "urls": [
+        "https://edge.taghtia.com/sa/6.m3u8",
+        "http://m.live.net.sa:1935/live/sunnah/playlist.m3u8",
+        "https://shls-euronews-en-prod-dub.shahid.net/out/v1/b09bbb8d9b684763be4211b088168de7/index.m3u8"
+      ]
+    },
+    {
+      "id": 6,
+      "tvg-id": "aljazeera.qa",
+      "name": "al jazeera mubashar🇶🇦",
+      "url": "https://live-hls-web-ajm.getaj.net/AJM/01.m3u8"
+    },
+    {
+      "id": 7,
+      "tvg-id": "AlJazeera.qa",
+      "name": "Al Jazeera Arabic (1080p)🇶🇦",
+      "url": "https://live-hls-v3-aja.getaj.net/AJA-V3/index.m3u8"
+    },
+    {
+      "id": 8,
+      "tvg-id": "AlJazeeraEnglish.qa",
+      "name": "Al Jazeera English🇶🇦",
+      "url": "https://d1cy85syyhvqz5.cloudfront.net/v1/master/7b67fbda7ab859400a821e9aa0deda20ab7ca3d2/aljazeeraLive/AJE/index.m3u8"
+    },
+    {
+      "id": 9,
+      "tvg-id": "QatarTelevision.qa",
+      "name": "Qatar Television (720p)🇶🇦",
+      "url": "https://qatartv.akamaized.net/hls/live/2026573/qtv1/master.m3u8"
+    },
+    {
+      "id": 10,
+      "tvg-id": "QatarTelevision2.qa",
+      "name": "Qatar Television 2 (720p)🇶🇦",
+      "url": "https://qatartv.akamaized.net/hls/live/2026574/qtv2/master.m3u8"
+    },
+    {
+      "id": 11,
+      "tvg-id": "AmmanTV.net",
+      "name": "Amman TV 🇯🇴",
+      "url": "https://ammantv-live.ercdn.net/ammantvhd/ammantvhd.m3u8"
+    },
+    {
+      "id": 12,
+      "tvg-id": "https://www.jrtv.gov.jo/live-tv/%d8%a7%d9%84%d9%82%d9%86%d8%a7%d8%a9-%d8%a7%d9%84%d8%a3%d9%88%d9%84%d9%89/1",
+      "name": "Jordan Satellite Channel (1080p)🇯🇴",
+      "url": "https://jrtv-live.ercdn.net/jordanhd/jordanhd.m3u8"
+    },
+    {
+      "id": 13,
+      "tvg-id": "NablusTV.ps",
+      "name": "Nablus TV (720p)🇵🇸",
+      "url": "http://htvmada.mada.ps:8888/nabluslive/index.m3u8"
+    },
+    {
+      "id": 14,
+      "tvg-id": "ShababFM.ps",
+      "name": "Shabab FM (720p)🇵🇸",
+      "url": "https://streaming.zaytonatube.com:8081/ShababFM/shabab/index.m3u8"
+    }
+  ]
+  

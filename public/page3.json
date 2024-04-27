@@ -1,0 +1,68 @@
+[
+    {
+      "id": 28,
+      "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbzCgrCInyYxx6_Wwj-ldU2Cwm9C-m6LApOQ&usqp=CAU",
+      "group-title": "SPORTS",
+      "channel": "ESPN",
+      "url": "https://newedge.eu-central-1.edge.mycdn.live/live/vintequatrohrs5/playlist.m3u8"
+    },
+    {
+      "id": 29,
+      "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrcZC751CM8FzhluTURvOEVEHRQK2pm4t13w&usqp=CAU",
+      "group-title": "SPORTS",
+      "channel": "ESPN 2",
+      "url": "https://newedge.eu-central-1.edge.mycdn.live/live/esportes8/playlist.m3u8"
+    },
+    {
+      "id": 30,
+      "tvg-logo": "https://assets-global.website-files.com/605a3cacba514a77ca2e6ab5/61a4c896fc740bb1476f0225_LOGO_ESPN4[2].png",
+      "group-title": "SPORTS",
+      "channel": "ESPN 4",
+      "url": "https://newedge.eu-central-1.edge.mycdn.live/live/vintequatrohrs3/playlist.m3u8"
+    },
+    {
+      "id": 31,
+      "tvg-id": "espn.com",
+      "channel": "espn english🇺🇸",
+      "url": "https://catowrap.live/mrgamingespn.m3u8"
+    },
+    {
+      "id": 32,
+      "tvg-id": "ts246",
+      "tvg-logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/65797933ac7f66229607beaf/images/394.webp",
+      "group-title": "Sports",
+      "channel": "Star Sports Select 1",
+      "url": "https://liveb.streamready.in/starsportsselect1/smil:common.smil/manifest.mpd"
+    },
+    {
+      "id": 33,
+      "tvg-id": "ts463",
+      "tvg-logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/6579790c6cbc4372820a5db4/images/393.webp",
+      "group-title": "Sports",
+      "channel": "Star Sports Select 2",
+      "url": "http://103.120.172.74:4700"
+    },
+    {
+      "id": 34,
+      "tvg-id": "ts78",
+      "tvg-logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/657978a7c5625a16ee72e958/images/402.webp",
+      "group-title": "Sports",
+      "channel": "Star Sports 1 HD",
+      "url": "http://opplex.tv:8080/live/03155515900TG/03155515900TG/167575.ts"
+    },
+    {
+      "id": 35,
+      "tvg-id": "ts235",
+      "tvg-logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/65797986a9540e6b3ede47bf/images/607.webp",
+      "group-title": "Sports",
+      "channel": "Star Sports 2 HD",
+      "url": "https://liveb.streamready.in/starsports2hd/smil:common.smil/manifest.mpd"
+    },
+    {
+      "id": 36,
+      "tvg-logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Sports%2018.png",
+      "channel": "Sports 18 1 HD",
+      "url": "http://103.120.172.74:5500"
+    }
+  ]
+  

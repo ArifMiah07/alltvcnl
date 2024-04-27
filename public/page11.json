@@ -1,0 +1,307 @@
+[
+    {
+      "id": 192,
+      "tvg_id": "eurosporthd.hr",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "EUROSPORTS HD",
+      "stream_url": "http://zeestb1.online/tata.php?id=806"
+    },
+    {
+      "id": 193,
+      "tvg_id": "eurosporthd.hr",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "EUROSPORTS 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=12143"
+    },
+    {
+      "id": 194,
+      "tvg_id": "astrocricket.my",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "ASTRO CRICKET",
+      "stream_url": "http://zeestb1.online/tata.php?id=206091"
+    },
+    {
+      "id": 195,
+      "tvg_id": "supersportcricket.za",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "SUPER SPORTS 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=12167"
+    },
+    {
+      "id": 196,
+      "tvg_id": "DEFAULT",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "SUPERSPORT GRANDSTAND",
+      "stream_url": "http://zeestb1.online/tata.php?id=58140"
+    },
+    {
+      "id": 197,
+      "tvg_id": "skysportscricket.uk",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "SKY SPORTS CRICKET 4K UK",
+      "stream_url": "http://zeestb1.online/tata.php?id=8894"
+    },
+    {
+      "id": 198,
+      "tvg_id": "willowcricket.us",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "WILLOW SPORTS 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=12161"
+    },
+    {
+      "id": 199,
+      "tvg_id": "DEFAULT",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "FLOW SPORTS CRICKET",
+      "stream_url": "http://zeestb1.online/tata.php?id=50011"
+    },
+    {
+      "id": 200,
+      "tvg_id": "starsports1.in",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "STAR SPORTS 1 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=12148"
+    },
+    {
+      "id": 201,
+      "tvg_id": "starsports1hindi.in",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "STAR SPORTS 1 HINDI 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=12149"
+    },
+    {
+      "id": 202,
+      "tvg_id": "starsports2.in",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "STAR SPORTS 2 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=12150"
+    },
+    {
+      "id": 203,
+      "tvg_id": "starsports3.in",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "STAR SPORTS 3 HINDI HD",
+      "stream_url": "http://zeestb1.online/tata.php?id=12155"
+    },
+    {
+      "id": 204,
+      "tvg_id": "starsports1kannada.in",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "STAR SPORTS 1 KANNADA HD",
+      "stream_url": "http://zeestb1.online/tata.php?id=12153"
+    },
+    {
+      "id": 205,
+      "tvg_id": "starsports1tamil.in",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "STAR SPORTS 1 TAMIL HD",
+      "stream_url": "http://zeestb1.online/tata.php?id=12154"
+    },
+    {
+      "id": 206,
+      "tvg_id": "astrocricket.my",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "ASTRO CRICKET 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=12141"
+    },
+    {
+      "id": 207,
+      "tvg_id": "Sports",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "T SPORTS BANGLA",
+      "stream_url": "http://zeestb1.online/tata.php?id=12104"
+    },
+    {
+      "id": 208,
+      "tvg_id": "starsportsselect1.in",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "STAR SPORTS SELECT 1 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=12151"
+    },
+    {
+      "id": 209,
+      "tvg_id": "starsportsselect2.in",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "STAR SPORTS SELECT 2 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=12152"
+    },
+    {
+      "id": 210,
+      "tvg_id": "foxsports505.au",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "FOX SPORTS 505",
+      "stream_url": "http://zeestb1.online/tata.php?id=58137"
+    },
+    {
+      "id": 211,
+      "tvg_id": "DEFAULT",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "FOX SPORTS 507",
+      "stream_url": "http://zeestb1.online/tata.php?id=58138"
+    },
+    {
+      "id": 212,
+      "tvg_id": "foxsports501.au",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "FOX SPORTS",
+      "stream_url": "http://zeestb1.online/tata.php?id=28140"
+    },
+    {
+      "id": 213,
+      "tvg_id": "",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "FOX SPORTS 3",
+      "stream_url": "http://zeestb1.online/tata.php?id=58139"
+    },
+    {
+      "id": 214,
+      "tvg_id": "willowcricket.us",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "US WILLOW CRICKET HD",
+      "stream_url": "http://zeestb1.online/tata.php?id=12169"
+    },
+    {
+      "id": 215,
+      "tvg_id": "willowxtra.us",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "US WILLOW EXTRA HD",
+      "stream_url": "http://zeestb1.online/tata.php?id=12170"
+    },
+    {
+      "id": 216,
+      "tvg_id": "sonysix.in",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "SONY SIX 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=12144"
+    },
+    {
+      "id": 217,
+      "tvg_id": "sonyten1.in",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "SONY TEN 1 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=12145"
+    },
+    {
+      "id": 218,
+      "tvg_id": "sonyten2.in",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "SONY TEN 2 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=12146"
+    },
+    {
+      "id": 219,
+      "tvg_id": "sonyten3.in",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "SONY TEN 3 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=12147"
+    },
+    {
+      "id": 220,
+      "tvg_id": "Sports",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "SONY TEN 4 4k",
+      "stream_url": "http://zeestb1.online/tata.php?id=12173"
+    },
+    {
+      "id": 221,
+      "tvg_id": "ddsports.in",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "DD SPORTS",
+      "stream_url": "http://zeestb1.online/tata.php?id=12171"
+    },
+    {
+      "id": 222,
+      "tvg_id": "DEFAULT",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "A SPORTS",
+      "stream_url": "http://zeestb1.online/tata.php?id=30975"
+    },
+    {
+      "id": 223,
+      "tvg_id": "DEFAULT",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "GEO SUPER",
+      "stream_url": "http://zeestb1.online/tata.php?id=12164"
+    },
+    {
+      "id": 224,
+      "tvg_id": "Sports",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "PTV SPORTS",
+      "stream_url": "http://zeestb1.online/tata.php?id=12172"
+    },
+    {
+      "id": 225,
+      "tvg_id": "Sports",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "TEN SPORTS",
+      "stream_url": "http://zeestb1.online/tata.php?id=12166"
+    },
+    {
+      "id": 226,
+      "tvg_id": "skysportscricket.uk",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "SKY SPORTS 4K",
+      "stream_url": "http://zeestb1.online/tata.php?id=2956"
+    },
+    {
+      "id": 227,
+      "tvg_id": "DEFAULT",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "CRICKET MAX",
+      "stream_url": "http://zeestb1.online/tata.php?id=42051"
+    },
+    {
+      "id": 228,
+      "tvg_id": "DEFAULT",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "ATN CRICKET PLUS",
+      "stream_url": "http://zeestb1.online/tata.php?id=43933"
+    },
+    {
+      "id": 229,
+      "tvg_id": "DEFAULT",
+      "tvg_logo": "",
+      "group_title": "CRICKET",
+      "channel_name": "ATN SPORTS CA",
+      "stream_url": "http://zeestb1.online/tata.php?id=8651"
+    }
+  ]
+  

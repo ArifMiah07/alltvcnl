@@ -1,0 +1,80 @@
+[
+    {
+        "bookId": 1,
+        "bookName": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "image": "https://i0.wp.com/americanwritersmuseum.org/wp-content/uploads/2018/02/CK-3.jpg",
+        "review": "The Great Gatsby is a classic tale of wealth, love, and tragedy set in the roaring twenties. Fitzgerald's prose is both poetic and profound, capturing the essence of a bygone era.",
+        "totalPages": 218,
+        "rating": 4.5,
+        "category": "Fiction",
+        "tags": ["Romance", "Drama", "Classic"],
+        "publisher": "Scribner",
+        "yearOfPublishing": 1925
+    },
+    {
+        "bookId": 2,
+        "bookName": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "image": "https://i0.wp.com/www.printmag.com/wp-content/uploads/2017/07/2a34d8_bb2c2e2052ee41bf9ceb8e13a3a1d0femv2.jpg",
+        "review": "To Kill a Mockingbird is a poignant story that tackles themes of racial injustice and moral growth. Harper Lee's characters are vivid and memorable, and the novel remains relevant to this day.",
+        "totalPages": 281,
+        "rating": 4.8,
+        "category": "Fiction",
+        "tags": ["Coming of Age", "Legal Drama", "Southern Gothic"],
+        "publisher": "J. B. Lippincott & Co.",
+        "yearOfPublishing": 1960
+    },
+    {
+        "bookId": 3,
+        "bookName": "1984",
+        "author": "George Orwell",
+        "image": "https://i.pinimg.com/564x/40/e6/48/40e6483b1973252fc21637ef9b6e68d7.jpg",
+        "review": "1984 is a dystopian masterpiece that explores the dangers of totalitarianism and surveillance. Orwell's bleak vision of the future is both chilling and thought-provoking.",
+        "totalPages": 328,
+        "rating": 4.7,
+        "category": "Fiction",
+        "tags": ["Dystopian", "Political", "Social Commentary"],
+        "publisher": "Secker & Warburg",
+        "yearOfPublishing": 1949
+    },
+    {
+        "bookId": 4,
+        "bookName": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "image": "https://i.pinimg.com/564x/bc/4e/d6/bc4ed664de4e59f0724ff517caef6747.jpg",
+        "review": "The Catcher in the Rye is a coming-of-age novel that captures the angst and disillusionment of youth. Salinger's protagonist, Holden Caulfield, has become an iconic figure in literature.",
+        "totalPages": 277,
+        "rating": 4.4,
+        "category": "Fiction",
+        "tags": ["Coming of Age", "Psychological", "American Classic"],
+        "publisher": "Little, Brown and Company",
+        "yearOfPublishing": 1951
+    },
+    {
+        "bookId": 5,
+        "bookName": "Harry Potter and the Sorcerer's Stone",
+        "author": "J.K. Rowling",
+        "image": "https://i.pinimg.com/564x/bf/6e/d4/bf6ed406c92d8dd948660faca24a32c4.jpg",
+        "review": "Harry Potter and the Sorcerer's Stone introduces readers to the magical world of Hogwarts and the adventures of the young wizard Harry Potter. Rowling's imagination and storytelling prowess make this book a timeless favorite.",
+        "totalPages": 309,
+        "rating": 4.9,
+        "category": "Fantasy",
+        "tags": ["Magic", "Wizardry", "Adventure"],
+        "publisher": "Bloomsbury",
+        "yearOfPublishing": 1997
+    },
+    {
+        "bookId": 6,
+        "bookName": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "image": "https://i.pinimg.com/564x/08/d5/cb/08d5cbb5c1618e3beb837150486c702a.jpg",
+        "review": "The Hobbit follows the journey of Bilbo Baggins as he sets out on a quest to reclaim the treasure guarded by the dragon Smaug. Tolkien's richly imagined world and captivating storytelling make this a timeless classic.",
+        "totalPages": 310,
+        "rating": 4.6,
+        "category": "Fantasy",
+        "tags": ["Adventure", "Epic", "Middle-earth"],
+        "publisher": "George Allen & Unwin",
+        "yearOfPublishing": 1937
+    }
+]

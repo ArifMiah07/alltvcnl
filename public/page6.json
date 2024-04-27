@@ -1,0 +1,152 @@
+[
+    {
+      "id": 79,
+      "name": "BEIN sports 2",
+      "group-title": "BEIN SPORTS",
+      "url": "https://edge1.laotv.la/live/Bsport2/index.m3u8"
+    },
+    {
+      "id": 80,
+      "name": "TRUE SPORTS 1",
+      "group-title": "TRUE SPORTS",
+      "url": "https://edge1.laotv.la/live/TrueSport6/index.m3u8"
+    },
+    {
+      "id": 81,
+      "name": "True Sports 2",
+      "group-title": "TRUE SPORTS",
+      "url": "https://edge2.laotv.la/live/TrueSport2/index.m3u8"
+    },
+    {
+      "id": 82,
+      "name": "True Sports 3",
+      "group-title": "TRUE SPORTS",
+      "url": "https://edge2.laotv.la/live/TrueSport3/index.m3u8"
+    },
+    {
+      "id": 83,
+      "name": "True Sports 7",
+      "group-title": "TRUE SPORTS",
+      "url": "https://edge1.laotv.la/live/THD7/index.m3u8"
+    },
+    {
+      "id": 84,
+      "name": "TRUE SPORTS 7 VN",
+      "group-title": "TRUE SPORTS",
+      "url": "https://edge2.laotv.la/live/TSports7/index.m3u8"
+    },
+    {
+      "id": 85,
+      "name": "TRUE SPORTS PREMIER 1",
+      "group-title": "TRUE SPORTS",
+      "url": "https://edge1.laotv.la/live/TSport1/index.m3u8"
+    },
+    {
+      "id": 86,
+      "name": "True Sports Premier 2",
+      "group-title": "TRUE SPORTS",
+      "url": "https://edge1.laotv.la/live/TSport2/index.m3u8"
+    },
+    {
+      "id": 87,
+      "name": "MOROCCO SPORTS",
+      "group-title": "MIX SPORTS",
+      "url": "http://cdnamd-hls-globecast.akamaized.net/live/ramdisk/arriadia/hls_snrt/arriadia-avc1_1500000=4-mp4a_130400_qad=1.m3u8"
+    },
+    {
+      "id": 88,
+      "name": "ATN SPORTS (Afghanistan)",
+      "url": "https://d10rltuy0iweup.cloudfront.net/ATNNAT/myStream/chunklist_w1814215713.m3u8"
+    },
+    {
+      "id": 89,
+      "name": "Sports tv",
+      "group-title": "SPORTTV",
+      "url": "http://live.sportstv.com.tr/hls/low/sportstv_fhd/index.m3u8"
+    },
+    {
+      "id": 90,
+      "name": "BTV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/pLrjPsGJ/btv.png",
+      "url": "http://mag.trexlive.me:80/Michael88/Michael88/225734"
+    },
+    {
+      "id": 91,
+      "name": "BTV World",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/PxdPbgjB/btv-world.jpg",
+      "url": "http://mag.trexlive.me:80/Michael88/Michael88/165535"
+    },
+    {
+      "id": 92,
+      "name": "BTV Chattogram",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/d3KgmRJn/Bangladesh-Television-Chittagong-Logo.png",
+      "url": "http://mag.trexlive.me:80/Michael88/Michael88/165533"
+    },
+    {
+      "id": 93,
+      "name": "Sangsad TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/J7TH7nQY/1200px-Sangsad-Television-Emblem-svg.png",
+      "url": "http://mag.trexlive.me:80/Michael88/Michael88/165544"
+    },
+    {
+      "id": 94,
+      "name": "Ananda TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/zXhfKc8M/Anandatvupdate.jpg",
+      "url": "http://mag.trexlive.me:80/Michael88/Michael88/165525"
+    },
+    {
+      "id": 95,
+      "name": "Asian TV",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/2jbY6Cg3/fxq0pV2.png",
+      "url": "http://mag.trexlive.me:80/Michael88/Michael88/165528"
+    },
+    {
+      "id": 96,
+      "name": "ATN Bangla [Jagobd]",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/Y0KXWYDF/5PsRkPd.png",
+      "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/atnbd-8-org.stream/live-orgin/atnbd-8-org.stream/chunks.m3u8"
+    },
+    {
+      "id": 97,
+      "name": "ATN Bangla",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/Y0KXWYDF/5PsRkPd.png",
+      "url": "http://mag.trexlive.me:80/Michael88/Michael88/225723"
+    },
+    {
+      "id": 98,
+      "name": "ATN Bangla UK [Jagobd]",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/KcpZNSrW/ATN-Bangla-UK.png",
+      "url": "https://livess.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/atnbanglauk-off.stream/playlist.m3u8"
+    },
+    {
+      "id": 99,
+      "name": "ATN News",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/gJZR1XFM/Atnnews-2.jpg",
+      "url": "http://mag.trexlive.me:80/Michael88/Michael88/165527"
+    },
+    {
+      "id": 100,
+      "name": "Bangla 24 Canada [Jagobd]",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/7hz6QqzQ/Bangla-24-Canada.jpg",
+      "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/b24c.stream/live-orgin/b24c.stream/chunks.m3u8"
+    },
+    {
+      "id": 101,
+      "name": "Bangla TV [Jagobd]",
+      "group-title": "Bangla",
+      "tvg-logo": "https://i.postimg.cc/4xcv8d9V/Bangla-TV.jpg",
+      "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/banglatvhd.stream/live-orgin/banglatvhd.stream/chunks.m3u8"
+    }
+  ]
+  

@@ -1,0 +1,1593 @@
+[
+    [
+        {
+          "id": 1,
+          "tvg-id": "pbc.ps",
+          "name": "PALESTINE LIVE🇵🇸",
+          "url": "https://pbc.furrera.ps/palestinelivehd/index.m3u8?v=1740303930"
+        },
+        {
+          "id": 2,
+          "tvg-id": "saudiatv.sa",
+          "name": "KSA 1🇸🇦",
+          "urls": [
+            "https://edge.taghtia.com/sa/2.m3u8",
+            "https://shls-masr2-ak.akamaized.net/out/v1/5ae66b453b62403199811ab78da9982a/index.m3u8"
+          ]
+        },
+        {
+          "id": 3,
+          "tvg-logo": "https://images.app.goo.gl/K1b231RTptN3uFhP6",
+          "group-title": "TV",
+          "name": "MAKKAH🇸🇦",
+          "urls": [
+            "https://edge.taghtia.com/sa/7.m3u8",
+            "http://m.live.net.sa:1935/live/quran/playlist.m3u8",
+            "https://al-ekhbaria-prod-dub.shahid.net/out/v1/9885cab0a3ec4008b53bae57a27ca76b/index.m3u8"
+          ]
+        },
+        {
+          "id": 4,
+          "tvg-id": "peacetv.com",
+          "name": "PEACE TV BANGLA",
+          "url": "http://176.119.29.52/live/00:1A:79:75:C2:64/D0EA41E1A7E7F/237.m3u8"
+        },
+        {
+          "id": 5,
+          "tvg-id": "AlSunnahAlNabawiyahTV.sa",
+          "name": "Medina (1080p) 🇸🇦",
+          "urls": [
+            "https://edge.taghtia.com/sa/6.m3u8",
+            "http://m.live.net.sa:1935/live/sunnah/playlist.m3u8",
+            "https://shls-euronews-en-prod-dub.shahid.net/out/v1/b09bbb8d9b684763be4211b088168de7/index.m3u8"
+          ]
+        },
+        {
+          "id": 6,
+          "tvg-id": "aljazeera.qa",
+          "name": "al jazeera mubashar🇶🇦",
+          "url": "https://live-hls-web-ajm.getaj.net/AJM/01.m3u8"
+        },
+        {
+          "id": 7,
+          "tvg-id": "AlJazeera.qa",
+          "name": "Al Jazeera Arabic (1080p)🇶🇦",
+          "url": "https://live-hls-v3-aja.getaj.net/AJA-V3/index.m3u8"
+        },
+        {
+          "id": 8,
+          "tvg-id": "AlJazeeraEnglish.qa",
+          "name": "Al Jazeera English🇶🇦",
+          "url": "https://d1cy85syyhvqz5.cloudfront.net/v1/master/7b67fbda7ab859400a821e9aa0deda20ab7ca3d2/aljazeeraLive/AJE/index.m3u8"
+        },
+        {
+          "id": 9,
+          "tvg-id": "QatarTelevision.qa",
+          "name": "Qatar Television (720p)🇶🇦",
+          "url": "https://qatartv.akamaized.net/hls/live/2026573/qtv1/master.m3u8"
+        },
+        {
+          "id": 10,
+          "tvg-id": "QatarTelevision2.qa",
+          "name": "Qatar Television 2 (720p)🇶🇦",
+          "url": "https://qatartv.akamaized.net/hls/live/2026574/qtv2/master.m3u8"
+        },
+        {
+          "id": 11,
+          "tvg-id": "AmmanTV.net",
+          "name": "Amman TV 🇯🇴",
+          "url": "https://ammantv-live.ercdn.net/ammantvhd/ammantvhd.m3u8"
+        },
+        {
+          "id": 12,
+          "tvg-id": "https://www.jrtv.gov.jo/live-tv/%d8%a7%d9%84%d9%82%d9%86%d8%a7%d8%a9-%d8%a7%d9%84%d8%a3%d9%88%d9%84%d9%89/1",
+          "name": "Jordan Satellite Channel (1080p)🇯🇴",
+          "url": "https://jrtv-live.ercdn.net/jordanhd/jordanhd.m3u8"
+        },
+        {
+          "id": 13,
+          "tvg-id": "NablusTV.ps",
+          "name": "Nablus TV (720p)🇵🇸",
+          "url": "http://htvmada.mada.ps:8888/nabluslive/index.m3u8"
+        },
+        {
+          "id": 14,
+          "tvg-id": "ShababFM.ps",
+          "name": "Shabab FM (720p)🇵🇸",
+          "url": "https://streaming.zaytonatube.com:8081/ShababFM/shabab/index.m3u8"
+        }
+      ],
+      [
+        {
+          "id": 15,
+          "title": "kuwait tv 1🇰🇼",
+          "tvg-id": "https://www.media.gov.kw/LiveTV.aspx",
+          "url": "https://kwtktv1ta.cdn.mangomolo.com/ktv1/smil:ktv1.stream.smil/chunklist_b8000000_t64MTA4MHA=.m3u8"
+        },
+        {
+          "id": 16,
+          "title": "kuwait sports🇰🇼",
+          "tvg-id": "https://www.media.gov.kw/LiveTV.aspx",
+          "url": "https://kwtspta.cdn.mangomolo.com/sp/smil:sp.stream.smil/chunklist_b900000_t64MzYwcA==.m3u8"
+        },
+        {
+          "id": 17,
+          "title": "SSC 1",
+          "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzbv7IPJ9S7pCLASaulxvkxSx8FCrlIsCVQA&usqp=CAU",
+          "http-user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+          "http-referrer": "https://olalivehdplay.ru/",
+          "url": "http://carmeltv.live:80/EXCHANGEukmed/QHZ5pjF7UdKx/54799.m3u8"
+        },
+        {
+          "id": 18,
+          "title": "SSC 2",
+          "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzbv7IPJ9S7pCLASaulxvkxSx8FCrlIsCVQA&usqp=CAU",
+          "http-user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+          "http-referrer": "https://weblivehdplay.ru/",
+          "url": "https://webudit.webhd.ru/lb/premium615/index.m3u8?|Referer=https://weblivehdplay.ru/"
+        },
+        {
+          "id": 19,
+          "title": "SSC 5",
+          "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzbv7IPJ9S7pCLASaulxvkxSx8FCrlIsCVQA&usqp=CAU",
+          "http-user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+          "http-referrer": "https://weblivehdplay.ru/",
+          "url": "https://webudit.webhd.ru/lb/premium618/index.m3u8?|Referer=https://weblivehdplay.ru/"
+        },
+        {
+          "id": 20,
+          "title": "SSC EXTRA 1",
+          "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzbv7IPJ9S7pCLASaulxvkxSx8FCrlIsCVQA&usqp=CAU",
+          "http-user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+          "http-referrer": "https://weblivehdplay.ru/",
+          "url": "https://webudit.webhd.ru/lb/premium619/index.m3u8?|Referer=https://weblivehdplay.ru/"
+        },
+        {
+          "id": 21,
+          "title": "SSC EXTRA 2",
+          "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzbv7IPJ9S7pCLASaulxvkxSx8FCrlIsCVQA&usqp=CAU",
+          "http-user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+          "http-referrer": "https://weblivehdplay.ru/",
+          "url": "https://webudit.webhd.ru/lb/premium620/index.m3u8?|Referer=https://weblivehdplay.ru/"
+        },
+        {
+          "id": 22,
+          "title": "SSC EXTARA 3",
+          "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzbv7IPJ9S7pCLASaulxvkxSx8FCrlIsCVQA&usqp=CAU",
+          "http-user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+          "http-referrer": "https://weblivehdplay.ru/",
+          "url": "https://webudit.webhd.ru/lb/premium621/index.m3u8?|Referer=https://weblivehdplay.ru/"
+        },
+        {
+          "id": 23,
+          "title": "Premier Sports 1",
+          "url": "http://202.21.104.6:88/sps-prime/index.m3u8"
+        },
+        {
+          "id": 24,
+          "title": "Premier Sports 2",
+          "url": "http://202.21.104.6:88/sps-play/index.m3u8"
+        },
+        {
+          "id": 25,
+          "title": "discovery bangla",
+          "tvg-id": "discovery.com",
+          "url": "https://varun-iptv.netlify.app/m3u/discoverybengali.m3u8"
+        },
+        {
+          "id": 26,
+          "title": "National Geographic HD",
+          "tvg-id": "natgeo.com",
+          "url": "http://103.107.79.87:8080/CH8110SD07/tracks-v1a1/mono.m3u8"
+        },
+        {
+          "id": 27,
+          "title": "super sports cricket🇿🇦",
+          "tvg-id": "supersports.com",
+          "url": "https://catowrap.live/mrgamingsscric.m3u8"
+        }
+      ],
+      [
+        {
+          "id": 28,
+          "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbzCgrCInyYxx6_Wwj-ldU2Cwm9C-m6LApOQ&usqp=CAU",
+          "group-title": "SPORTS",
+          "channel": "ESPN",
+          "url": "https://newedge.eu-central-1.edge.mycdn.live/live/vintequatrohrs5/playlist.m3u8"
+        },
+        {
+          "id": 29,
+          "tvg-logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrcZC751CM8FzhluTURvOEVEHRQK2pm4t13w&usqp=CAU",
+          "group-title": "SPORTS",
+          "channel": "ESPN 2",
+          "url": "https://newedge.eu-central-1.edge.mycdn.live/live/esportes8/playlist.m3u8"
+        },
+        {
+          "id": 30,
+          "tvg-logo": "https://assets-global.website-files.com/605a3cacba514a77ca2e6ab5/61a4c896fc740bb1476f0225_LOGO_ESPN4[2].png",
+          "group-title": "SPORTS",
+          "channel": "ESPN 4",
+          "url": "https://newedge.eu-central-1.edge.mycdn.live/live/vintequatrohrs3/playlist.m3u8"
+        },
+        {
+          "id": 31,
+          "tvg-id": "espn.com",
+          "channel": "espn english🇺🇸",
+          "url": "https://catowrap.live/mrgamingespn.m3u8"
+        },
+        {
+          "id": 32,
+          "tvg-id": "ts246",
+          "tvg-logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/65797933ac7f66229607beaf/images/394.webp",
+          "group-title": "Sports",
+          "channel": "Star Sports Select 1",
+          "url": "https://liveb.streamready.in/starsportsselect1/smil:common.smil/manifest.mpd"
+        },
+        {
+          "id": 33,
+          "tvg-id": "ts463",
+          "tvg-logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/6579790c6cbc4372820a5db4/images/393.webp",
+          "group-title": "Sports",
+          "channel": "Star Sports Select 2",
+          "url": "http://103.120.172.74:4700"
+        },
+        {
+          "id": 34,
+          "tvg-id": "ts78",
+          "tvg-logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/657978a7c5625a16ee72e958/images/402.webp",
+          "group-title": "Sports",
+          "channel": "Star Sports 1 HD",
+          "url": "http://opplex.tv:8080/live/03155515900TG/03155515900TG/167575.ts"
+        },
+        {
+          "id": 35,
+          "tvg-id": "ts235",
+          "tvg-logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/65797986a9540e6b3ede47bf/images/607.webp",
+          "group-title": "Sports",
+          "channel": "Star Sports 2 HD",
+          "url": "https://liveb.streamready.in/starsports2hd/smil:common.smil/manifest.mpd"
+        },
+        {
+          "id": 36,
+          "tvg-logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Sports%2018.png",
+          "channel": "Sports 18 1 HD",
+          "url": "http://103.120.172.74:5500"
+        }
+      ],
+      [
+        {
+          "id": 37,
+          "name": "A Sports",
+          "logo": "https://raw.githubusercontent.com/subirkumarpaul/Logo/main/A%20Sports.png",
+          "url": [
+            "http://opplex.tv:8080/live/03155515900TG/03155515900TG/219689.ts",
+            "http://121.91.61.106:8000/play/a03o/index.m3u8"
+          ]
+        },
+        {
+          "id": 38,
+          "name": "Cric Life 1",
+          "url": [
+            "https://freeiptv25.netlify.app/live/stream_4.m3u8",
+            "http://xtv.ooo:8080/shahz18/18usman/371469"
+          ]
+        },
+        {
+          "id": 39,
+          "name": "criclife2",
+          "url": [
+            "http://xtv.ooo:8080/shahz18/18usman/371470"
+          ]
+        },
+        {
+          "id": 40,
+          "name": "LIVE sports"
+        },
+        {
+          "id": 41,
+          "name": "ASTRO CRICKET",
+          "url": [
+            "http://xtv.ooo:8080/live/122461/4627451/167581.m3u8"
+          ]
+        },
+        {
+          "id": 42,
+          "name": "WILLOW HD",
+          "url": [
+            "https://webudit.webhd.ru/lb/premium598/index.m3u8?|Referer=https://weblivehdplay.ru/",
+            "http://xtv.ooo:8080/shahz18/18usman/167583"
+          ]
+        },
+        {
+          "id": 43,
+          "name": "WILLOW EXTRA",
+          "url": [
+            "http://xtv.ooo:8080/live/122461/4627451/167582.m3u8"
+          ]
+        },
+        {
+          "id": 44,
+          "name": "EURO SPORTS",
+          "url": [
+            "http://xtv.ooo:8080/live/122461/4627451/167585.m3u8"
+          ]
+        },
+        {
+          "id": 45,
+          "name": "TEN CRICKET",
+          "url": [
+            "http://xtv.ooo:8080/live/122461/4627451/167587.m3u8"
+          ]
+        },
+        {
+          "id": 46,
+          "name": "TEN SPORTS",
+          "url": [
+            "http://121.91.61.106:8000/play/a04h/index.m3u8"
+          ]
+        },
+        {
+          "id": 47,
+          "name": "FOX 501",
+          "url": [
+            "http://xtv.ooo:8080/live/122461/4627451/167593.m3u8",
+            "http://sonyiptv.net:8080/1234567/1234567/247166"
+          ]
+        },
+        {
+          "id": 48,
+          "name": "Real madrid tv",
+          "url": [
+            "https://rmtv.akamaized.net/hls/live/2043154/rmtv-en-web/bitrate_2.m3u8"
+          ]
+        },
+        {
+          "id": 49,
+          "name": "tyc sports Argentina🇦🇷",
+          "url": [
+            "http://168.227.22.18:1935/live/mobile-005/playlist.m3u8"
+          ]
+        },
+        {
+          "id": 50,
+          "name": "SKY Sports Mainevent",
+          "url": [
+            "https://catowrap.live/mrgamingmainevent.m3u8",
+            "https://linear018-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_30/Live/channel(skysportsmainevent)/manifest_720.mpd"
+          ]
+        },
+        {
+          "id": 51,
+          "name": "SKY Sports Cricket",
+          "url": [
+            "https://catowrap.live/mrgamingcric.m3u"
+          ]
+        },
+        {
+          "id": 52,
+          "name": "SkY Sports Mix",
+          "url": [
+            "https://catowrap.live/mrgamingmix.m3u8",
+            "http://zeestb1.online/tata.php?id=8899"
+          ]
+        },
+        {
+          "id": 53,
+          "name": "SKY SPORTS PREMIER league",
+          "url": [
+            "http://zeestb1.online/tata.php?id=8891"
+          ]
+        },
+        {
+          "id": 54,
+          "name": "True Premier Football 2",
+          "url": [
+            "https://ctrl.laotv.la/live/TSport2/index.m3u8"
+          ]
+        },
+        {
+          "id": 55,
+          "name": "True Sports",
+          "url": [
+            "https://ctrl.laotv.la/live/TSport1/index.m3u8"
+          ]
+        },
+        {
+          "id": 56,
+          "name": "CBS Sports Network (CBSSN)",
+          "logo": "https://raw.githubusercontent.com/Vipdt5k49/linh_tinh/main/SD.jpg",
+          "url": [
+            "https://salamus2023.onlinehdhls.ru/ddy1/premium308/playlist.m3u8|Origin=https://claplivehdplay.ru/&Referer=https://claplivehdplay.ru/"
+          ]
+        },
+        {
+          "id": 57,
+          "name": "PTV sports",
+          "tvg-id": "ptv.pk",
+          "url": [
+            "https://webudit.webhd.ru/lb/premium450/index.m3u8?|Referer=https://weblivehdplay.ru/",
+            "http://114.130.96.165:8080/1018/tracks-v1a1/index.m3u8",
+            "http://xtv.ooo:8080/live/122461/4627451/167567.m3u8"
+          ]
+        },
+        {
+          "id": 58,
+          "name": "TNT Sport 1",
+          "url": [
+            "https://salamus2023.onlinehdhls.ru/ddh2/premium30/playlist.m3u8|Origin=https://claplivehdplay.ru/&Referer=https://claplivehdplay.ru/"
+          ]
+        },
+        {
+          "id": 59,
+          "name": "TNT Sports 2 UK",
+          "logo": "https://raw.githubusercontent.com/Vipdt5k49/linh_tinh/main/SD.jpg",
+          "url": [
+            "https://salamus2023.onlinehdhls.ru/ddh2/premium32/playlist.m3u8|Origin=https://claplivehdplay.ru/&Referer=https://claplivehdplay.ru/"
+          ]
+        },
+        {
+          "id": 60,
+          "name": "TNT Sports 3 UK",
+          "logo": "https://raw.githubusercontent.com/Vipdt5k49/linh_tinh/main/SD.jpg",
+          "url": [
+            "https://salamus2023.onlinehdhls.ru/ddh2/premium33/playlist.m3u8|Origin=https://claplivehdplay.ru/&Referer=https://claplivehdplay.ru/"
+          ]
+        },
+        {
+          "id": 61,
+          "name": "TNT Sports 4",
+          "url": [
+            "https://catowrap.live/mrgamingbtsport4.m3u8"
+          ]
+        }
+      ],
+      [
+        {
+          "id": 62,
+          "name": "Sky Sports Football UK",
+          "logo": "https://raw.githubusercontent.com/Vipdt5k49/linh_tinh/main/SD.jpg",
+          "url": "https://salamus2023.onlinehdhls.ru/ddh2/premium35/playlist.m3u8",
+          "origin": "https://claplivehdplay.ru/",
+          "referer": "https://claplivehdplay.ru/"
+        },
+        {
+          "id": 63,
+          "name": "Super Sports Cricket",
+          "url": "https://catowrap.live/mrgamingsscric.m3u8"
+        },
+        {
+          "id": 64,
+          "name": "Super Sports Premier League",
+          "url": "https://catowrap.live/mrgamingpremier.m3u8"
+        },
+        {
+          "id": 65,
+          "name": "Super Sports laliga",
+          "url": "https://salamus2023.onlinehdhls.ru/ddh2/premium31/playlist.m3u8",
+          "origin": "https://claplivehdplay.ru/",
+          "referer": "https://claplivehdplay.ru/"
+        },
+        {
+          "id": 66,
+          "name": "USA Network",
+          "url": "https://salamus2023.onlinehdhls.ru/ddh2/premium343/playlist.m3u8",
+          "origin": "https://claplivehdplay.ru/",
+          "referer": "https://claplivehdplay.ru/"
+        },
+        {
+          "id": 67,
+          "name": "SPOTV 1",
+          "url": "http://202.150.161.68/spotv1/index.m3u8"
+        },
+        {
+          "id": 68,
+          "name": "SPOTV 2",
+          "url": "http://202.150.161.68/spotv2/index.m3u8"
+        },
+        {
+          "id": 69,
+          "name": "ARENA SPORT 1",
+          "url": "http://80.252.37.194:5000/udp/233.233.233.3:12000"
+        },
+        {
+          "id": 70,
+          "name": "ARENA SPORT 2",
+          "url": "http://80.252.37.194:5000/udp/233.233.233.4:12000"
+        },
+        {
+          "id": 71,
+          "name": "ARENA SPORT 3",
+          "url": "http://80.252.37.194:5000/udp/233.233.233.5:12000"
+        },
+        {
+          "id": 72,
+          "name": "ARENA SPORT 4",
+          "url": "http://80.252.37.194:5000/udp/233.233.233.6:12000"
+        },
+        {
+          "id": 73,
+          "name": "ARENA SPORT 5",
+          "url": "http://80.252.37.194:5000/udp/233.233.233.7:12000"
+        },
+        {
+          "id": 74,
+          "name": "ARENA SPORT 6",
+          "url": "http://80.252.37.194:5000/udp/233.233.233.8:12000"
+        },
+        {
+          "id": 75,
+          "name": "SPORTV",
+          "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4hkU20hCa4zm1D6QhOXzbP8Muxw8YARIG0Q&usqp=CAU",
+          "url": "https://newedge.eu-central-1.edge.mycdn.live/live/vintequatrohrs2/playlist.m3u8",
+          "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+          "referrer": "https://futebolplayhd.com/"
+        },
+        {
+          "id": 76,
+          "name": "SPORTV 2",
+          "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEMDERRTRWwNNDwhwCyiiz9yNeklRS5Bpl6g&usqp=CAU",
+          "url": "https://newedge.eu-central-1.edge.mycdn.live/live/sportv224ha/playlist.m3u8",
+          "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+          "referrer": "https://futebolplayhd.com/"
+        },
+        {
+          "id": 77,
+          "name": "BEIN SPORTS EXTRA",
+          "url": "http://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/5df975e2b27cf5000921c102livestitch/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=1YNY&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimittrueofileFloor=&embedPartner=samsung-tvplus&profilesFromStream=true"
+        },
+        {
+          "id": 78,
+          "name": "BEIN sports 1",
+          "url": "https://edge1.laotv.la/live/Bsport1/index.m3u8"
+        }
+      ],
+      [
+        {
+          "id": 79,
+          "name": "BEIN sports 2",
+          "group-title": "BEIN SPORTS",
+          "url": "https://edge1.laotv.la/live/Bsport2/index.m3u8"
+        },
+        {
+          "id": 80,
+          "name": "TRUE SPORTS 1",
+          "group-title": "TRUE SPORTS",
+          "url": "https://edge1.laotv.la/live/TrueSport6/index.m3u8"
+        },
+        {
+          "id": 81,
+          "name": "True Sports 2",
+          "group-title": "TRUE SPORTS",
+          "url": "https://edge2.laotv.la/live/TrueSport2/index.m3u8"
+        },
+        {
+          "id": 82,
+          "name": "True Sports 3",
+          "group-title": "TRUE SPORTS",
+          "url": "https://edge2.laotv.la/live/TrueSport3/index.m3u8"
+        },
+        {
+          "id": 83,
+          "name": "True Sports 7",
+          "group-title": "TRUE SPORTS",
+          "url": "https://edge1.laotv.la/live/THD7/index.m3u8"
+        },
+        {
+          "id": 84,
+          "name": "TRUE SPORTS 7 VN",
+          "group-title": "TRUE SPORTS",
+          "url": "https://edge2.laotv.la/live/TSports7/index.m3u8"
+        },
+        {
+          "id": 85,
+          "name": "TRUE SPORTS PREMIER 1",
+          "group-title": "TRUE SPORTS",
+          "url": "https://edge1.laotv.la/live/TSport1/index.m3u8"
+        },
+        {
+          "id": 86,
+          "name": "True Sports Premier 2",
+          "group-title": "TRUE SPORTS",
+          "url": "https://edge1.laotv.la/live/TSport2/index.m3u8"
+        },
+        {
+          "id": 87,
+          "name": "MOROCCO SPORTS",
+          "group-title": "MIX SPORTS",
+          "url": "http://cdnamd-hls-globecast.akamaized.net/live/ramdisk/arriadia/hls_snrt/arriadia-avc1_1500000=4-mp4a_130400_qad=1.m3u8"
+        },
+        {
+          "id": 88,
+          "name": "ATN SPORTS (Afghanistan)",
+          "url": "https://d10rltuy0iweup.cloudfront.net/ATNNAT/myStream/chunklist_w1814215713.m3u8"
+        },
+        {
+          "id": 89,
+          "name": "Sports tv",
+          "group-title": "SPORTTV",
+          "url": "http://live.sportstv.com.tr/hls/low/sportstv_fhd/index.m3u8"
+        },
+        {
+          "id": 90,
+          "name": "BTV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/pLrjPsGJ/btv.png",
+          "url": "http://mag.trexlive.me:80/Michael88/Michael88/225734"
+        },
+        {
+          "id": 91,
+          "name": "BTV World",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/PxdPbgjB/btv-world.jpg",
+          "url": "http://mag.trexlive.me:80/Michael88/Michael88/165535"
+        },
+        {
+          "id": 92,
+          "name": "BTV Chattogram",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/d3KgmRJn/Bangladesh-Television-Chittagong-Logo.png",
+          "url": "http://mag.trexlive.me:80/Michael88/Michael88/165533"
+        },
+        {
+          "id": 93,
+          "name": "Sangsad TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/J7TH7nQY/1200px-Sangsad-Television-Emblem-svg.png",
+          "url": "http://mag.trexlive.me:80/Michael88/Michael88/165544"
+        },
+        {
+          "id": 94,
+          "name": "Ananda TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/zXhfKc8M/Anandatvupdate.jpg",
+          "url": "http://mag.trexlive.me:80/Michael88/Michael88/165525"
+        },
+        {
+          "id": 95,
+          "name": "Asian TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/2jbY6Cg3/fxq0pV2.png",
+          "url": "http://mag.trexlive.me:80/Michael88/Michael88/165528"
+        },
+        {
+          "id": 96,
+          "name": "ATN Bangla [Jagobd]",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/Y0KXWYDF/5PsRkPd.png",
+          "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/atnbd-8-org.stream/live-orgin/atnbd-8-org.stream/chunks.m3u8"
+        },
+        {
+          "id": 97,
+          "name": "ATN Bangla",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/Y0KXWYDF/5PsRkPd.png",
+          "url": "http://mag.trexlive.me:80/Michael88/Michael88/225723"
+        },
+        {
+          "id": 98,
+          "name": "ATN Bangla UK [Jagobd]",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/KcpZNSrW/ATN-Bangla-UK.png",
+          "url": "https://livess.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/atnbanglauk-off.stream/playlist.m3u8"
+        },
+        {
+          "id": 99,
+          "name": "ATN News",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/gJZR1XFM/Atnnews-2.jpg",
+          "url": "http://mag.trexlive.me:80/Michael88/Michael88/165527"
+        },
+        {
+          "id": 100,
+          "name": "Bangla 24 Canada [Jagobd]",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/7hz6QqzQ/Bangla-24-Canada.jpg",
+          "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/b24c.stream/live-orgin/b24c.stream/chunks.m3u8"
+        },
+        {
+          "id": 101,
+          "name": "Bangla TV [Jagobd]",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/4xcv8d9V/Bangla-TV.jpg",
+          "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/banglatvhd.stream/live-orgin/banglatvhd.stream/chunks.m3u8"
+        }
+      ],
+      [
+        {
+            "id": 102,
+            "title": "Bangla TV",
+            "logo": "https://i.postimg.cc/4xcv8d9V/Bangla-TV.jpg",
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/165529"
+        },
+        {
+            "id": 103,
+            "title": "Bangla TV US",
+            "logo": "https://i.postimg.cc/NjLbcZ7H/Bangla-TV-logo.jpg",
+            "url": "http://208.86.19.13:81/504.stream/index.m3u8"
+        },
+        {
+            "id": 104,
+            "title": "Banglavision HD [Jagobd]",
+            "logo": "https://i.postimg.cc/Fs4LFBd9/HX8SSDA.png",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/banglav000.stream/live-orgin/banglav000.stream/chunks.m3u8"
+        },
+        {
+            "id": 105,
+            "title": "Banglavision HD",
+            "logo": "https://i.postimg.cc/Fs4LFBd9/HX8SSDA.png",
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/225729"
+        },
+        {
+            "id": 106,
+            "title": "Bijoy TV [Jagobd]",
+            "logo": "https://i.postimg.cc/k5xGd5RK/GGbvbn-B-400x400.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/bijoy00.stream/live-orgin/bijoy00.stream/chunks.m3u8"
+        },
+        {
+            "id": 107,
+            "title": "Bijoy TV",
+            "logo": "https://i.postimg.cc/k5xGd5RK/GGbvbn-B-400x400.jpg",
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/165530"
+        },
+        {
+            "id": 108,
+            "title": "Biswa Bangla 24 [Jagobd]",
+            "logo": "https://i.postimg.cc/wvQxtghq/cropped-cropped-BBLogo-1.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/biswabanglatv.stream/live-orgin/biswabanglatv.stream/chunks.m3u8"
+        },
+        {
+            "id": 109,
+            "title": "Boishakhi TV [Jagobd]",
+            "logo": "https://i.postimg.cc/BnM8ZZH3/pTJSGtj.png",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/boishakhitv-org.stream/live-orgin/boishakhitv-org.stream/chunks.m3u8"
+        },
+        {
+            "id": 110,
+            "title": "Boishakhi TV",
+            "logo": "https://i.postimg.cc/BnM8ZZH3/pTJSGtj.png",
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/225732"
+        },
+        {
+            "id": 111,
+            "title": "Boishakhi TV",
+            "logo": "https://i.postimg.cc/BnM8ZZH3/pTJSGtj.png",
+            "url": "https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8"
+        },
+        {
+            "id": 112,
+            "title": "Can Bangla TV [Jagobd]",
+            "logo": "https://i.postimg.cc/RFYN2h9K/download.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/canbanglatv.stream/live-orgin/canbanglatv.stream/chunks.m3u8"
+        },
+        {
+            "id": 113,
+            "title": "Channel 9",
+            "logo": "https://i.postimg.cc/ZKTBxDRs/Channel9_2.jpg",
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/165514"
+        },
+        {
+            "id": 114,
+            "title": "Channel 9 [Palki]",
+            "logo": "https://i.postimg.cc/ZKTBxDRs/Channel9_2.jpg",
+            "url": "http://cdn01.palki.tv/live/Channel9-M/index.m3u8"
+        },
+        {
+            "id": 115,
+            "title": "Channel 24 [Jagobd]",
+            "logo": "https://i.postimg.cc/Ls4n3800/MmhxR5E.png",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/channel24-sg-e8e.stream/live-orgin/channel24-sg-e8e.stream/chunks.m3u8"
+        },
+        {
+            "id": 116,
+            "title": "Channel 52",
+            "logo": "https://i.postimg.cc/MTHLyLQ2/cWqF3Wt.jpg",
+            "url": "http://208.86.19.13:81/503.stream/index.m3u8"
+        },
+        {
+            "id": 117,
+            "title": "Channel Europe [Jagobd]",
+            "logo": "https://i.postimg.cc/L5RJk63m/Channel-Europe.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/channeleurope.stream/live-orgin/channeleurope.stream/chunks.m3u8"
+        },
+        {
+            "id": 118,
+            "title": "Channel I [Jagobd]",
+            "logo": "https://i.postimg.cc/9MszC5PV/Channel-I.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/channeli-8-org.stream/live-orgin/channeli-8-org.stream/chunks.m3u8"
+        },
+        {
+            "id": 119,
+            "title": "Channel I",
+            "logo": "https://i.postimg.cc/9MszC5PV/Channel-I.jpg",
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/165537"
+        },
+        {
+            "id": 120,
+            "title": "Channel I",
+            "logo": "https://i.postimg.cc/9MszC5PV/Channel-I.jpg",
+            "url": "http://208.86.19.13:81/510.stream/index.m3u8?"
+        },
+        {
+            "id": 121,
+            "title": "Channel S UK [Jagobd]",
+            "logo": "https://i.postimg.cc/qRJM2nnp/cateringcircle.png",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/chsukoff.stream/live-orgin/chsukoff.stream/chunks.m3u8"
+        }
+    ],
+    [
+        {
+          "id": 122,
+          "name": "CNN Bangla",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/k46ZZcgk/image.jpg",
+          "url": "http://d1zuxgm0d4hmth.cloudfront.net/cnnbangla/01.m3u8"
+        },
+        {
+          "id": 123,
+          "name": "Cumilla 24 TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/ZnXPq0RL/Cumilla-TV.jpg",
+          "url": "http://103.149.142.133/0.m3u8"
+        },
+        {
+          "id": 124,
+          "name": "DBC News [Jagobd]",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/43dZL7vq/djAX8Rc.png",
+          "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/dbcnews.stream/live-orgin/dbcnews.stream/chunks.m3u8"
+        },
+        {
+          "id": 125,
+          "name": "DBC News",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/43dZL7vq/djAX8Rc.png",
+          "url": "http://mag.trexlive.me:80/Michael88/Michael88/165517"
+        },
+        {
+          "id": 126,
+          "name": "Deepto TV [Jagobd]",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/RhjVCpnJ/tPZKfLr.png",
+          "url": "https://livess.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/deeptotv.stream/chunks.m3u8"
+        },
+        {
+          "id": 127,
+          "name": "Deepto TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/RhjVCpnJ/tPZKfLr.png",
+          "url": "https://byphdgllyk.gpcdn.net/DeeptoTV/deeptotv-manifest.m3u8"
+        },
+        {
+          "id": 128,
+          "name": "Desh TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/pX8gbwgq/Desh-TV.jpg",
+          "url": "http://mag.trexlive.me:80/Michael88/Michael88/225743"
+        },
+        {
+          "id": 129,
+          "name": "Desh TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/pX8gbwgq/Desh-TV.jpg",
+          "url": "http://mag.trexlive.me:80/Michael88/Michael88/165523"
+        },
+        {
+          "id": 130,
+          "name": "Deshi TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/X7F0P50N/GKBkm2e.png",
+          "url": "https://deshitv.deshitv24.net/live/myStream/playlist.m3u8"
+        },
+        {
+          "id": 131,
+          "name": "Ekattor TV [Pgplex]",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/8c9Y58zZ/1200px-Ekattor-TV-logo-svg.png",
+          "url": "http://pgplex.net:8080/EkattorTV/index.m3u8"
+        },
+        {
+          "id": 132,
+          "name": "Ekattor TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/8c9Y58zZ/1200px-Ekattor-TV-logo-svg.png",
+          "url": "http://ott1.co:8080/live/22552255/22552255/428.ts"
+        },
+        {
+          "id": 133,
+          "name": "Ekattor TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/8c9Y58zZ/1200px-Ekattor-TV-logo-svg.png",
+          "url": "https://ythls.armelin.one/channel/UCtqvtAVmad5zywaziN6CbfA.m3u8"
+        },
+        {
+          "id": 134,
+          "name": "Ekhon TV [Jagobd]",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/SNnz9nWH/Ekhon-Logo.png",
+          "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/globaltv.stream/live-orgin/globaltv.stream/chunks.m3u8"
+        },
+        {
+          "id": 135,
+          "name": "Ekhon TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/SNnz9nWH/Ekhon-Logo.png",
+          "url": "https://ythls.armelin.one/channel/UCWVqdPTigfQ-cSNwG7O9MeA.m3u8"
+        },
+        {
+          "id": 136,
+          "name": "Ekushey TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/1tx4Nqw8/Ekushey-TV.jpg",
+          "url": "https://ekusheyserver.com/etvlivesn.m3u8"
+        },
+        {
+          "id": 137,
+          "name": "Ekushey TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/1tx4Nqw8/Ekushey-TV.jpg",
+          "url": "http://210.4.72.204/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8"
+        },
+        {
+          "id": 138,
+          "name": "Florida Bangla TV",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/dQzvq7M2/FBTV.jpg",
+          "url": "http://162.244.81.200:1935/live/livestream/playlist.m3u8"
+        },
+        {
+          "id": 139,
+          "name": "Gazi TV HD",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/GtH5RXyk/K7b1Bbz.png",
+          "url": "http://103.142.80.22:8080/GAZI/index.m3u8"
+        },
+        {
+          "id": 140,
+          "name": "Gazi TV HD [Pgplex]",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/GtH5RXyk/K7b1Bbz.png",
+          "url": "http://pgplex.net:8080/GaziTVHD/index.m3u8"
+        },
+        {
+          "id": 141,
+          "name": "Gazi TV HD",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/GtH5RXyk/K7b1Bbz.png",
+          "url": "http://38.96.178.201/live/GaziTV/index.m3u8"
+        },
+        {
+          "id": 142,
+          "name": "Gazi TV HD",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/GtH5RXyk/K7b1Bbz.png",
+          "url": "http://ott1.co:8080/live/22552255/22552255/767.ts"
+        },
+        {
+          "id": 143,
+          "name": "Global TV HD",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/4yvcQjGn/Logo-Global-Television.png",
+          "url": "http://ott1.co:8080/live/22552255/22552255/4231.ts"
+        },
+        {
+          "id": 144,
+          "name": "Green TV [Jagobd]",
+          "group-title": "Bangla",
+          "tvg-logo": "https://i.postimg.cc/fLrwFw4Q/Green-TV.jpg",
+          "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/greentv.stream/live-orgin/greentv.stream/chunks.m3u8"
+        }
+      ],
+      [
+        {
+            "id": 145,
+            "title": "Independent TV [Jagobd]",
+            "logo": "https://i.postimg.cc/Qt0gJzbc/kviJN1i.png",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/independent-8-org.stream/live-orgin/independent-8-org.stream/chunks.m3u8"
+        },
+        {
+            "id": 146,
+            "title": "Independent TV",
+            "logo": null,
+            "url": "http://ott1.co:8080/live/22552255/22552255/423.ts"
+        },
+        {
+            "id": 147,
+            "title": "iON TV UK [Jagobd]",
+            "logo": "https://i.postimg.cc/yYWQZcHM/logo-649970fdd9881.png",
+            "url": "https://livess.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/iontvuk.stream/chunks.m3u8"
+        },
+        {
+            "id": 148,
+            "title": "itv",
+            "logo": "https://i.postimg.cc/XJ6jspVc/unnamed.png",
+            "url": "http://162.244.81.142:1935/live/livestream/playlist.m3u8"
+        },
+        {
+            "id": 149,
+            "title": "JagoNews24 TV [Jagobd]",
+            "logo": "https://i.postimg.cc/DfBQS17C/Jago-News24-TV.png",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/jagonews24.stream/live-orgin/jagonews24.stream/chunks.m3u8"
+        },
+        {
+            "id": 150,
+            "title": "Jagoroni TV [Jagobd]",
+            "logo": "https://i.postimg.cc/SR54fs8G/jagoronitv.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/jagoronitv.stream/live-orgin/jagoronitv.stream/chunks.m3u8"
+        },
+        {
+            "id": 151,
+            "title": "Jamuna TV [Jagobd]",
+            "logo": "https://i.postimg.cc/W1Gyczj1/ds3aThu_2.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/jamuna-test-sample-ok.stream/live-orgin/jamuna-test-sample-ok.stream/chunks.m3u8"
+        },
+        {
+            "id": 152,
+            "title": "Jamuna TV",
+            "logo": null,
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/225789"
+        },
+        {
+            "id": 153,
+            "title": "JonmoBhumi TV [Jagobd]",
+            "logo": "https://i.postimg.cc/nrLJ6PYr/Jonmo-Bhumi-TV-tvtolive-com.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/jonmobhumitv.stream/live-orgin/jonmobhumitv.stream/chunks.m3u8"
+        },
+        {
+            "id": 154,
+            "title": "Maasranga HD",
+            "logo": "https://i.postimg.cc/4N4yTMwD/0385Pju.jpg",
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/165513"
+        },
+        {
+            "id": 155,
+            "title": "Maasranga HD",
+            "logo": null,
+            "url": "https://niptv.kitv.live/MAASRANGA-TV/tracks-v1a1/mono.m3u8"
+        },
+        {
+            "id": 156,
+            "title": "Millennium TV USA [Jagobd]",
+            "logo": "https://i.postimg.cc/jjTCS9kv/millenniumtv.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/millenniumtv-odr-up2.stream/live-orgin/millenniumtv-odr-up2.stream/chunks.m3u8"
+        },
+        {
+            "id": 157,
+            "title": "Mohona TV [Jagobd]",
+            "logo": "https://i.postimg.cc/tgbz3NKX/4imbl-NY-2.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/mohonatv00000223232244556633.stream/live-orgin/mohonatv00000223232244556633.stream/chunks.m3u8"
+        },
+        {
+            "id": 158,
+            "title": "Mohona TV",
+            "logo": null,
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/165546"
+        },
+        {
+            "id": 159,
+            "title": "Movie Bangla [Jagobd]",
+            "logo": "https://i.postimg.cc/xCZx8bLn/image.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/moviebanglalink2.stream/live-orgin/moviebanglalink2.stream/chunks.m3u8"
+        },
+        {
+            "id": 160,
+            "title": "Movie Bangla",
+            "logo": null,
+            "url": "http://alvetv.com/moviebanglatv/8080/index.m3u8"
+        },
+        {
+            "id": 161,
+            "title": "MyTV HD",
+            "logo": "https://i.postimg.cc/BQ8LjtBG/v-DXLu-LBXf6-J.png",
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/225793"
+        },
+        {
+            "id": 162,
+            "title": "MyTV HD",
+            "logo": null,
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/165522"
+        },
+        {
+            "id": 163,
+            "title": "MyTV HD",
+            "logo": null,
+            "url": "http://ott1.co:8080/live/22552255/22552255/398.ts"
+        },
+        {
+            "id": 164,
+            "title": "Nagorik TV [Pgplex]",
+            "logo": "https://i.postimg.cc/ZnVQgytZ/Nagorik-TV-Logo.jpg",
+            "url": "http://pgplex.net:8080/NagorikTV/index.m3u8"
+        },
+        {
+            "id": 165,
+            "title": "NAN TV [Jagobd]",
+            "logo": "https://i.postimg.cc/YqsXcFJ7/Nan-Tv-Logo-Final.png",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/nantv.stream/live-orgin/nantv.stream/chunks.m3u8"
+        },
+        {
+            "id": 166,
+            "title": "Nandan TV",
+            "logo": "https://i.postimg.cc/qv15vYtP/image_3.jpg",
+            "url": "https://web.nandansyst.com/hls/nandan.m3u8"
+        },
+        {
+            "id": 167,
+            "title": "News 24 [Jagobd]",
+            "logo": "https://i.postimg.cc/7Y40dwCw/mn88b34.png",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/news24local.stream/live-orgin/news24local.stream/chunks.m3u8"
+        },
+        {
+            "id": 168,
+            "title": "News 24",
+            "logo": null,
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/165541"
+        },
+        {
+            "id": 169,
+            "title": "Nexus TV [Jagobd]",
+            "logo": "https://i.postimg.cc/KYmZThYy/Nexus-Television-Logo.jpg",
+            "url": "https://livess.jagobd.com.bd/live-orgin/nexustv.stream/chunks.m3u8"
+        },
+        {
+            "id": 170,
+            "title": "Nexus TV",
+            "logo": null,
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/225814"
+        },
+        {
+            "id": 171,
+            "title": "Nobanno TV [Jagobd]",
+            "logo": "https://i.postimg.cc/ydjPL3Fw/NOBANNOtv-10-Copy-1024x402-1.png",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/cmtv.stream/live-orgin/cmtv.stream/chunks.m3u8"
+        }
+    ],
+    [
+        {
+            "id": 172,
+            "title": "NRB TV [Jagobd]",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/mDbVCxVv/NRB-TV.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/nrb-eu.stream/live-orgin/nrb-eu.stream/chunks.m3u8"
+        },
+        {
+            "id": 173,
+            "title": "NTV",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/kgLbNbbM/3usnOla.png",
+            "url": "http://38.96.178.201/live/NTV/index.m3u8"
+        },
+        {
+            "id": 174,
+            "title": "NTV",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/kgLbNbbM/3usnOla.png",
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/225765"
+        },
+        {
+            "id": 175,
+            "title": "NTV",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/kgLbNbbM/3usnOla.png",
+            "url": "http://103.230.105.252:1935/live/ntv/manifest.m3u8"
+        },
+        {
+            "id": 176,
+            "title": "NTV Europe [Jagobd]",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/kgLbNbbM/3usnOla.png",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/ntvuk00332211.stream/live-orgin/ntvuk00332211.stream/chunks.m3u8"
+        },
+        {
+            "id": 177,
+            "title": "Rajdhani TV [Jagobd]",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/Y0d3cghn/Rajdhani-TV.jpg",
+            "url": "https://livess.jagobd.com.bd/live-orgin/rajdhanitv.stream/chunks.m3u8"
+        },
+        {
+            "id": 178,
+            "title": "RTV HD [Jagobd]",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/DfN3wzzs/yi5p51T.png",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/rtv-sg.stream/live-orgin/rtv-sg.stream/chunks.m3u8"
+        },
+        {
+            "id": 179,
+            "title": "RTV HD",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/DfN3wzzs/yi5p51T.png",
+            "url": "https://streamingengine.rtvplus.tv/rtvpluslive/rtvpluslive.stream/master.m3u8"
+        },
+        {
+            "id": 180,
+            "title": "SATV [Jagobd]",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/PfS61dd3/fraEjzm.png",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/satvoff5666.stream/live-orgin/satvoff5666.stream/chunks.m3u8"
+        },
+        {
+            "id": 181,
+            "title": "SATV",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/PfS61dd3/fraEjzm.png",
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/165518"
+        },
+        {
+            "id": 182,
+            "title": "Somoy TV [Jagobd]",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/0yHtY8tg/Somoy-TV.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/somoyt000011226615544544.stream/live-orgin/somoyt000011226615544544.stream/chunks.m3u8"
+        },
+        {
+            "id": 183,
+            "title": "Somoy TV",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/0yHtY8tg/Somoy-TV.jpg",
+            "url": "http://mag.trexlive.me:80/Michael88/Michael88/165521"
+        },
+        {
+            "id": 184,
+            "title": "Somoy TV",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/0yHtY8tg/Somoy-TV.jpg",
+            "url": "http://ott1.co:8080/live/22552255/22552255/422.ts"
+        },
+        {
+            "id": 185,
+            "title": "TBN 24 USA",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/HktC4Brz/favicon_2.png",
+            "url": "https://dog.dg21bd.com/TBN24WEBUSA/index.m3u8"
+        },
+        {
+            "id": 186,
+            "title": "TBN 24 USA",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/HktC4Brz/favicon_2.png",
+            "url": "https://dog.dg21bd.com:443/TBN242/tracks-v1a1/mono.m3u8"
+        },
+        {
+            "id": 187,
+            "title": "The Channel TV [Jagobd]",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/NFRnGjTD/image_4.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/thechanneltv.stream/live-orgin/thechanneltv.stream/chunks.m3u8"
+        },
+        {
+            "id": 188,
+            "title": "Times 24 TV [Jagobd]",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/9M8nZFqQ/download-11.png",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/times24tv.stream/live-orgin/times24tv.stream/chunks.m3u8"
+        },
+        {
+            "id": 189,
+            "title": "Time Television US [Jagobd]",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/s23pQDWx/58KYg4.jpg",
+            "url": "https://livess.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/timetvusa.stream/chunks.m3u8"
+        },
+        {
+            "id": 190,
+            "title": "TV ONE UK [Jagobd]",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/tTbKmBFc/TV-ONE.png",
+            "url": "https://livess.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/tvoneuksni.stream/chunks.m3u8"
+        },
+        {
+            "id": 191,
+            "title": "Varendra TV [Jagobd]",
+            "group-title": "Bangla",
+            "tvg-logo": "https://i.postimg.cc/VLKNzfRm/Varendra-TV.jpg",
+            "url": "https://livess.jagobd.com.bd/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/varendratv.stream/live-orgin/varendratv.stream/chunks.m3u8"
+        }
+    ],
+    [
+        {
+          "id": 192,
+          "tvg-id": "eurosporthd.hr",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "EUROSPORTS HD",
+          "stream-url": "http://zeestb1.online/tata.php?id=806"
+        },
+        {
+          "id": 193,
+          "tvg-id": "eurosporthd.hr",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "EUROSPORTS 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=12143"
+        },
+        {
+          "id": 194,
+          "tvg-id": "astrocricket.my",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "ASTRO CRICKET",
+          "stream-url": "http://zeestb1.online/tata.php?id=206091"
+        },
+        {
+          "id": 195,
+          "tvg-id": "supersportcricket.za",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "SUPER SPORTS 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=12167"
+        },
+        {
+          "id": 196,
+          "tvg-id": "DEFAULT",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "SUPERSPORT GRANDSTAND",
+          "stream-url": "http://zeestb1.online/tata.php?id=58140"
+        },
+        {
+          "id": 197,
+          "tvg-id": "skysportscricket.uk",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "SKY SPORTS CRICKET 4K UK",
+          "stream-url": "http://zeestb1.online/tata.php?id=8894"
+        },
+        {
+          "id": 198,
+          "tvg-id": "willowcricket.us",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "WILLOW SPORTS 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=12161"
+        },
+        {
+          "id": 199,
+          "tvg-id": "DEFAULT",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "FLOW SPORTS CRICKET",
+          "stream-url": "http://zeestb1.online/tata.php?id=50011"
+        },
+        {
+          "id": 200,
+          "tvg-id": "starsports1.in",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "STAR SPORTS 1 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=12148"
+        },
+        {
+          "id": 201,
+          "tvg-id": "starsports1hindi.in",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "STAR SPORTS 1 HINDI 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=12149"
+        },
+        {
+          "id": 202,
+          "tvg-id": "starsports2.in",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "STAR SPORTS 2 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=12150"
+        },
+        {
+          "id": 203,
+          "tvg-id": "starsports3.in",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "STAR SPORTS 3 HINDI HD",
+          "stream-url": "http://zeestb1.online/tata.php?id=12155"
+        },
+        {
+          "id": 204,
+          "tvg-id": "starsports1kannada.in",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "STAR SPORTS 1 KANNADA HD",
+          "stream-url": "http://zeestb1.online/tata.php?id=12153"
+        },
+        {
+          "id": 205,
+          "tvg-id": "starsports1tamil.in",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "STAR SPORTS 1 TAMIL HD",
+          "stream-url": "http://zeestb1.online/tata.php?id=12154"
+        },
+        {
+          "id": 206,
+          "tvg-id": "astrocricket.my",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "ASTRO CRICKET 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=12141"
+        },
+        {
+          "id": 207,
+          "tvg-id": "Sports",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "T SPORTS BANGLA",
+          "stream-url": "http://zeestb1.online/tata.php?id=12104"
+        },
+        {
+          "id": 208,
+          "tvg-id": "starsportsselect1.in",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "STAR SPORTS SELECT 1 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=12151"
+        },
+        {
+          "id": 209,
+          "tvg-id": "starsportsselect2.in",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "STAR SPORTS SELECT 2 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=12152"
+        },
+        {
+          "id": 210,
+          "tvg-id": "foxsports505.au",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "FOX SPORTS 505",
+          "stream-url": "http://zeestb1.online/tata.php?id=58137"
+        },
+        {
+          "id": 211,
+          "tvg-id": "DEFAULT",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "FOX SPORTS 507",
+          "stream-url": "http://zeestb1.online/tata.php?id=58138"
+        },
+        {
+          "id": 212,
+          "tvg-id": "foxsports501.au",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "FOX SPORTS",
+          "stream-url": "http://zeestb1.online/tata.php?id=28140"
+        },
+        {
+          "id": 213,
+          "tvg-id": "",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "FOX SPORTS 3",
+          "stream-url": "http://zeestb1.online/tata.php?id=58139"
+        },
+        {
+          "id": 214,
+          "tvg-id": "willowcricket.us",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "US WILLOW CRICKET HD",
+          "stream-url": "http://zeestb1.online/tata.php?id=12169"
+        },
+        {
+          "id": 215,
+          "tvg-id": "willowxtra.us",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "US WILLOW EXTRA HD",
+          "stream-url": "http://zeestb1.online/tata.php?id=12170"
+        },
+        {
+          "id": 216,
+          "tvg-id": "sonysix.in",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "SONY SIX 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=12144"
+        },
+        {
+          "id": 217,
+          "tvg-id": "sonyten1.in",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "SONY TEN 1 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=12145"
+        },
+        {
+          "id": 218,
+          "tvg-id": "sonyten2.in",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "SONY TEN 2 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=12146"
+        },
+        {
+          "id": 219,
+          "tvg-id": "sonyten3.in",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "SONY TEN 3 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=12147"
+        },
+        {
+          "id": 220,
+          "tvg-id": "Sports",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "SONY TEN 4 4k",
+          "stream-url": "http://zeestb1.online/tata.php?id=12173"
+        },
+        {
+          "id": 221,
+          "tvg-id": "ddsports.in",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "DD SPORTS",
+          "stream-url": "http://zeestb1.online/tata.php?id=12171"
+        },
+        {
+          "id": 222,
+          "tvg-id": "DEFAULT",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "A SPORTS",
+          "stream-url": "http://zeestb1.online/tata.php?id=30975"
+        },
+        {
+          "id": 223,
+          "tvg-id": "DEFAULT",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "GEO SUPER",
+          "stream-url": "http://zeestb1.online/tata.php?id=12164"
+        },
+        {
+          "id": 224,
+          "tvg-id": "Sports",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "PTV SPORTS",
+          "stream-url": "http://zeestb1.online/tata.php?id=12172"
+        },
+        {
+          "id": 225,
+          "tvg-id": "Sports",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "TEN SPORTS",
+          "stream-url": "http://zeestb1.online/tata.php?id=12166"
+        },
+        {
+          "id": 226,
+          "tvg-id": "skysportscricket.uk",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "SKY SPORTS 4K",
+          "stream-url": "http://zeestb1.online/tata.php?id=2956"
+        },
+        {
+          "id": 227,
+          "tvg-id": "DEFAULT",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "CRICKET MAX",
+          "stream-url": "http://zeestb1.online/tata.php?id=42051"
+        },
+        {
+          "id": 228,
+          "tvg-id": "DEFAULT",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "ATN CRICKET PLUS",
+          "stream-url": "http://zeestb1.online/tata.php?id=43933"
+        },
+        {
+          "id": 229,
+          "tvg-id": "DEFAULT",
+          "tvg-logo": "",
+          "group-title": "CRICKET",
+          "channel-name": "ATN SPORTS CA",
+          "stream-url": "http://zeestb1.online/tata.php?id=8651"
+        }
+    ]  
+]
+  
