@@ -6,7 +6,7 @@ import IPTVComponent from "../IPTVComponent/IPTVComponent";
 
 const About = () => {
     return (
-        <div>
+        <div className="h-fit">
             {/* <NavBar></NavBar> */}
             <Helmet>
                 <title>About | Root</title>
