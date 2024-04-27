@@ -34,9 +34,9 @@ const IPTVComponent = () => {
   return (
     <div>
       <h1>IPTV Channels</h1>
-      <div className="channels-container">
+      <div className="flex flex-wrap justify-center gap-5 mt-4 channels-container">
         {currentChannels.map((channel, index) => (
-          <div key={index} className="channel-card">
+          <div key={index} className="w-80 channel-card">
             <h2>{channel.channel}</h2>
             <ReactPlayer
               url={channel.url}
