@@ -2,6 +2,7 @@
 
 import { Helmet } from "react-helmet-async";
 import VideoPlayer from "../VideoPlayer";
+import IPTVLN from "../IPTVComponent/IPTVLN";
 
 
 const More = () => {
@@ -12,7 +13,8 @@ const More = () => {
                 <title>More | Root</title>
             </Helmet>
             <h1>This is more</h1>
-            <VideoPlayer></VideoPlayer>
+            {/* <VideoPlayer></VideoPlayer> */}
+            <IPTVLN></IPTVLN>
         </div>
     );
 };
