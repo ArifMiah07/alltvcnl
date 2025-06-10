@@ -23,7 +23,8 @@ const IPTVComponent = () => {
     fetchIPTVData();
   }, []);
 
-  // Pagination logic
+  const totalPages = Math.ceil(channels.length / channelsPerPage);
+
   const indexOfLastChannel = currentPage * channelsPerPage;
   const indexOfFirstChannel = indexOfLastChannel - channelsPerPage;
   const currentChannels = channels.slice(
@@ -35,12 +36,12 @@ const IPTVComponent = () => {
     setSectionControl(!sectionControl);
   };
 
-  // Page navigation
   const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
   };
 
-  // Handle user input to change channels per section
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -54,23 +55,35 @@ const IPTVComponent = () => {
     }
   };
 
+  const handlePrevious = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
+
   return (
     <div>
       <h1>IPTV Channels : {channels.length}</h1>
 
       {/* Input Form */}
-      <div className="flex p-2  relative">
+      <div className="flex p-2 relative">
         {sectionControl && (
           <form
             onSubmit={handleSubmit}
             className="flex flex-col items-center gap-1 w-full">
             <label
-              className="text-left  text-gray-700 w-full lg:w-1/3 "
+              className="text-left text-gray-700 w-full lg:w-1/3"
               htmlFor="cnlPerPage">
               Channels Per Section:
             </label>
             <input
-              className=" text-center py-2 px-3 bg-white w-full lg:w-1/3"
+              className="text-center py-2 px-3 bg-white w-full lg:w-1/3"
               placeholder="Enter number of channels per section"
               type="number"
               name="cnlPerPage"
@@ -78,40 +91,60 @@ const IPTVComponent = () => {
               min="1"
             />
             <button
-              className=" text-center py-2 px-3 bg-green-400 text-white w-full lg:w-1/3"
+              className="text-center py-2 px-3 bg-green-400 text-white w-full lg:w-1/3"
               type="submit">
               Submit
             </button>
           </form>
         )}
 
-        <div className="abosolute top-0 right-0 p-0">
+        <div className="absolute top-0 right-0 p-2">
           {sectionControl ? (
-            <button
-              onClick={handleSectionControl}
-              className=" text-black">
+            <button onClick={handleSectionControl} className="text-black">
               X
             </button>
           ) : (
-            <button
-              onClick={handleSectionControl}
-              className=" text-black">
+            <button onClick={handleSectionControl} className="text-black">
               ^
             </button>
           )}
-          {/* <button className="bg-red-500 p-2 text-white">X</button> */}
         </div>
       </div>
 
-      <h3 className="capitalize bg-purple-600 text-white p-3">
-        Current Section: {currentPage}
-      </h3>
+      {/* Section Info & Prev/Next */}
+      <div className="w-full flex flex-col items-center lg:flex-row justify-between px-4 my-4">
+        <h3 className="capitalize bg-purple-600 text-white p-3 w-full lg:w-auto text-center">
+          Current Section: {currentPage}
+        </h3>
+        <div className="flex gap-4 mt-2 lg:mt-0">
+          <button
+            onClick={handlePrevious}
+            disabled={currentPage === 1}
+            className={`py-2 px-5 rounded text-white ${
+              currentPage === 1
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-green-500"
+            }`}>
+            Previous Section
+          </button>
+          <button
+            onClick={handleNext}
+            disabled={currentPage === totalPages}
+            className={`py-2 px-5 rounded text-white ${
+              currentPage === totalPages || totalPages === 0
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-green-500"
+            }`}>
+            Next Section
+          </button>
+        </div>
+      </div>
 
       {/* Channel Cards */}
       <div className="flex flex-wrap justify-center gap-5 my-12 channels-container">
         {currentChannels.map((channel, index) => (
           <div key={index} className="w-80 channel-card">
-            <h2>{channel.channel}</h2>
+            <h2 className="text-gray-500 text-lg">{channel.channel}</h2>
             <ReactPlayer
               url={channel.url}
               controls={true}
@@ -123,23 +156,20 @@ const IPTVComponent = () => {
       </div>
 
       {/* Pagination Buttons */}
-      <div className="flex flex-wrap gap-3 pagination items-center">
-        <span className="bg-green-400 py-2 px-5 text-white">Section:</span>
-        {Array.from(
-          { length: Math.ceil(channels.length / channelsPerPage) },
-          (_, i) => (
-            <button
-              key={i}
-              onClick={() => handlePageChange(i + 1)}
-              className={`flex gap-2 items-center flex-1 py-2 px-4 rounded ${
-                currentPage === i + 1
-                  ? "bg-red-400 text-white"
-                  : "bg-yellow-50 text-gray-600"
-              }`}>
-              {i + 1}
-            </button>
-          )
-        )}
+      <div className="flex flex-wrap gap-3 pagination items-center justify-center">
+        <span className="bg-green-400 py-2 px-5 text-white">All Sections:</span>
+        {Array.from({ length: totalPages }, (_, i) => (
+          <button
+            key={i}
+            onClick={() => handlePageChange(i + 1)}
+            className={`flex gap-2 items-center flex-1 py-2 px-4 rounded ${
+              currentPage === i + 1
+                ? "bg-red-400 text-white"
+                : "bg-yellow-50 text-gray-600"
+            }`}>
+            {i + 1}
+          </button>
+        ))}
       </div>
     </div>
   );
