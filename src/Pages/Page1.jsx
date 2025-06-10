@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 import Pagination from "./Pagination";
@@ -16,10 +16,10 @@ const Page1 = () => {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <div className="text-center">
         <h1 className="text-xl font-bold">This is Page 1</h1>
-        <p className="text-lg font-semibold">Total Channel: {cnlData.length}</p>
+        <p className="text-lg capitalize bg-purple-600 text-white font-semibold">Total Channel: {cnlData.length}</p>
       </div>
       <Pagination />
       <div className="flex flex-wrap justify-center gap-5 mt-4">
@@ -27,13 +27,29 @@ const Page1 = () => {
           <div key={cnl.id} className="w-80">
             <div className="border border-gray-700 p-2">
               <div className="flex justify-center">
-                <img src={cnl["tvg-logo"]} alt={cnl.name} className="h-16 w-16 mr-2" />
+                <img
+                  src={cnl["tvg-logo"]}
+                  alt={cnl.name}
+                  className="h-16 w-16 mr-2"
+                />
                 <p className="text-lg font-bold">{cnl.name}</p>
               </div>
               {Array.isArray(cnl.urls) ? (
-                <ReactPlayer url={cnl.urls[0]} controls width="100%" height="auto" className="mt-2" />
+                <ReactPlayer
+                  url={cnl.urls[0]}
+                  controls
+                  width="100%"
+                  height="auto"
+                  className="mt-2"
+                />
               ) : (
-                <ReactPlayer url={cnl.url} controls width="100%" height="auto" className="mt-2" />
+                <ReactPlayer
+                  url={cnl.url}
+                  controls
+                  width="100%"
+                  height="auto"
+                  className="mt-2"
+                />
               )}
             </div>
           </div>

@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 import Pagination from "./Pagination";
@@ -27,10 +27,20 @@ const Page2 = () => {
           <div key={cnl.id} className="w-80">
             <div className="border border-gray-700 p-2">
               <div className="flex justify-center">
-                <img src={cnl["tvg-logo"]} alt={cnl.title} className="h-16 w-16 mr-2" />
+                <img
+                  src={cnl["tvg-logo"]}
+                  alt={cnl.title}
+                  className="h-16 w-16 mr-2"
+                />
                 <p className="text-lg font-bold">{cnl.title}</p>
               </div>
-              <ReactPlayer url={cnl.url} controls width="100%" height="auto" className="mt-2" />
+              <ReactPlayer
+                url={cnl.url}
+                controls
+                width="100%"
+                height="auto"
+                className="mt-2"
+              />
             </div>
           </div>
         ))}
