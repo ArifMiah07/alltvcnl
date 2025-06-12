@@ -269,10 +269,10 @@ const IPTVComponent = () => {
               </div>
             )}
 
-            <h2 className="text-white text-lg">{channel.channel}</h2>
+            <h2 className="mx-3 text-gray-500 text-lg">{channel.channel}</h2>
 
             {/* Action buttons */}
-            <div className="flex gap-2 my-3">
+            <div className="flex gap-2 mx-3 my-3">
               <button onClick={() => handleUrl(channel.url)}>
                 <Link
                   to={`/view`}

@@ -17,11 +17,23 @@ const Page11 = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="text-center">
-        <h1 className="text-xl font-bold">This is Page 11</h1>
-        <p className="text-lg font-semibold">Total Channel: {cnlData.length}</p>
+      <div className="bg-green-500 flex flex-co lg:flex-row items-center justify-end gap-5 text-center">
+        <h1 className="text-lg px-3 py-2 capitalize text-white font-semibold">
+          Page {11}
+        </h1>
+        <p className="text-lg px-3 py-2 capitalize text-white font-semibold">
+          Total Channel: {cnlData.length}
+        </p>
       </div>
-      <Pagination />
+      <div className="flex flex-col lg:flex-row items-center justify-center text-black gap-5 mt-4">
+        <Pagination />
+        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+          <Link to="/">Back</Link>
+        </p>
+        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+          <Link to="/page2">Next</Link>
+        </p>
+      </div>
       <div className="flex flex-wrap justify-center gap-5 mt-4">
         {cnlData.map((cnl) => (
           <div key={cnl.id} className="w-80">
@@ -29,18 +41,24 @@ const Page11 = () => {
               <div className="flex justify-center">
                 <p className="text-lg font-bold">{cnl.channel_name}</p>
               </div>
-              <ReactPlayer url={cnl.stream_url} controls width="100%" height="auto" className="mt-2" />
+              <ReactPlayer
+                url={cnl.stream_url}
+                controls
+                width="100%"
+                height="auto"
+                className="mt-2"
+              />
             </div>
           </div>
         ))}
       </div>
-      <Pagination />
-      <div className="flex flex-row gap-5 mt-4">
-        <p className="btn w-fit bg-green-50 py-3 px-5">
+      <div className="flex flex-col lg:flex-row items-center justify-center text-black gap-5 mt-4">
+        <Pagination />
+        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
           <Link to="/">Back</Link>
         </p>
-        <p className="btn w-fit bg-green-50 py-3 px-5">
-          <Link to="/page1">Next</Link>
+        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+          <Link to="/page2">Next</Link>
         </p>
       </div>
     </div>
