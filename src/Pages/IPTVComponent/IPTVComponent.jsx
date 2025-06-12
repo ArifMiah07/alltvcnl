@@ -170,10 +170,10 @@ const IPTVComponent = () => {
       {/* Navigation */}
       <nav className="bg-gray-800 p-4 mb-6">
         <div className="flex justify-between items-center">
-          <h1 className="text-white text-xl font-bold">IPTV Player</h1>
+          {/* <h1 className="text-white text-xl font-bold">IPTV Player</h1> */}
           <div className="flex gap-4">
             <Link
-              to="/"
+              to="/about"
               className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">
               All Channels
             </Link>
@@ -189,7 +189,7 @@ const IPTVComponent = () => {
       <h1>IPTV Channels : {channels.length}</h1>
 
       {/* Section Info & Prev/Next */}
-      <div className="w-full flex flex-col items-center  justify-between lg:flex-row px-4 my-4">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-5 gap-3 items-center  justify-between  px-4 my-4">
         <h3 className="capitalize bg-purple-600 text-white py-2 px-3 w-full lg:w-auto text-center">
           Current Section: {currentPage}
         </h3>
@@ -199,7 +199,7 @@ const IPTVComponent = () => {
             className="flex flex-col lg:flex-row items-center gap-0 w-full">
             <input
               className="outline-none text-center py-2 px-3 bg-white w-full lg:w-full"
-              placeholder="Enter Cnl's Per Section"
+              placeholder="Cnl's Per Sec."
               type="number"
               name="cnlPerPage"
               id="cnlPerPage"
@@ -220,7 +220,7 @@ const IPTVComponent = () => {
             className="flex flex-col lg:flex-row items-center gap-0 w-full">
             <input
               className="outline-none text-center py-2 px-3 bg-white w-full lg:w-full"
-              placeholder="Enter Section Number"
+              placeholder="Sec. Num"
               type="number"
               name="cnlPerPage"
               id="sectionNumber"
@@ -277,7 +277,7 @@ const IPTVComponent = () => {
             <div className="flex gap-2 my-3">
               <button onClick={() => handleUrl(channel.url)}>
                 <Link
-                  to={`/view-url`}
+                  to={`/view`}
                   state={{
                     channelName: channel.channel,
                     channelUrl: channel.url,

@@ -134,9 +134,10 @@ export const SavedChannelsPage = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <div className="flex gap-2">
                         <Link
-                          to={`/view-url/${encodeURIComponent(channel.url)}`}
+                          to={`/view`}
                           state={{
-                            channelName: channel.name,
+                            channelName: channel.channel || 'Unknown Channel',
+                            channelUrl: channel.url,
                             channelId: channel.id,
                             from: "/saved-channels",
                           }}

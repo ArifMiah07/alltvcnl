@@ -18,6 +18,8 @@ import Page10 from "../Pages/Page10";
 import Page11 from "../Pages/Page11";
 import ViewUrl from "../Pages/ViewUrl/ViewUrl";
 import { SavedChannelsPage } from "../Pages/SavedChannelPage/SavedChannelPage";
+import IPTV from "../Pages/IPTV/IPTV";
+import VPlayer from "../Pages/VPlayer/VPlayer";
 // import Banner from "../Pages/Banner/Banner";
 // import Home from "../Pages/Home/Home";
 // import Home from "../pages/Home/Home";
@@ -44,12 +46,20 @@ const router = createBrowserRouter([
         // loader: ()=> fetch(`banner.json`)
       },
       {
+        path: "/iptv",
+        element: <IPTV></IPTV>,
+      },
+      {
         path: "/about",
         element: <About></About>,
       },
       {
-        path: "/view-url",
+        path: "/view",
         element: <ViewUrl></ViewUrl>,
+      },
+      {
+        path: "/v-player",
+        element: <VPlayer></VPlayer>,
       },
       {
         path: "/saved-channels",
