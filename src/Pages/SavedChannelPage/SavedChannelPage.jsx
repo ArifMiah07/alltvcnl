@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 export const SavedChannelsPage = () => {
@@ -32,15 +33,19 @@ export const SavedChannelsPage = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div className="container mx-auto p-0">
+          <Helmet>
+                <title>Saved Channels | IPTV Player</title>
+                <meta name="description" content="Learn more about our IPTV Player and the team behind the experience." />
+              </Helmet>
       {/* Navigation */}
-      <nav className="bg-gray-800 p-4 mb-6 rounded">
-        <div className="flex justify-between items-center">
-          <h1 className="text-white text-xl font-bold">Saved Channels</h1>
+      <nav className="bg-green-500 p-4 mb-6 ">
+        <div className="flex justify-end items-center">
+          {/* <h1 className="text-white text-xl font-bold">Saved Channels</h1> */}
           <div className="flex gap-4">
             <Link 
               to="/" 
-              className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+              className="text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded"
             >
               Back to All Channels
             </Link>
@@ -76,7 +81,7 @@ export const SavedChannelsPage = () => {
           </p>
           <Link 
             to="/" 
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg"
+            className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg"
           >
             Browse Channels
           </Link>
@@ -141,7 +146,7 @@ export const SavedChannelsPage = () => {
                             channelId: channel.id,
                             from: "/saved-channels",
                           }}
-                          className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm"
+                          className="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded text-sm"
                         >
                           View
                         </Link>

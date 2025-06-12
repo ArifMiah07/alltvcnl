@@ -1,8 +1,21 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const NavBar = () => {
+  const location = useLocation();
+  const [currentPath, setCurrentPath] = useState(location.pathname);
+
+  useEffect(() => {
+    setCurrentPath(location.pathname);
+  }, [location]);
+
+  const getNavLinkClass = ({ isActive }) =>
+    isActive
+      ? "bg-white text-green-600 font-semibold border border-green-400 rounded"
+      : "text-purple-600 lg:text-white hover:bg-green-400 hover:text-white";
+
   return (
-    <div className="navbar bg-green-500 text-white ">
+    <div className="navbar bg-green-500 text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -21,49 +34,92 @@ const NavBar = () => {
             </svg>
           </div>
           <ul
+            key={currentPath + "-mobile"}
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white text-black rounded-box w-52">
             <li>
-              <NavLink to={`/`}>Home</NavLink>
+              <NavLink to="/" className={getNavLinkClass}>
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to={`/about`}>About</NavLink>
+              <NavLink to="/iptv" className={getNavLinkClass}>
+                IPTV
+              </NavLink>
             </li>
             <li>
-              <NavLink to={`/v-player`}>VPlayer</NavLink>
+              <NavLink to="/about" className={getNavLinkClass}>
+                About
+              </NavLink>
             </li>
             <li>
-              <NavLink to={`/more`}>More</NavLink>
+              <NavLink to="/saved-channels" className={getNavLinkClass}>
+                Saved Channels
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/v-player" className={getNavLinkClass}>
+                VPlayer
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/more" className={getNavLinkClass}>
+                More
+              </NavLink>
             </li>
           </ul>
         </div>
-        {/* <a className="btn btn-ghost text-xl">Arif Miah</a> */}
-        <a href="/">
-          {" "}
-          <h1 className="text-white text-xl font-bold">IPTV Player</h1>
-        </a>
+
+        <Link to="/" className="btn btn-ghost text-xl text-white font-bold">
+          IPTV Player
+        </Link>
       </div>
+
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul
+          key={currentPath + "-desktop"} // ✅ force re-render on path change
+          className="menu menu-horizontal px-1">
           <li>
-            <NavLink to={`/`}>Home</NavLink>
+            <NavLink to="/" className={getNavLinkClass}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to={`/iptv`}>IPTV</NavLink>
+            <NavLink to="/iptv" className={getNavLinkClass}>
+              IPTV
+            </NavLink>
           </li>
           <li>
-            <NavLink to={`/about`}>About</NavLink>
+            <NavLink to="/about" className={getNavLinkClass}>
+              About
+            </NavLink>
           </li>
           <li>
-            <NavLink to={`/v-player`}>VPlayer</NavLink>
+            <NavLink to="/saved-channels" className={getNavLinkClass}>
+              Saved Channels
+            </NavLink>
           </li>
           <li>
-            <NavLink to={`/more`}>More</NavLink>
+            <NavLink to="/v-player" className={getNavLinkClass}>
+              VPlayer
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/more" className={getNavLinkClass}>
+              More
+            </NavLink>
           </li>
         </ul>
       </div>
+
       <div className="navbar-end mx-4">
-        <a href="https://arif-miah-portfolio.vercel.app">Portfolio</a>
+        <Link
+          to="https://arif-miah-portfolio.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:underline">
+          Portfolio
+        </Link>
       </div>
     </div>
   );

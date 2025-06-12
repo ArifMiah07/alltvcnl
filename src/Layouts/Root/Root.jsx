@@ -8,13 +8,13 @@ const Root = () => {
     return (
         <div className=" min-h-screen flex flex-col h-fit max-w-6xl mx-auto font-poppins ">
             <Helmet><title>Home || Root</title></Helmet>
-            <div className="border border-red-200 h-fit ">
+            <div className=" h-fit ">
             <NavBar></NavBar>
             </div>
-            <div className="border border-red-200  flex-grow">
+            <div className="  flex-grow">
             <Outlet></Outlet>     
             </div> 
-            <div className="border border-red-200 h-fit "> 
+            <div className=" h-fit "> 
             <Footer></Footer> 
             </div>   
         </div>

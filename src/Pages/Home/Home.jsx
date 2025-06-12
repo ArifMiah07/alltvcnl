@@ -8,11 +8,11 @@ import Features from "../Features/Features";
 
 const Home = () => {
     return (
-        <div className="h-ful ">
+        <div className="h-full ">
         <Helmet>
-            <title>Portfolio | Home</title>
+            <title>Home | IPTV Player</title>
         </Helmet>
-        <h1 className="text-red-600 font-extrabold text-4xl">This is a part of practice project. No Harm full intention there.</h1>
+        {/* <h1 className="text-red-600 font-extrabold text-4xl">This is a part of practice project. No Harm full intention there.</h1> */}
             <div>
             {/* <Banner></Banner> */}
             </div>

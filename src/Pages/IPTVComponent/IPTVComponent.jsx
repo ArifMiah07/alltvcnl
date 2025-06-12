@@ -168,28 +168,26 @@ const IPTVComponent = () => {
   return (
     <div>
       {/* Navigation */}
-      <nav className="bg-gray-800 p-4 mb-6">
-        <div className="flex justify-between items-center">
+      <nav className="bg-green-500 p-4 mb-6">
+        <div className="flex justify-end items-center">
           {/* <h1 className="text-white text-xl font-bold">IPTV Player</h1> */}
-          <div className="flex gap-4">
-            <Link
+          <div className="flex items-center justify-end gap-4">
+            <span
               to="/about"
-              className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">
-              All Channels
-            </Link>
+              className="text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">
+                <h1>IPTV Channels : {channels.length}</h1>
+            </span>
             <Link
               to="/saved-channels"
-              className="text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded flex items-center gap-2">
+              className="text-white  bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded flex items-center gap-2">
               Saved Channels ({bookmarkedChannels.length})
             </Link>
           </div>
         </div>
       </nav>
 
-      <h1>IPTV Channels : {channels.length}</h1>
-
       {/* Section Info & Prev/Next */}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-5 gap-3 items-center  justify-between  px-4 my-4">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-5 gap-3 items-center  justify-between my-4 ">
         <h3 className="capitalize bg-purple-600 text-white py-2 px-3 w-full lg:w-auto text-center">
           Current Section: {currentPage}
         </h3>
@@ -208,7 +206,7 @@ const IPTVComponent = () => {
               onChange={(e) => setChannelsPerPageInput(e.target.value)}
             />
             <button
-              className="text-center py-2 px-3 bg-green-400 text-white w-full lg:w-fit"
+              className="text-center py-2 px-3 bg-green-500 text-white w-full lg:w-fit"
               type="submit">
               Submit
             </button>
@@ -230,7 +228,7 @@ const IPTVComponent = () => {
               onChange={(e) => setSectionNumberInput(e.target.value)}
             />
             <button
-              className="text-center py-2 px-3 bg-green-400 text-white w-full lg:w-fit"
+              className="text-center py-2 px-3 bg-green-500 text-white w-full lg:w-fit"
               type="submit">
               Submit
             </button>
@@ -263,7 +261,7 @@ const IPTVComponent = () => {
         {currentChannels.map((channel, index) => (
           <div
             key={index}
-            className="bg-red-50 border border-red-300 p-0 w-80 channel-card relative">
+            className="bg-red-50 p-0 w-80 channel-card relative">
             {/* Bookmark indicator */}
             {isChannelBookmarked(channel.url) && (
               <div className="absolute top-2 right-2 bg-yellow-100 hover:bg-yellow-200 text-black px-2 py-1 rounded text-xs font-bold">

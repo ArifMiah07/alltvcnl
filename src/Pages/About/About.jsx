@@ -1,43 +1,46 @@
 import { Helmet } from "react-helmet-async";
+import iptv from '.././../assets/images/iptv.png'
 
 const About = () => {
   return (
-    <div className="h-fit">
-      {/* <NavBar></NavBar> */}
+    <div className="min-h-screen bg-white py-10 px-4">
       <Helmet>
-        <title>About Us</title>
+        <title>About Us | IPTV Player</title>
+        <meta name="description" content="Learn more about our IPTV Player and the team behind the experience." />
       </Helmet>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content text-center">
-          <div className="max-w-md">
-            <h1 className="text-5xl font-bold">About Us</h1>
-            <p className="py-6">
-              We are a team dedicated to providing the best IPTV experience. Our
-              platform offers a wide range of channels and features to enhance
-              your viewing pleasure.
-            </p>
-            <p className="py-6">
-              Our mission is to deliver high-quality content and a user-friendly
-              interface, making it easy for you to find and enjoy your favorite
-              channels.
-            </p>
-            <p className="py-6">
-              We value your feedback and are constantly working to improve our
-              service. If you have any suggestions or questions, feel free to
-              reach out to us.
-            </p>
-            <p className="py-6">
-              Thank you for choosing our IPTV service. We hope you have a great
-              viewing experience!
-            </p>
-          </div>
-          <div className="flex justify-center mt-6">
-            <img
-              src="https://via.placeholder.com/150"
-              alt="About Us"
-              className="rounded-lg shadow-lg"
-            />{" "}
-          </div>
+
+      <div className="max-w-5xl  mx-auto flex flex-col lg:flex-row items-center gap-10">
+        {/* Text Content */}
+        <div className="flex-1 text-center lg:text-left">
+          <h1 className="text-4xl lg:text-5xl font-bold text-green-600">About Us</h1>
+          <p className="mt-6 text-base lg:text-lg text-black leading-relaxed">
+            Welcome to <strong>IPTV Player</strong> – your gateway to seamless entertainment.
+            We’re a team committed to delivering a powerful, user-friendly IPTV experience packed
+            with top channels and intuitive features.
+          </p>
+
+          <p className="mt-4 text-base lg:text-lg text-black leading-relaxed">
+            Our mission is simple: to make content discovery enjoyable, fast, and stress-free.
+            Whether you&apos;re tuning in for sports, movies, or international TV — we’ve got you covered.
+          </p>
+
+          <p className="mt-4 text-base lg:text-lg text-black leading-relaxed">
+            We&apos;re constantly evolving and value your feedback. If you have ideas or need help,
+            don’t hesitate to <a href="/contact" className="text-green-600 underline hover:text-green-700">reach out</a>.
+          </p>
+
+          <p className="mt-4 text-base lg:text-lg text-black leading-relaxed">
+            Thanks for being part of our growing IPTV family. Enjoy the stream!
+          </p>
+        </div>
+
+        {/* Image */}
+        <div className="flex-1 flex justify-center">
+          <img
+            src={iptv}
+            alt="About IPTV"
+            className="rounded-lg shadow-2xl w-full max-w-md"
+          />
         </div>
       </div>
     </div>
