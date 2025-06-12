@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import ResumeButton from "../../../Components/Buttons/ResumeButton";
+import {  NavLink } from "react-router-dom";
+
 
 
 const NavBar = () => {
@@ -26,7 +26,7 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <ResumeButton></ResumeButton>
+                <NavLink to={`/bookmark-channels`}>Saved</NavLink>
             </div>
         </div>
     );

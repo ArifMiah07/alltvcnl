@@ -16,7 +16,7 @@ const Features = () => {
         <div>
             <h1>this is features section</h1>
             <div>
-                {/* <Page1></Page1> */}
+                <Page1></Page1>
                 {/* <Page2></Page2>
                 <Page3></Page3>
                 <Page4></Page4>
