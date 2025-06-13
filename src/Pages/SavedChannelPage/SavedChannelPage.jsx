@@ -105,7 +105,7 @@ const SavedChannelsPage = () => {
   };
 
   return (
-    <div className="container mx-auto p-0">
+    <div className="container mx-auto p-0 mb-12">
       <Helmet>
         <title>Saved Channels | IPTV Player</title>
         <meta

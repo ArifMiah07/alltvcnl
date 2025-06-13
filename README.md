@@ -1,104 +1,101 @@
-# Arif Miah | Portfolio
+# 📺 IPTV Player (Frontend)
 
-### use npm pak:
-1. react router 
-2. tailwind css
-3. daisyUI 
-4. react-helmet-async
-5. react icons ``` js from``` | ```js npm install react-icons --save```
-6. proptypes ```js npm i proptypes```
+Welcome to **IPTV Player**, a modern, responsive IPTV web app designed to stream over **13,000+ live TV channels** from various sources. Built with scalability and real-world usability in mind, this app is your gateway to seamless streaming.
 
+---
 
-## color:
-#### cp:
-D9ED92
-B5E48C
-99D98C
-76C893
-52B69A
-34A0A4
-168AAD
-1A759F
-1E6091
-184E77
+## 🎯 Features
 
-[
+- ✅ 13,000+ Channels (from IPTV JSON source)
+- ✅ Real-time Search (by Channel Name, URL, Country)
+- ✅ Pagination & Section Navigation
+- ✅ Bookmark/Save Favorite Channels (LocalStorage)
+- ✅ Stream Preview via Embedded Player (ReactPlayer)
+- ✅ Fully Responsive UI (Tailwind CSS)
+- ✅ Dynamic Controls for:
+  - Channels per page
+  - Section-based navigation
+- ✅ URL state passing for channel detail view
 
+---
 
+## 🧠 Tech Stack
 
+| Layer     | Tech                                   |
+|-----------|----------------------------------------|
+| Frontend  | React, React Router, Tailwind CSS      |
+| State     | React Hooks + LocalStorage             |
+| Player    | `ReactPlayer` (HLS, M3U8 support)      |
+| Icons     | `react-icons`                          |
+| Future    | Backend with Node.js + Express         |
 
+---
 
+## 🧪 Planned Backend Features
 
+> ⚠️ Backend not yet implemented — placeholder only
 
+- 🔁 Stream validation & caching (`NodeCache`)
+- 🔗 HLS `.m3u8` proxy (to bypass CORS)
+- 🧠 Segment URL rewriting for `.ts` segments
+- 🔐 Custom header injection (`User-Agent`, `Referer`, `Origin`)
+- 📡 Batch stream validation
+- ⚙️ Rate limiting, CORS support, centralized error handling
+- 🧃 Future: Real-time Socket.IO for activity stats & viewer counts
 
+---
 
+## 🧩 App Sections
 
+- `Home`: Featured IPTV player and stream preview
+- `All Channels`: Paginated, searchable channel grid
+- `Saved Channels`: View your locally saved favorites
+- `Channel Detail`: Route-based preview for a selected channel
+- `Footer`: Contact info and branding
 
+---
 
+## 📦 LocalStorage Usage
 
+- `bookmarkedChannels`: stores bookmarked channels as an array
+- `channelsPerPage`: stores user preference for pagination
+- `currentPage`: keeps your current section for smooth navigation
 
+---
 
+## 📷 Sample UI
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-]
-
-
-
-```js```
-### Home Page:
-
-Background Color: #F7F7F7 (Light Gray)
-Text Color: #333333 (Dark Gray)
-Accent Color: #007BFF (Blue)
-Button Color: #28A745 (Green)
-
-### About Page:
-
-Background Color: #FFFFFF (White)
-Text Color: #333333 (Dark Gray)
-Accent Color: #FFC107 (Yellow)
-Button Color: #DC3545 (Red)
-
-### More Page:
-
-Background Color: #F0F0F0 (Light Gray)
-Text Color: #333333 (Dark Gray)
-Accent Color: #6610F2 (Purple)
-Button Color: #17A2B8 (Teal)
-
-## category:
-1. anime
-2. realistic
-3. 3d
-4. surreal
+- ★ CrimeInvestigation.us
+- ☆ BBC World
+- ☆ CNN News
+...
+- Current Page: 1 / 1307 | Per Page: 10
 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🧭 Future Roadmap
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🌍 Country Flags and Channel Language Tags
+- 🎙️ Voice Search Integration
+- 🧑‍🤝‍🧑 Multi-user bookmarking (via database)
+- 📡 WebSocket support for real-time stats
+- 🧠 AI-based stream validation and ranking
+
+---
+
+## 💬 Contact
+
+- 📧 Email: `support@iptvplayer.com`
+- 📞 Phone: `+880-123-456-789`
+- 🌐 Website: [iptvplayer](https://alltvcnl.netlify.app)
+
+---
+
+## 🪪 License
+
+MIT License © 2025 IPTV Player
+
+---
+
+**🚀 IPTV Player** – Your gateway to seamless entertainment.

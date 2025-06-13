@@ -63,7 +63,7 @@ const Page5 = () => {
           </div>
         ))}
       </div>
-      <div className="flex flex-col lg:flex-row items-center justify-center text-black gap-5 mt-4">
+      <div className="mb-4 flex flex-col lg:flex-row items-center justify-center text-black gap-5 mt-4">
         <Pagination />
         <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
           <Link to="/">Back</Link>

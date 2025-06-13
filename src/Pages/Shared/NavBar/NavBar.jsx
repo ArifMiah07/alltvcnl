@@ -4,6 +4,23 @@ import { useEffect, useState } from "react";
 const NavBar = () => {
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
+    const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     setCurrentPath(location.pathname);
@@ -11,11 +28,11 @@ const NavBar = () => {
 
   const getNavLinkClass = ({ isActive }) =>
     isActive
-      ? "bg-white text-green-600 font-semibold border border-green-400 rounded"
-      : "text-purple-600 lg:text-white hover:bg-green-400 hover:text-white";
+      ? "mx-2 bg-white text-green-600 font-semibold border border-green-400 rounded"
+      : "mx-2 text-purple-600 lg:text-white hover:bg-green-400 hover:text-white";
 
   return (
-    <div className="navbar bg-green-500 text-white">
+    <div className={`navbar bg-green-500 text-white transition-all duration-300 ease-in-out ${isSticky ? 'fixed top-0 left-0 z-50 shadow-md bg-green-500 ' : ''}`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

@@ -538,6 +538,11 @@ const IPTVComponent = () => {
                 }`}>
                 {isChannelBookmarked(channel.url) ? "★" : "☆"}
               </button>
+              <button
+                // onClick={() => toggleBookmark(channel)}
+                className={`py-2 bg-pink-100 hover:bg-pink-200 px-4 rounded text-gray-500 font-medium`}>
+                  {index+1}
+              </button>
             </div>
 
             <ReactPlayer
