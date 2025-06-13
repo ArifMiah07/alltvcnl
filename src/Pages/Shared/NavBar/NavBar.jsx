@@ -44,14 +44,10 @@ const NavBar = () => {
             </li>
             <li>
               <NavLink to="/iptv" className={getNavLinkClass}>
-                IPTV
+                Watch IPTV
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/about" className={getNavLinkClass}>
-                About
-              </NavLink>
-            </li>
+
             <li>
               <NavLink to="/saved-channels" className={getNavLinkClass}>
                 Saved Channels
@@ -64,7 +60,12 @@ const NavBar = () => {
             </li>
             <li>
               <NavLink to="/more" className={getNavLinkClass}>
-                More
+                Channel List
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" className={getNavLinkClass}>
+                About
               </NavLink>
             </li>
           </ul>
@@ -86,14 +87,10 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink to="/iptv" className={getNavLinkClass}>
-              IPTV
+              Watch IPTV
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/about" className={getNavLinkClass}>
-              About
-            </NavLink>
-          </li>
+
           <li>
             <NavLink to="/saved-channels" className={getNavLinkClass}>
               Saved Channels
@@ -106,7 +103,12 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink to="/more" className={getNavLinkClass}>
-              More
+              Channel List
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about" className={getNavLinkClass}>
+              About
             </NavLink>
           </li>
         </ul>

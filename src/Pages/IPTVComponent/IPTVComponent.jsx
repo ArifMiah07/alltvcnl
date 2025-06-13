@@ -8,11 +8,16 @@ import { FaBookmark } from "react-icons/fa";
 
 const IPTVComponent = () => {
   const [channels, setChannels] = useState([]);
+  const [filteredChannels, setFilteredChannels] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [channelsPerPage, setChannelsPerPage] = useState(10);
   const [channelsPerPageInput, setChannelsPerPageInput] = useState("");
   const [sectionNumberInput, setSectionNumberInput] = useState("");
   const [bookmarkedChannels, setBookmarkedChannels] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [country, setCountry] = useState([]);
+  const [isFiltering, setIsFiltering] = useState(false);
+  const [filterType, setFilterType] = useState("all"); // "all", "country", "channel", "name"
 
   // Load data from localStorage on component mount
   useEffect(() => {
@@ -53,6 +58,7 @@ const IPTVComponent = () => {
           "https://iptv-org.github.io/api/streams.json"
         );
         setChannels(response.data);
+        setFilteredChannels(response.data);
       } catch (error) {
         console.error("Error fetching IPTV data:", error);
       }
@@ -61,11 +67,41 @@ const IPTVComponent = () => {
     fetchIPTVData();
   }, []);
 
-  const totalPages = Math.ceil(channels.length / channelsPerPage);
+  // Fetch country data when search text changes
+  useEffect(() => {
+    const fetchCountries = async () => {
+      if (searchText.trim() === "") {
+        setCountry([]);
+        return;
+      }
+
+      try {
+        const res = await fetch(
+          `https://restcountries.com/v3.1/name/${searchText}?fields=name,cca2,flags`
+        );
+        if (res.ok) {
+          const data = await res.json();
+          setCountry(data);
+        } else {
+          setCountry([]);
+        }
+      } catch (error) {
+        console.error("Failed to fetch countries", error);
+        setCountry([]);
+      }
+    };
+
+    const debounceTimer = setTimeout(fetchCountries, 500);
+    return () => clearTimeout(debounceTimer);
+  }, [searchText]);
+
+  // Get channels to display (filtered or all)
+  const channelsToDisplay = isFiltering ? filteredChannels : channels;
+  const totalPages = Math.ceil(channelsToDisplay.length / channelsPerPage);
 
   const indexOfLastChannel = currentPage * channelsPerPage;
   const indexOfFirstChannel = indexOfLastChannel - channelsPerPage;
-  const currentChannels = channels.slice(
+  const currentChannels = channelsToDisplay.slice(
     indexOfFirstChannel,
     indexOfLastChannel
   );
@@ -163,23 +199,210 @@ const IPTVComponent = () => {
     console.log(url);
   };
 
-  console.log(channels);
+  // Enhanced filtering functionality
+  const handleSubmitFiltering = (e) => {
+    e.preventDefault();
+
+    if (searchText.trim() === "") {
+      // If search is empty, show all channels
+      setIsFiltering(false);
+      setFilteredChannels([]);
+      setCurrentPage(1);
+      return;
+    }
+
+    let filtered = [];
+    const searchLower = searchText.toLowerCase().trim();
+
+    switch (filterType) {
+      case "channel":
+        // Filter by exact channel match
+        filtered = channels.filter(
+          (cnl) => cnl.channel && cnl.channel.toLowerCase() === searchLower
+        );
+        break;
+
+      case "name":
+        // Filter by channel name (partial match)
+        filtered = channels.filter(
+          (cnl) =>
+            (cnl.name && cnl.name.toLowerCase().includes(searchLower)) ||
+            (cnl.channel && cnl.channel.toLowerCase().includes(searchLower))
+        );
+        break;
+
+      case "country":
+        // Filter by country code from domain (after the dot)
+        if (country.length > 0) {
+          const countryCode = country[0].cca2.toLowerCase();
+
+          filtered = channels.filter((cnl) => {
+            if (!cnl.channel) return false;
+
+            // Split by dot and get the last part (domain extension)
+            const parts = cnl.channel.split(".");
+            if (parts.length > 1) {
+              const domainExtension = parts[parts.length - 1].toLowerCase();
+              // Check if the domain extension matches the country code
+              return domainExtension === countryCode;
+            }
+            return false;
+          });
+        } else {
+          // If country not found in API, try direct search for country code
+          filtered = channels.filter((cnl) => {
+            if (!cnl.channel) return false;
+
+            const parts = cnl.channel.split(".");
+            if (parts.length > 1) {
+              const domainExtension = parts[parts.length - 1].toLowerCase();
+              return domainExtension === searchLower;
+            }
+            return false;
+          });
+        }
+        break;
+
+      default:
+        // "all" - search in all fields
+        filtered = channels.filter((cnl) => {
+          const channelMatch =
+            cnl.channel && cnl.channel.toLowerCase().includes(searchLower);
+          const nameMatch =
+            cnl.name && cnl.name.toLowerCase().includes(searchLower);
+          const urlMatch =
+            cnl.url && cnl.url.toLowerCase().includes(searchLower);
+
+          return channelMatch || nameMatch || urlMatch;
+        });
+
+        // If no direct matches found, try country matching
+        if (filtered.length === 0 && country.length > 0) {
+          const countryCode = country[0].cca2.toLowerCase();
+
+          filtered = channels.filter((cnl) => {
+            if (!cnl.channel) return false;
+
+            // Split by dot and get the last part (domain extension)
+            const parts = cnl.channel.split(".");
+            if (parts.length > 1) {
+              const domainExtension = parts[parts.length - 1].toLowerCase();
+              // Check if the domain extension matches the country code
+              return domainExtension === countryCode;
+            }
+            return false;
+          });
+        }
+    }
+
+    setFilteredChannels(filtered);
+    setIsFiltering(true);
+    setCurrentPage(1);
+
+    // console.log(`Filter Type: ${filterType}`);
+    // console.log(`Search Text: ${searchText}`);
+    // console.log(`Filtered Results: ${filtered.length} channels`);
+  };
+
+  // Clear filters
+  const clearFilters = () => {
+    setSearchText("");
+    setIsFiltering(false);
+    setFilteredChannels([]);
+    setCurrentPage(1);
+    setCountry([]);
+  };
+
+  // console.log("All channels:", channels.length);
+  // console.log("Filtered channels:", filteredChannels.length);
+  // console.log("Countries found:", country);
 
   return (
-    <div>
+    <div className="min-h-screen w-full mb-12 ">
       {/* Navigation */}
-      <nav className="bg-green-500 p-4 mb-6">
-        <div className="flex justify-end items-center">
-          {/* <h1 className="text-white text-xl font-bold">IPTV Player</h1> */}
+      <nav className="bg-green-500 p-4 mb-6 lg:mb-12">
+        <div className="flex flex-col lg:flex-row justify-end items-center gap-5 ">
+          <div className="text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">
+            <h1>IPTV Channels : {channels.length}</h1>
+          </div>
+
+          {/* Filter Type Selection */}
+          <div className="flex w-fit bg-green-700">
+            <select
+              value={filterType}
+              onChange={(e) => setFilterType(e.target.value)}
+              className="outline-none py-2 px-3 bg-white text-black">
+              <option value="all">All Fields</option>
+              <option value="channel">Channel Exact</option>
+              <option value="name">Channel Name</option>
+              <option value="country">Country</option>
+            </select>
+          </div>
+          {/* Enhanced Search Section */}
+          <div className="flex flex-col flex-1 border border-green-500 bg-green-600 items-center">
+            {/* Search Form */}
+            <form
+              onSubmit={handleSubmitFiltering}
+              className="flex flex-col lg:flex-row items-center gap-0 w-full">
+              <input
+                className="outline-none text-center py-2 px-3 bg-white w-full lg:w-full"
+                placeholder={`Search By ${
+                  filterType === "all"
+                    ? "Country, Channel Name, URL"
+                    : filterType === "country"
+                    ? "Country Name"
+                    : filterType === "channel"
+                    ? "Channel Name (Exact)"
+                    : "Channel Name"
+                }`}
+                type="text"
+                name="searchText"
+                id="searchText"
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              />
+              <button
+                className="text-center py-2 px-3 bg-purple-600 hover:bg-purple-700 text-white w-full lg:w-fit"
+                type="submit">
+                Search
+              </button>
+              {isFiltering && (
+                <button
+                  type="button"
+                  onClick={clearFilters}
+                  className="text-center py-2 px-3 bg-red-600 hover:bg-red-700 text-white w-full lg:w-fit">
+                  Clear
+                </button>
+              )}
+            </form>
+
+            {/* Filter Status */}
+            {isFiltering && (
+              <div className="w-full bg-yellow-100 text-black text-center py-1 px-2 text-sm">
+                Showing {filteredChannels.length} filtered results for &quot;
+                {searchText}&quot; ({filterType})
+              </div>
+            )}
+
+            {/* Country Suggestions */}
+            {country.length > 0 && filterType === "country" && (
+              <div className="w-full bg-blue-100 text-black text-center py-1 px-2 text-sm">
+                Found country: {country[0].name.common} ({country[0].cca2})
+              </div>
+            )}
+          </div>
+
           <div className="flex items-center justify-end gap-4">
-            <span
-              to="/about"
-              className="text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">
-                <h1>IPTV Channels : {channels.length}</h1>
+            <span className="text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">
+              <h1>
+                {isFiltering
+                  ? `Filtered: ${filteredChannels.length}`
+                  : `Total: ${channels.length}`}
+              </h1>
             </span>
             <Link
               to="/saved-channels"
-              className="text-white  bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded flex items-center gap-2">
+              className="text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded flex items-center gap-2">
               Saved Channels ({bookmarkedChannels.length})
             </Link>
           </div>
@@ -187,9 +410,9 @@ const IPTVComponent = () => {
       </nav>
 
       {/* Section Info & Prev/Next */}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-5 gap-3 items-center  justify-between my-4 ">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-5 gap-3 items-center justify-between my-4">
         <h3 className="capitalize bg-purple-600 text-white py-2 px-3 w-full lg:w-auto text-center">
-          Current Section: {currentPage}
+          Current Section: {currentPage} / {totalPages}
         </h3>
         <div className="flex flex-col border border-green-500 bg-green-600 items-center">
           <form
@@ -256,12 +479,27 @@ const IPTVComponent = () => {
         </button>
       </div>
 
+      {/* No Results Message */}
+      {isFiltering && filteredChannels.length === 0 && (
+        <div className="text-center py-8 bg-yellow-100 rounded-lg mx-4">
+          <h3 className="text-lg font-semibold text-gray-700">
+            No channels found
+          </h3>
+          <p className="text-gray-600">
+            Try adjusting your search criteria or filter type.
+          </p>
+          <button
+            onClick={clearFilters}
+            className="mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+            Show All Channels
+          </button>
+        </div>
+      )}
+
       {/* Channel Cards */}
       <div className="flex flex-wrap justify-center gap-5 my-12 channels-container">
         {currentChannels.map((channel, index) => (
-          <div
-            key={index}
-            className="bg-red-50 p-0 w-80 channel-card relative">
+          <div key={index} className="bg-red-50 p-0 w-80 channel-card relative">
             {/* Bookmark indicator */}
             {isChannelBookmarked(channel.url) && (
               <div className="absolute top-2 right-2 bg-yellow-100 hover:bg-yellow-200 text-black px-2 py-1 rounded text-xs font-bold">
@@ -270,6 +508,9 @@ const IPTVComponent = () => {
             )}
 
             <h2 className="mx-3 text-gray-500 text-lg">{channel.channel}</h2>
+            {channel.name && channel.name !== channel.channel && (
+              <p className="mx-3 text-gray-400 text-sm">{channel.name}</p>
+            )}
 
             {/* Action buttons */}
             <div className="flex gap-2 mx-3 my-3">
@@ -310,21 +551,44 @@ const IPTVComponent = () => {
       </div>
 
       {/* Pagination Buttons */}
-      <div className="flex flex-wrap gap-3 pagination items-center justify-center">
-        <span className="bg-green-400 py-2 px-5 text-white">All Sections:</span>
-        {Array.from({ length: totalPages }, (_, i) => (
-          <button
-            key={i}
-            onClick={() => handlePageChange(i + 1)}
-            className={`flex gap-2 items-center flex-1 py-2 px-4 rounded ${
-              currentPage === i + 1
-                ? "bg-red-400 text-white"
-                : "bg-yellow-50 text-gray-600"
-            }`}>
-            {i + 1}
-          </button>
-        ))}
-      </div>
+      {totalPages > 0 && (
+        <div className="flex flex-wrap gap-3 pagination items-center justify-center">
+          <span className="bg-green-400 py-2 px-5 text-white">
+            All Sections: {totalPages}
+          </span>
+          {Array.from({ length: Math.min(totalPages, 10) }, (_, i) => {
+            // Show first 5, current page area, and last 5 pages
+            let pageNum;
+            if (totalPages <= 10) {
+              pageNum = i + 1;
+            } else if (currentPage <= 5) {
+              pageNum = i + 1;
+            } else if (currentPage >= totalPages - 4) {
+              pageNum = totalPages - 9 + i;
+            } else {
+              pageNum = currentPage - 4 + i;
+            }
+
+            return (
+              <button
+                key={pageNum}
+                onClick={() => handlePageChange(pageNum)}
+                className={`flex gap-2 items-center py-2 px-4 rounded ${
+                  currentPage === pageNum
+                    ? "bg-red-400 text-white"
+                    : "bg-yellow-50 text-gray-600"
+                }`}>
+                {pageNum}
+              </button>
+            );
+          })}
+          {totalPages > 10 && (
+            <span className="bg-gray-200 py-2 px-3 rounded text-gray-600">
+              ... {totalPages}
+            </span>
+          )}
+        </div>
+      )}
     </div>
   );
 };

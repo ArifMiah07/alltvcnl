@@ -2,7 +2,7 @@ import ReactPlayer from "react-player";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const ViewUrl = () => {
-//   const { url } = useParams();
+  //   const { url } = useParams();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -12,12 +12,7 @@ const ViewUrl = () => {
   const previousPage = location.state?.from || "/";
 
   return (
-    <div className="flex flex-col gap-0">
-      {/* <h1>This is the View URL page</h1>
-      <p>URL: {decodeURIComponent(url)}</p> */}
-      {/* <p>
-        <strong>Channel ID:</strong> {channelId}
-      </p> */}
+    <div className="flex flex-col gap-0 mb-12">
       <div className="px-4 py-1 w-full flex flex-col lg:flex-row items-center justify-between bg-green-500 border border-green-600">
         <p className="text-white text-lg ">
           <strong>Channel Name:</strong> {channelName}
@@ -28,8 +23,14 @@ const ViewUrl = () => {
           Go Back
         </button>
       </div>
-
-      <ReactPlayer url={channelUrl} controls={true} width="100%" height="auto" />
+      <div className="mt-12">
+        <ReactPlayer
+          url={channelUrl}
+          controls={true}
+          width="100%"
+          height="auto"
+        />
+      </div>
     </div>
   );
 };
