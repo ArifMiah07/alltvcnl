@@ -1,0 +1,63 @@
+/* RubiksCube.css */
+* {
+  box-sizing: border-box;
+}
+
+.scene {
+  width: 240px;
+  height: 240px;
+  perspective: 800px;
+
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -60%);
+  z-index: 1;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(20deg) rotateY(30deg);
+  animation: rotateCube 10s linear infinite;
+}
+
+@keyframes rotateCube {
+  0%   { transform: rotateX(20deg) rotateY(0deg); }
+  100% { transform: rotateX(20deg) rotateY(360deg); }
+}
+
+.face {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+  padding: 2px;
+  backface-visibility: hidden;
+}
+
+/* Faces placed in 3D space */
+.front  { transform: translateZ(120px); background: #ff3c3c; }
+.back   { transform: rotateY(180deg) translateZ(120px); background: #ffea00; }
+.right  { transform: rotateY(90deg) translateZ(120px); background: #0091ff; }
+.left   { transform: rotateY(-90deg) translateZ(120px); background: #ff6d00; }
+.top    { transform: rotateX(90deg) translateZ(120px); background: #00e676; }
+.bottom { transform: rotateX(-90deg) translateZ(120px); background: #ffffff; }
+
+/* Tile colors */
+.front .tile   { background: #ff3c3c; }
+.back .tile    { background: #ffea00; }
+.right .tile   { background: #0091ff; }
+.left .tile    { background: #ff6d00; }
+.top .tile     { background: #00e676; }
+.bottom .tile  { background: #ffffff; }
+
+.tile {
+  border: 1px solid #000;
+}

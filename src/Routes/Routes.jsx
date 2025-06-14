@@ -20,6 +20,7 @@ import ViewUrl from "../Pages/ViewUrl/ViewUrl";
 import IPTV from "../Pages/IPTV/IPTV";
 import VPlayer from "../Pages/VPlayer/VPlayer";
 import SavedChannelsPage from "../Pages/SavedChannelPage/SavedChannelPage";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 // import Banner from "../Pages/Banner/Banner";
 // import Home from "../Pages/Home/Home";
 // import Home from "../pages/Home/Home";
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

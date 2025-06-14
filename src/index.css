@@ -4,3 +4,41 @@
 body{
   background-color: #F7F7F7;
 }
+
+
+.anime-text {
+  background-color: white;
+  position: relative;
+  animation-name: animatedText;
+  animation-duration: 4s;
+  animation-iteration-count: 2;
+  animation-direction: alternate-reverse;  
+}
+
+@keyframes animatedText {
+  0%   {background-color:red; color: white ;left:0px; top:0px;}
+  25%  {background-color:yellow;  color: purple; left:200px; top:0px;}
+  50%  {background-color:blue;  color: yellow;left:200px; top:200px;}
+  75%  {background-color:green;  color: red;left:0px; top:200px;}
+  100% {background-color:red;  color: blue;left:0px; top:0px;}
+}
+.anime-error-body {
+  /* width: 80vw;
+  height: 80vh; */
+  background-color: white;
+  position: relative;
+  animation-name: animatedText;
+  animation-duration: 4s;
+  animation-iteration-count: 2;
+  animation-direction: alternate-reverse;  
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+@keyframes animatedText {
+  0%   {background-color:red; scale: 0.1;  color: white ;left:0px; top:0px;}
+  25%  {background-color:yellow; scale: 0.3;  color: purple; left:200px; top:0px;}
+  50%  {background-color:blue; scale: 0.5;  color: yellow;left:200px; top:200px;}
+  75%  {background-color:green;  scale: 0.7 ; color: red;left:0px; top:200px;}
+  100% {background-color:red;  scale: 0.9; color: blue;left:0px; top:0px;}
+}
