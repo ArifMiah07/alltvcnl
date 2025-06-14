@@ -299,9 +299,9 @@ const IPTVComponent = () => {
     setIsFiltering(true);
     setCurrentPage(1);
 
-    // console.log(`Filter Type: ${filterType}`);
-    // console.log(`Search Text: ${searchText}`);
-    // console.log(`Filtered Results: ${filtered.length} channels`);
+    // //console.log(`Filter Type: ${filterType}`);
+    // //console.log(`Search Text: ${searchText}`);
+    // //console.log(`Filtered Results: ${filtered.length} channels`);
   };
 
   // Clear filters
@@ -313,9 +313,9 @@ const IPTVComponent = () => {
     setCountry([]);
   };
 
-  // console.log("All channels:", channels.length);
-  // console.log("Filtered channels:", filteredChannels.length);
-  // console.log("Countries found:", country);
+  // //console.log("All channels:", channels.length);
+  // //console.log("Filtered channels:", filteredChannels.length);
+  // //console.log("Countries found:", country);
 
   return (
     <div className="min-h-screen w-full mb-12 ">
@@ -498,29 +498,29 @@ const IPTVComponent = () => {
 
       {/* Channel Cards */}
       <div className="flex flex-wrap justify-center gap-5 my-12 channels-container">
-        {currentChannels.map((channel, index) => (
+        {currentChannels?.map((channel, index) => (
           <div key={index} className="bg-red-50 p-0 w-80 channel-card relative">
             {/* Bookmark indicator */}
-            {isChannelBookmarked(channel.url) && (
+            {isChannelBookmarked(channel?.url) && (
               <div className="absolute top-2 right-2 bg-yellow-100 hover:bg-yellow-200 text-black px-2 py-1 rounded text-xs font-bold">
                 <FaBookmark />
               </div>
             )}
 
-            <h2 className="mx-3 text-gray-500 text-lg">{channel.channel}</h2>
-            {channel.name && channel.name !== channel.channel && (
-              <p className="mx-3 text-gray-400 text-sm">{channel.name}</p>
+            <h2 className="mx-3 text-gray-500 text-lg">{channel?.channel}</h2>
+            {channel?.name && channel?.name !== channel?.channel && (
+              <p className="mx-3 text-gray-400 text-sm">{channel?.name}</p>
             )}
 
             {/* Action buttons */}
             <div className="flex gap-2 mx-3 my-3">
-              <button onClick={() => handleUrl(channel.url)}>
+              <button onClick={() => handleUrl(channel?.url)}>
                 <Link
                   to={`/view`}
                   state={{
-                    channelName: channel.channel,
-                    channelUrl: channel.url,
-                    channelId: channel.id,
+                    channelName: channel?.channel,
+                    channelUrl: channel?.url,
+                    channelId: channel?.id,
                     from: location.pathname,
                   }}>
                   <span className="bg-purple-100 hover:bg-purple-200 text-black py-2 px-4 rounded cursor-pointer">
@@ -532,25 +532,30 @@ const IPTVComponent = () => {
               <button
                 onClick={() => toggleBookmark(channel)}
                 className={`py-2 px-4 rounded text-black font-medium ${
-                  isChannelBookmarked(channel.url)
+                  isChannelBookmarked(channel?.url)
                     ? "bg-red-100 hover:bg-red-200"
                     : "bg-green-100 hover:bg-green-200"
                 }`}>
-                {isChannelBookmarked(channel.url) ? "★" : "☆"}
+                {isChannelBookmarked(channel?.url) ? "★" : "☆"}
               </button>
               <button
                 // onClick={() => toggleBookmark(channel)}
                 className={`py-2 bg-pink-100 hover:bg-pink-200 px-4 rounded text-gray-500 font-medium`}>
-                  {index+1}
+                {index + 1}
               </button>
             </div>
-
-            <ReactPlayer
-              url={channel.url}
-              controls={true}
-              width="100%"
-              height="auto"
-            />
+            {channel?.url && ReactPlayer.canPlay(channel.url) ? (
+              <ReactPlayer
+                url={channel.url}
+                controls
+                width="100%"
+                height="auto"
+              />
+            ) : (
+              <div className="text-center text-gray-400 py-6">
+                Stream not available
+              </div>
+            )}
           </div>
         ))}
       </div>

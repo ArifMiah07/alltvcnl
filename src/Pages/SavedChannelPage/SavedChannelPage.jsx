@@ -119,11 +119,11 @@ const SavedChannelsPage = () => {
         <div className="flex justify-end items-center">
           <div className="flex gap-4">
             <Link
-              to="/"
+              to="/iptv"
               className="text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">
               Back to All Channels
             </Link>
-            {bookmarkedChannels.length > 0 && (
+            {bookmarkedChannels?.length > 0 && (
               <button
                 onClick={clearAllBookmarks}
                 className="text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded">
@@ -136,14 +136,14 @@ const SavedChannelsPage = () => {
 
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-gray-800 mb-2">
-          Your Saved Channels ({bookmarkedChannels.length})
+          Your Saved Channels ({bookmarkedChannels?.length})
         </h2>
         <p className="text-gray-600">
           Manage your bookmarked IPTV channels here
         </p>
       </div>
 
-      {bookmarkedChannels.length === 0 ? (
+      {bookmarkedChannels?.length === 0 ? (
         <div className="text-center py-12">
           <div className="text-6xl mb-4">📺</div>
           <h3 className="text-xl font-semibold text-gray-700 mb-2">
@@ -153,7 +153,7 @@ const SavedChannelsPage = () => {
             Start saving your favorite channels to access them quickly
           </p>
           <Link
-            to="/"
+            to="/more"
             className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg">
             Browse Channels
           </Link>
@@ -211,7 +211,7 @@ const SavedChannelsPage = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {currentChannels.map((channel, index) => (
+                  {currentChannels?.map((channel, index) => (
                     <tr key={startIndex + index} className="hover:bg-gray-50">
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                         {startIndex + index + 1}
@@ -220,38 +220,38 @@ const SavedChannelsPage = () => {
                         <div className="text-sm font-medium text-gray-900">
                           {channel.name}
                         </div>
-                        {channel.channel &&
-                          channel.channel !== channel.name && (
+                        {channel?.channel &&
+                          channel?.channel !== channel?.name && (
                             <div className="text-sm text-gray-500">
-                              {channel.channel}
+                              {channel?.channel}
                             </div>
                           )}
                       </td>
                       <td className="px-6 py-4">
                         <div className="text-sm text-gray-900 break-all max-w-xs">
-                          {channel.url.length > 50
-                            ? `${channel.url.substring(0, 50)}...`
-                            : channel.url}
+                          {channel?.url?.length > 50
+                            ? `${channel?.url?.substring(0, 50)}...`
+                            : channel?.url}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        {new Date(channel.dateBookmarked).toLocaleDateString()}
+                        {new Date(channel?.dateBookmarked).toLocaleDateString()}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                         <div className="flex gap-2">
                           <Link
                             to={`/view`}
                             state={{
-                              channelName: channel.channel || "Unknown Channel",
-                              channelUrl: channel.url,
-                              channelId: channel.id,
+                              channelName: channel?.channel || "Unknown Channel",
+                              channelUrl: channel?.url,
+                              channelId: channel?.id,
                               from: "/saved-channels",
                             }}
                             className="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded text-sm">
                             View
                           </Link>
                           <button
-                            onClick={() => removeBookmark(channel.url)}
+                            onClick={() => removeBookmark(channel?.url)}
                             className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm">
                             Remove
                           </button>

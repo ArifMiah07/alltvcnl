@@ -66,8 +66,8 @@ const IPTVLN = () => {
           </tr>
         </thead>
         <tbody>
-          {visibleChannels.map((channel, index) => (
-            <tr key={channel.id || index} className="hover:bg-purple-50">
+          {visibleChannels?.map((channel, index) => (
+            <tr key={channel?.id || index} className="hover:bg-purple-50">
               <td className="border border-gray-300 p-2">
                 {index + 1 || "Unknown index"}
               </td>
@@ -88,9 +88,9 @@ const IPTVLN = () => {
                 <Link
                   to={`/view`}
                   state={{
-                    channelName: channel.channel || "Unknown Channel",
-                    channelUrl: channel.url,
-                    channelId: channel.id,
+                    channelName: channel?.channel || "Unknown Channel",
+                    channelUrl: channel?.url,
+                    channelId: channel?.id,
                     from: location.pathname,
                   }}
                 >

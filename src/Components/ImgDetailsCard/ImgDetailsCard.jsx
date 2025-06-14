@@ -1,7 +1,7 @@
 
 
 const ImgDetailsCard = ({bannerData}) => {
-    console.log(bannerData)
+    //console.log(bannerData)
     return (
         <div>
             This is imag d c

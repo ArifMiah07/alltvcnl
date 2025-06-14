@@ -7,10 +7,10 @@ const Page2 = () => {
   const [cnlData, setCnlData] = useState([]);
 
   useEffect(() => {
-    fetch("page2.json") // Assuming you have a JSON file with data for Page2
+    fetch("page2.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         setCnlData(data);
       });
   }, []);
@@ -27,23 +27,20 @@ const Page2 = () => {
       </div>
       <div className="flex flex-col lg:flex-row items-center justify-center text-black gap-5 mt-4">
         <Pagination />
-        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
-          <Link to="/">Back</Link>
-        </p>
-        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
-          <Link to="/page2">Next</Link>
-        </p>
+        <div className="flex gap-4 items-center">
+          <button className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+            <Link to="/page1">Previous</Link>
+          </button>
+          <button className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+            <Link to="/page3">Next</Link>
+          </button>
+        </div>
       </div>
       <div className="flex flex-wrap justify-center gap-5 mt-4">
         {cnlData.map((cnl) => (
           <div key={cnl.id} className="w-80">
             <div className="border border-gray-700 p-2">
               <div className="flex justify-center">
-                {/* <img
-                  src={cnl["tvg-logo"]}
-                  alt={cnl.title}
-                  className="h-16 w-16 mr-2"
-                /> */}
                 <p className="text-lg font-bold">{cnl.title}</p>
               </div>
               <ReactPlayer
@@ -59,12 +56,14 @@ const Page2 = () => {
       </div>
       <div className="mb-4 flex flex-col lg:flex-row items-center justify-center text-black gap-5 mt-4">
         <Pagination />
-        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
-          <Link to="/">Back</Link>
-        </p>
-        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
-          <Link to="/page2">Next</Link>
-        </p>
+        <div className="flex gap-4 items-center">
+          <button className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+            <Link to="/page1">Previous</Link>
+          </button>
+          <button className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+            <Link to="/page3">Next</Link>
+          </button>
+        </div>
       </div>
     </div>
   );

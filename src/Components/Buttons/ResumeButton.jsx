@@ -2,7 +2,7 @@
 const ResumeButton = () => {
 
     // const handlebtn = (text, onClick )=>{
-    //     console.log(text)
+    //     //console.log(text)
     // }
   return (
     <button

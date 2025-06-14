@@ -6,7 +6,7 @@ const Banner = () => {
     
     const { bannerData } = useBannerContext();
 
-    console.log(bannerData);
+    //console.log(bannerData);
     // useEffect( ()=>{
     //     fetch('banner.json')
     //     .then(res => res.json())

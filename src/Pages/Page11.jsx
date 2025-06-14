@@ -10,7 +10,7 @@ const Page11 = () => {
     fetch("page11.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         setCnlData(data);
       });
   }, []);
@@ -27,12 +27,14 @@ const Page11 = () => {
       </div>
       <div className="flex flex-col lg:flex-row items-center justify-center text-black gap-5 mt-4">
         <Pagination />
-        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
-          <Link to="/">Back</Link>
-        </p>
-        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
-          <Link to="/page2">Next</Link>
-        </p>
+        <div className="flex gap-4 items-center">
+          <button className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+            <Link to="/page10">Previous</Link>
+          </button>
+          <button className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+            <Link to="/page1">Next</Link>
+          </button>
+        </div>
       </div>
       <div className="flex flex-wrap justify-center gap-5 mt-4">
         {cnlData.map((cnl) => (
@@ -54,12 +56,14 @@ const Page11 = () => {
       </div>
       <div className="mb-4 flex flex-col lg:flex-row items-center justify-center text-black gap-5 mt-4">
         <Pagination />
-        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
-          <Link to="/">Back</Link>
-        </p>
-        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
-          <Link to="/page2">Next</Link>
-        </p>
+        <div className="flex gap-4 items-center">
+          <button className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+            <Link to="/page10">Previous</Link>
+          </button>
+          <button className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+            <Link to="/page1">Next</Link>
+          </button>
+        </div>
       </div>
     </div>
   );

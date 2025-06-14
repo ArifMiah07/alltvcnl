@@ -21,6 +21,7 @@ import IPTV from "../Pages/IPTV/IPTV";
 import VPlayer from "../Pages/VPlayer/VPlayer";
 import SavedChannelsPage from "../Pages/SavedChannelPage/SavedChannelPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import LandingPage from "../Pages/LandingPage/LandingPage";
 // import Banner from "../Pages/Banner/Banner";
 // import Home from "../Pages/Home/Home";
 // import Home from "../pages/Home/Home";
@@ -33,14 +34,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
-        // children:[
-        //     {
-        //         path: '/bannerDetails/:id',
-        //         element: <ImgDetails></ImgDetails> ,
-        //         // loader: ()=> fetch(`banner.json`)
-        //     }
-        // ]
+        element: <LandingPage />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
       },
       {
         path: "/bannerDetails/:id",

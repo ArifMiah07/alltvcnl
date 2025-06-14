@@ -108,12 +108,12 @@ const VPlayer = () => {
       return;
     }
 
-    // ✅ Fix malformed Facebook watch URL
+    //  Fix malformed Facebook watch URL
     if (url.includes("facebook.com/watch?v=")) {
       url = url.replace("facebook.com/watch?v=", "facebook.com/watch/?v=");
     }
 
-    // ✅ Validate X (Twitter) URL format
+    //  Validate X (Twitter) URL format
     if (isXUrl(url) && !url.includes("/status/")) {
       alert("Invalid X (Twitter) URL — it must include '/status/1234567890'.");
       setPlayingUrl("");

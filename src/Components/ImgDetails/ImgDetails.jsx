@@ -6,12 +6,12 @@ import ImgDetailsCard from "../ImgDetailsCard/ImgDetailsCard";
 const ImgDetails = () => {
     const {id} = useParams();
     const {bannerData} = useBannerContext();
-    const intId = parseInt(id);
-    const data = bannerData.find(bd=> bd.id == intId)
-    console.log(bannerData)
+    // const intId = parseInt(id);
+    // const data = bannerData.find(bd=> bd.id == intId)
+    //console.log(bannerData)
     
     // const 
-    console.log(id);
+    //console.log(id);
     return (
         <div>
             <h1>thsis is img details{id}</h1>

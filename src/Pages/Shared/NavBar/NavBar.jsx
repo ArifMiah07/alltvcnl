@@ -55,7 +55,7 @@ const NavBar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white text-black rounded-box w-52">
             <li>
-              <NavLink to="/" className={getNavLinkClass}>
+              <NavLink to="/home" className={getNavLinkClass}>
                 Home
               </NavLink>
             </li>
@@ -95,10 +95,10 @@ const NavBar = () => {
 
       <div className="navbar-center hidden lg:flex">
         <ul
-          key={currentPath + "-desktop"} // ✅ force re-render on path change
+          key={currentPath + "-desktop"} //  force re-render on path change
           className="menu menu-horizontal px-1">
           <li>
-            <NavLink to="/" className={getNavLinkClass}>
+            <NavLink to="/home" className={getNavLinkClass}>
               Home
             </NavLink>
           </li>

@@ -10,7 +10,7 @@ const Page10 = () => {
     fetch("page10.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         setCnlData(data);
       });
   }, []);
@@ -27,23 +27,20 @@ const Page10 = () => {
       </div>
       <div className="flex flex-col lg:flex-row items-center justify-center text-black gap-5 mt-4">
         <Pagination />
-        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
-          <Link to="/">Back</Link>
-        </p>
-        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
-          <Link to="/page2">Next</Link>
-        </p>
+        <div className="flex gap-4 items-center">
+          <button className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+            <Link to="/page9">Previous</Link>
+          </button>
+          <button className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+            <Link to="/page11">Next</Link>
+          </button>
+        </div>
       </div>
       <div className="flex flex-wrap justify-center gap-5 mt-4">
         {cnlData.map((cnl) => (
           <div key={cnl.id} className="w-80 border border-gray-700 p-2 m-4">
             <div className="bg-purple-50 ">
               <div className="flex justify-center">
-                {/* <img
-                  src={cnl["tvg-logo"]}
-                  alt={cnl.title}
-                  className="h-16 w-16 mr-2"
-                /> */}
                 <p className="text-lg font-bold">{cnl.title}</p>
               </div>
               <div className="mt-2">
@@ -60,12 +57,14 @@ const Page10 = () => {
       </div>
       <div className="mb-4 flex flex-col lg:flex-row items-center justify-center text-black gap-5 mt-4">
         <Pagination />
-        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
-          <Link to="/">Back</Link>
-        </p>
-        <p className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
-          <Link to="/page2">Next</Link>
-        </p>
+        <div className="flex gap-4 items-center">
+          <button className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+            <Link to="/page9">Previous</Link>
+          </button>
+          <button className="btn text-black hover:text-white w-fit bg-green-50 py-3 px-5">
+            <Link to="/page11">Next</Link>
+          </button>
+        </div>
       </div>
     </div>
   );
