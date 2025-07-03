@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import ReactPlayer from "react-player";
+import Watch from "../IPTVComponent/Watch";
 
 const isDirectPlayableUrl = (url) => {
   if (!url) return false;
@@ -280,6 +281,9 @@ const VPlayer = () => {
           )}
         </div>
       )}
+      <div className="my-12 p-12">
+        <Watch></Watch>
+      </div>
     </div>
   );
 };

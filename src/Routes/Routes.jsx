@@ -1,10 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-// import Root from "../layouts/Root";
 import Home from "../Pages/Home/Home";
 import Root from "../Layouts/Root/Root";
 import About from "../Pages/About/About";
 import More from "../Pages/More/More";
-import ImgDetails from "../Components/ImgDetails/ImgDetails";
 import Page1 from "../Pages/Page1";
 import Page2 from "../Pages/Page2";
 import Page3 from "../Pages/Page3";
@@ -22,9 +20,7 @@ import VPlayer from "../Pages/VPlayer/VPlayer";
 import SavedChannelsPage from "../Pages/SavedChannelPage/SavedChannelPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import LandingPage from "../Pages/LandingPage/LandingPage";
-// import Banner from "../Pages/Banner/Banner";
-// import Home from "../Pages/Home/Home";
-// import Home from "../pages/Home/Home";
+
 
 const router = createBrowserRouter([
   {
@@ -39,11 +35,6 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home />,
-      },
-      {
-        path: "/bannerDetails/:id",
-        element: <ImgDetails></ImgDetails>,
-        // loader: ()=> fetch(`banner.json`)
       },
       {
         path: "/iptv",
@@ -72,7 +63,6 @@ const router = createBrowserRouter([
       {
         path: "/page1",
         element: <Page1></Page1>,
-        // loader: fetch('/page1.json')
       },
       {
         path: "/page2",

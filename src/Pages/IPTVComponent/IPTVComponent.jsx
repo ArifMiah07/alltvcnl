@@ -19,6 +19,7 @@ const IPTVComponent = () => {
   const [isFiltering, setIsFiltering] = useState(false);
   const [filterType, setFilterType] = useState("all"); // "all", "country", "channel", "name"
 
+
   // Load data from localStorage on component mount
   useEffect(() => {
     const savedChannelsPerPage = localStorage.getItem("iptv_channels_per_page");
@@ -298,10 +299,6 @@ const IPTVComponent = () => {
     setFilteredChannels(filtered);
     setIsFiltering(true);
     setCurrentPage(1);
-
-    // //console.log(`Filter Type: ${filterType}`);
-    // //console.log(`Search Text: ${searchText}`);
-    // //console.log(`Filtered Results: ${filtered.length} channels`);
   };
 
   // Clear filters
@@ -312,10 +309,6 @@ const IPTVComponent = () => {
     setCurrentPage(1);
     setCountry([]);
   };
-
-  // //console.log("All channels:", channels.length);
-  // //console.log("Filtered channels:", filteredChannels.length);
-  // //console.log("Countries found:", country);
 
   return (
     <div className="min-h-screen w-full mb-12 ">
