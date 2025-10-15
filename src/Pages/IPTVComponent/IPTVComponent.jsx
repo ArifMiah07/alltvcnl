@@ -19,7 +19,6 @@ const IPTVComponent = () => {
   const [isFiltering, setIsFiltering] = useState(false);
   const [filterType, setFilterType] = useState("all"); // "all", "country", "channel", "name"
 
-
   // Load data from localStorage on component mount
   useEffect(() => {
     const savedChannelsPerPage = localStorage.getItem("iptv_channels_per_page");
@@ -121,12 +120,13 @@ const IPTVComponent = () => {
         (bookmark) => bookmark.url !== channel.url
       );
     } else {
-      // Add bookmark
+      // Add bookmark - preserve all original data
       const bookmarkData = {
         id: channel.id,
-        name: channel.name || channel.channel || "Unknown Channel",
-        url: channel.url,
+        name: channel.name,
+        title: channel.title,
         channel: channel.channel,
+        url: channel.url,
         dateBookmarked: new Date().toISOString(),
       };
       updatedBookmarks = [...bookmarkedChannels, bookmarkData];
@@ -500,7 +500,9 @@ const IPTVComponent = () => {
               </div>
             )}
 
-            <h2 className="mx-3 text-gray-500 text-lg">{channel?.channel || channel?.title || 'unknown channel'}</h2>
+            <h2 className="mx-3 text-gray-500 text-lg">
+              {channel?.channel || channel?.title || "unknown channel"}
+            </h2>
             {channel?.name && channel?.name !== channel?.channel && (
               <p className="mx-3 text-gray-400 text-sm">{channel?.name}</p>
             )}

@@ -1,11 +1,29 @@
-TODO: new release version 0.0.1
----//-- easy cng
-[x] - if cnl name is null then show title
-[x] - show all saved cnl in reverse way
-[]  - show in all saved cnl page -> if cnl name is null then show title
----//-- hard cng from sketch
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    TODO: new release version 0.0.1
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+---/    Easy Change    /--
+
+[x] - If channel name is null then show title (in IPTV Components page)
+[x] - Show all saved channel in reverse way (in all saved channel page)
+[x] - In all saved channel page - do -> If channel name is null then show title
+[x] - If channel name is null then show title (in all channel page)
+[] - add a search button in all channels page
+
+---/    Medium Changes From Sketch    /--
+
+[] - add search functionality in all channels page
+
+---/    Robust Changes From Sketch    /--
+
 [] - add a node express backend
 [] - add mongoDB 
 [] - create and save user
 [] - create folder ()
-[] - create a playlist under a folder ( no folder selected ? add playlist under 'default' folder )
+[] - create a playlist under a folder 
+   -- ( no folder selected ? add playlist under 'default' folder )
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

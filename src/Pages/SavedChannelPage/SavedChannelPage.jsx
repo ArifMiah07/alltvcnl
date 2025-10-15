@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const SavedChannelsPage = () => {
@@ -116,8 +117,22 @@ const SavedChannelsPage = () => {
       </Helmet>
 
       {/* Navigation */}
-      <nav className="bg-green-500 p-4 mb-6">
-        <div className="flex justify-end items-center">
+      <nav className="w-full bg-green-500 px-4 py-2 mb-6">
+        <div className="flex flex-row  justify-between items-center">
+          {/* search bar */}
+          <div className="w-full lg:w-1/3 flex flex-row items-center justify-center gap-1 border rounded-sm bg-gray-300 p-[2px] ">
+            <input
+              className="w-full border px-5 py-1 rounded-sm outline-none bg-white  "
+              type="text"
+              placeholder="Search by Channel Name"
+            />
+            <button
+              className="px-3 py-1  bg-[#ccd9] hover:bg-[#ddff] focus:bg-[#decd] transition-all  border rounded-sm "
+              type="submit">
+              Search
+            </button>
+          </div>
+          {/* btn */}
           <div className="flex gap-4">
             <Link
               to="/iptv"
@@ -145,8 +160,8 @@ const SavedChannelsPage = () => {
       </div>
 
       {bookmarkedChannels?.length === 0 ? (
-        <div className="text-center py-12">
-          <div className="text-6xl mb-4">📺</div>
+        <div className=" min-h-screen text-center py-12">
+          {/* <div className="text-6xl mb-4">📺</div> */}
           <h3 className="text-xl font-semibold text-gray-700 mb-2">
             No Saved Channels Yet
           </h3>
@@ -162,7 +177,7 @@ const SavedChannelsPage = () => {
       ) : (
         <>
           {/* Items per page selector and pagination info */}
-          <div className="flex justify-between items-center mb-4">
+          <div className=" flex justify-between items-center mb-4">
             <div className="flex items-center gap-2">
               <label htmlFor="itemsPerPage" className="text-sm text-gray-600">
                 Show:
@@ -181,6 +196,13 @@ const SavedChannelsPage = () => {
               </select>
               <span className="text-sm text-gray-600">per page</span>
             </div>
+            {/* filter options */}
+            <div className="flex items-center justify-center gap-2 border px-5  ">
+              <p>
+                Filter options
+              </p>
+              <IoIosArrowDown />
+            </div>
 
             <div className="text-sm text-gray-600">
               Showing {startIndex + 1} to{" "}
@@ -189,7 +211,7 @@ const SavedChannelsPage = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="min-h-screen bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-gray-50">
@@ -219,12 +241,12 @@ const SavedChannelsPage = () => {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm font-medium text-gray-900">
-                          {channel?.name || channel?.title || 'Unknown Channel'  }
+                          {channel?.name || channel?.title || "Unknown Channel"}
                         </div>
                         {channel?.channel &&
                           channel?.channel !== channel?.name && (
                             <div className="text-sm text-gray-500">
-                              {channel?.channel || channel?.tittle}
+                              {channel?.channel || channel?.title}
                             </div>
                           )}
                       </td>
@@ -243,7 +265,10 @@ const SavedChannelsPage = () => {
                           <Link
                             to={`/view`}
                             state={{
-                              channelName: channel?.channel || channel?.tittle || "Unknown Channel",
+                              channelName:
+                                channel?.channel ||
+                                channel?.tittle ||
+                                "Unknown Channel",
                               channelUrl: channel?.url,
                               channelId: channel?.id,
                               from: "/saved-channels",

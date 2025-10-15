@@ -72,7 +72,7 @@ const IPTVLN = () => {
                 {index + 1 || "Unknown index"}
               </td>
               <td className="border border-gray-300 p-2">
-                {channel?.channel || "Unknown Channel"}
+                {channel?.channel || channel?.title || "Unknown Channel"}
               </td>
               <td className="border border-gray-300 p-2">
                 <a
