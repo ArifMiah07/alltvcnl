@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const NavBar = () => {
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
-    const [isSticky, setIsSticky] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,10 +15,10 @@ const NavBar = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -32,7 +32,10 @@ const NavBar = () => {
       : "mx-2 text-purple-600 lg:text-white hover:bg-green-400 hover:text-white";
 
   return (
-    <div className={`navbar bg-green-500 text-white transition-all duration-300 ease-in-out ${isSticky ? 'fixed top-0 left-0 z-50 shadow-md bg-green-500 ' : ''}`}>
+    <div
+      className={`navbar bg-green-500 text-white transition-all duration-300 ease-in-out ${
+        isSticky ? "fixed top-0 left-0 z-50 shadow-md bg-green-500 " : ""
+      }`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -64,15 +67,19 @@ const NavBar = () => {
                 Watch IPTV
               </NavLink>
             </li>
-
             <li>
-              <NavLink to="/saved-channels" className={getNavLinkClass}>
-                Saved Channels
+              <NavLink to="/library" className={getNavLinkClass}>
+                Library
               </NavLink>
             </li>
             <li>
               <NavLink to="/v-player" className={getNavLinkClass}>
                 VPlayer
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/saved-channels" className={getNavLinkClass}>
+                Saved Channels
               </NavLink>
             </li>
             <li>
@@ -87,7 +94,6 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-
         <Link to="/" className="btn btn-ghost text-xl text-white font-bold">
           IPTV Player
         </Link>
@@ -107,15 +113,19 @@ const NavBar = () => {
               Watch IPTV
             </NavLink>
           </li>
-
           <li>
-            <NavLink to="/saved-channels" className={getNavLinkClass}>
-              Saved Channels
+            <NavLink to="/library" className={getNavLinkClass}>
+              Library
             </NavLink>
           </li>
           <li>
             <NavLink to="/v-player" className={getNavLinkClass}>
               VPlayer
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/saved-channels" className={getNavLinkClass}>
+              Saved Channels
             </NavLink>
           </li>
           <li>

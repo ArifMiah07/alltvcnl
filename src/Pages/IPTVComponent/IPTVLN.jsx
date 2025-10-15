@@ -53,7 +53,7 @@ const IPTVLN = () => {
   }, [inView, loadMore, loading]);
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-4xl min-h-screen mx-auto p-4">
       <h1 className="text-2xl text-black font-bold mb-4">IPTV Channels : {allChannels.length}</h1>
 
       <table className="w-full border-collapse border border-gray-300">

@@ -5,6 +5,7 @@ import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 import { HiViewfinderCircle } from "react-icons/hi2";
 import { FaBookmark } from "react-icons/fa";
+import { MdOutlinePlaylistAdd } from "react-icons/md";
 
 const IPTVComponent = () => {
   const [channels, setChannels] = useState([]);
@@ -509,6 +510,7 @@ const IPTVComponent = () => {
 
             {/* Action buttons */}
             <div className="flex gap-2 mx-3 my-3">
+              {/* view in separate page btn */}
               <button onClick={() => handleUrl(channel?.url)}>
                 <Link
                   to={`/view`}
@@ -523,7 +525,7 @@ const IPTVComponent = () => {
                   </span>
                 </Link>
               </button>
-
+              {/* bookmark btn */}
               <button
                 onClick={() => toggleBookmark(channel)}
                 className={`py-2 px-4 rounded text-black font-medium ${
@@ -533,10 +535,16 @@ const IPTVComponent = () => {
                 }`}>
                 {isChannelBookmarked(channel?.url) ? "★" : "☆"}
               </button>
+              {/* show index */}
               <button
                 // onClick={() => toggleBookmark(channel)}
                 className={`py-2 bg-pink-100 hover:bg-pink-200 px-4 rounded text-gray-500 font-medium`}>
                 {index + 1}
+              </button>
+              {/* add to playlist btn */}
+              <button className="py-2 bg-rose-100 hover:bg-rose-200 px-4 rounded text-gray-500 font-medium flex items-center justify-center ">
+                {/* <span className="" ></span> */}
+                <MdOutlinePlaylistAdd />
               </button>
             </div>
             {channel?.url && ReactPlayer.canPlay(channel.url) ? (

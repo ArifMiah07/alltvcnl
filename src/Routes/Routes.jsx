@@ -20,6 +20,7 @@ import VPlayer from "../Pages/VPlayer/VPlayer";
 import SavedChannelsPage from "../Pages/SavedChannelPage/SavedChannelPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import LandingPage from "../Pages/LandingPage/LandingPage";
+import Library from "../Pages/Library/Library";
 
 
 const router = createHashRouter([
@@ -43,6 +44,10 @@ const router = createHashRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "/library",
+        element: <Library></Library>,
       },
       {
         path: "/view",

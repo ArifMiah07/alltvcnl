@@ -12,8 +12,9 @@ const ViewUrl = () => {
   const previousPage = location.state?.from || "/home";
 
   return (
-    <div className="flex flex-col gap-0 mb-12">
-      <div className="px-4 py-1 w-full flex flex-col lg:flex-row items-center justify-between bg-green-500 ">
+    <div className=" w-full  flex flex-col gap-0 mb-12">
+      {/* nav */}
+      <nav className="px-4 py-1 w-full flex flex-col lg:flex-row items-center justify-between bg-green-500 ">
         <p className="text-white text-lg ">
           <strong>Channel Name:</strong> {channelName}
         </p>
@@ -22,9 +23,11 @@ const ViewUrl = () => {
           onClick={() => navigate(previousPage)}>
           Go Back
         </button>
-      </div>
-      <div className="mt-12">
-        {channelUrl && ReactPlayer.canPlay(channelUrl) ? (
+      </nav>
+      {/* content section */}
+      <section className="mt-12 w-full h-full ">
+      <div className=" w-full h-full  p-24">
+          {channelUrl && ReactPlayer.canPlay(channelUrl) ? (
           <ReactPlayer
             url={channelUrl}
             controls={true}
@@ -37,6 +40,7 @@ const ViewUrl = () => {
           </div>
         )}
       </div>
+      </section>
     </div>
   );
 };

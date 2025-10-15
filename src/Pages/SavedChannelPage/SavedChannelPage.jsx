@@ -50,7 +50,7 @@ const SavedChannelsPage = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentChannels = bookmarkedChannels.slice(startIndex, endIndex);
-  console.log(currentChannels);
+  // console.log(currentChannels);
 
   // Pagination controls
   const goToPage = (page) => {

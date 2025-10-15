@@ -1,6 +1,7 @@
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     TODO: new release version 0.0.1
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Date: 15-10-2025
 
 ---/    Easy Change    /--
 
@@ -8,7 +9,11 @@
 [x] - Show all saved channel in reverse way (in all saved channel page)
 [x] - In all saved channel page - do -> If channel name is null then show title
 [x] - If channel name is null then show title (in all channel page)
-[] - add a search button in all channels page
+[x] - add a search button in all channels page
+[x] - add a filter button in all channels page
+[x] - add Library route in app
+[x] - add Library page in app
+[x]  - add an 'add to playlist' btn in channel card
 
 ---/    Medium Changes From Sketch    /--
 
