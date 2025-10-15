@@ -1,0 +1,10 @@
+TODO: new release version 0.0.1
+---//-- easy cng
+[] - if cnl name is null then show title
+[] - show all saved cnl in reverse way
+---//-- hard cng from sketch
+[] - add a node express backend
+[] - add mongoDB 
+[] - create and save user
+[] - create folder ()
+[] - create a playlist under a folder ( no folder selected ? add playlist under 'default' folder )

@@ -1,7 +1,7 @@
 {
   "name": "IPTV-Player",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "electron-main.js",
   "author": "Arif Miah 07",
   "description": "IPTV Player Desktop App",
@@ -17,11 +17,13 @@
     "dist:win": "npm run build && electron-builder --win",
     "dist:win-portable": "npm run build && electron-builder --win portable",
     "dist:mac": "npm run build && electron-builder --mac",
-    "dist:linux": "npm run build && electron-builder --linux"
+    "dist:linux": "npm run build && electron-builder --linux",
+    "release": "npm version patch && npm run dist:win-portable"
   },
-"build": {
+  "build": {
     "appId": "com.arifmiah.iptv-player",
     "productName": "IPTV-Player",
+    "artifactName": "${productName}-${version}.${ext}",
     "directories": {
       "buildResources": "assets",
       "output": "release"
@@ -35,7 +37,9 @@
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "signAndEditExecutable": false
