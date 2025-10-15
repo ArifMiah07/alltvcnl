@@ -500,7 +500,7 @@ const IPTVComponent = () => {
               </div>
             )}
 
-            <h2 className="mx-3 text-gray-500 text-lg">{channel?.channel}</h2>
+            <h2 className="mx-3 text-gray-500 text-lg">{channel?.channel || channel?.title || 'unknown channel'}</h2>
             {channel?.name && channel?.name !== channel?.channel && (
               <p className="mx-3 text-gray-400 text-sm">{channel?.name}</p>
             )}
@@ -511,7 +511,7 @@ const IPTVComponent = () => {
                 <Link
                   to={`/view`}
                   state={{
-                    channelName: channel?.channel,
+                    channelName: channel?.channel || channel?.title,
                     channelUrl: channel?.url,
                     channelId: channel?.id,
                     from: location.pathname,

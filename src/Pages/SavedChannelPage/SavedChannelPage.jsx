@@ -49,6 +49,7 @@ const SavedChannelsPage = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentChannels = bookmarkedChannels.slice(startIndex, endIndex);
+  console.log(currentChannels);
 
   // Pagination controls
   const goToPage = (page) => {
@@ -211,19 +212,19 @@ const SavedChannelsPage = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {currentChannels?.map((channel, index) => (
+                  {currentChannels?.reverse().map((channel, index) => (
                     <tr key={startIndex + index} className="hover:bg-gray-50">
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                         {startIndex + index + 1}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm font-medium text-gray-900">
-                          {channel.name}
+                          {channel?.name || channel?.title || 'Unknown Channel'  }
                         </div>
                         {channel?.channel &&
                           channel?.channel !== channel?.name && (
                             <div className="text-sm text-gray-500">
-                              {channel?.channel}
+                              {channel?.channel || channel?.tittle}
                             </div>
                           )}
                       </td>
@@ -242,7 +243,7 @@ const SavedChannelsPage = () => {
                           <Link
                             to={`/view`}
                             state={{
-                              channelName: channel?.channel || "Unknown Channel",
+                              channelName: channel?.channel || channel?.tittle || "Unknown Channel",
                               channelUrl: channel?.url,
                               channelId: channel?.id,
                               from: "/saved-channels",
