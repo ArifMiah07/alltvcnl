@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 
 const Root = () => {
   return (
-    <div className=" min-h-screen flex flex-col h-fit max-w-6xl mx-auto font-poppins ">
+    <div className=" min-h-screen flex flex-col h-fit w-full mx-auto font-poppins ">
       <Helmet>
         <title>Welcome to iptv player</title>
       </Helmet>
