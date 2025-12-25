@@ -4,6 +4,10 @@ import NavBar from "../../Pages/Shared/NavBar/NavBar";
 import { Helmet } from "react-helmet-async";
 
 const Root = () => {
+  // this is root page
+  /**
+   * explaining later
+   */
   return (
     <div className=" min-h-screen flex flex-col h-fit w-full mx-auto font-poppins ">
       <Helmet>
