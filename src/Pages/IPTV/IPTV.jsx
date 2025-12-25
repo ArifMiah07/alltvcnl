@@ -5,7 +5,7 @@ const IPTV = () => {
   return (
     <div>
       <Helmet>
-        <title>IPTV</title>
+        <title>Watch iptv streams</title>
         <meta
           name="description"
           content="Learn more about our IPTV Player and the team behind the experience."

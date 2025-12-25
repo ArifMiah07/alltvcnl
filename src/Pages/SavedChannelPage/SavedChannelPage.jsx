@@ -109,7 +109,7 @@ const SavedChannelsPage = () => {
   return (
     <div className="container mx-auto p-0 mb-12">
       <Helmet>
-        <title>Saved Channels | IPTV Player</title>
+        <title>Saved Channels</title>
         <meta
           name="description"
           content="Learn more about our IPTV Player and the team behind the experience."
@@ -198,9 +198,7 @@ const SavedChannelsPage = () => {
             </div>
             {/* filter options */}
             <div className="flex items-center justify-center gap-2 border px-5  ">
-              <p>
-                Filter options
-              </p>
+              <p>Filter options</p>
               <IoIosArrowDown />
             </div>
 

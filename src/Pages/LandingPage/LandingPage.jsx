@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const LandingPage = () => {
   return (
@@ -52,5 +53,10 @@ const FeatureCard = ({ title, description }) => (
     <p className="leading-relaxed">{description}</p>
   </div>
 );
+
+FeatureCard.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+};
 
 export default LandingPage;
