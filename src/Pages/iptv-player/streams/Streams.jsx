@@ -8,9 +8,8 @@ const Streams = () => {
   const [streams, setStreams] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+  // 
+  const {currentPage, itemsPerPage};
 
   const baseUrl = "http://localhost:5000";
   const streamApiAddress = `/api/iptv-player/streams`;
