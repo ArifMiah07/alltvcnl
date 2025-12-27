@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const PaginationContext = createContext();
 
 export const PaginationProvider = ({ children }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(10);
   const [itemsPerPage, setItemsPerPage] = useState(10);
 
   const getValues = {

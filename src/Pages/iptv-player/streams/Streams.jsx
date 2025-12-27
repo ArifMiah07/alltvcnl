@@ -23,7 +23,8 @@ const Streams = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   //
-  const { currentPage, itemsPerPage } = usePagination();
+  const { currentPage, setCurrentPage, itemsPerPage, setItemsPerPage } =
+    usePagination();
 
   // effects
   useEffect(() => {
@@ -66,16 +67,18 @@ const Streams = () => {
         {streams.map((stream, index) => (
           <div className="w-full border border-red-500 p-3" key={index}>
             <p>{index}</p>
-            <div className="border border-blue-500">
+            <div className="border border-blue-500 w-full h-full">
               <ReactPlayer
                 controls
-                url={stream?.url}
-                style={{ width: "100%", height: "100%" }}
+                src={stream?.url}
+                width={500}
+                height={300}
               />
             </div>
           </div>
         ))}
       </div>
+      <div></div>
     </div>
   );
 };

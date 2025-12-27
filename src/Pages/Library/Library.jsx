@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 export default function Library() {
   return (
@@ -12,6 +13,10 @@ export default function Library() {
       </Helmet>
       <h1 className="text-xl">Library page</h1>
       <p className="text-lg">Coming Soon...</p>
+      <div>
+        <p>view: streams</p>
+        <Link to={`/streams`}>Go...</Link>
+      </div>
     </div>
   );
 }
