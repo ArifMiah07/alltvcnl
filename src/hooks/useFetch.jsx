@@ -17,7 +17,7 @@ const useFetchStreams = () => {
   // const [totalItems, setTotalItems] = useState(0);
 
   const { currentPage, channelsPerPage, setTotalItems } = usePagination();
-
+    
   // use hooks
   // constants
 
@@ -30,6 +30,7 @@ const useFetchStreams = () => {
         const response = await axios.get(API_URL.streams_api_url, {
           params: { currentPage, channelsPerPage },
         });
+        console.log(response?.data?.data);
         setStreams(response?.data?.data);
         setTotalItems(response?.data?.totalItems);
         setError(null); // clear previous error
@@ -46,6 +47,8 @@ const useFetchStreams = () => {
     // call
     fetchStreams();
   }, [currentPage, channelsPerPage]);
+
+  console.log(streams);
 
   return { streams, loading, error };
 };
