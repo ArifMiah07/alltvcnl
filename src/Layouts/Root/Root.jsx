@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import Footer from "../../Pages/Shared/Footer/Footer";
 import NavBar from "../../Pages/Shared/NavBar/NavBar";
 import { Helmet } from "react-helmet-async";
 
@@ -18,9 +17,6 @@ const Root = () => {
       </div>
       <div className="  flex-grow">
         <Outlet></Outlet>
-      </div>
-      <div className=" h-fit ">
-        <Footer></Footer>
       </div>
     </div>
   );

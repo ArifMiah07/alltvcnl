@@ -11,8 +11,8 @@ export const PaginationProvider = ({ children }) => {
 
   const [currentPageInputRange, setCurrentPageInputRange] =
     useState(currentPage);
-  // const [channelsPerPage, setChannelsPerPage] = useState(10);
-  // const [channelsInput, setChannelsInput] = useState(10);
+  const [channelsPerPage, setChannelsPerPage] = useState(10);
+  const [channelsInput, setChannelsInput] = useState(10);
 
   const getValues = {
     currentPage,
@@ -25,6 +25,10 @@ export const PaginationProvider = ({ children }) => {
     setTotalPage,
     currentPageInputRange,
     setCurrentPageInputRange,
+    channelsPerPage,
+    setChannelsPerPage,
+    channelsInput,
+    setChannelsInput,
   };
   return (
     <PaginationContext.Provider value={getValues}>
