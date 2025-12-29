@@ -12,7 +12,7 @@ const Root = () => {
       <Helmet>
         <title>Welcome to iptv player</title>
       </Helmet>
-      <div className=" h-fit ">
+      <div className="h-fit ">
         <NavBar></NavBar>
       </div>
       <div className="  flex-grow">
