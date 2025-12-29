@@ -549,7 +549,7 @@ const IPTVComponent = () => {
             </div>
             {channel?.url && ReactPlayer.canPlay(channel.url) ? (
               <ReactPlayer
-                url={channel.url}
+                src={channel.url}
                 controls
                 width="100%"
                 height="auto"

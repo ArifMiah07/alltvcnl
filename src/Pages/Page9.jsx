@@ -44,7 +44,7 @@ const Page9 = () => {
                 <p className="text-lg font-bold">{cnl.title}</p>
               </div>
               <ReactPlayer
-                url={cnl.url}
+                src={cnl.url}
                 controls={true}
                 width="100%"
                 height="auto"

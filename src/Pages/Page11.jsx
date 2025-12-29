@@ -44,7 +44,7 @@ const Page11 = () => {
                 <p className="text-lg font-bold">{cnl.channel_name}</p>
               </div>
               <ReactPlayer
-                url={cnl.stream_url}
+                src={cnl.stream_url}
                 controls
                 width="100%"
                 height="auto"

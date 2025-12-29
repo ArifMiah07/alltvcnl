@@ -20,7 +20,9 @@ const isDirectPlayableUrl = (url) => {
 
 const isInstagramUrl = (url) => {
   const lower = url.toLowerCase();
-  return lower.includes("instagram.com/p/") || lower.includes("instagram.com/reel/");
+  return (
+    lower.includes("instagram.com/p/") || lower.includes("instagram.com/reel/")
+  );
 };
 
 const isTikTokUrl = (url) => url.toLowerCase().includes("tiktok.com");
@@ -44,7 +46,9 @@ const loadTwitterScript = () => {
 };
 
 const loadTikTokScript = () => {
-  if (!document.querySelector('script[src="https://www.tiktok.com/embed.js"]')) {
+  if (
+    !document.querySelector('script[src="https://www.tiktok.com/embed.js"]')
+  ) {
     const script = document.createElement("script");
     script.src = "https://www.tiktok.com/embed.js";
     script.async = true;
@@ -55,7 +59,9 @@ const loadTikTokScript = () => {
 };
 
 const loadInstagramScript = () => {
-  if (!document.querySelector('script[src="https://www.instagram.com/embed.js"]')) {
+  if (
+    !document.querySelector('script[src="https://www.instagram.com/embed.js"]')
+  ) {
     const script = document.createElement("script");
     script.src = "https://www.instagram.com/embed.js";
     script.async = true;
@@ -131,12 +137,14 @@ const VPlayer = () => {
   };
 
   return (
-    
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
-          <Helmet>
-                <title> Video Player</title>
-                <meta name="description" content="Learn more about our IPTV Player and the team behind the experience." />
-              </Helmet>
+      <Helmet>
+        <title> Video Player</title>
+        <meta
+          name="description"
+          content="Learn more about our IPTV Player and the team behind the experience."
+        />
+      </Helmet>
       <h1 className="text-2xl font-bold mb-4 text-center max-w-xl">
         Welcome to the Video Player
       </h1>
@@ -147,11 +155,13 @@ const VPlayer = () => {
           <li>
             Direct video URLs from{" "}
             <strong>
-              YouTube, Facebook, .m3u8 streams, and common video files (MP4, WebM)
+              YouTube, Facebook, .m3u8 streams, and common video files (MP4,
+              WebM)
             </strong>
           </li>
           <li>
-            Embedded videos from <strong>Instagram, TikTok, and X (Twitter)</strong>
+            Embedded videos from{" "}
+            <strong>Instagram, TikTok, and X (Twitter)</strong>
           </li>
         </ul>
       </p>
@@ -159,9 +169,10 @@ const VPlayer = () => {
       <form
         onSubmit={handleSubmit}
         onReset={handleReset}
-        className="w-full max-w-md bg-white rounded-lg shadow-md p-6"
-      >
-        <label htmlFor="video-url" className="block text-gray-700 mb-2 font-medium">
+        className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+        <label
+          htmlFor="video-url"
+          className="block text-gray-700 mb-2 font-medium">
           Enter Video URL or Embed Link
         </label>
         <input
@@ -179,14 +190,12 @@ const VPlayer = () => {
         <div className="mt-4 flex justify-between">
           <button
             type="submit"
-            className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded transition"
-          >
+            className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded transition">
             Play Video
           </button>
           <button
             type="reset"
-            className="bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded transition"
-          >
+            className="bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded transition">
             Reset
           </button>
         </div>
@@ -197,7 +206,7 @@ const VPlayer = () => {
           {urlType === "direct" && (
             <div className="min-h-screen w-full aspect-video rounded overflow-hidden shadow-lg">
               <ReactPlayer
-                url={playingUrl}
+                src={playingUrl}
                 controls
                 width="100%"
                 height="100%"
@@ -210,7 +219,9 @@ const VPlayer = () => {
           )}
 
           {urlType === "instagram" && (
-            <div className="instagram-video-container" style={{ minHeight: "400px" }}>
+            <div
+              className="instagram-video-container"
+              style={{ minHeight: "400px" }}>
               <blockquote
                 className="instagram-media"
                 data-instgrm-permalink={playingUrl}
@@ -232,50 +243,52 @@ const VPlayer = () => {
                   }
                   return "";
                 })()}
-                style={{ maxWidth: "540px", margin: "auto" }}
-              >
+                style={{ maxWidth: "540px", margin: "auto" }}>
                 <section> </section>
               </blockquote>
             </div>
           )}
 
-          {urlType === "x" && (() => {
-            const tweetId = getTweetId(playingUrl);
-            if (!tweetId) {
+          {urlType === "x" &&
+            (() => {
+              const tweetId = getTweetId(playingUrl);
+              if (!tweetId) {
+                return (
+                  <div className="text-red-600 font-semibold">
+                    Invalid X (Twitter) URL — unable to extract tweet ID.
+                  </div>
+                );
+              }
               return (
-                <div className="text-red-600 font-semibold">
-                  Invalid X (Twitter) URL — unable to extract tweet ID.
-                </div>
+                <blockquote
+                  className="twitter-tweet"
+                  data-lang="en"
+                  style={{ margin: "auto", maxWidth: "540px" }}>
+                  <a
+                    href={playingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    View Tweet
+                  </a>
+                </blockquote>
               );
-            }
-            return (
-              <blockquote
-                className="twitter-tweet"
-                data-lang="en"
-                style={{ margin: "auto", maxWidth: "540px" }}
-              >
-                <a href={playingUrl} target="_blank" rel="noopener noreferrer">
-                  View Tweet
-                </a>
-              </blockquote>
-            );
-          })()}
+            })()}
 
           {urlType === "unsupported" && (
             <div
               className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded"
-              role="alert"
-            >
+              role="alert">
               <p className="font-bold">Notice:</p>
               <p>
-                The URL you provided is not supported or not a direct video stream
-                playable by this player.
+                The URL you provided is not supported or not a direct video
+                stream playable by this player.
               </p>
               <p className="mt-2">
-                For Instagram, TikTok, or X (Twitter) videos, please use their official
-                embed URLs or embed codes.
+                For Instagram, TikTok, or X (Twitter) videos, please use their
+                official embed URLs or embed codes.
                 <br />
-                Or provide a direct video URL like YouTube, Facebook, or a .m3u8 stream.
+                Or provide a direct video URL like YouTube, Facebook, or a .m3u8
+                stream.
               </p>
             </div>
           )}

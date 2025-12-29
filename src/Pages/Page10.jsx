@@ -45,7 +45,7 @@ const Page10 = () => {
               </div>
               <div className="mt-2">
                 <ReactPlayer
-                  url={cnl.url}
+                  src={cnl.url}
                   controls={true}
                   width="100%"
                   height="auto"
