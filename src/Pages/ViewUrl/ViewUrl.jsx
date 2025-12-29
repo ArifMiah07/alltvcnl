@@ -26,20 +26,20 @@ const ViewUrl = () => {
       </nav>
       {/* content section */}
       <section className="mt-12 w-full h-full ">
-      <div className=" w-full h-full  p-24">
+        <div className=" w-full h-full  p-24">
           {channelUrl && ReactPlayer.canPlay(channelUrl) ? (
-          <ReactPlayer
-            url={channelUrl}
-            controls={true}
-            width="100%"
-            height="auto"
-          />
-        ) : (
-          <div className="text-center text-gray-400 py-6">
-            Stream not available
-          </div>
-        )}
-      </div>
+            <ReactPlayer
+              src={channelUrl}
+              controls={true}
+              width="100%"
+              height="auto"
+            />
+          ) : (
+            <div className="text-center text-gray-400 py-6">
+              Stream not available
+            </div>
+          )}
+        </div>
       </section>
     </div>
   );

@@ -45,7 +45,7 @@ const Page5 = () => {
               </div>
               {cnl.origin && cnl.referer ? (
                 <ReactPlayer
-                  url={cnl.url}
+                  src={cnl.url}
                   controls
                   width="100%"
                   height="auto"
@@ -59,7 +59,7 @@ const Page5 = () => {
                 />
               ) : (
                 <ReactPlayer
-                  url={cnl.url}
+                  src={cnl.url}
                   controls
                   width="100%"
                   height="auto"

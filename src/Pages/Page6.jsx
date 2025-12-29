@@ -45,7 +45,7 @@ const Page6 = () => {
               </div>
               {cnl.url && (
                 <ReactPlayer
-                  url={cnl.url}
+                  src={cnl.url}
                   controls
                   width="100%"
                   height="auto"

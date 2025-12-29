@@ -44,7 +44,7 @@ const Page3 = () => {
                 <p className="text-lg font-bold">{cnl.channel}</p>
               </div>
               <ReactPlayer
-                url={cnl.url}
+                src={cnl.url}
                 controls
                 width="100%"
                 height="auto"

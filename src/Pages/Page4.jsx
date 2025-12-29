@@ -45,7 +45,7 @@ const Page4 = () => {
               </div>
               {Array.isArray(cnl.url) ? (
                 <ReactPlayer
-                  url={cnl.url[0]}
+                  src={cnl.url[0]}
                   controls
                   width="100%"
                   height="auto"
