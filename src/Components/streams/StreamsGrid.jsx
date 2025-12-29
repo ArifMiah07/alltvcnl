@@ -4,6 +4,21 @@ import { HiViewfinderCircle } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useState } from "react";
+import {
+  MediaController,
+  MediaControlBar,
+  MediaTimeRange,
+  MediaTimeDisplay,
+  MediaVolumeRange,
+  // MediaPlaybackRateButton,
+  MediaPlayButton,
+  // MediaSeekBackwardButton,
+  // MediaSeekForwardButton,
+  MediaMuteButton,
+  MediaFullscreenButton,
+  MediaCaptionsButton,
+  MediaPipButton,
+} from "media-chrome/react";
 
 const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   // react states
@@ -86,13 +101,85 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
               </div>
             </div>
             <div className="w-full h-full flex flex-col border border-green-50  ">
-              <ReactPlayer
-                // pip={true}
-                controls={true}
-                src={stream_item.url}
-                width="100%"
-                height="100%"
-              />
+              <MediaController
+                style={{
+                  width: "100%",
+                  aspectRatio: "16/9",
+                  "--media-control-background": "rgba(0, 0, 0, 0.8)",
+                  "--media-control-hover-background": "rgba(0, 0, 0, 0.9)",
+                  "--media-icon-color": "#ffffff",
+                  "--media-text-color": "#ffffff",
+                  "--media-range-track-background": "rgba(255, 255, 255, 0.3)",
+                  "--media-range-bar-color": "#8b5cf6",
+                  "--media-range-thumb-background": "#ffffff",
+                }}>
+                <ReactPlayer
+                  // pip={true}
+                  slot="media"
+                  controls={false}
+                  src={stream_item.url}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    "--controls": "none",
+                  }}>
+                  {" "}
+                </ReactPlayer>
+
+                <MediaControlBar
+                  style={{
+                    // background: "red",
+                    "--media-control-padding": "2px",
+                    // gap: "2px",
+                  }}>
+                  <MediaPlayButton />
+                  {/* <MediaSeekBackwardButton seekOffset={10} />
+                  <MediaSeekForwardButton seekOffset={10} /> */}
+                  <MediaTimeRange />
+                  <MediaTimeDisplay showDuration />
+                  {/* Volume control group with hover - use onMouseEnter/onMouseLeave */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      position: "relative",
+                    }}
+                    onMouseEnter={(e) => {
+                      const volumeRange =
+                        e.currentTarget.querySelector("media-volume-range");
+                      if (volumeRange) {
+                        volumeRange.style.width = "60px";
+                        volumeRange.style.opacity = "1";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      const volumeRange =
+                        e.currentTarget.querySelector("media-volume-range");
+                      if (volumeRange) {
+                        volumeRange.style.width = "0";
+                        volumeRange.style.opacity = "0";
+                      }
+                    }}>
+                    <MediaMuteButton />
+                    <MediaVolumeRange
+                      style={{
+                        width: "0",
+                        opacity: "0",
+                        transition: "width 0.2s ease, opacity 0.2s ease",
+                        overflow: "hidden",
+                      }}
+                    />
+                  </div>
+                  {/*                   
+                  <MediaMuteButton />
+                  <MediaVolumeRange /> */}
+
+                  {/* <MediaPlaybackRateButton /> */}
+                  <MediaCaptionsButton />
+                  <MediaFullscreenButton />
+                  <MediaPipButton />
+                </MediaControlBar>
+              </MediaController>
             </div>
           </div>
         ))

@@ -59,13 +59,13 @@ const StreamSpecificChannel = () => {
   console.log(streams);
   console.log(channelIndex, channel);
   return (
-    <div className="border-4 border-red-500 p-4">
+    <div className=" p-4">
       {/* <h1>stream a specific channel</h1> */}
       <h1 className="font-medium mb-4">
         streaming : {channelIndex}. {channel}
       </h1>
       {/* stream specific channel */}
-      <div className=" border-4 border-red-500 w-full min-h-screen flex flex-col lg:grid lg:grid-cols-12 ">
+      <div className="  w-full min-h-screen flex flex-col lg:grid lg:grid-cols-12 ">
         <div className="col-span-9">
           <StreamSpecificChannelsDetails streamData={streamData} />
         </div>
@@ -91,7 +91,7 @@ const StreamSpecificChannel = () => {
         </div> */}
       </div>
       {/* other channels */}
-      <div className="w-full border border-green-500">
+      <div className="w-full border border-green-50">
         {loading && "loading..."}
         {error && "Error..."}
         {/* more channels suggestions */}

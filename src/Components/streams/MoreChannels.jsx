@@ -24,13 +24,13 @@ const MoreChannels = ({
   }, [channelIndex]);
 
   return (
-    <div className="w-full grid grid-cols-5">
+    <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1">
       {streams ? (
         streams?.map((stream_item, stream_index) => (
           <div
-            className=" w-full h-full  flex flex-row items-center justify-center border border-red-500 p-2 bg-radial-[at_50%_75%] from-sky-100 via-violet-100 to-fuchsia-100 to-90%"
+            className=" w-full h-full  flex flex-row items-center justify-center p-2 bg-radial-[at_50%_75%] from-sky-100 via-violet-100 to-fuchsia-100 to-90%"
             key={stream_index}>
-            <div className="w-full border border-pink-500 p-4 flex flex-col flex-wrap">
+            <div className="w-full flex flex-col flex-wrap">
               {/* channel info */}
               <div className="flex gap-2 px-2">
                 {/* channel number */}
@@ -45,11 +45,11 @@ const MoreChannels = ({
                 </p>
               </div>
               {/* basic actions */}
-              <div className="w-full border border-yellow-600 flex flex-row gap-2 flex-wrap items-center p-2  ">
+              <div className="w-full flex flex-row gap-2 flex-wrap items-center p-2  ">
                 {/* stream a specific channel */}
                 <span
                   onClick={() => handleSpecificChannelStream({ stream_item })}
-                  className=" border border-blue-500 flex flex-row items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
+                  className=" flex flex-row items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
                   <Link
                     to={`/specific-channel/${
                       (currentPage - 1) * channelsPerPage + (stream_index + 1)

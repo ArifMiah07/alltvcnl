@@ -42,6 +42,23 @@ const Streams = () => {
     // setTotalItems,
   } = usePagination();
 
+  console.log({
+    currentPage,
+    numbersOfPages,
+    inputRange,
+    setInputRange,
+    handleCurrentPage,
+    handleGotoPage,
+    handleNextPage,
+    handlePrevPage,
+    channelsPerPage,
+    channelsInput,
+    setChannelsInput,
+    handleChannelsPerPage,
+    totalItems,
+    // setTotalItems,
+  });
+
   // console.log(streams);
 
   // const startPage = Math.max(1, currentPage - 4);
