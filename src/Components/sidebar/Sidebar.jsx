@@ -4,7 +4,7 @@ import BasicFilters from "./BasicFilters";
 import { useState } from "react";
 import BasicInfo from "./BasicInfo";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const Sidebar = ({
   currentPage,
@@ -104,4 +104,17 @@ const Sidebar = ({
 
 export default Sidebar;
 
-
+Sidebar.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  numbersOfPages: PropTypes.number.isRequired,
+  inputRange: PropTypes.number.isRequired,
+  setInputRange: PropTypes.func.isRequired,
+  onNext: PropTypes.func.isRequired,
+  onPrev: PropTypes.func.isRequired,
+  onGoto: PropTypes.func.isRequired,
+  channelsPerPage: PropTypes.number.isRequired,
+  channelsInput: PropTypes.number.isRequired,
+  setChannelsInput: PropTypes.func.isRequired,
+  handleChannelsPerPage: PropTypes.func.isRequired,
+  totalChannels: PropTypes.number.isRequired,
+};

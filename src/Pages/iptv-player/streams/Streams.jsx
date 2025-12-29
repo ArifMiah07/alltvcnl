@@ -6,6 +6,8 @@ import { usePagination } from "../../../hooks/usePagination";
 import useFetchStreams from "../../../hooks/useFetch";
 import StreamsGrid from "../../../Components/streams/StreamsGrid";
 import PaginationNumbers from "../../../Components/pagination/PaginationNUmbers";
+import Sidebar from "../../../Components/sidebar/Sidebar";
+import { Toaster } from "sonner";
 
 /**
  *
@@ -21,16 +23,6 @@ import PaginationNumbers from "../../../Components/pagination/PaginationNUmbers"
 
 const Streams = () => {
   // react states
-  // const [streams, setStreams] = useState();
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
-
-  // react states
-  // const [specificChannelStream, setSpecificChannelStream] = useState({});
-  // const [bookmarks, setBookmark] = useState({});
-  // const [specificChannelParams, setSpecificChannelParams] = useState({});
-
-  // console.log("", specificChannelStream);
   // use hooks
   const { streams, loading, error } = useFetchStreams();
   const {
@@ -50,22 +42,25 @@ const Streams = () => {
     // setTotalItems,
   } = usePagination();
 
-  console.log(streams);
+  // console.log(streams);
 
-  const startPage = Math.max(1, currentPage - 4);
-  const pagesArray = Array.from({ length: 10 }, (_, i) => startPage + i);
+  // const startPage = Math.max(1, currentPage - 4);
+  // const pagesArray = Array.from({ length: 10 }, (_, i) => startPage + i);
 
   //
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
-  console.log(pagesArray);
+  // console.log(pagesArray);
   return (
     <div className="min-h-screen w-full p-4">
-      <h1>this is </h1>
-      <p>total pages {numbersOfPages}</p>
-      <div>Streams Page</div>
-      {/* <div></div> */}
+      {/* toast */}
+      <Toaster richColors position="top-right" />
+      {/* <ClockPage /> */}
+      <h1 className="text-lg font-normal">Iptv player {">"} Streaming</h1>
+      <div className="  flex flex-row gap-3 p-3 w-full">
+        {/* basic information and action */}
+      </div>
       {/* main content */}
       <div className="w-full h-full flex flex-col lg:grid lg:grid-cols-5 ">
         {/* streams grid */}
@@ -75,7 +70,7 @@ const Streams = () => {
           channelsPerPage={channelsPerPage}
         />
         {/* sidebar */}
-        {/* <Sidebar
+        <Sidebar
           currentPage={currentPage}
           numbersOfPages={numbersOfPages}
           inputRange={inputRange}
@@ -88,26 +83,11 @@ const Streams = () => {
           setChannelsInput={setChannelsInput}
           handleChannelsPerPage={handleChannelsPerPage}
           totalChannels={totalItems}
-        /> */}
+        />
       </div>
       <div className=" flex flex-row gap-3 p-3 w-full">
         <div>{/* <p className="text-lg font-black">{currentPage}</p> */}</div>
       </div>
-      {/* pagination */}
-      {/* <div className="w-full my-6 ">
-        <div className="p-2 flex flex-row justify-between items-center">
-          {pagesArray?.map((page, index) => (
-            <button
-              onClick={() => handleCurrentPage(page)}
-              key={index}
-              className={` border border-[#ff00ff] text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5  ${
-                page === currentPage ? "bg-green-500 text-white" : ""
-              }  `}>
-              {page}
-            </button>
-          ))}
-        </div>
-      </div> */}
       {/* pagination */}
       <div className="w-full p-4 flex flex-row items-center justify-center">
         <PaginationNumbers
