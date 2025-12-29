@@ -17,7 +17,7 @@ const useFetchStreams = () => {
   // const [totalItems, setTotalItems] = useState(0);
 
   const { currentPage, channelsPerPage, setTotalItems } = usePagination();
-    
+
   // use hooks
   // constants
 
