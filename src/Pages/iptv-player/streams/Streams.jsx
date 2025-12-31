@@ -68,6 +68,8 @@ const Streams = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
+  // console.log(import.meta.env.NODE_ENV);
+
   // console.log(pagesArray);
   return (
     <div className="min-h-screen w-full p-4">
