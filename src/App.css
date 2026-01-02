@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+/* custom classes */
+/* first_radial_bg */
+
+.first_radial_bg {
+  background-image: radial-gradient(red, green, blue);
+}
+.lb {
+  filter: blur(500);
+}

@@ -7,6 +7,8 @@ import { usePagination } from "./usePagination";
 
 const API_URL = {
   streams_api_url: "http://localhost:5000/api/iptv-player/streams",
+  streams_api_url_prod:
+    "https://iptv-player-server.vercel.app/api/iptv-player/streams",
 };
 
 const useFetchStreams = () => {
@@ -27,7 +29,7 @@ const useFetchStreams = () => {
     // fetch
     async function fetchStreams() {
       try {
-        const response = await axios.get(API_URL.streams_api_url, {
+        const response = await axios.get(API_URL.streams_api_url_prod, {
           params: { currentPage, channelsPerPage },
         });
         console.log(response?.data?.data);
