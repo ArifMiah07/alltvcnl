@@ -33,7 +33,7 @@ const NavBar = () => {
 
   return (
     <div
-      className={`navbar p-0 bg-green-500 text-white transition-all duration-300 ease-in-out ${
+      className={` z-11 navbar p-0 bg-green-500 text-white transition-all duration-300 ease-in-out ${
         isSticky ? "fixed top-0 left-0 z-50 shadow-md bg-green-500 " : ""
       }`}>
       <div className="navbar-start">
