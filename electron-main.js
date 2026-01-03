@@ -1,72 +1,107 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, protocol } from "electron";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Disable hardware acceleration for better compatibility
+app.disableHardwareAcceleration();
+
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1280,
-    height: 720,
+    width: 1400,
+    height: 900,
+    minWidth: 800,
+    minHeight: 600,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
-      webSecurity: false, // ⚠️ Disable only if you face CORS issues with streams
-      allowRunningInsecureContent: true, // For HTTP streams over HTTPS
+      webSecurity: false, // Needed for IPTV streams
+      allowRunningInsecureContent: true,
+      experimentalFeatures: true,
     },
+    backgroundColor: "#1a1a1a",
+    show: false, // Don't show until ready
   });
 
-  // Add this to handle CORS for video streaming
+  // Show window when ready to prevent flash
+  win.once("ready-to-show", () => {
+    win.show();
+  });
+
+  // Handle all CORS and headers for streaming
+  const filter = { urls: ["*://*/*"] };
+
   win.webContents.session.webRequest.onBeforeSendHeaders(
+    filter,
     (details, callback) => {
-      callback({ requestHeaders: { Origin: "*", ...details.requestHeaders } });
+      details.requestHeaders["Origin"] = "*";
+      details.requestHeaders["Referer"] = "*";
+      details.requestHeaders["User-Agent"] =
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36";
+      callback({ requestHeaders: details.requestHeaders });
     }
   );
 
-  win.webContents.session.webRequest.onHeadersReceived((details, callback) => {
-    callback({
-      responseHeaders: {
-        "Access-Control-Allow-Origin": ["*"],
+  win.webContents.session.webRequest.onHeadersReceived(
+    filter,
+    (details, callback) => {
+      const responseHeaders = {
         ...details.responseHeaders,
-      },
-    });
-  });
+        "Access-Control-Allow-Origin": ["*"],
+        "Access-Control-Allow-Methods": ["GET, POST, PUT, DELETE, OPTIONS"],
+        "Access-Control-Allow-Headers": ["*"],
+        "Access-Control-Allow-Credentials": ["true"],
+      };
+      callback({ responseHeaders });
+    }
+  );
 
   // Dev mode: load Vite dev server
   if (process.env.ELECTRON_START_URL) {
     win.loadURL(process.env.ELECTRON_START_URL);
     win.webContents.openDevTools();
   } else {
-    // Prod mode: load built index.html
-    const indexPath = path.join(__dirname, "dist", "index.html");
-
-    // Use loadURL instead of loadFile for better React Router support
-    win.loadURL(`file://${indexPath}`);
-
-    // Optional: Open DevTools in production for debugging
-    // win.webContents.openDevTools();
+    // Production mode: load built files
+    win.loadFile(path.join(__dirname, "dist", "index.html"));
   }
 
-  // Log any loading errors
+  // Error handling
   win.webContents.on("did-fail-load", (event, errorCode, errorDescription) => {
     console.error("Failed to load:", errorCode, errorDescription);
   });
 
-  // Handle console messages from renderer
-  win.webContents.on("console-message", (event, level, message) => {
-    console.log("Renderer log:", message);
+  win.webContents.on(
+    "console-message",
+    (event, level, message, line, sourceId) => {
+      console.log(`[Renderer ${level}]:`, message);
+    }
+  );
+
+  // Handle external links
+  win.webContents.setWindowOpenHandler(({ url }) => {
+    return { action: "deny" };
   });
 }
 
 app.whenReady().then(() => {
   createWindow();
 
-  app.on("activate", function () {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  app.on("activate", () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
   });
 });
 
-app.on("window-all-closed", function () {
-  if (process.platform !== "darwin") app.quit();
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
+});
+
+// Handle any unhandled errors
+process.on("uncaughtException", (error) => {
+  console.error("Uncaught exception:", error);
 });

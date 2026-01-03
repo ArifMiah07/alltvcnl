@@ -20,15 +20,15 @@ export default function Library() {
             <p className="underline text-blue-800">watch</p>
           </Link>
         </div>
-        {/*  */}
-        <div className="min-w-[300px] w-fit h-fit p-4 bg-pink-300  ">
+        {/* just wasted time by using *** AI */}
+        {/* <div className="min-w-[300px] w-fit h-fit p-4 bg-pink-300  ">
           <p className="text-lg font-medium text-black  ">
             view streams from iptv index
           </p>
           <Link to={`/ip`}>
             <p className="underline text-blue-800">watch</p>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );
