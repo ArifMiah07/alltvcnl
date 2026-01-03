@@ -1,6 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import ReactPlayer from "react-player";
-import { Play, Pause, Volume2, VolumeX, Search, Loader } from "lucide-react";
+import {
+  Play,
+  Pause,
+  Volume2,
+  VolumeX,
+  Search,
+  Loader,
+  AlertCircle,
+  RefreshCw,
+} from "lucide-react";
 
 export default function IP() {
   const [channels, setChannels] = useState([]);
@@ -11,6 +20,8 @@ export default function IP() {
   const [searchTerm, setSearchTerm] = useState("");
   const [muted, setMuted] = useState(false);
   const [volume, setVolume] = useState(0.8);
+  const [playerError, setPlayerError] = useState(null);
+  const [ready, setReady] = useState(false);
   const playerRef = useRef(null);
 
   // Parse m3u playlist
@@ -47,31 +58,54 @@ export default function IP() {
   };
 
   // Fetch and parse playlist
-  useEffect(() => {
-    const fetchPlaylist = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          "https://iptv-org.github.io/iptv/index.m3u"
-        );
-        const text = await response.text();
-        const parsedChannels = parseM3U(text);
-        setChannels(parsedChannels);
-        setError(null);
-      } catch (err) {
-        setError("Failed to load playlist: " + err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchPlaylist = async () => {
+    try {
+      setLoading(true);
+      setError(null);
 
+      const response = await fetch(
+        "https://iptv-org.github.io/iptv/index.m3u",
+        {
+          method: "GET",
+          headers: {
+            Accept: "*/*",
+          },
+          mode: "cors",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const text = await response.text();
+      const parsedChannels = parseM3U(text);
+
+      if (parsedChannels.length === 0) {
+        throw new Error("No channels found in playlist");
+      }
+
+      setChannels(parsedChannels);
+      console.log(`Loaded ${parsedChannels.length} channels`);
+    } catch (err) {
+      console.error("Playlist fetch error:", err);
+      setError("Failed to load playlist: " + err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     fetchPlaylist();
   }, []);
 
   // Play selected channel
   const playChannel = (channel) => {
+    console.log("Playing channel:", channel.name, channel.url);
     setCurrentChannel(channel);
     setPlaying(true);
+    setPlayerError(null);
+    setReady(false);
   };
 
   // Toggle play/pause
@@ -82,6 +116,31 @@ export default function IP() {
   // Toggle mute
   const toggleMute = () => {
     setMuted(!muted);
+  };
+
+  // Handle player errors
+  const handlePlayerError = (error) => {
+    console.error("Player error:", error);
+    setPlayerError(
+      `Failed to load stream. The channel may be offline or incompatible.`
+    );
+    setPlaying(false);
+  };
+
+  // Handle player ready
+  const handleReady = () => {
+    console.log("Player ready");
+    setReady(true);
+    setPlayerError(null);
+  };
+
+  // Retry current channel
+  const retryChannel = () => {
+    if (currentChannel) {
+      setPlayerError(null);
+      setReady(false);
+      setPlaying(true);
+    }
   };
 
   // Filter channels by search
@@ -103,8 +162,9 @@ export default function IP() {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
         <div className="text-center">
-          <Loader className="w-12 h-12 animate-spin mx-auto mb-4" />
+          <Loader className="w-12 h-12 animate-spin mx-auto mb-4 text-blue-500" />
           <p className="text-xl">Loading channels...</p>
+          <p className="text-sm text-gray-400 mt-2">Fetching IPTV playlist</p>
         </div>
       </div>
     );
@@ -113,9 +173,16 @@ export default function IP() {
   if (error) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
-        <div className="text-center text-red-400">
-          <p className="text-xl mb-2">Error</p>
-          <p>{error}</p>
+        <div className="text-center">
+          <AlertCircle className="w-12 h-12 mx-auto mb-4 text-red-500" />
+          <p className="text-xl mb-2 text-red-400">Error Loading Playlist</p>
+          <p className="text-gray-400 mb-4">{error}</p>
+          <button
+            onClick={fetchPlaylist}
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition flex items-center gap-2 mx-auto">
+            <RefreshCw className="w-4 h-4" />
+            Retry
+          </button>
         </div>
       </div>
     );
@@ -134,54 +201,65 @@ export default function IP() {
               placeholder="Search channels..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 pr-4 py-2 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
             />
           </div>
           <p className="text-sm text-gray-400 mt-2">
-            {filteredChannels.length} channels available
+            {filteredChannels.length} of {channels.length} channels
           </p>
         </div>
 
         <div className="flex-1 overflow-y-auto">
-          {Object.keys(groupedChannels)
-            .sort()
-            .map((group) => (
-              <div key={group} className="mb-4">
-                <div className="px-4 py-2 bg-gray-700 text-sm font-semibold sticky top-0">
-                  {group}
-                </div>
-                {groupedChannels[group].map((channel) => (
-                  <div
-                    key={channel.id}
-                    onClick={() => playChannel(channel)}
-                    className={`px-4 py-3 cursor-pointer hover:bg-gray-700 transition flex items-center gap-3 ${
-                      currentChannel?.id === channel.id
-                        ? "bg-blue-600 hover:bg-blue-700"
-                        : ""
-                    }`}>
-                    {channel.logo ? (
-                      <img
-                        src={channel.logo}
-                        alt=""
-                        className="w-10 h-10 rounded object-cover"
-                      />
-                    ) : (
-                      <div className="w-10 h-10 bg-gray-600 rounded flex items-center justify-center">
+          {Object.keys(groupedChannels).length === 0 ? (
+            <div className="p-4 text-center text-gray-400">
+              <p>No channels found</p>
+            </div>
+          ) : (
+            Object.keys(groupedChannels)
+              .sort()
+              .map((group) => (
+                <div key={group} className="mb-4">
+                  <div className="px-4 py-2 bg-gray-700 text-sm font-semibold sticky top-0 z-10">
+                    {group} ({groupedChannels[group].length})
+                  </div>
+                  {groupedChannels[group].map((channel) => (
+                    <div
+                      key={channel.id}
+                      onClick={() => playChannel(channel)}
+                      className={`px-4 py-3 cursor-pointer hover:bg-gray-700 transition flex items-center gap-3 ${
+                        currentChannel?.id === channel.id
+                          ? "bg-blue-600 hover:bg-blue-700"
+                          : ""
+                      }`}>
+                      {channel.logo ? (
+                        <img
+                          src={channel.logo}
+                          alt=""
+                          className="w-10 h-10 rounded object-cover flex-shrink-0"
+                          onError={(e) => {
+                            e.target.style.display = "none";
+                            e.target.nextElementSibling.style.display = "flex";
+                          }}
+                        />
+                      ) : null}
+                      <div
+                        className="w-10 h-10 bg-gray-600 rounded flex items-center justify-center flex-shrink-0"
+                        style={{ display: channel.logo ? "none" : "flex" }}>
                         <Play className="w-5 h-5" />
                       </div>
-                    )}
-                    <div className="flex-1 min-w-0">
-                      <p className="font-medium truncate">{channel.name}</p>
-                      {channel.tvgId && (
-                        <p className="text-xs text-gray-400 truncate">
-                          {channel.tvgId}
-                        </p>
-                      )}
+                      <div className="flex-1 min-w-0">
+                        <p className="font-medium truncate">{channel.name}</p>
+                        {channel.tvgId && (
+                          <p className="text-xs text-gray-400 truncate">
+                            {channel.tvgId}
+                          </p>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            ))}
+                  ))}
+                </div>
+              ))
+          )}
         </div>
       </div>
 
@@ -190,28 +268,55 @@ export default function IP() {
         {currentChannel ? (
           <>
             <div className="flex-1 bg-black flex items-center justify-center relative">
-              <ReactPlayer
-                ref={playerRef}
-                url={currentChannel.url}
-                playing={playing}
-                muted={muted}
-                volume={volume}
-                width="100%"
-                height="100%"
-                onPlay={() => setPlaying(true)}
-                onPause={() => setPlaying(false)}
-                onError={(e) => console.error("Player error:", e)}
-                config={{
-                  file: {
-                    forceHLS: true,
-                    hlsOptions: {
-                      maxLoadingDelay: 4,
-                      minAutoBitrate: 0,
-                      lowLatencyMode: true,
-                    },
-                  },
-                }}
-              />
+              {playerError ? (
+                <div className="text-center p-8">
+                  <AlertCircle className="w-16 h-16 mx-auto mb-4 text-red-500" />
+                  <p className="text-xl mb-2 text-white">Playback Error</p>
+                  <p className="text-gray-400 mb-4">{playerError}</p>
+                  <button
+                    onClick={retryChannel}
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition flex items-center gap-2 mx-auto">
+                    <RefreshCw className="w-4 h-4" />
+                    Retry Channel
+                  </button>
+                </div>
+              ) : (
+                <>
+                  {!ready && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
+                      <Loader className="w-12 h-12 animate-spin text-blue-500" />
+                    </div>
+                  )}
+                  <ReactPlayer
+                    ref={playerRef}
+                    url={currentChannel.url}
+                    playing={playing}
+                    muted={muted}
+                    volume={volume}
+                    width="100%"
+                    height="100%"
+                    onReady={handleReady}
+                    onPlay={() => setPlaying(true)}
+                    onPause={() => setPlaying(false)}
+                    onError={handlePlayerError}
+                    config={{
+                      file: {
+                        forceHLS: true,
+                        hlsOptions: {
+                          maxLoadingDelay: 4,
+                          minAutoBitrate: 0,
+                          lowLatencyMode: true,
+                          enableWorker: true,
+                          debug: false,
+                        },
+                        attributes: {
+                          crossOrigin: "anonymous",
+                        },
+                      },
+                    }}
+                  />
+                </>
+              )}
             </div>
 
             {/* Controls */}
@@ -219,7 +324,8 @@ export default function IP() {
               <div className="flex items-center gap-4">
                 <button
                   onClick={togglePlay}
-                  className="p-3 bg-blue-600 hover:bg-blue-700 rounded-full transition">
+                  disabled={!!playerError}
+                  className="p-3 bg-blue-600 hover:bg-blue-700 rounded-full transition disabled:opacity-50 disabled:cursor-not-allowed">
                   {playing ? (
                     <Pause className="w-6 h-6" />
                   ) : (
@@ -229,7 +335,8 @@ export default function IP() {
 
                 <button
                   onClick={toggleMute}
-                  className="p-2 hover:bg-gray-700 rounded-lg transition">
+                  disabled={!!playerError}
+                  className="p-2 hover:bg-gray-700 rounded-lg transition disabled:opacity-50">
                   {muted ? (
                     <VolumeX className="w-6 h-6" />
                   ) : (
@@ -244,15 +351,24 @@ export default function IP() {
                   step="0.1"
                   value={volume}
                   onChange={(e) => setVolume(parseFloat(e.target.value))}
-                  className="w-24"
+                  disabled={!!playerError}
+                  className="w-24 disabled:opacity-50"
                 />
 
-                <div className="flex-1">
-                  <p className="font-semibold">{currentChannel.name}</p>
-                  <p className="text-sm text-gray-400">
+                <div className="flex-1 min-w-0">
+                  <p className="font-semibold truncate">
+                    {currentChannel.name}
+                  </p>
+                  <p className="text-sm text-gray-400 truncate">
                     {currentChannel.group}
                   </p>
                 </div>
+
+                {ready && !playerError && (
+                  <div className="px-3 py-1 bg-green-600 rounded-full text-xs font-medium">
+                    LIVE
+                  </div>
+                )}
               </div>
             </div>
           </>
@@ -260,7 +376,10 @@ export default function IP() {
           <div className="flex-1 flex items-center justify-center">
             <div className="text-center text-gray-400">
               <Play className="w-16 h-16 mx-auto mb-4 opacity-50" />
-              <p className="text-xl">Select a channel to start watching</p>
+              <p className="text-xl mb-2">Select a channel to start watching</p>
+              <p className="text-sm">
+                Choose from {channels.length} available channels
+              </p>
             </div>
           </div>
         )}

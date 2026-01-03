@@ -48,8 +48,13 @@
       "target": "dmg"
     },
     "linux": {
-      "target": "AppImage",
-      "category": "Utility"
+      "target": [
+        "AppImage"
+      ],
+      "category": "AudioVideo",
+      "maintainer": "Arif Miah 07 <your-email@example.com>",
+      "synopsis": "Watch IPTV channels",
+      "description": "IPTV Player Desktop App for watching live TV channels"
     }
   },
   "dependencies": {

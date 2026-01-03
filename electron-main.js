@@ -10,10 +10,27 @@ function createWindow() {
     width: 1280,
     height: 720,
     webPreferences: {
-      nodeIntegration: false,  // Changed to false for security
-      contextIsolation: true,   // Changed to true for security
-      webSecurity: true
+      nodeIntegration: false,
+      contextIsolation: true,
+      webSecurity: false, // ⚠️ Disable only if you face CORS issues with streams
+      allowRunningInsecureContent: true, // For HTTP streams over HTTPS
     },
+  });
+
+  // Add this to handle CORS for video streaming
+  win.webContents.session.webRequest.onBeforeSendHeaders(
+    (details, callback) => {
+      callback({ requestHeaders: { Origin: "*", ...details.requestHeaders } });
+    }
+  );
+
+  win.webContents.session.webRequest.onHeadersReceived((details, callback) => {
+    callback({
+      responseHeaders: {
+        "Access-Control-Allow-Origin": ["*"],
+        ...details.responseHeaders,
+      },
+    });
   });
 
   // Dev mode: load Vite dev server
@@ -23,22 +40,22 @@ function createWindow() {
   } else {
     // Prod mode: load built index.html
     const indexPath = path.join(__dirname, "dist", "index.html");
-    
+
     // Use loadURL instead of loadFile for better React Router support
     win.loadURL(`file://${indexPath}`);
-    
+
     // Optional: Open DevTools in production for debugging
     // win.webContents.openDevTools();
   }
 
   // Log any loading errors
-  win.webContents.on('did-fail-load', (event, errorCode, errorDescription) => {
-    console.error('Failed to load:', errorCode, errorDescription);
+  win.webContents.on("did-fail-load", (event, errorCode, errorDescription) => {
+    console.error("Failed to load:", errorCode, errorDescription);
   });
 
   // Handle console messages from renderer
-  win.webContents.on('console-message', (event, level, message) => {
-    console.log('Renderer log:', message);
+  win.webContents.on("console-message", (event, level, message) => {
+    console.log("Renderer log:", message);
   });
 }
 
