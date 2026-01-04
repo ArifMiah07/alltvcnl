@@ -64,6 +64,7 @@
     "lucide-react": "^0.562.0",
     "match-sorter": "^6.3.4",
     "media-chrome": "^4.17.2",
+    "motion": "^12.23.26",
     "proptypes": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
