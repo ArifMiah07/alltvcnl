@@ -6,8 +6,8 @@ import { useEffect } from "react";
 import { FaDisplay } from "react-icons/fa6";
 
 const MoreChannels = ({
-  streamData,
-  channel,
+  // streamData,
+  // channel,
   channelIndex,
   streams,
   currentPage,
@@ -16,12 +16,12 @@ const MoreChannels = ({
   //   numbersOfPages,
   handleCurrentPage,
 }) => {
-  console.log(streamData);
-  console.log(channel, channelIndex);
+  // console.log(streamData);
+  // console.log(channel, channelIndex);
 
   useEffect(() => {
     const cIndex = Math.ceil(Number(channelIndex) / 10);
-    console.log(cIndex);
+    // console.log(cIndex);
     handleCurrentPage(cIndex);
   }, [channelIndex]);
 

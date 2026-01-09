@@ -55,9 +55,9 @@ const StreamSpecificChannel = () => {
 
   //
 
-  console.log(streamData);
-  console.log(streams);
-  console.log(channelIndex, channel);
+  // console.log(streamData);
+  // console.log(streams);
+  // console.log(channelIndex, channel);
   return (
     <div className=" p-4">
       {/* <h1>stream a specific channel</h1> */}
