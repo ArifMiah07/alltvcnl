@@ -19,6 +19,7 @@ import {
   MediaCaptionsButton,
   MediaPipButton,
 } from "media-chrome/react";
+import { LuMonitorPlay } from "react-icons/lu";
 
 const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   // react states
@@ -48,9 +49,11 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
     <div className=" w-full h-full col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center justify-items-center gap-4 p-4  ">
       {streams ? (
         streams?.map((stream_item, stream_index) => (
+          // player container
           <div
             className=" w-full h-full flex flex-col items-center justify-center border border-rose-50 bg-radial-[at_50%_75%] from-sky-100 via-violet-100 to-fuchsia-100 to-90%"
             key={stream_index}>
+            {/* user actions */}
             <div className="w-full flex flex-col flex-wrap">
               {/* channel info */}
               <div className="flex gap-2 px-2">
@@ -85,6 +88,15 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                   } */}
                     <HiViewfinderCircle className="" />
                   </Link>
+                </span>
+                {/* stream a specific channel on browser in a separate tab */}
+                <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
+                  <a
+                    href={`${stream_item.url}`}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <LuMonitorPlay />
+                  </a>
                 </span>
                 {/* bookmark a specific channel */}
                 {/* save or locally or save to a playlist <localStorage || default, playlist name> */}
