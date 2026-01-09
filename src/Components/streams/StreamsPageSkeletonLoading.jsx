@@ -36,3 +36,25 @@ const StreamsPageSkeletonLoading = () => {
 };
 
 export default StreamsPageSkeletonLoading;
+
+/** ____TODO____
+ *
+ * Make a frame on all elements
+ * Add animation
+ * Make and Check responsiveness
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
