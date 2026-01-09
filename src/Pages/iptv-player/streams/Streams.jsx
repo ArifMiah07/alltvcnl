@@ -7,7 +7,6 @@ import PaginationNumbers from "../../../Components/pagination/PaginationNumbers"
 import Sidebar from "../../../Components/sidebar/Sidebar";
 import { Toaster } from "sonner";
 import StreamsPageSkeletonLoading from "../../../Components/streams/StreamsPageSkeletonLoading";
-import { Link } from "react-router-dom";
 
 /**
  *
@@ -114,20 +113,6 @@ const Streams = () => {
           currentPage={currentPage}
           handleCurrentPage={handleCurrentPage}
         />
-      </div>
-      {/*  */}
-      <div className="w-full h-full">
-        <Link
-          to="https://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/65d5fc39a25d5e00082895c4livestitch/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=bc8504f0-4b91-11ef-8a44-83c5e90e038f&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=a11b7b48-853c-4292-b5d5-30482134cf1e&profilesFromStream=true"
-          target="_blank"
-          rel="noopener noreferrer">
-          Watch
-        </Link>
-        {/* <ReactPlayer
-          controls={true}
-          src="https://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/65d5fc39a25d5e00082895c4livestitch/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=bc8504f0-4b91-11ef-8a44-83c5e90e038f&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=a11b7b48-853c-4292-b5d5-30482134cf1e&profilesFromStream=true
-"
-        /> */}
       </div>
     </div>
   );

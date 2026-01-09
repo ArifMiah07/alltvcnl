@@ -26,7 +26,9 @@ const NavBar = () => {
     setCurrentPath(location.pathname);
   }, [location]);
 
-  const baseTextColor = isSticky ? "text-white" : "text-black";
+  const baseTextColor = isSticky
+    ? "text-purple-500 lg:text-white"
+    : "text-black";
 
   const getNavLinkClass = ({ isActive }) =>
     `
@@ -39,7 +41,7 @@ const NavBar = () => {
     `;
 
   return (
-    <nav className="z-19 w-full h-full flex flex-row items-center justify-center">
+    <nav className="relative z-50 w-full h-full flex flex-row items-center justify-center">
       <div
         className={`${
           isSticky
@@ -66,7 +68,7 @@ const NavBar = () => {
             <ul
               key={currentPath + "-mobile"}
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white text-purple  rounded-box w-52">
+              className="menu menu-sm dropdown-content mt-3 z-11 p-2 shadow bg-white  rounded-box w-52">
               <li>
                 <NavLink to="/home" className={getNavLinkClass}>
                   Home
@@ -106,10 +108,10 @@ const NavBar = () => {
           </div>
           <Link
             to="/"
-            className={`btn btn-ghost text-xl font-bold ${
+            className={`btn btn-ghost text-md lg:text-lg font-medium lg:font-bold ${
               isSticky ? "text-white hidden" : "text-black visible"
             }`}>
-            <p className="flex">IPTV Player</p>
+            <p className="flex items-center">IPTV Player</p>
           </Link>
         </div>
 
@@ -155,7 +157,10 @@ const NavBar = () => {
           </ul>
         </div>
 
-        <div className="navbar-end pr-4 flex flex-row items-center justify-end">
+        <div
+          className={` navbar-end pr-4 flex flex-row items-center justify-end ${
+            isSticky ? "hidden" : "visible"
+          } `}>
           <Link
             to="https://arif-miah-portfolio.vercel.app"
             target="_blank"
@@ -163,7 +168,7 @@ const NavBar = () => {
             className={`hover:underline ${
               isSticky ? "text-white hidden" : "text-black visible"
             }`}>
-            <p className="flex">Portfolio</p>
+            <p className="flex hover:text-purple-500">Portfolio</p>
           </Link>
         </div>
       </div>
