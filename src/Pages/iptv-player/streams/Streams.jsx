@@ -1,6 +1,4 @@
-// stream here
-
-// import axios from "axios";
+// streams here
 
 import { usePagination } from "../../../hooks/usePagination";
 import useFetchStreams from "../../../hooks/useFetch";
@@ -8,6 +6,7 @@ import StreamsGrid from "../../../Components/streams/StreamsGrid";
 import PaginationNumbers from "../../../Components/pagination/PaginationNumbers";
 import Sidebar from "../../../Components/sidebar/Sidebar";
 import { Toaster } from "sonner";
+import StreamsPageSkeletonLoading from "../../../Components/streams/StreamsPageSkeletonLoading";
 
 /**
  *
@@ -42,22 +41,22 @@ const Streams = () => {
     // setTotalItems,
   } = usePagination();
 
-  console.log({
-    currentPage,
-    numbersOfPages,
-    inputRange,
-    setInputRange,
-    handleCurrentPage,
-    handleGotoPage,
-    handleNextPage,
-    handlePrevPage,
-    channelsPerPage,
-    channelsInput,
-    setChannelsInput,
-    handleChannelsPerPage,
-    totalItems,
-    // setTotalItems,
-  });
+  // console.log({
+  //   currentPage,
+  //   numbersOfPages,
+  //   inputRange,
+  //   setInputRange,
+  //   handleCurrentPage,
+  //   handleGotoPage,
+  //   handleNextPage,
+  //   handlePrevPage,
+  //   channelsPerPage,
+  //   channelsInput,
+  //   setChannelsInput,
+  //   handleChannelsPerPage,
+  //   totalItems,
+  //   // setTotalItems,
+  // });
 
   // console.log(streams);
 
@@ -65,7 +64,7 @@ const Streams = () => {
   // const pagesArray = Array.from({ length: 10 }, (_, i) => startPage + i);
 
   //
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <StreamsPageSkeletonLoading />;
   if (error) return <p>Error: {error}</p>;
 
   // console.log(import.meta.env.NODE_ENV);

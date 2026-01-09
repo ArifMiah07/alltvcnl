@@ -2,6 +2,8 @@ import { HiViewfinderCircle } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
+// import { LuMonitorPlay } from "react-icons/lu";
+import { FaDisplay } from "react-icons/fa6";
 
 const MoreChannels = ({
   streamData,
@@ -59,6 +61,15 @@ const MoreChannels = ({
                     state={{ streamData: stream_item }}>
                     <HiViewfinderCircle className="" />
                   </Link>
+                </span>
+                {/* stream a specific channel on browser in a separate tab */}
+                <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
+                  <a
+                    href={`${stream_item.url}`}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <FaDisplay />
+                  </a>
                 </span>
                 <span>{""}</span>
               </div>

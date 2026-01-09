@@ -23,7 +23,7 @@ import LandingPage from "../Pages/LandingPage/LandingPage";
 import Library from "../Pages/Library/Library";
 import Streams from "../Pages/iptv-player/streams/Streams";
 import StreamSpecificChannel from "../Pages/iptv-player/streams/SpecificChannel";
-import IP from "../Pages/iptv-player/IP";
+// import IP from "../Pages/iptv-player/IP";
 
 const router = createHashRouter([
   {
@@ -43,10 +43,10 @@ const router = createHashRouter([
         path: "/streams",
         element: <Streams />,
       },
-      {
-        path: "/ip",
-        element: <IP />,
-      },
+      // {
+      //   path: "/ip",
+      //   element: <IP />,
+      // },
       {
         path: "/specific-channel/:channelIndex/:channel",
         element: <StreamSpecificChannel />,

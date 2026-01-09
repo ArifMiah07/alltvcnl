@@ -26,7 +26,9 @@ const NavBar = () => {
     setCurrentPath(location.pathname);
   }, [location]);
 
-  const baseTextColor = isSticky ? "text-white" : "text-black";
+  const baseTextColor = isSticky
+    ? "text-purple-500 lg:text-white"
+    : "text-black";
 
   const getNavLinkClass = ({ isActive }) =>
     `
@@ -39,15 +41,18 @@ const NavBar = () => {
     `;
 
   return (
-    <nav className="z-19 w-full h-full flex flex-row items-center justify-center">
+    <nav className="relative z-50 w-full h-full flex flex-row items-center justify-center">
       <div
         className={`${
           isSticky
-            ? "flex flex-row gap-4 rounded-full fixed top-0 left-1/2 -translate-x-1/2 lg:w-fit z-50 shadow-md bg-white/30 backdrop-blur-md px-6 py-1 z-11"
-            : "w-full z-11 navbar p-0 min-h-0 transition-all duration-300 ease-in-out shadow-md bg-white/30 backdrop-blur-md"
+            ? "flex flex-row items-center justify-center gap-4 rounded-full fixed top-0 left-1/2 -translate-x-1/2 w-[100px] md:w-[100px] lg:w-[800px] h-[50px] border border-red-50 z-50 shadow-md bg-white/30 backdrop-blur-md px-6 py-1 isolate"
+            : "w-full navbar p-0 min-h-0 transition-all duration-300 ease-in-out shadow-md bg-white/30 backdrop-blur-md isolate"
         }`}>
-        <div className="navbar-start">
-          <div className="dropdown">
+        <div
+          className={`navbar-start md:p-0 ${
+            isSticky ? "  absolute left-1/2 -translate-x-1/2  " : ""
+          } `}>
+          <div className={`dropdown`}>
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +71,7 @@ const NavBar = () => {
             <ul
               key={currentPath + "-mobile"}
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box w-52">
+              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-white  rounded-box w-52">
               <li>
                 <NavLink to="/home" className={getNavLinkClass}>
                   Home
@@ -106,14 +111,14 @@ const NavBar = () => {
           </div>
           <Link
             to="/"
-            className={`btn btn-ghost text-xl font-bold ${
+            className={`btn btn-ghost text-md lg:text-lg font-medium lg:font-bold ${
               isSticky ? "text-white hidden" : "text-black visible"
             }`}>
-            <p className="flex">IPTV Player</p>
+            <p className="flex items-center">IPTV Player</p>
           </Link>
         </div>
 
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden lg:flex ">
           <ul
             key={currentPath + "-desktop"}
             className="menu menu-horizontal px-1">
@@ -155,7 +160,10 @@ const NavBar = () => {
           </ul>
         </div>
 
-        <div className="navbar-end pr-4 flex flex-row items-center justify-end">
+        <div
+          className={` navbar-end pr-4 flex flex-row items-center justify-end ${
+            isSticky ? "hidden" : "visible"
+          } `}>
           <Link
             to="https://arif-miah-portfolio.vercel.app"
             target="_blank"
@@ -163,7 +171,7 @@ const NavBar = () => {
             className={`hover:underline ${
               isSticky ? "text-white hidden" : "text-black visible"
             }`}>
-            <p className="flex">Portfolio</p>
+            <p className="flex hover:text-purple-500">Portfolio</p>
           </Link>
         </div>
       </div>
