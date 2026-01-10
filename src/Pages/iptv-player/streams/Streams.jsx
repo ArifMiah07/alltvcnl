@@ -73,7 +73,7 @@ const Streams = () => {
   return (
     <div className="min-h-screen w-full p-4">
       {/* toast */}
-      <Toaster richColors position="top-right" />
+      {/* <Toaster richColors position="top-right" className="z-30" /> */}
       {/* <ClockPage /> */}
       <h1 className="text-lg font-normal">Iptv player {">"} Streaming</h1>
       <div className="  flex flex-row gap-3 p-3 w-full">
