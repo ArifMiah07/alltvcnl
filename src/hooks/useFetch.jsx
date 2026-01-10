@@ -2,14 +2,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { usePagination } from "./usePagination";
+import { BASE_STREAMS_API_URL } from "../configs/api-url.config";
 // import { API_URL } from "../constants/url";
 // import { usePagination } from "../contexts/PaginationContext";
-
-const API_URL = {
-  streams_api_url: "http://localhost:5000/api/iptv-player/streams",
-  streams_api_url_prod:
-    "https://iptv-player-server.vercel.app/api/iptv-player/streams",
-};
 
 const useFetchStreams = () => {
   // react states
@@ -29,10 +24,11 @@ const useFetchStreams = () => {
     // fetch
     async function fetchStreams() {
       try {
-        const response = await axios.get(API_URL.streams_api_url_prod, {
+        const response = await axios.get(BASE_STREAMS_API_URL, {
           params: { currentPage, channelsPerPage },
         });
         console.log(response?.data?.data);
+        console.log(BASE_STREAMS_API_URL);
         setStreams(response?.data?.data);
         setTotalItems(response?.data?.totalItems);
         setError(null); // clear previous error
@@ -50,7 +46,7 @@ const useFetchStreams = () => {
     fetchStreams();
   }, [currentPage, channelsPerPage]);
 
-  console.log(streams);
+  // console.log(streams);
 
   return { streams, loading, error };
 };
