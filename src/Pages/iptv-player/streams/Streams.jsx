@@ -5,7 +5,7 @@ import useFetchStreams from "../../../hooks/useFetch";
 import StreamsGrid from "../../../Components/streams/StreamsGrid";
 import PaginationNumbers from "../../../Components/pagination/PaginationNumbers";
 import Sidebar from "../../../Components/sidebar/Sidebar";
-import { Toaster } from "sonner";
+// import { Toaster } from "sonner";
 import StreamsPageSkeletonLoading from "../../../Components/streams/StreamsPageSkeletonLoading";
 
 /**
