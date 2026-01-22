@@ -1,9 +1,11 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 const TestingPage = () => {
   //
-  const [showName, setShowName] = useState();
-  const [name, setName] = useState(() => {
+  const [searchData, setSearchData] = useState([]);
+  const [showSearchValue, setShowSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState(() => {
     const saveName = localStorage.getItem("userName");
     return saveName ? JSON.parse(saveName) : "";
   });
@@ -23,14 +25,14 @@ const TestingPage = () => {
   //
 
   useEffect(() => {
-    localStorage.setItem("userName", JSON.stringify(name));
-  }, [name]);
+    localStorage.setItem("userName", JSON.stringify(searchValue));
+  }, [searchValue]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowName(JSON.parse(localStorage.getItem("userName")));
+    setShowSearchValue(JSON.parse(localStorage.getItem("userName")));
   };
-  console.log(showName);
+  console.log(showSearchValue);
 
   useEffect(() => {
     localStorage.setItem("currentPage", JSON.stringify(currentPageRangeLocal));
@@ -43,16 +45,34 @@ const TestingPage = () => {
 
   console.log(currentPage);
 
+  useEffect(() => {
+    const fetchSearchResult = async () => {
+      try {
+        const searchTerm = showSearchValue || "";
+        const url = `http://localhost:5000/api/iptv-player/testing-search-url?term=${searchTerm}`;
+        const response = await axios.get(url);
+        // console.log(response?.data);
+        setSearchData(response?.data?.data);
+        //
+      } catch (error) {
+        throw new Error("Something went wrong! ");
+      }
+    };
+    fetchSearchResult();
+  }, [showSearchValue]);
+
+  console.log(searchData);
+
   return (
     <div className="p-12 flex flex-col gap-4">
       <h1>this is testing page</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-        <label htmlFor="name">Enter Your Name - {showName} </label>
+        <label htmlFor="name">Enter Your Name - {showSearchValue} </label>
         <input
           className="p-3 "
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
           placeholder="plz enter ur name"
         />
         <button className="bg-blue-400 p-2" type="submit">
@@ -72,6 +92,28 @@ const TestingPage = () => {
           Submit
         </button>
       </form>
+
+      <div className="p-12">
+        <div>
+          {searchData?.length > 100
+            ? searchData?.slice(0, 100).map((item, index) => (
+                <div key={index}>
+                  <p>
+                    {" "}
+                    {index + 1}. {item}
+                  </p>
+                </div>
+              ))
+            : searchData?.map((item, index) => (
+                <div key={index}>
+                  <p>
+                    {" "}
+                    {index + 1}. {item}
+                  </p>
+                </div>
+              ))}
+        </div>
+      </div>
     </div>
   );
 };
