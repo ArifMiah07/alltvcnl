@@ -95,23 +95,30 @@ const TestingPage = () => {
 
       <div className="p-12">
         <div>
-          {searchData?.length > 100
-            ? searchData?.slice(0, 100).map((item, index) => (
-                <div key={index}>
-                  <p>
-                    {" "}
-                    {index + 1}. {item}
-                  </p>
-                </div>
-              ))
-            : searchData?.map((item, index) => (
-                <div key={index}>
-                  <p>
-                    {" "}
-                    {index + 1}. {item}
-                  </p>
-                </div>
-              ))}
+          {searchData &&
+            (searchData?.length > 100
+              ? searchData?.slice(0, 100).map((item, index) => (
+                  <div key={index}>
+                    <p>
+                      {" "}
+                      {index + 1}.{" "}
+                      <a href={item.url} target="_blank">
+                        {item.channel || item.title}
+                      </a>
+                    </p>
+                  </div>
+                ))
+              : searchData?.map((item, index) => (
+                  <div key={index}>
+                    <p>
+                      {" "}
+                      {index + 1}.{" "}
+                      <a href={item.url} target="_blank">
+                        {item.channel || item.title}
+                      </a>
+                    </p>
+                  </div>
+                )))}
         </div>
       </div>
     </div>
