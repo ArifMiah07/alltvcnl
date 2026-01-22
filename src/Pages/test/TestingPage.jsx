@@ -4,89 +4,79 @@ import { useEffect, useState } from "react";
 const TestingPage = () => {
   //
   const [searchData, setSearchData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [showSearchValue, setShowSearchValue] = useState("");
-  const [searchValue, setSearchValue] = useState(() => {
-    const saveName = localStorage.getItem("userName");
-    return saveName ? JSON.parse(saveName) : "";
-  });
+  const [searchValue, setSearchValue] = useState("");
+  //   const [searchValue, setSearchValue] = useState(() => {
+  //     const storeSearchValue = localStorage.getItem("search_value");
+  //     return storeSearchValue ? JSON.parse(storeSearchValue) : "";
+  //   });
+  const [searchValueInputRange, setSearchValueInputRange] = useState("");
   //
-  const [currentPage, setCurrentPage] = useState(() => {
-    const storeCurrentPageRangeLocal = localStorage.getItem("currentPage");
-    return storeCurrentPageRangeLocal
-      ? JSON.parse(storeCurrentPageRangeLocal)
-      : "";
-  });
-  const [currentPageRangeLocal, setCurrentPageRangeLocal] = useState(() => {
-    const storeCurrentPageRangeLocal = localStorage.getItem("currentPage");
-    return storeCurrentPageRangeLocal
-      ? JSON.parse(storeCurrentPageRangeLocal)
-      : "";
-  });
+  //   const getLocalItem = localStorage.getItem("searchValueLocal");
   //
-
-  useEffect(() => {
-    localStorage.setItem("userName", JSON.stringify(searchValue));
-  }, [searchValue]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowSearchValue(JSON.parse(localStorage.getItem("userName")));
+    // console.log();
+    handleSearchValue(searchValueInputRange);
+    // localStorage.getItem("searchValueLocal", JSON.parse(searchValueInputRange));
   };
-  console.log(showSearchValue);
-
+  const handleSearchValue = (value) => {
+    localStorage.setItem("searchValueLocal", JSON.stringify(value));
+    setSearchValue(value);
+  };
   useEffect(() => {
-    localStorage.setItem("currentPage", JSON.stringify(currentPageRangeLocal));
-  }, [currentPageRangeLocal]);
+    const stored = localStorage.getItem("searchValueLocal");
+    setShowSearchValue(stored);
+    if (stored) {
+      console.log("Stored value:", JSON.parse(stored));
+    }
+  }, [searchValue]);
+  //   console.log("stored ", showSearchValue);
 
-  const handleCurrentPageSubmit = (e) => {
-    e.preventDefault();
-    setCurrentPage(JSON.parse(localStorage.getItem("currentPage")));
-  };
-
-  console.log(currentPage);
+  //   const getItem = localStorage.getItem("searchValueLocal");
+  //   console.log("search: value:: ", searchValue, JSON.parse(getItem));
 
   useEffect(() => {
     const fetchSearchResult = async () => {
       try {
-        const searchTerm = showSearchValue || "";
+        const searchTerm = JSON.parse(showSearchValue);
         const url = `http://localhost:5000/api/iptv-player/testing-search-url?term=${searchTerm}`;
         const response = await axios.get(url);
         // console.log(response?.data);
         setSearchData(response?.data?.data);
+        setError(null);
+
         //
       } catch (error) {
-        throw new Error("Something went wrong! ");
+        // throw new Error("Something went wrong! ");
+        setError(error);
+      } finally {
+        //
+        setLoading(false);
       }
     };
     fetchSearchResult();
-  }, [showSearchValue]);
+  }, [searchValue, showSearchValue]);
 
   console.log(searchData);
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
   return (
     <div className="p-12 flex flex-col gap-4">
-      <h1>this is testing page</h1>
+      <h1 className="text-sm mb-4">this is testing page</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <label htmlFor="name">Enter Your Name - {showSearchValue} </label>
         <input
           className="p-3 "
           type="text"
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
+          value={searchValueInputRange}
+          onChange={(e) => setSearchValueInputRange(e.target.value)}
           placeholder="plz enter ur name"
-        />
-        <button className="bg-blue-400 p-2" type="submit">
-          Submit
-        </button>
-      </form>
-      <form onSubmit={handleCurrentPageSubmit} className="flex flex-col gap-3">
-        <label htmlFor="currentPage">Enter Current Page - {currentPage} </label>
-        <input
-          className="p-3 "
-          type="text"
-          value={currentPageRangeLocal}
-          onChange={(e) => setCurrentPageRangeLocal(e.target.value)}
-          placeholder="plz enter current page number"
         />
         <button className="bg-blue-400 p-2" type="submit">
           Submit

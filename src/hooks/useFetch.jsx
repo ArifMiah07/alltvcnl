@@ -44,7 +44,7 @@ const useFetchStreams = () => {
     }
     // call
     fetchStreams();
-  }, [currentPage, channelsPerPage]);
+  }, [currentPage, channelsPerPage, setTotalItems]);
 
   // console.log(streams);
 
