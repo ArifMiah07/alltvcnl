@@ -8,10 +8,6 @@ const TestingPage = () => {
   const [error, setError] = useState(null);
   const [showSearchValue, setShowSearchValue] = useState("");
   const [searchValue, setSearchValue] = useState("");
-  //   const [searchValue, setSearchValue] = useState(() => {
-  //     const storeSearchValue = localStorage.getItem("search_value");
-  //     return storeSearchValue ? JSON.parse(storeSearchValue) : "";
-  //   });
   const [searchValueInputRange, setSearchValueInputRange] = useState("");
   //
   //   const getLocalItem = localStorage.getItem("searchValueLocal");
@@ -63,31 +59,58 @@ const TestingPage = () => {
 
   console.log(searchData);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  //   const s = JSON.parse(showSearchValue);
+  console.log("searchValue, showSearchValue", showSearchValue);
+  //   console.log("searchValueInputRange ", searchValueInputRange);
 
   return (
-    <div className="p-12 flex flex-col gap-4">
-      <h1 className="text-sm mb-4">this is testing page</h1>
+    // this is search page
+    /**
+     * Search by channel, title and show all search results with
+     * pagination and add a sidebar for filtering and control user actions
+     * refactor, add all device responsiveness
+     */
+    <div className="p-2 flex flex-col">
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-        <label htmlFor="name">Enter Your Name - {showSearchValue} </label>
-        <input
-          className="p-3 "
-          type="text"
-          value={searchValueInputRange}
-          onChange={(e) => setSearchValueInputRange(e.target.value)}
-          placeholder="plz enter ur name"
-        />
-        <button className="bg-blue-400 p-2" type="submit">
-          Submit
-        </button>
+        <label className="flex gap-3" htmlFor="name">
+          <h1 className=" ">Search</h1>
+          <h2> {">"}</h2>
+          {searchValueInputRange === "" ? (
+            "search for "
+          ) : (
+            <> Searching for {searchValueInputRange} </>
+          )}
+        </label>
+        <div className="flex items-center ">
+          <input
+            className=" px-3 py-1 w-full md:w-1/3 border rounded-l-lg  "
+            type="text"
+            value={searchValueInputRange}
+            onChange={(e) => setSearchValueInputRange(e.target.value)}
+            placeholder="search by channel, title"
+          />
+          <button
+            className="bg-blue-400 px-3 py-1 w-full md:w-[102px] rounded-r-lg "
+            type="submit">
+            Submit
+          </button>
+        </div>
       </form>
 
-      <div className="p-12">
+      <div className="p-3 gap-2">
+        <h1 className="text-md">
+          Showing Search results for {showSearchValue}
+        </h1>
+        <h2 className="text-md mb-2">
+          Total channels : {searchData?.length || 0}
+        </h2>
         <div>
-          {searchData &&
-            (searchData?.length > 100
-              ? searchData?.slice(0, 100).map((item, index) => (
+          {loading ? (
+            <p>Loading...</p>
+          ) : !error ? (
+            searchData ? (
+              searchData?.length > 100 ? (
+                searchData?.slice(0, 100).map((item, index) => (
                   <div key={index}>
                     <p>
                       {" "}
@@ -98,7 +121,8 @@ const TestingPage = () => {
                     </p>
                   </div>
                 ))
-              : searchData?.map((item, index) => (
+              ) : (
+                searchData?.map((item, index) => (
                   <div key={index}>
                     <p>
                       {" "}
@@ -108,7 +132,19 @@ const TestingPage = () => {
                       </a>
                     </p>
                   </div>
-                )))}
+                ))
+              )
+            ) : (
+              <div className="p-4 text-lg bg-green ">
+                {" "}
+                <p>No data found</p>{" "}
+              </div>
+            )
+          ) : (
+            <div className="text-lg flex flex-col items-center justify-center p-4 bg-green-400">
+              <p>Error: {error.message}</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
