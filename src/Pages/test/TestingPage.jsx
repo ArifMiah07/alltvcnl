@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import StreamsPageSkeletonLoading from "../../Components/streams/StreamsPageSkeletonLoading";
 
 const TestingPage = () => {
   // search result fetching
   const [searchData, setSearchData] = useState([]);
+  const [currentIndexSet, setCurrentIndexSet] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -46,8 +48,8 @@ const TestingPage = () => {
     if (stored) {
       console.log("Stored value:", JSON.parse(stored));
     }
-  }, [searchValue]);
-  //   console.log("stored ", showSearchValue);
+  }, [searchValue, showSearchValue, searchValueInputRange]);
+  console.log("stored ", showSearchValue);
 
   //   const getItem = localStorage.getItem("searchValueLocal");
   //   console.log("search: value:: ", searchValue, JSON.parse(getItem));
@@ -57,10 +59,12 @@ const TestingPage = () => {
     const fetchSearchResult = async () => {
       try {
         const searchTerm = JSON.parse(showSearchValue);
+        console.log("searchTerm", searchTerm);
         const url = `http://localhost:5000/api/iptv-player/testing-search-url?term=${searchTerm}`;
         const response = await axios.get(url);
         // console.log(response?.data);
         setSearchData(response?.data?.data);
+        setCurrentIndexSet(response?.data?.currentIndexSet);
         setError(null);
 
         //
@@ -73,11 +77,13 @@ const TestingPage = () => {
       }
     };
     fetchSearchResult();
-  }, [searchValue, showSearchValue]);
+  }, [searchValue, showSearchValue, searchValueInputRange]);
 
   const handleCurrentPage = (page) => {
-    console.log(" page: ", page);
-    setCurrentPageNumber(page);
+    console.log(" page: ", Number(page), Math.ceil(totalChannels / 10));
+    if (Number(page) > 0 && Number(page) <= numbersOfPages) {
+      setCurrentPageNumber(page);
+    }
   };
   //   useEffect(()=> {
   //   }, [])
@@ -89,8 +95,38 @@ const TestingPage = () => {
   //   console.log("searchValueInputRange ", searchValueInputRange);
 
   //   const currentPage = 10;
-  const startPage = Math.max(1, currentPageNumber - 4);
-  const pagesArray = Array.from({ length: 10 }, (_, i) => startPage + i);
+
+  // ____UPDATED CODE FROM CHATGPT____ //
+  /** ______START HERE______ */
+  const maxPagesToShow = 10;
+  const half = Math.floor(maxPagesToShow / 2);
+
+  // Determine start page
+  let startPage = Math.max(1, currentPageNumber - half);
+
+  // Determine end page
+  let endPage = startPage + maxPagesToShow - 1;
+
+  // Make sure endPage doesn't exceed numbersOfPages
+  if (endPage > numbersOfPages) {
+    endPage = numbersOfPages;
+    startPage = Math.max(1, endPage - maxPagesToShow + 1);
+  }
+
+  // Generate pages array
+  const pagesArray = Array.from(
+    { length: endPage - startPage + 1 },
+    (_, i) => startPage + i,
+  );
+  console.log(pagesArray);
+  // ____UPDATED CODE FROM CHATGPT____ //
+  /** ______ENDs HERE______ */
+
+  if (loading) return <StreamsPageSkeletonLoading />;
+  if (error) return <p> Error : {error.message} </p>;
+
+  console.log(currentIndexSet);
+
   return (
     // this is search page component
     /**
@@ -133,33 +169,28 @@ const TestingPage = () => {
           Total channels : {searchData?.length || 0}
         </h2>
         {/* content container */}
-        <div className="flex flex-col md:flex-row gap-2">
+        <div className=" border border-red-500 w-full min-h-screen flex flex-col md:flex-row gap-2">
           {/* content */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-            {loading ? (
-              <p>Loading...</p>
-            ) : !error ? (
-              searchData ? (
-                searchData?.slice(startIndex, endIndex).map((item, index) => (
-                  <div key={index} className="border border-red-500 p-4">
-                    <p>
-                      {" "}
-                      {index + 1}.{" "}
-                      <a href={item.url} target="_blank">
-                        {item.channel || item.title}
-                      </a>
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <div className="p-4 text-lg bg-green ">
-                  {" "}
-                  <p>No data found</p>{" "}
+          <div className=" w-[70%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+            {!(searchData?.length === 0) ? (
+              searchData?.slice(startIndex, endIndex).map((item, index) => (
+                <div key={index} className="border border-red-500 p-4">
+                  <p className="flex flex-row gap-2">
+                    {" "}
+                    {index + 1}.{" "}
+                    <a href={item.url} target="_blank">
+                      {item.channel || item.title}
+                    </a>
+                    <span>({currentIndexSet[index]})</span>
+                  </p>
+                  {/* <p></p> */}
+                  <div></div>
                 </div>
-              )
+              ))
             ) : (
-              <div className="text-lg flex flex-col items-center justify-center p-4 bg-green-400">
-                <p>Error: {error.message}</p>
+              <div className="p-4 text-lg bg-green ">
+                {" "}
+                <p>No data found</p>{" "}
               </div>
             )}
           </div>
