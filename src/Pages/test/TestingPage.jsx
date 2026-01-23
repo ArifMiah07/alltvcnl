@@ -1,6 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import StreamsPageSkeletonLoading from "../../Components/streams/StreamsPageSkeletonLoading";
+import { HiViewfinderCircle } from "react-icons/hi2";
+import { LuMonitorPlay } from "react-icons/lu";
+import {
+  MdBookmark,
+  MdBookmarkBorder,
+  MdOutlinePlaylistAdd,
+} from "react-icons/md";
+import HlsVideoPlayer from "./HlsVideoPlayer";
 
 const TestingPage = () => {
   // search result fetching
@@ -126,6 +134,7 @@ const TestingPage = () => {
   if (error) return <p> Error : {error.message} </p>;
 
   console.log(currentIndexSet);
+  //   const videoUrl = "https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8";
 
   return (
     // this is search page component
@@ -175,16 +184,52 @@ const TestingPage = () => {
             {!(searchData?.length === 0) ? (
               searchData?.slice(startIndex, endIndex).map((item, index) => (
                 <div key={index} className="border border-red-500 p-4">
-                  <p className="flex flex-row gap-2">
-                    {" "}
-                    {index + 1}.{" "}
-                    <a href={item.url} target="_blank">
-                      {item.channel || item.title}
-                    </a>
-                    <span>({currentIndexSet[index]})</span>
-                  </p>
-                  {/* <p></p> */}
-                  <div></div>
+                  <div className="flex flex-col border border-red-400">
+                    <p className="flex flex-row gap-2">
+                      {" "}
+                      {(currentPageNumber - 1) * channelsPerPage + (index + 1)}.
+                      {/* {index + 1}.{" "} */}
+                      <a href={item.url} target="_blank">
+                        {item.channel || item.title}
+                      </a>
+                      <span>({currentIndexSet[index]})</span>
+                    </p>
+                    {/* icons */}
+                    <div className="flex gap-3 ">
+                      <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                        <HiViewfinderCircle />
+                      </span>
+                      <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                        <LuMonitorPlay />
+                      </span>
+                      <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                        <MdBookmark />
+                      </span>
+                      <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                        <MdBookmarkBorder />
+                      </span>
+                      <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                        <MdOutlinePlaylistAdd />
+                      </span>
+                    </div>
+                    {(item.feed || item.quality) && (
+                      <div className="flex flex-row gap-3 ">
+                        {item.feed && <p>{item.feed}</p>}
+                        {item.quality && <p>{item.quality}</p>}
+                      </div>
+                    )}
+                  </div>
+                  {/* player */}
+                  <div className="border border-red-400">
+                    <div className="App">
+                      {/* <h1>HLS.js in React</h1> */}
+                      <HlsVideoPlayer
+                        src={item?.url}
+                        controls
+                        autoPlay={false}
+                      />
+                    </div>
+                  </div>
                 </div>
               ))
             ) : (
