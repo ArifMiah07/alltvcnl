@@ -202,9 +202,9 @@ const VPlayer = () => {
       </form>
 
       {playingUrl && (
-        <div className="w-full max-w-md mt-8">
+        <div className="w-full mt-8 lg:p-12">
           {urlType === "direct" && (
-            <div className="min-h-screen w-full aspect-video rounded overflow-hidden shadow-lg">
+            <div className=" lg:p-10 min-h-screen w-full aspect-video rounded overflow-hidden shadow-lg">
               <ReactPlayer
                 src={playingUrl}
                 controls

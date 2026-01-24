@@ -88,6 +88,11 @@ const NavBar = () => {
                 </NavLink>
               </li>
               <li>
+                <NavLink to="/testing-page" className={getNavLinkClass}>
+                  Search
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="/v-player" className={getNavLinkClass}>
                   VPlayer
                 </NavLink>
@@ -135,6 +140,11 @@ const NavBar = () => {
             <li>
               <NavLink to="/library" className={getNavLinkClass}>
                 Library
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/testing-page" className={getNavLinkClass}>
+                Search
               </NavLink>
             </li>
             <li>
