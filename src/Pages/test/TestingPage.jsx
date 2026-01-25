@@ -14,13 +14,18 @@ const TestingPage = () => {
   // search result fetching
   const [searchData, setSearchData] = useState([]);
   const [currentIndexSet, setCurrentIndexSet] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   // store data
   const [showSearchValue, setShowSearchValue] = useState("");
-  const [searchValue, setSearchValue] = useState("");
-  const [searchValueInputRange, setSearchValueInputRange] = useState("");
+  const [searchValue, setSearchValue] = useState(() => {
+    // Initialize from localStorage directly to avoid extra useEffects
+    const stored = localStorage.getItem("searchValueLocal");
+    return stored ? JSON.parse(stored) : "";
+  });
+  const [searchValueInputRange, setSearchValueInputRange] =
+    useState(searchValue);
 
   // pagination states
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
@@ -30,6 +35,9 @@ const TestingPage = () => {
   const [channelsPerPage, setChannelsPerPage] = useState(10);
   //   const [channelsPerPageInputRange, setChannelsPerPageInputRange] =
   //     useState(10);
+
+  // bookmark states
+  const [bookmarkedChannel, setBookmarkedChannel] = useState({});
 
   //   const currentPageNumber = 1
   //   const channelsPerPage = 10
@@ -41,13 +49,18 @@ const TestingPage = () => {
   // handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSearchValue(searchValueInputRange);
+    localStorage.setItem(
+      "searchValueLocal",
+      JSON.stringify(searchValueInputRange),
+    );
+    setSearchValue(searchValueInputRange);
+    setCurrentPageNumber(1); // Reset to page 1 on new search
   };
   // handle search value
-  const handleSearchValue = (value) => {
-    localStorage.setItem("searchValueLocal", JSON.stringify(value));
-    setSearchValue(value);
-  };
+  // const handleSearchValue = (value) => {
+  //   localStorage.setItem("searchValueLocal", JSON.stringify(value));
+  //   setSearchValue(value);
+  // };
 
   // store and get search data from browser local storage
   useEffect(() => {
@@ -64,28 +77,25 @@ const TestingPage = () => {
 
   // fetch search result
   useEffect(() => {
-    const fetchSearchResult = async () => {
-      try {
-        const searchTerm = JSON.parse(showSearchValue);
-        console.log("searchTerm", searchTerm);
-        const url = `http://localhost:5000/api/iptv-player/testing-search-url?term=${searchTerm}`;
-        const response = await axios.get(url);
-        // console.log(response?.data);
-        setSearchData(response?.data?.data);
-        setCurrentIndexSet(response?.data?.currentIndexSet);
-        setError(null);
+    if (!searchValue) return;
 
-        //
-      } catch (error) {
-        // throw new Error("Something went wrong! ");
-        setError(error);
+    const fetchSearchResult = async () => {
+      setLoading(true);
+      try {
+        const url = `http://localhost:5000/api/iptv-player/testing-search-url?term=${encodeURIComponent(searchValue)}`;
+        const response = await axios.get(url);
+        setSearchData(response?.data?.data || []);
+        setCurrentIndexSet(response?.data?.currentIndexSet || []);
+        setError(null);
+      } catch (err) {
+        setError(err);
       } finally {
-        //
         setLoading(false);
       }
     };
+
     fetchSearchResult();
-  }, [searchValue, showSearchValue, searchValueInputRange]);
+  }, [searchValue]);
 
   const handleCurrentPage = (page) => {
     console.log(" page: ", Number(page), Math.ceil(totalChannels / 10));
@@ -93,6 +103,17 @@ const TestingPage = () => {
       setCurrentPageNumber(page);
     }
   };
+
+  // handle bookmark channels
+  const handleBookmarkChannelToggle = (channelUrl) => {
+    setBookmarkedChannel((prev) => ({
+      ...prev,
+      [channelUrl]: !prev[channelUrl],
+    }));
+    // const handleBookmarkToggle = (channelUrl) => {
+    // };
+  };
+
   //   useEffect(()=> {
   //   }, [])
 
@@ -178,13 +199,13 @@ const TestingPage = () => {
           Total channels : {searchData?.length || 0}
         </h2>
         {/* content container */}
-        <div className=" border border-red-500 w-full min-h-screen flex flex-col md:flex-row gap-2">
+        <div className=" border border-red-500 w-full min-h-screen flex flex-col lg:flex-row gap-2">
           {/* content */}
-          <div className=" w-[70%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          <div className=" lg:w-[70%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             {!(searchData?.length === 0) ? (
               searchData?.slice(startIndex, endIndex).map((item, index) => (
-                <div key={index} className="border border-red-500 p-4">
-                  <div className="flex flex-col border border-red-400">
+                <div key={index} className="border border-red-500 p-0">
+                  <div className="flex flex-col border border-red-400 p-1 gap-1">
                     <p className="flex flex-row gap-2">
                       {" "}
                       {(currentPageNumber - 1) * channelsPerPage + (index + 1)}.
@@ -202,22 +223,30 @@ const TestingPage = () => {
                       <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
                         <LuMonitorPlay />
                       </span>
-                      <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                        <MdBookmark />
+                      <span
+                        onClick={() => handleBookmarkChannelToggle(item.url)}>
+                        {bookmarkedChannel[item.url] ? (
+                          <span
+                            className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
+                            <MdBookmark />
+                          </span>
+                        ) : (
+                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <MdBookmarkBorder />
+                          </span>
+                        )}
                       </span>
-                      <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                        <MdBookmarkBorder />
-                      </span>
+
                       <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
                         <MdOutlinePlaylistAdd />
                       </span>
+                      {(item.feed || item.quality) && (
+                        <div className="flex flex-row gap-3 ">
+                          {item.feed && <p>{item.feed}</p>}
+                          {item.quality && <p>{item.quality}</p>}
+                        </div>
+                      )}
                     </div>
-                    {(item.feed || item.quality) && (
-                      <div className="flex flex-row gap-3 ">
-                        {item.feed && <p>{item.feed}</p>}
-                        {item.quality && <p>{item.quality}</p>}
-                      </div>
-                    )}
                   </div>
                   {/* player */}
                   <div className="border border-red-400">
