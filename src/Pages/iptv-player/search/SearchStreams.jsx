@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import StreamsPageSkeletonLoading from "../../Components/streams/StreamsPageSkeletonLoading";
+// import StreamsPageSkeletonLoading from "../../Components/streams/StreamsPageSkeletonLoading";
 import { HiViewfinderCircle } from "react-icons/hi2";
 import { LuMonitorPlay } from "react-icons/lu";
 import {
@@ -8,10 +8,12 @@ import {
   MdBookmarkBorder,
   MdOutlinePlaylistAdd,
 } from "react-icons/md";
-import HlsVideoPlayer from "./HlsVideoPlayer";
+// import HlsVideoPlayer from "./HlsVideoPlayer";
 import { Helmet } from "react-helmet-async";
+import StreamsPageSkeletonLoading from "../../../Components/streams/StreamsPageSkeletonLoading";
+import HlsVideoPlayer from "../../../Components/hls-video-player/HlsVideoPlayer";
 
-const TestingPage = () => {
+const SearchStreams = () => {
   // search result fetching
   const [searchData, setSearchData] = useState([]);
   const [currentIndexSet, setCurrentIndexSet] = useState([]);
@@ -367,30 +369,4 @@ const TestingPage = () => {
   );
 };
 
-export default TestingPage;
-
-/**
- * localStorage.setItem(key, value): Stores a key-value pair. The value must be a string.
- * localStorage.getItem(key): Retrieves the value associated with the given key. Returns null
- * if the key doesn't exist.
- * localStorage.removeItem(key): Removes a specific item based on its key.
- * localStorage.clear(): Removes all key-value pairs for the current domain.
- * localStorage.key(index): Retrieves the key name at a specific index (less commonly used).
- */
-
-// //
-//  searchData?.length < 1000 ? (
-//                 searchData
-//                   ?.slice(0, searchData?.length - 1)
-//                   .map((item, index) => (
-//                     <div key={index}>
-//                       <p>
-//                         {" "}
-//                         {index + 1}.{" "}
-//                         <a href={item.url} target="_blank">
-//                           {item.channel || item.title}
-//                         </a>
-//                       </p>
-//                     </div>
-//                   ))
-//               ) :
+export default SearchStreams;

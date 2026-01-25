@@ -88,7 +88,7 @@ const NavBar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/testing-page" className={getNavLinkClass}>
+                <NavLink to="/search" className={getNavLinkClass}>
                   Search
                 </NavLink>
               </li>
@@ -143,7 +143,7 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/testing-page" className={getNavLinkClass}>
+              <NavLink to="/search" className={getNavLinkClass}>
                 Search
               </NavLink>
             </li>
