@@ -75,7 +75,7 @@ const SearchStreams = () => {
       console.log("Stored value:", JSON.parse(stored));
     }
   }, [searchValue, showSearchValue, searchValueInputRange]);
-  console.log("stored ", showSearchValue);
+  //   console.log("stored ", showSearchValue);
 
   //   const getItem = localStorage.getItem("searchValueLocal");
   //   console.log("search: value:: ", searchValue, JSON.parse(getItem));
@@ -87,7 +87,7 @@ const SearchStreams = () => {
     const fetchSearchResult = async () => {
       setLoading(true);
       try {
-        const url = `http://localhost:5000/api/iptv-player/testing-search-url?term=${encodeURIComponent(searchValue)}`;
+        const url = `https://iptv-player-server.vercel.app/api/iptv-player/testing-search-url?term=${encodeURIComponent(searchValue)}`;
         const response = await axios.get(url);
         setSearchData(response?.data?.data || []);
         setCurrentIndexSet(response?.data?.currentIndexSet || []);
@@ -105,7 +105,7 @@ const SearchStreams = () => {
   // ENDS HERE
 
   const handleCurrentPage = (page) => {
-    console.log(" page: ", Number(page), Math.ceil(totalChannels / 10));
+    // console.log(" page: ", Number(page), Math.ceil(totalChannels / 10));
     if (Number(page) > 0 && Number(page) <= numbersOfPages) {
       setCurrentPageNumber(page);
     }
@@ -124,10 +124,10 @@ const SearchStreams = () => {
   //   useEffect(()=> {
   //   }, [])
 
-  console.log(searchData);
+  //   console.log(searchData);
 
   //   const s = JSON.parse(showSearchValue);
-  console.log("searchValue, showSearchValue", showSearchValue);
+  //   console.log("searchValue, showSearchValue", showSearchValue);
   //   console.log("searchValueInputRange ", searchValueInputRange);
 
   //   const currentPage = 10;
@@ -154,14 +154,14 @@ const SearchStreams = () => {
     { length: endPage - startPage + 1 },
     (_, i) => startPage + i,
   );
-  console.log(pagesArray);
+  //   console.log(pagesArray);
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______ENDs HERE______ */
 
   if (loading) return <StreamsPageSkeletonLoading />;
   if (error) return <p> Error : {error.message} </p>;
 
-  console.log(currentIndexSet);
+  //   console.log(currentIndexSet);
   //   const videoUrl = "https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8";
 
   return (
@@ -247,6 +247,9 @@ const SearchStreams = () => {
           ) : (
             <> Searching for {searchValueInputRange} </>
           )}
+          {/* showSearchValue === !"" ? (
+            <>Searched for {showSearchValue} </>
+          ) : */}
         </label>
         <div className="flex items-center ">
           <input
@@ -257,7 +260,7 @@ const SearchStreams = () => {
             placeholder="search by channel, title"
           />
           <button
-            className="bg-blue-400 px-3 py-1 w-full md:w-[102px] rounded-r-lg "
+            className="bg-purple-500 text-white border px-3 py-1 w-full md:w-[102px] rounded-r-lg "
             type="submit">
             Submit
           </button>
@@ -272,13 +275,13 @@ const SearchStreams = () => {
           Total channels : {searchData?.length || 0}
         </h2>
         {/* content container */}
-        <div className=" border border-red-500 w-full min-h-screen flex flex-col lg:flex-row gap-2">
+        <div className=" w-full min-h-screen flex flex-col lg:flex-row gap-2">
           {/* content */}
-          <div className=" lg:w-[70%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          <div className="  lg:w-[70%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
             {!(searchData?.length === 0) ? (
               searchData?.slice(startIndex, endIndex).map((item, index) => (
-                <div key={index} className="border border-red-500 p-0">
-                  <div className="flex flex-col border border-red-400 p-1 gap-1">
+                <div key={index} className=" border p-0">
+                  <div className="flex flex-col  p-1 gap-1">
                     <p className="flex flex-row gap-2">
                       {" "}
                       {(currentPageNumber - 1) * channelsPerPage + (index + 1)}.
@@ -322,7 +325,7 @@ const SearchStreams = () => {
                     </div>
                   </div>
                   {/* player */}
-                  <div className="border border-red-400">
+                  <div className="">
                     <div className="App">
                       {/* <h1>HLS.js in React</h1> */}
                       <HlsVideoPlayer
@@ -342,7 +345,9 @@ const SearchStreams = () => {
             )}
           </div>
           {/* sidebar */}
-          <div>this is sidebar</div>
+          <div className=" border lg:w-[30%] h-full text-center flex flex-col items-center justify-start ">
+            Sidebar
+          </div>
         </div>
         {/* pagination */}
         <div className="flex gap-2 flex-wrap my-3">

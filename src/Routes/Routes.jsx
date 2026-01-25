@@ -23,7 +23,7 @@ import LandingPage from "../Pages/LandingPage/LandingPage";
 import Library from "../Pages/Library/Library";
 import Streams from "../Pages/iptv-player/streams/Streams";
 import StreamSpecificChannel from "../Pages/iptv-player/streams/SpecificChannel";
-import TestingPage from "../Pages/test/TestingPage";
+// import TestingPage from "../Pages/test/TestingPage";
 import SearchStreams from "../Pages/iptv-player/search/SearchStreams";
 // import IP from "../Pages/iptv-player/IP";
 
@@ -49,10 +49,10 @@ const router = createHashRouter([
         path: "/search",
         element: <SearchStreams />,
       },
-      {
-        path: "/testing-page",
-        element: <TestingPage />,
-      },
+      // {
+      //   path: "/testing-page",
+      //   element: <TestingPage />,
+      // },
       {
         path: "/specific-channel/:channelIndex/:channel",
         element: <StreamSpecificChannel />,

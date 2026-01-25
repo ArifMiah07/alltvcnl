@@ -73,7 +73,7 @@ const TestingPage = () => {
       console.log("Stored value:", JSON.parse(stored));
     }
   }, [searchValue, showSearchValue, searchValueInputRange]);
-  console.log("stored ", showSearchValue);
+  // console.log("stored ", showSearchValue);
 
   //   const getItem = localStorage.getItem("searchValueLocal");
   //   console.log("search: value:: ", searchValue, JSON.parse(getItem));
@@ -103,7 +103,7 @@ const TestingPage = () => {
   // ENDS HERE
 
   const handleCurrentPage = (page) => {
-    console.log(" page: ", Number(page), Math.ceil(totalChannels / 10));
+    // console.log(" page: ", Number(page), Math.ceil(totalChannels / 10));
     if (Number(page) > 0 && Number(page) <= numbersOfPages) {
       setCurrentPageNumber(page);
     }
@@ -122,10 +122,10 @@ const TestingPage = () => {
   //   useEffect(()=> {
   //   }, [])
 
-  console.log(searchData);
+  // console.log(searchData);
 
   //   const s = JSON.parse(showSearchValue);
-  console.log("searchValue, showSearchValue", showSearchValue);
+  // console.log("searchValue, showSearchValue", showSearchValue);
   //   console.log("searchValueInputRange ", searchValueInputRange);
 
   //   const currentPage = 10;
@@ -152,14 +152,14 @@ const TestingPage = () => {
     { length: endPage - startPage + 1 },
     (_, i) => startPage + i,
   );
-  console.log(pagesArray);
+  // console.log(pagesArray);
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______ENDs HERE______ */
 
   if (loading) return <StreamsPageSkeletonLoading />;
   if (error) return <p> Error : {error.message} </p>;
 
-  console.log(currentIndexSet);
+  // console.log(currentIndexSet);
   //   const videoUrl = "https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8";
 
   return (
