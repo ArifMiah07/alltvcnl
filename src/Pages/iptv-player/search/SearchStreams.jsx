@@ -12,6 +12,7 @@ import {
 import { Helmet } from "react-helmet-async";
 import StreamsPageSkeletonLoading from "../../../Components/streams/StreamsPageSkeletonLoading";
 import HlsVideoPlayer from "../../../Components/hls-video-player/HlsVideoPlayer";
+import { RiGalleryView2 } from "react-icons/ri";
 
 const SearchStreams = () => {
   // search result fetching
@@ -187,7 +188,6 @@ const SearchStreams = () => {
   if (error) return <p> Error : {error.message} </p>;
 
   //   console.log(currentIndexSet);
-  //   const videoUrl = "https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8";
 
   return (
     // this is search page component
@@ -296,21 +296,30 @@ const SearchStreams = () => {
         <h1 className="text-md">
           Showing Search results for {showSearchValue}
         </h1>
+        {/* TODO:: MOVE THIS ${TOTAL CHANNELS} INSIDE SIDE BAR */}
         <h2 className="text-md mb-2">
           Total channels : {searchData?.length || 0}
         </h2>
         <div onClick={handleAllAndOneChannelStream} className="">
-          <button> Back to All</button>
+          {selectedChannel && (
+            <button className="flex flex-row gap-1 items-center justify-center">
+              {" "}
+              <span>
+                <RiGalleryView2 />
+              </span>{" "}
+              Back to All{" "}
+            </button>
+          )}
         </div>
-        <p>{selectedChannel ? "Specific" : "All"}</p>
+        {/* <p>{selectedChannel ? "Specific" : "All"}</p> */}
         {/* Toggle all channel & specific channel */}
         {/* content container */}
         {selectedChannel ? (
           // show a specific channel
-          <div className="border-4 border-red-500 w-full h-full flex flex-col lg:flex-row gap-2">
+          <div className=" w-full h-full flex flex-col lg:flex-row gap-2">
             {/* <div> Watching a Specific channel</div> */}
             {/* content */}
-            <div className=" border-4 border-red-500 w-full min-h-screen flex flex-col items-center justify-start gap-2 p-4 md:p-8 lg:p-12 xl:p-16">
+            <div className="  w-full min-h-screen flex flex-col items-center justify-start gap-2 p-4 md:p-8 lg:p-12 xl:p-16">
               <div className=" w-full border p-0  ">
                 <div className="flex flex-col  p-1 gap-1">
                   <p className="flex flex-row gap-2">
@@ -364,8 +373,8 @@ const SearchStreams = () => {
                   </div>
                 </div>
                 {/* player */}
-                <div className="  border-4 border-red-500">
-                  <div className=" border-4 border-red-500  ">
+                <div className="  ">
+                  <div className="   ">
                     {/* <h1>HLS.js in React</h1> */}
                     <HlsVideoPlayer
                       src={selectedChannel?.url}
@@ -375,99 +384,10 @@ const SearchStreams = () => {
                   </div>
                 </div>
               </div>
-              {/* // show all channel */}
-              <div className=" w-full min-h-screen flex flex-col lg:flex-row gap-2">
-                {/* content */}
-                <div className="  lg:w-[70%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 items-center justify-start gap-2">
-                  {!(searchData?.length === 0) ? (
-                    searchData
-                      ?.slice(startIndex, endIndex)
-                      .map((item, index) => (
-                        <div key={index} className=" border p-0">
-                          <div className="flex flex-col  p-1 gap-1">
-                            <p className="flex flex-row gap-2">
-                              {" "}
-                              {(currentPageNumber - 1) * channelsPerPage +
-                                (index + 1)}
-                              .{/* {index + 1}.{" "} */}
-                              <a href={item.url} target="_blank">
-                                {item.channel || item.title}
-                              </a>
-                              <span>({currentIndexSet[index]})</span>
-                            </p>
-                            {/* icons */}
-                            <div className="flex gap-3 ">
-                              {/* stream a specific channel */}
-                              <span
-                                onClick={() =>
-                                  handleStreamSpecificChannel({
-                                    ...item,
-                                    index,
-                                  })
-                                }
-                                className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                                <HiViewfinderCircle />
-                              </span>
-                              <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                                <LuMonitorPlay />
-                              </span>
-                              <span
-                                onClick={() =>
-                                  handleBookmarkChannelToggle(item.url)
-                                }>
-                                {bookmarkedChannel[item.url] ? (
-                                  <span
-                                    className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
-                                    <MdBookmark />
-                                  </span>
-                                ) : (
-                                  <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                                    <MdBookmarkBorder />
-                                  </span>
-                                )}
-                              </span>
-
-                              <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                                <MdOutlinePlaylistAdd />
-                              </span>
-                              {(item.feed || item.quality) && (
-                                <div className="flex flex-row gap-3 ">
-                                  {item.feed && <p>{item.feed}</p>}
-                                  {item.quality && <p>{item.quality}</p>}
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                          {/* player */}
-                        </div>
-                      ))
-                  ) : (
-                    <div className="p-4 text-lg bg-green ">
-                      {" "}
-                      <p>No data found</p>{" "}
-                    </div>
-                  )}
-                </div>
-                {/* sidebar */}
-              </div>
-              {/* 
-                
-                  {!(searchData?.length === 0) ? (
-                
-              ) : (
-                // searchData?.slice(startIndex, endIndex).map((item, index) => (
-                // ))
-                <div className="p-4 text-lg bg-green ">
-                  {" "}
-                  <p>No data found</p>{" "}
-                </div>
-              )}
-                
-                */}
             </div>
             {/* sidebar */}
-            <div className=" border lg:w-[30%] sticky top-12 h-fit text-center flex flex-row items-start justify-start ">
-              <div className="border border-green-500  flex flex-col gap-2 flex-wrap p-2">
+            <div className=" lg:w-[30%] sticky top-12 h-fit text-center flex flex-row items-start justify-start ">
+              <div className="  flex flex-col gap-2 flex-wrap p-2">
                 {pagesArray
                   ? pagesArray?.map((page, index) => (
                       <div className=" w-[80px] h-fit" key={index}>
@@ -486,10 +406,8 @@ const SearchStreams = () => {
                     ))
                   : ""}
               </div>
-              {/* <div className="w-full h-full ">
-            </div> */}
               {/* ______TODO: : :ADD FUNCTIONALITY_______ */}
-              <div className=" p-2 w-full h-full border border-red-500 ">
+              <div className=" p-2 w-full h-full ">
                 {/* Sidebar */}
                 <div className="lg:col-span-1 ">
                   <div className="w-full border-b-2 border-red-50 ">
@@ -883,6 +801,79 @@ const SearchStreams = () => {
               ))
             : ""}
         </div>
+        {selectedChannel && (
+          <div className="  w-full h-full flex flex-col lg:flex-row gap-2">
+            {/* // show all channel when streaming a specific channel */}
+            {/* content */}
+            <div className=" w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 items-center justify-start gap-2">
+              {!(searchData?.length === 0) ? (
+                searchData?.slice(startIndex, endIndex).map((item, index) => (
+                  <div key={index} className=" border p-0">
+                    <div className="flex flex-col  p-1 gap-1">
+                      <p className="flex flex-row gap-2">
+                        {" "}
+                        {(currentPageNumber - 1) * channelsPerPage +
+                          (index + 1)}
+                        .{/* {index + 1}.{" "} */}
+                        <a href={item.url} target="_blank">
+                          {item.channel || item.title}
+                        </a>
+                        <span>({currentIndexSet[index]})</span>
+                      </p>
+                      {/* icons */}
+                      <div className="flex gap-3 ">
+                        {/* stream a specific channel */}
+                        <span
+                          onClick={() =>
+                            handleStreamSpecificChannel({
+                              ...item,
+                              index,
+                            })
+                          }
+                          className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                          <HiViewfinderCircle />
+                        </span>
+                        <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                          <LuMonitorPlay />
+                        </span>
+                        <span
+                          onClick={() => handleBookmarkChannelToggle(item.url)}>
+                          {bookmarkedChannel[item.url] ? (
+                            <span
+                              className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
+                              <MdBookmark />
+                            </span>
+                          ) : (
+                            <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <MdBookmarkBorder />
+                            </span>
+                          )}
+                        </span>
+
+                        <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                          <MdOutlinePlaylistAdd />
+                        </span>
+                        {(item.feed || item.quality) && (
+                          <div className="flex flex-row gap-3 ">
+                            {item.feed && <p>{item.feed}</p>}
+                            {item.quality && <p>{item.quality}</p>}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    {/* player */}
+                  </div>
+                ))
+              ) : (
+                <div className="p-4 text-lg bg-green ">
+                  {" "}
+                  <p>No data found</p>{" "}
+                </div>
+              )}
+            </div>
+            {/* sidebar */}
+          </div>
+        )}
       </div>
     </div>
   );
