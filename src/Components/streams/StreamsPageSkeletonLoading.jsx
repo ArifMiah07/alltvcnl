@@ -13,7 +13,7 @@ const StreamsPageSkeletonLoading = () => {
         initial={{ opacity: 0, filter: "blur(10px)" }}
         animate={{ opacity: 1, filter: "none" }}
         className="flex flex-row items-start animate-pulse justify-start text-black text-lg mb-6 w-[300px] h-[32px] bg-white/30 border border-gray-200 px-2 ">
-        Iptv player {">"} Streaming
+        {/* Iptv player {">"} Streaming */}
       </motion.h1>
       {/* <h1>This is Loading skeleton</h1>
       <p>loading...</p> */}

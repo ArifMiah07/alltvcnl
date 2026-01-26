@@ -41,6 +41,14 @@ const SearchStreams = () => {
 
   // bookmark states
   const [bookmarkedChannel, setBookmarkedChannel] = useState({});
+  // stream a specific channel
+  const [isStreamingSpecificChannel, setIsStreamingSpecificChannel] =
+    useState(false);
+  const [storeSpecificChannelsInfo, setStoreSpecificChannelsInfo] = useState(
+    {},
+  );
+
+  const [selectedChannel, setSelectedChannel] = useState(null);
 
   //   const currentPageNumber = 1
   //   const channelsPerPage = 10
@@ -120,6 +128,23 @@ const SearchStreams = () => {
     // const handleBookmarkToggle = (channelUrl) => {
     // };
   };
+
+  // handle handleAllAndOneChannelStream
+  const handleAllAndOneChannelStream = () => {
+    //
+    console.log("Clicked");
+    // setIsStreamingSpecificChannel(!isStreamingSpecificChannel);
+    setSelectedChannel(null);
+  };
+
+  const handleStreamSpecificChannel = (channelInfo) => {
+    // //
+    // setIsStreamingSpecificChannel(!isStreamingSpecificChannel);
+    // setStoreSpecificChannelsInfo((prev) => [...prev, channelInfo]);
+    console.log("channelInfo: ", { channelInfo });
+    setSelectedChannel(channelInfo);
+  };
+  console.log(selectedChannel);
 
   //   useEffect(()=> {
   //   }, [])
@@ -274,236 +299,503 @@ const SearchStreams = () => {
         <h2 className="text-md mb-2">
           Total channels : {searchData?.length || 0}
         </h2>
+        <div onClick={handleAllAndOneChannelStream} className="">
+          <button> Back to All</button>
+        </div>
+        <p>{selectedChannel ? "Specific" : "All"}</p>
+        {/* Toggle all channel & specific channel */}
         {/* content container */}
-        <div className=" w-full min-h-screen flex flex-col lg:flex-row gap-2">
-          {/* content */}
-          <div className="  lg:w-[70%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
-            {!(searchData?.length === 0) ? (
-              searchData?.slice(startIndex, endIndex).map((item, index) => (
-                <div key={index} className=" border p-0">
-                  <div className="flex flex-col  p-1 gap-1">
-                    <p className="flex flex-row gap-2">
-                      {" "}
-                      {(currentPageNumber - 1) * channelsPerPage + (index + 1)}.
-                      {/* {index + 1}.{" "} */}
-                      <a href={item.url} target="_blank">
-                        {item.channel || item.title}
-                      </a>
-                      <span>({currentIndexSet[index]})</span>
-                    </p>
-                    {/* icons */}
-                    <div className="flex gap-3 ">
-                      <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                        <HiViewfinderCircle />
-                      </span>
-                      <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                        <LuMonitorPlay />
-                      </span>
-                      <span
-                        onClick={() => handleBookmarkChannelToggle(item.url)}>
-                        {bookmarkedChannel[item.url] ? (
-                          <span
-                            className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
-                            <MdBookmark />
-                          </span>
-                        ) : (
-                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <MdBookmarkBorder />
-                          </span>
-                        )}
-                      </span>
+        {selectedChannel ? (
+          // show a specific channel
+          <div className=" w-full min-h-screen flex flex-col lg:flex-row gap-2">
+            {/* <div> Watching a Specific channel</div> */}
+            {/* content */}
+            <div className="  lg:w-[70%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
+              <div className=" border p-0">
+                <div className="flex flex-col  p-1 gap-1">
+                  <p className="flex flex-row gap-2">
+                    {" "}
+                    {/* {(currentPageNumber - 1) * channelsPerPage +
+                      (storeSpecificChannelsInfo.index + 1)} */}
+                    .{/* {index + 1}.{" "} */}
+                    {/* <a
+                      href={storeSpecificChannelsInfo.item.url}
+                      target="_blank">
+                      {storeSpecificChannelsInfo.item.channel ||
+                        storeSpecificChannelsInfo.item.title}
+                    </a> */}
+                    <span>
+                      {/* ({currentIndexSet[storeSpecificChannelsInfo.index]}) */}
+                    </span>
+                  </p>
+                  {/* icons */}
+                  <div className="flex gap-3 ">
+                    {/* stream a specific channel */}
+                    <span
+                      // onClick={() => handleStreamSpecificChannel(item)}
+                      className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                      <HiViewfinderCircle />
+                    </span>
+                    <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                      <LuMonitorPlay />
+                    </span>
+                    <span
+                    // onClick={() =>
+                    //   handleBookmarkChannelToggle(
+                    //     storeSpecificChannelsInfo.item.url,
+                    //   )
+                    // }
+                    >
+                      {/* {bookmarkedChannel[storeSpecificChannelsInfo.item.url] ? (
+                        <span
+                          className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
+                          <MdBookmark />
+                        </span>
+                      ) : (
+                        <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                          <MdBookmarkBorder />
+                        </span>
+                      )} */}
+                    </span>
 
-                      <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                        <MdOutlinePlaylistAdd />
-                      </span>
-                      {(item.feed || item.quality) && (
-                        <div className="flex flex-row gap-3 ">
-                          {item.feed && <p>{item.feed}</p>}
-                          {item.quality && <p>{item.quality}</p>}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  {/* player */}
-                  <div className="">
-                    <div className="App">
-                      {/* <h1>HLS.js in React</h1> */}
-                      <HlsVideoPlayer
-                        src={item?.url}
-                        controls
-                        autoPlay={false}
-                      />
-                    </div>
+                    <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                      <MdOutlinePlaylistAdd />
+                    </span>
+                    {(selectedChannel.feed || selectedChannel.quality) && (
+                      <div className="flex flex-row gap-3 ">
+                        {selectedChannel.feed && <p>{selectedChannel.feed}</p>}
+                        {selectedChannel.quality && (
+                          <p>{selectedChannel.quality}</p>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
-              ))
-            ) : (
-              <div className="p-4 text-lg bg-green ">
-                {" "}
-                <p>No data found</p>{" "}
+                {/* player */}
+                <div className="">
+                  <div className="App">
+                    {/* <h1>HLS.js in React</h1> */}
+                    <HlsVideoPlayer
+                      src={selectedChannel?.url}
+                      controls
+                      autoPlay={false}
+                    />
+                  </div>
+                </div>
               </div>
-            )}
-          </div>
-          {/* sidebar */}
-          <div className=" border lg:w-[30%] h-full text-center flex flex-row items-start justify-start ">
-            <div className="border border-green-500  flex flex-col gap-2 flex-wrap p-2">
-              {pagesArray
-                ? pagesArray?.map((page, index) => (
-                    <div className=" w-[80px] h-fit" key={index}>
-                      <button
-                        onClick={() => handleCurrentPage(page)}
-                        className={` w-full h-full  border border-[#ff00ff] text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5  ${
-                          page === currentPageNumber
-                            ? "bg-green-500 text-white"
-                            : ""
-                        }  `}>
-                        {page}
-                      </button>
-                      {/* <div>
-                      </div> */}
-                    </div>
-                  ))
-                : ""}
+              {/* 
+                
+                  {!(searchData?.length === 0) ? (
+                
+              ) : (
+                // searchData?.slice(startIndex, endIndex).map((item, index) => (
+                // ))
+                <div className="p-4 text-lg bg-green ">
+                  {" "}
+                  <p>No data found</p>{" "}
+                </div>
+              )}
+                
+                */}
             </div>
-            {/* <div className="w-full h-full ">
+            {/* sidebar */}
+            <div className=" border lg:w-[30%] sticky top-12 h-fit text-center flex flex-row items-start justify-start ">
+              <div className="border border-green-500  flex flex-col gap-2 flex-wrap p-2">
+                {pagesArray
+                  ? pagesArray?.map((page, index) => (
+                      <div className=" w-[80px] h-fit" key={index}>
+                        <button
+                          onClick={() => handleCurrentPage(page)}
+                          className={` w-full h-full  border border-[#ff00ff] text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5  ${
+                            page === currentPageNumber
+                              ? "bg-green-500 text-white"
+                              : ""
+                          }  `}>
+                          {page}
+                        </button>
+                        {/* <div>
+                      </div> */}
+                      </div>
+                    ))
+                  : ""}
+              </div>
+              {/* <div className="w-full h-full ">
             </div> */}
-            {/* ______TODO: : :ADD FUNCTIONALITY_______ */}
-            <div className=" p-2 w-full h-full border border-red-500 ">
-              {/* Sidebar */}
-              <div className="lg:col-span-1 ">
-                <div className="w-full border-b-2 border-red-50 ">
-                  <div className="  w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
-                    <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold ">
-                      Basic Info{" "}
-                      {/* <span onClick={toggleBasicInfoExpand} className="">
+              {/* ______TODO: : :ADD FUNCTIONALITY_______ */}
+              <div className=" p-2 w-full h-full border border-red-500 ">
+                {/* Sidebar */}
+                <div className="lg:col-span-1 ">
+                  <div className="w-full border-b-2 border-red-50 ">
+                    <div className="  w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
+                      <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold ">
+                        Basic Info{" "}
+                        {/* <span onClick={toggleBasicInfoExpand} className="">
               {expandBasicInfo ? (
                 <MdOutlineExpandLess />
               ) : (
                 <MdOutlineExpandMore />
               )}
             </span> */}
-                    </h3>
-                  </div>
-                  <div className={`mb-4`}>
-                    <div className="w-full flex flex-col items-center gap-2 px-2">
-                      {/* total channels */}
-                      <p
-                        className={`w-full text-center border-2 border-red-50 `}>
-                        Total Channels:
-                      </p>
-                      {/* total pages */}
-                      <p
-                        className={`w-full text-center border-2 border-red-50 `}>
-                        Total Pages:
-                      </p>
-                      {/* show current page */}
-                      <p
-                        className={`w-full text-center border-2 border-red-50 `}>
-                        Current Page:
-                      </p>
-                      {/* channels per page */}
-                      <p
-                        className={`w-full text-center border-2 border-red-50 `}>
-                        Channels/page:
-                      </p>
-                      <div></div>
+                      </h3>
+                    </div>
+                    <div className={`mb-4`}>
+                      <div className="w-full flex flex-col items-center gap-2 px-2">
+                        {/* total channels */}
+                        <p
+                          className={`w-full text-center border-2 border-red-50 `}>
+                          Total Channels:
+                        </p>
+                        {/* total pages */}
+                        <p
+                          className={`w-full text-center border-2 border-red-50 `}>
+                          Total Pages:
+                        </p>
+                        {/* show current page */}
+                        <p
+                          className={`w-full text-center border-2 border-red-50 `}>
+                          Current Page:
+                        </p>
+                        {/* channels per page */}
+                        <p
+                          className={`w-full text-center border-2 border-red-50 `}>
+                          Channels/page:
+                        </p>
+                        <div></div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="w-full border-b-2 border-red-50 ">
-                  <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
-                    <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold mt-4 ">
-                      Basic Controls{" "}
-                      {/* <span onClick={toggleBasicControlsExpand} className="">
+                  <div className="w-full border-b-2 border-red-50 ">
+                    <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
+                      <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold mt-4 ">
+                        Basic Controls{" "}
+                        {/* <span onClick={toggleBasicControlsExpand} className="">
               {expandBasicControls ? (
                 <MdOutlineExpandLess />
               ) : (
                 <MdOutlineExpandMore />
               )}
             </span> */}
-                    </h3>
-                  </div>
-                  <div className={`mb-4 px-2`}>
-                    <div className="flex flex-col gap-4">
-                      {/* next page btn */}
-                      <button
-                        //   onClick={onNext}
-                        //   disabled={currentPage >= numbersOfPages}
-                        className={` w-full border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] `}>
-                        Next Page
-                      </button>
-                      {/* previous page btn */}
-                      <button
-                        //   onClick={onPrev}
-                        //   disabled={currentPage <= 1}
-                        className={` w-full border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] `}>
-                        Previous Page
-                      </button>
-                      {/* handle go to a specific page with user input */}
-                      <div className="w-full ">
-                        {/* form */}
-                        <form className=" w-full flex flex-col ">
-                          <label htmlFor="goto_page" className="mb-1">
-                            Go to a page
-                          </label>
-                          <div className="w-full flex flex-row  ">
-                            {/* take input */}
-                            <input
-                              className="outline-0 w-full text-center  border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] hover:text-white"
-                              // value={inputRange}
-                              // onChange={(e) => setInputRange(e.target.value)}
-                              placeholder="Go to a page"
-                              type="text"
-                              min={1}
-                            />
-                            {/* go to btn */}
-                            <button
-                              // type="submit"
-                              // disabled={inputRange === ""}
-                              className={`w-fit px-2  border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff]  `}>
-                              Go
-                            </button>
-                          </div>
-                        </form>
-                      </div>
-                      {/* handle a specific numbers of channels per page with user input */}
-                      <div className="w-full  ">
-                        {/* form */}
-                        <form
-                          // onSubmit={handleChannelsPerPage}
-                          className=" w-full flex flex-col  ">
-                          {/* handle numbers of cnl's per page */}
-                          <label htmlFor="goto_page" className="mb-1">
-                            Channels per page
-                          </label>
-                          <div className="w-full flex flex-row  ">
-                            {/* take input */}
-                            <input
-                              className="outline-0 w-full text-center   border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] hover:text-white "
-                              // value={channelsInput}
-                              // onChange={(e) => setChannelsInput(e.target.value)}
-                              placeholder="Chanls per page"
-                              type="text"
-                              min={1}
-                            />
-                            {/* go to btn */}
-                            <button
-                              type="submit"
-                              // disabled={channelsInput === ""}
-                              className={`w-fit px-2 border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] `}>
-                              Set
-                            </button>
-                          </div>
-                        </form>
+                      </h3>
+                    </div>
+                    <div className={`mb-4 px-2`}>
+                      <div className="flex flex-col gap-4">
+                        {/* next page btn */}
+                        <button
+                          //   onClick={onNext}
+                          //   disabled={currentPage >= numbersOfPages}
+                          className={` w-full border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] `}>
+                          Next Page
+                        </button>
+                        {/* previous page btn */}
+                        <button
+                          //   onClick={onPrev}
+                          //   disabled={currentPage <= 1}
+                          className={` w-full border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] `}>
+                          Previous Page
+                        </button>
+                        {/* handle go to a specific page with user input */}
+                        <div className="w-full ">
+                          {/* form */}
+                          <form className=" w-full flex flex-col ">
+                            <label htmlFor="goto_page" className="mb-1">
+                              Go to a page
+                            </label>
+                            <div className="w-full flex flex-row  ">
+                              {/* take input */}
+                              <input
+                                className="outline-0 w-full text-center  border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] hover:text-white"
+                                // value={inputRange}
+                                // onChange={(e) => setInputRange(e.target.value)}
+                                placeholder="Go to a page"
+                                type="text"
+                                min={1}
+                              />
+                              {/* go to btn */}
+                              <button
+                                // type="submit"
+                                // disabled={inputRange === ""}
+                                className={`w-fit px-2  border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff]  `}>
+                                Go
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                        {/* handle a specific numbers of channels per page with user input */}
+                        <div className="w-full  ">
+                          {/* form */}
+                          <form
+                            // onSubmit={handleChannelsPerPage}
+                            className=" w-full flex flex-col  ">
+                            {/* handle numbers of cnl's per page */}
+                            <label htmlFor="goto_page" className="mb-1">
+                              Channels per page
+                            </label>
+                            <div className="w-full flex flex-row  ">
+                              {/* take input */}
+                              <input
+                                className="outline-0 w-full text-center   border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] hover:text-white "
+                                // value={channelsInput}
+                                // onChange={(e) => setChannelsInput(e.target.value)}
+                                placeholder="Chanls per page"
+                                type="text"
+                                min={1}
+                              />
+                              {/* go to btn */}
+                              <button
+                                type="submit"
+                                // disabled={channelsInput === ""}
+                                className={`w-fit px-2 border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] `}>
+                                Set
+                              </button>
+                            </div>
+                          </form>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <div className="w-full mt-4">{/* <BasicFilters /> */}</div>
                 </div>
-                <div className="w-full mt-4">{/* <BasicFilters /> */}</div>
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          // show all channel
+          <div className=" w-full min-h-screen flex flex-col lg:flex-row gap-2">
+            {/* content */}
+            <div className="  lg:w-[70%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
+              {!(searchData?.length === 0) ? (
+                searchData?.slice(startIndex, endIndex).map((item, index) => (
+                  <div key={index} className=" border p-0">
+                    <div className="flex flex-col  p-1 gap-1">
+                      <p className="flex flex-row gap-2">
+                        {" "}
+                        {(currentPageNumber - 1) * channelsPerPage +
+                          (index + 1)}
+                        .{/* {index + 1}.{" "} */}
+                        <a href={item.url} target="_blank">
+                          {item.channel || item.title}
+                        </a>
+                        <span>({currentIndexSet[index]})</span>
+                      </p>
+                      {/* icons */}
+                      <div className="flex gap-3 ">
+                        {/* stream a specific channel */}
+                        <span
+                          onClick={() =>
+                            handleStreamSpecificChannel({ ...item, index })
+                          }
+                          className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                          <HiViewfinderCircle />
+                        </span>
+                        <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                          <LuMonitorPlay />
+                        </span>
+                        <span
+                          onClick={() => handleBookmarkChannelToggle(item.url)}>
+                          {bookmarkedChannel[item.url] ? (
+                            <span
+                              className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
+                              <MdBookmark />
+                            </span>
+                          ) : (
+                            <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <MdBookmarkBorder />
+                            </span>
+                          )}
+                        </span>
+
+                        <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                          <MdOutlinePlaylistAdd />
+                        </span>
+                        {(item.feed || item.quality) && (
+                          <div className="flex flex-row gap-3 ">
+                            {item.feed && <p>{item.feed}</p>}
+                            {item.quality && <p>{item.quality}</p>}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    {/* player */}
+                    <div className="">
+                      <div className="App">
+                        {/* <h1>HLS.js in React</h1> */}
+                        <HlsVideoPlayer
+                          src={item?.url}
+                          controls
+                          autoPlay={false}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="p-4 text-lg bg-green ">
+                  {" "}
+                  <p>No data found</p>{" "}
+                </div>
+              )}
+            </div>
+            {/* sidebar */}
+            <div className=" border lg:w-[30%] sticky top-12 h-fit text-center flex flex-row items-start justify-start ">
+              <div className="border border-green-500  flex flex-col gap-2 flex-wrap p-2">
+                {pagesArray
+                  ? pagesArray?.map((page, index) => (
+                      <div className=" w-[80px] h-fit" key={index}>
+                        <button
+                          onClick={() => handleCurrentPage(page)}
+                          className={` w-full h-full  border border-[#ff00ff] text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5  ${
+                            page === currentPageNumber
+                              ? "bg-green-500 text-white"
+                              : ""
+                          }  `}>
+                          {page}
+                        </button>
+                        {/* <div>
+                      </div> */}
+                      </div>
+                    ))
+                  : ""}
+              </div>
+              {/* <div className="w-full h-full ">
+            </div> */}
+              {/* ______TODO: : :ADD FUNCTIONALITY_______ */}
+              <div className=" p-2 w-full h-full border border-red-500 ">
+                {/* Sidebar */}
+                <div className="lg:col-span-1 ">
+                  <div className="w-full border-b-2 border-red-50 ">
+                    <div className="  w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
+                      <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold ">
+                        Basic Info{" "}
+                        {/* <span onClick={toggleBasicInfoExpand} className="">
+              {expandBasicInfo ? (
+                <MdOutlineExpandLess />
+              ) : (
+                <MdOutlineExpandMore />
+              )}
+            </span> */}
+                      </h3>
+                    </div>
+                    <div className={`mb-4`}>
+                      <div className="w-full flex flex-col items-center gap-2 px-2">
+                        {/* total channels */}
+                        <p
+                          className={`w-full text-center border-2 border-red-50 `}>
+                          Total Channels:
+                        </p>
+                        {/* total pages */}
+                        <p
+                          className={`w-full text-center border-2 border-red-50 `}>
+                          Total Pages:
+                        </p>
+                        {/* show current page */}
+                        <p
+                          className={`w-full text-center border-2 border-red-50 `}>
+                          Current Page:
+                        </p>
+                        {/* channels per page */}
+                        <p
+                          className={`w-full text-center border-2 border-red-50 `}>
+                          Channels/page:
+                        </p>
+                        <div></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-full border-b-2 border-red-50 ">
+                    <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
+                      <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold mt-4 ">
+                        Basic Controls{" "}
+                        {/* <span onClick={toggleBasicControlsExpand} className="">
+              {expandBasicControls ? (
+                <MdOutlineExpandLess />
+              ) : (
+                <MdOutlineExpandMore />
+              )}
+            </span> */}
+                      </h3>
+                    </div>
+                    <div className={`mb-4 px-2`}>
+                      <div className="flex flex-col gap-4">
+                        {/* next page btn */}
+                        <button
+                          //   onClick={onNext}
+                          //   disabled={currentPage >= numbersOfPages}
+                          className={` w-full border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] `}>
+                          Next Page
+                        </button>
+                        {/* previous page btn */}
+                        <button
+                          //   onClick={onPrev}
+                          //   disabled={currentPage <= 1}
+                          className={` w-full border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] `}>
+                          Previous Page
+                        </button>
+                        {/* handle go to a specific page with user input */}
+                        <div className="w-full ">
+                          {/* form */}
+                          <form className=" w-full flex flex-col ">
+                            <label htmlFor="goto_page" className="mb-1">
+                              Go to a page
+                            </label>
+                            <div className="w-full flex flex-row  ">
+                              {/* take input */}
+                              <input
+                                className="outline-0 w-full text-center  border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] hover:text-white"
+                                // value={inputRange}
+                                // onChange={(e) => setInputRange(e.target.value)}
+                                placeholder="Go to a page"
+                                type="text"
+                                min={1}
+                              />
+                              {/* go to btn */}
+                              <button
+                                // type="submit"
+                                // disabled={inputRange === ""}
+                                className={`w-fit px-2  border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff]  `}>
+                                Go
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                        {/* handle a specific numbers of channels per page with user input */}
+                        <div className="w-full  ">
+                          {/* form */}
+                          <form
+                            // onSubmit={handleChannelsPerPage}
+                            className=" w-full flex flex-col  ">
+                            {/* handle numbers of cnl's per page */}
+                            <label htmlFor="goto_page" className="mb-1">
+                              Channels per page
+                            </label>
+                            <div className="w-full flex flex-row  ">
+                              {/* take input */}
+                              <input
+                                className="outline-0 w-full text-center   border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] hover:text-white "
+                                // value={channelsInput}
+                                // onChange={(e) => setChannelsInput(e.target.value)}
+                                placeholder="Chanls per page"
+                                type="text"
+                                min={1}
+                              />
+                              {/* go to btn */}
+                              <button
+                                type="submit"
+                                // disabled={channelsInput === ""}
+                                className={`w-fit px-2 border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] `}>
+                                Set
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-full mt-4">{/* <BasicFilters /> */}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
         {/* pagination */}
         <div className="flex gap-2 flex-wrap my-3">
           {pagesArray

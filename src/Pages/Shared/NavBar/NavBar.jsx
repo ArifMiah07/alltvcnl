@@ -46,7 +46,7 @@ const NavBar = () => {
         className={`${
           isSticky
             ? "flex flex-row items-center justify-center gap-4 rounded-full fixed top-0 left-1/2 -translate-x-1/2 w-[100px] md:w-[100px] lg:w-[800px] h-[50px] border border-red-50 z-20 shadow-md bg-white/30 backdrop-blur-md px-6 py-1 isolate"
-            : "w-full navbar p-0 min-h-0 transition-all duration-300 ease-in-out shadow-md bg-white/30 backdrop-blur-md isolate"
+            : "w-full navbar p-0 min-h-0 transition-all duration-0 ease-in shadow-md bg-white/30 backdrop-blur-md isolate"
         }`}>
         <div
           className={`navbar-start md:p-0 ${
