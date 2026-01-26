@@ -56,7 +56,7 @@ const MoreChannels = ({
                     to={`/specific-channel/${
                       (currentPage - 1) * channelsPerPage + (stream_index + 1)
                     }/${encodeURIComponent(
-                      stream_item.channel || stream_item.title
+                      stream_item.channel || stream_item.title,
                     )}`}
                     state={{ streamData: stream_item }}>
                     <HiViewfinderCircle className="" />
