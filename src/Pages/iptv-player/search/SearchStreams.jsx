@@ -43,11 +43,11 @@ const SearchStreams = () => {
   // bookmark states
   const [bookmarkedChannel, setBookmarkedChannel] = useState({});
   // stream a specific channel
-  const [isStreamingSpecificChannel, setIsStreamingSpecificChannel] =
-    useState(false);
-  const [storeSpecificChannelsInfo, setStoreSpecificChannelsInfo] = useState(
-    {},
-  );
+  // const [isStreamingSpecificChannel, setIsStreamingSpecificChannel] =
+  //   useState(false);
+  // const [storeSpecificChannelsInfo, setStoreSpecificChannelsInfo] = useState(
+  //   {},
+  // );
 
   const [selectedChannel, setSelectedChannel] = useState(null);
 
@@ -133,7 +133,7 @@ const SearchStreams = () => {
   // handle handleAllAndOneChannelStream
   const handleAllAndOneChannelStream = () => {
     //
-    console.log("Clicked");
+    // console.log("Clicked");
     // setIsStreamingSpecificChannel(!isStreamingSpecificChannel);
     setSelectedChannel(null);
   };
@@ -142,10 +142,10 @@ const SearchStreams = () => {
     // //
     // setIsStreamingSpecificChannel(!isStreamingSpecificChannel);
     // setStoreSpecificChannelsInfo((prev) => [...prev, channelInfo]);
-    console.log("channelInfo: ", { channelInfo });
+    // console.log("channelInfo: ", { channelInfo });
     setSelectedChannel(channelInfo);
   };
-  console.log(selectedChannel);
+  // console.log(selectedChannel);
 
   //   useEffect(()=> {
   //   }, [])
