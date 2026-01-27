@@ -1,25 +1,26 @@
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 import { MdOutlineStar, MdOutlineStarBorder } from "react-icons/md";
 import { HiViewfinderCircle } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useState } from "react";
-import {
-  MediaController,
-  MediaControlBar,
-  MediaTimeRange,
-  MediaTimeDisplay,
-  MediaVolumeRange,
-  // MediaPlaybackRateButton,
-  MediaPlayButton,
-  // MediaSeekBackwardButton,
-  // MediaSeekForwardButton,
-  MediaMuteButton,
-  MediaFullscreenButton,
-  MediaCaptionsButton,
-  MediaPipButton,
-} from "media-chrome/react";
+// import {
+//   MediaController,
+//   MediaControlBar,
+//   MediaTimeRange,
+//   MediaTimeDisplay,
+//   MediaVolumeRange,
+//   // MediaPlaybackRateButton,
+//   MediaPlayButton,
+//   // MediaSeekBackwardButton,
+//   // MediaSeekForwardButton,
+//   MediaMuteButton,
+//   MediaFullscreenButton,
+//   MediaCaptionsButton,
+//   MediaPipButton,
+// } from "media-chrome/react";
 import { LuMonitorPlay } from "react-icons/lu";
+import HlsVideoPlayer from "../hls-video-player/HlsVideoPlayer";
 
 const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   // react states
@@ -43,7 +44,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   };
 
   // console
-  console.log(specificChannelStream);
+  // console.log(specificChannelStream);
 
   return (
     <div className=" w-full h-full col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center justify-items-center gap-4 p-4  ">
@@ -78,7 +79,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                     to={`/specific-channel/${
                       (currentPage - 1) * channelsPerPage + (stream_index + 1)
                     }/${encodeURIComponent(
-                      stream_item.channel || stream_item.title
+                      stream_item.channel || stream_item.title,
                     )}`}
                     state={{ streamData: stream_item }}>
                     {/* /${
@@ -113,7 +114,12 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
               </div>
             </div>
             <div className="w-full h-full flex flex-col border border-green-50  ">
-              <MediaController
+              <HlsVideoPlayer
+                src={stream_item?.url}
+                controls
+                autoPlay={false}
+              />
+              {/* <MediaController
                 style={{
                   width: "100%",
                   aspectRatio: "16/9",
@@ -145,11 +151,11 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                     // gap: "2px",
                   }}>
                   <MediaPlayButton />
-                  {/* <MediaSeekBackwardButton seekOffset={10} />
-                  <MediaSeekForwardButton seekOffset={10} /> */}
+                  <MediaSeekBackwardButton seekOffset={10} />
+                  <MediaSeekForwardButton seekOffset={10} />
                   <MediaTimeRange />
                   <MediaTimeDisplay showDuration />
-                  {/* Volume control group with hover - use onMouseEnter/onMouseLeave */}
+                  Volume control group with hover - use onMouseEnter/onMouseLeave
                   <div
                     style={{
                       display: "flex",
@@ -182,16 +188,16 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                       }}
                     />
                   </div>
-                  {/*                   
+                                    
                   <MediaMuteButton />
-                  <MediaVolumeRange /> */}
+                  <MediaVolumeRange />
 
-                  {/* <MediaPlaybackRateButton /> */}
+                  <MediaPlaybackRateButton />
                   <MediaCaptionsButton />
                   <MediaFullscreenButton />
                   <MediaPipButton />
                 </MediaControlBar>
-              </MediaController>
+              </MediaController> */}
             </div>
           </div>
         ))

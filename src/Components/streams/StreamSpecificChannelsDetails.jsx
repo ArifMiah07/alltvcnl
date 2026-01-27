@@ -1,21 +1,22 @@
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 
 import PropTypes from "prop-types";
-import {
-  MediaController,
-  MediaControlBar,
-  MediaTimeRange,
-  MediaTimeDisplay,
-  MediaVolumeRange,
-  MediaPlaybackRateButton,
-  MediaPlayButton,
-  MediaSeekBackwardButton,
-  MediaSeekForwardButton,
-  MediaMuteButton,
-  MediaFullscreenButton,
-  MediaCaptionsButton,
-  MediaPipButton,
-} from "media-chrome/react";
+// import {
+//   MediaController,
+//   MediaControlBar,
+//   MediaTimeRange,
+//   MediaTimeDisplay,
+//   MediaVolumeRange,
+//   MediaPlaybackRateButton,
+//   MediaPlayButton,
+//   MediaSeekBackwardButton,
+//   MediaSeekForwardButton,
+//   MediaMuteButton,
+//   MediaFullscreenButton,
+//   MediaCaptionsButton,
+//   MediaPipButton,
+// } from "media-chrome/react";
+import HlsVideoPlayer from "../hls-video-player/HlsVideoPlayer";
 
 const StreamSpecificChannelsDetails = ({ streamData }) => {
   //   console.log(streamData.url);
@@ -23,7 +24,8 @@ const StreamSpecificChannelsDetails = ({ streamData }) => {
     <div>
       {/* <h1>StreamSpecificChannelsDetails.jsx</h1> */}
       <div className="w-full h-full flex flex-col  p-4 md:p-8 lg:p-12 xl:p-16 ">
-        <MediaController
+        <HlsVideoPlayer src={streamData?.url} controls autoPlay={false} />
+        {/* <MediaController
           style={{
             width: "100%",
             aspectRatio: "16/9",
@@ -54,7 +56,7 @@ const StreamSpecificChannelsDetails = ({ streamData }) => {
             <MediaPipButton />
             <MediaFullscreenButton />
           </MediaControlBar>
-        </MediaController>
+        </MediaController> */}
       </div>
     </div>
   );

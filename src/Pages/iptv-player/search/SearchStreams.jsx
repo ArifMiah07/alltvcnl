@@ -621,8 +621,8 @@ const SearchStreams = () => {
               )}
             </div>
             {/* sidebar */}
-            <div className=" border lg:w-[30%] sticky top-12 h-fit text-center flex flex-row items-start justify-start ">
-              <div className="border border-green-500  flex flex-col gap-2 flex-wrap p-2">
+            <div className="  lg:w-[30%] sticky top-12 h-fit text-center flex flex-row items-start justify-start ">
+              <div className=" flex flex-col gap-2 flex-wrap p-2">
                 {pagesArray
                   ? pagesArray?.map((page, index) => (
                       <div className=" w-[80px] h-fit" key={index}>
@@ -644,7 +644,7 @@ const SearchStreams = () => {
               {/* <div className="w-full h-full ">
             </div> */}
               {/* ______TODO: : :ADD FUNCTIONALITY_______ */}
-              <div className=" p-2 w-full h-full border border-red-500 ">
+              <div className=" p-2 w-full h-full  ">
                 {/* Sidebar */}
                 <div className="lg:col-span-1 ">
                   <div className="w-full border-b-2 border-red-50 ">

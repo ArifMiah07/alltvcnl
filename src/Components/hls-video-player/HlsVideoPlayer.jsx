@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Hls from "hls.js";
 import PropTypes from "prop-types";
 
-const HlsVideoPlayer = ({ src, controls, autoPlay, muted }) => {
+const HlsVideoPlayer = ({ src, controls, autoPlay }) => {
   const videoRef = useRef(null);
   const hls = useRef(null);
 
@@ -115,7 +115,7 @@ const HlsVideoPlayer = ({ src, controls, autoPlay, muted }) => {
       <video
         ref={videoRef}
         controls={controls}
-        muted={muted}
+        // muted={muted}
         autoPlay={autoPlay}
         className="h-full w-full"
         style={{ objectFit: "cover" }}
