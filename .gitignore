@@ -30,3 +30,4 @@ release/
 *.njsproj
 *.sln
 *.sw?
+.vercel
