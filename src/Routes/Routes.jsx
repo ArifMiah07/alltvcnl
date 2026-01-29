@@ -26,6 +26,7 @@ import StreamSpecificChannel from "../Pages/iptv-player/streams/SpecificChannel"
 import TestingPage from "../Pages/test/TestingPage";
 import SearchStreams from "../Pages/iptv-player/search/SearchStreams";
 import TestingVidSrc from "../Pages/test/TestingVidSrc";
+import Features from "../Pages/Features/Features";
 // import IP from "../Pages/iptv-player/IP";
 
 const router = createHashRouter([
@@ -41,6 +42,10 @@ const router = createHashRouter([
       {
         path: "/home",
         element: <Home />,
+      },
+      {
+        path: "/stream/asian-iptv",
+        element: <Features />,
       },
       {
         path: "/streams",
