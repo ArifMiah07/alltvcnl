@@ -195,6 +195,7 @@ const SearchStreams = () => {
      * Search by channel, title and show all search results with
      * pagination and add a sidebar for filtering and control user actions
      * refactor, add all device responsiveness
+     * use local storage for preferences and use a database if user have account
      */
     <div className="p-2 flex flex-col">
       <Helmet>
