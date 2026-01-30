@@ -8,6 +8,7 @@ import {
 } from "react-icons/md";
 import { LuMonitorPlay } from "react-icons/lu";
 import { HiViewfinderCircle } from "react-icons/hi2";
+import { chinaIPTVSources } from "../../../utils/chinaIptvSourceData";
 
 const StreamChinaIptv = () => {
   const [searchData, setSearchData] = useState([]);
@@ -15,24 +16,35 @@ const StreamChinaIptv = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const [totalPages, setTotalPages] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
+
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
   const [channelsPerPage, setChannelsPerPage] = useState(10);
 
   const [bookmarkedChannel, setBookmarkedChannel] = useState({});
 
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState("Global");
 
   // fetch search result
   useEffect(() => {
-    // if (!searchValue) return;
+    if (!term) return;
 
     const fetchSearchResult = async () => {
       setLoading(true);
       try {
-        const url = `http://localhost:5000/api/iptv-player/stream/china-iptv?term=${encodeURIComponent(term)}&currentPage=1&channelsPerPage=10`;
-        const response = await axios.get(url);
+        const url = `http://localhost:5000/api/iptv-player/stream/china-iptv`;
+        const response = await axios.get(url, {
+          params: {
+            term,
+            currentPage: currentPageNumber,
+            channelsPerPage,
+          },
+        });
+
         setSearchData(response?.data?.data || []);
-        // setCurrentIndexSet(response?.data?.currentIndexSet || []);
+        setTotalPages(response?.data?.totalPages || 0);
+        setTotalItems(response?.data?.totalItems || 0);
         setError(null);
       } catch (err) {
         setError(err);
@@ -42,18 +54,11 @@ const StreamChinaIptv = () => {
     };
 
     fetchSearchResult();
-  }, [term]);
-
-  const totalChannels = searchData?.length;
-  const numbersOfPages = Math.ceil(totalChannels / channelsPerPage);
-  const startIndex = (currentPageNumber - 1) * channelsPerPage;
-  const endIndex = currentPageNumber * channelsPerPage;
-
-  console.log(numbersOfPages);
+  }, [term, currentPageNumber, channelsPerPage]);
 
   const handleCurrentPage = (page) => {
     // console.log(" page: ", Number(page), Math.ceil(totalChannels / 10));
-    if (Number(page) > 0 && Number(page) <= numbersOfPages) {
+    if (Number(page) > 0 && Number(page) <= totalPages) {
       setCurrentPageNumber(page);
     }
   };
@@ -69,106 +74,10 @@ const StreamChinaIptv = () => {
   };
 
   const handleChianIptvSource = (source) => {
-    console.log(source);
     setTerm(source);
+    setCurrentPageNumber(1);
   };
   console.log(term);
-
-  const chinaIPTVSources = [
-    // ===== Global / Overseas =====
-    { key: "global", region: "global", name: "Global", base: "Global" },
-    { key: "usa", region: "global", name: "USA", base: "USA" },
-    { key: "uk", region: "global", name: "UK", base: "UK" },
-    { key: "russia", region: "global", name: "Russia", base: "Russia" },
-    { key: "japan", region: "global", name: "Japan", base: "Japan" },
-    {
-      key: "singapore",
-      region: "global",
-      name: "Singapore",
-      base: "Singapore",
-    },
-    {
-      key: "north-korea",
-      region: "global",
-      name: "North Korea",
-      base: "NorthKorea",
-    },
-    {
-      key: "south-korea",
-      region: "global",
-      name: "South Korea",
-      base: "southKorea",
-    },
-    {
-      key: "other",
-      region: "global",
-      name: "Other Countries",
-      base: "otherCountry",
-    },
-
-    // ===== China Regions =====
-    {
-      key: "hongkong",
-      region: "china-region",
-      name: "Hong Kong",
-      base: "HongKong",
-    },
-    { key: "macao", region: "china-region", name: "Macao", base: "Macao" },
-    { key: "taiwan", region: "china-region", name: "Taiwan", base: "TaiWan" },
-
-    // ===== China National =====
-    {
-      key: "cctv-all",
-      region: "china-national",
-      name: "CCTV All",
-      base: "cnTV1_ALL",
-    },
-    {
-      key: "cctv-guoji",
-      region: "china-national",
-      name: "CCTV International",
-      base: "cnTV1_GuoJi",
-    },
-    {
-      key: "cctv-guonei",
-      region: "china-national",
-      name: "CCTV Domestic",
-      base: "cnTV2_GuoNei",
-    },
-    {
-      key: "cctv-auto",
-      region: "china-national",
-      name: "CCTV Auto Update",
-      base: "cnTV_AutoUpdate",
-    },
-
-    // ===== Provincial / Local =====
-    {
-      key: "hunan-1",
-      region: "province",
-      name: "Hunan TV 1",
-      base: "HunanTV1",
-    },
-    {
-      key: "hunan-2",
-      region: "province",
-      name: "Hunan TV 2",
-      base: "HunanTV2",
-    },
-    {
-      key: "hunan-3",
-      region: "province",
-      name: "Hunan TV 3",
-      base: "HunanTV3_notOK",
-      status: "notOK",
-    },
-    {
-      key: "hunan-auto",
-      region: "province",
-      name: "Hunan TV Auto Update",
-      base: "HunanTV_AutoUpdate",
-    },
-  ];
 
   // export default chinaIPTVSources;
   console.log(chinaIPTVSources);
@@ -185,8 +94,8 @@ const StreamChinaIptv = () => {
   let endPage = startPage + maxPagesToShow - 1;
 
   // Make sure endPage doesn't exceed numbersOfPages
-  if (endPage > numbersOfPages) {
-    endPage = numbersOfPages;
+  if (endPage > totalPages) {
+    endPage = totalPages;
     startPage = Math.max(1, endPage - maxPagesToShow + 1);
   }
 
@@ -202,33 +111,14 @@ const StreamChinaIptv = () => {
   if (loading) return <p>Loading</p>;
   if (error) return <p>Error</p>;
 
-  /**
-   * {
-      "duration": "-1",
-      "group-title": "international",
-      "name": "ION Plus",
-      "url": "https://jmp2.uk/SamsungTVPlus/USBD300003LK.m3u8"
-    },
-    {
-      "duration": "-1",
-      "tvg-id": "S1.ru",
-      "tvg-logo": "https://i.imgur.com/chNBF5t.png",
-      "group-title": "",
-      "name": "S1",
-      "url": "https://sitv.ru/hls/stv.m3u8"
-    },
-   */
-
   return (
     <div className="w-full p-12 flex flex-col">
       <div className="p-4 w-full ">
-        <h2 className="text-md mb-2">
-          Total channels : {searchData?.length || 0}
-        </h2>
+        <h2 className="text-md mb-2">Total channels : {totalItems}</h2>
         <div className=" w-full flex flex-col lg:flex-row gap-4">
           <div className=" border w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
             {!(searchData?.length === 0) ? (
-              searchData?.slice(startIndex, endIndex).map((item, index) => (
+              searchData?.map((item, index) => (
                 <div key={index} className=" border p-0">
                   <div className="flex flex-col  p-1 gap-1">
                     <p className="flex flex-row gap-2">
@@ -279,18 +169,11 @@ const StreamChinaIptv = () => {
                       <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
                         <MdOutlinePlaylistAdd />
                       </span>
-                      {/* {(item.feed || item.quality) && (
-                    <div className="flex flex-row gap-3 ">
-                      {item.feed && <p>{item.feed}</p>}
-                      {item.quality && <p>{item.quality}</p>}
-                    </div>
-                  )} */}
                     </div>
                   </div>
                   {/* player */}
                   <div className="">
                     <div className="App">
-                      {/* <h1>HLS.js in React</h1> */}
                       <HlsVideoPlayer
                         src={item?.url}
                         controls
