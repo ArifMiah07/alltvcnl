@@ -20,6 +20,8 @@ const StreamChinaIptv = () => {
 
   const [bookmarkedChannel, setBookmarkedChannel] = useState({});
 
+  const [term, setTerm] = useState("");
+
   // fetch search result
   useEffect(() => {
     // if (!searchValue) return;
@@ -27,7 +29,7 @@ const StreamChinaIptv = () => {
     const fetchSearchResult = async () => {
       setLoading(true);
       try {
-        const url = `http://localhost:5000/api/iptv-player/stream/china-iptv?currentPage=4&channelsPerPage=45`;
+        const url = `http://localhost:5000/api/iptv-player/stream/china-iptv?term=${encodeURIComponent(term)}&currentPage=1&channelsPerPage=10`;
         const response = await axios.get(url);
         setSearchData(response?.data?.data || []);
         // setCurrentIndexSet(response?.data?.currentIndexSet || []);
@@ -40,7 +42,7 @@ const StreamChinaIptv = () => {
     };
 
     fetchSearchResult();
-  }, []);
+  }, [term]);
 
   const totalChannels = searchData?.length;
   const numbersOfPages = Math.ceil(totalChannels / channelsPerPage);
@@ -65,6 +67,111 @@ const StreamChinaIptv = () => {
     // const handleBookmarkToggle = (channelUrl) => {
     // };
   };
+
+  const handleChianIptvSource = (source) => {
+    console.log(source);
+    setTerm(source);
+  };
+  console.log(term);
+
+  const chinaIPTVSources = [
+    // ===== Global / Overseas =====
+    { key: "global", region: "global", name: "Global", base: "Global" },
+    { key: "usa", region: "global", name: "USA", base: "USA" },
+    { key: "uk", region: "global", name: "UK", base: "UK" },
+    { key: "russia", region: "global", name: "Russia", base: "Russia" },
+    { key: "japan", region: "global", name: "Japan", base: "Japan" },
+    {
+      key: "singapore",
+      region: "global",
+      name: "Singapore",
+      base: "Singapore",
+    },
+    {
+      key: "north-korea",
+      region: "global",
+      name: "North Korea",
+      base: "NorthKorea",
+    },
+    {
+      key: "south-korea",
+      region: "global",
+      name: "South Korea",
+      base: "southKorea",
+    },
+    {
+      key: "other",
+      region: "global",
+      name: "Other Countries",
+      base: "otherCountry",
+    },
+
+    // ===== China Regions =====
+    {
+      key: "hongkong",
+      region: "china-region",
+      name: "Hong Kong",
+      base: "HongKong",
+    },
+    { key: "macao", region: "china-region", name: "Macao", base: "Macao" },
+    { key: "taiwan", region: "china-region", name: "Taiwan", base: "TaiWan" },
+
+    // ===== China National =====
+    {
+      key: "cctv-all",
+      region: "china-national",
+      name: "CCTV All",
+      base: "cnTV1_ALL",
+    },
+    {
+      key: "cctv-guoji",
+      region: "china-national",
+      name: "CCTV International",
+      base: "cnTV1_GuoJi",
+    },
+    {
+      key: "cctv-guonei",
+      region: "china-national",
+      name: "CCTV Domestic",
+      base: "cnTV2_GuoNei",
+    },
+    {
+      key: "cctv-auto",
+      region: "china-national",
+      name: "CCTV Auto Update",
+      base: "cnTV_AutoUpdate",
+    },
+
+    // ===== Provincial / Local =====
+    {
+      key: "hunan-1",
+      region: "province",
+      name: "Hunan TV 1",
+      base: "HunanTV1",
+    },
+    {
+      key: "hunan-2",
+      region: "province",
+      name: "Hunan TV 2",
+      base: "HunanTV2",
+    },
+    {
+      key: "hunan-3",
+      region: "province",
+      name: "Hunan TV 3",
+      base: "HunanTV3_notOK",
+      status: "notOK",
+    },
+    {
+      key: "hunan-auto",
+      region: "province",
+      name: "Hunan TV Auto Update",
+      base: "HunanTV_AutoUpdate",
+    },
+  ];
+
+  // export default chinaIPTVSources;
+  console.log(chinaIPTVSources);
 
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______START HERE______ */
@@ -102,79 +209,121 @@ const StreamChinaIptv = () => {
       "name": "ION Plus",
       "url": "https://jmp2.uk/SamsungTVPlus/USBD300003LK.m3u8"
     },
+    {
+      "duration": "-1",
+      "tvg-id": "S1.ru",
+      "tvg-logo": "https://i.imgur.com/chNBF5t.png",
+      "group-title": "",
+      "name": "S1",
+      "url": "https://sitv.ru/hls/stv.m3u8"
+    },
    */
 
   return (
-    <div className="p-12">
-      <h2 className="text-md mb-2">
-        Total channels : {searchData?.length || 0}
-      </h2>
-      <div className="  lg:w-[70%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
-        {!(searchData?.length === 0) ? (
-          searchData?.slice(startIndex, endIndex).map((item, index) => (
-            <div key={index} className=" border p-0">
-              <div className="flex flex-col  p-1 gap-1">
-                <p className="flex flex-row gap-2">
-                  {" "}
-                  {(currentPageNumber - 1) * channelsPerPage + (index + 1)}.
-                  {/* {index + 1}.{" "} */}
-                  <a href={item.url} target="_blank">
-                    {item.name}
-                  </a>
-                  {/* <span>({currentIndexSet[index]})</span> */}
-                </p>
-                {/* icons */}
-                <div className="flex gap-3 ">
-                  {/* stream a specific channel */}
-                  <span
-                    // onClick={() =>
-                    //   handleStreamSpecificChannel({ ...item, index })
-                    // }
-                    className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                    <HiViewfinderCircle />
-                  </span>
-                  <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                    <LuMonitorPlay />
-                  </span>
-                  <span onClick={() => handleBookmarkChannelToggle(item.url)}>
-                    {bookmarkedChannel[item.url] ? (
+    <div className="w-full p-12 flex flex-col">
+      <div className="p-4 w-full ">
+        <h2 className="text-md mb-2">
+          Total channels : {searchData?.length || 0}
+        </h2>
+        <div className=" w-full flex flex-col lg:flex-row gap-4">
+          <div className=" border w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
+            {!(searchData?.length === 0) ? (
+              searchData?.slice(startIndex, endIndex).map((item, index) => (
+                <div key={index} className=" border p-0">
+                  <div className="flex flex-col  p-1 gap-1">
+                    <p className="flex flex-row gap-2">
+                      {" "}
+                      {(currentPageNumber - 1) * channelsPerPage + (index + 1)}.
+                      {/* {index + 1}.{" "} */}
+                      <a href={item.url} target="_blank">
+                        {item.name}
+                      </a>
+                      {/* <span>({currentIndexSet[index]})</span> */}
+                      {item["tvg-logo"] && (
+                        <div className=" flex flex-col items-center justify-center w-[24px] h-[24px] ">
+                          <img
+                            className="w-[24px]"
+                            src={item["tvg-logo"]}
+                            alt="logo"
+                          />
+                        </div>
+                      )}
+                    </p>
+                    {/* icons */}
+                    <div className="flex gap-3 ">
+                      {/* stream a specific channel */}
                       <span
-                        className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
-                        <MdBookmark />
+                        // onClick={() =>
+                        //   handleStreamSpecificChannel({ ...item, index })
+                        // }
+                        className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                        <HiViewfinderCircle />
                       </span>
-                    ) : (
                       <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                        <MdBookmarkBorder />
+                        <LuMonitorPlay />
                       </span>
-                    )}
-                  </span>
+                      <span
+                        onClick={() => handleBookmarkChannelToggle(item.url)}>
+                        {bookmarkedChannel[item.url] ? (
+                          <span
+                            className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
+                            <MdBookmark />
+                          </span>
+                        ) : (
+                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <MdBookmarkBorder />
+                          </span>
+                        )}
+                      </span>
 
-                  <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                    <MdOutlinePlaylistAdd />
-                  </span>
-                  {/* {(item.feed || item.quality) && (
+                      <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                        <MdOutlinePlaylistAdd />
+                      </span>
+                      {/* {(item.feed || item.quality) && (
                     <div className="flex flex-row gap-3 ">
                       {item.feed && <p>{item.feed}</p>}
                       {item.quality && <p>{item.quality}</p>}
                     </div>
                   )} */}
+                    </div>
+                  </div>
+                  {/* player */}
+                  <div className="">
+                    <div className="App">
+                      {/* <h1>HLS.js in React</h1> */}
+                      <HlsVideoPlayer
+                        src={item?.url}
+                        controls
+                        autoPlay={false}
+                      />
+                    </div>
+                  </div>
                 </div>
+              ))
+            ) : (
+              <div className="p-4 text-lg bg-green ">
+                {" "}
+                <p>No data found</p>{" "}
               </div>
-              {/* player */}
-              <div className="">
-                <div className="App">
-                  {/* <h1>HLS.js in React</h1> */}
-                  <HlsVideoPlayer src={item?.url} controls autoPlay={false} />
-                </div>
-              </div>
-            </div>
-          ))
-        ) : (
-          <div className="p-4 text-lg bg-green ">
-            {" "}
-            <p>No data found</p>{" "}
+            )}
           </div>
-        )}
+          <div className="  lg:w-[30%] flex flex-col lg:flex-col flex-wrap border">
+            {chinaIPTVSources.map((el, i) => (
+              <div
+                className={`${term === el.base ? "bg-green-500" : ""}`}
+                key={el.key}>
+                <button
+                  onClick={() => handleChianIptvSource(el.base)}
+                  className=" w-full  p-1 border ">
+                  <span
+                    className={`${term === el.base ? "text-white" : "text-black"}`}>
+                    {i + 1}. {el.name}
+                  </span>
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
       {/* pagination */}
       <div className="flex gap-2 flex-wrap my-3">
