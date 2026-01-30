@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { HiViewfinderCircle } from "react-icons/hi2";
 import { FaBookmark } from "react-icons/fa";
 import { MdOutlinePlaylistAdd } from "react-icons/md";
+import HlsVideoPlayer from "../../Components/hls-video-player/HlsVideoPlayer";
 
 const IPTVComponent = () => {
   const [channels, setChannels] = useState([]);
@@ -56,7 +57,7 @@ const IPTVComponent = () => {
     const fetchIPTVData = async () => {
       try {
         const response = await axios.get(
-          "https://iptv-org.github.io/api/streams.json"
+          "https://iptv-org.github.io/api/streams.json",
         );
         setChannels(response.data);
         setFilteredChannels(response.data);
@@ -78,7 +79,7 @@ const IPTVComponent = () => {
 
       try {
         const res = await fetch(
-          `https://restcountries.com/v3.1/name/${searchText}?fields=name,cca2,flags`
+          `https://restcountries.com/v3.1/name/${searchText}?fields=name,cca2,flags`,
         );
         if (res.ok) {
           const data = await res.json();
@@ -104,7 +105,7 @@ const IPTVComponent = () => {
   const indexOfFirstChannel = indexOfLastChannel - channelsPerPage;
   const currentChannels = channelsToDisplay.slice(
     indexOfFirstChannel,
-    indexOfLastChannel
+    indexOfLastChannel,
   );
 
   // Bookmark functionality
@@ -118,7 +119,7 @@ const IPTVComponent = () => {
     if (isChannelBookmarked(channel.url)) {
       // Remove bookmark
       updatedBookmarks = bookmarkedChannels.filter(
-        (bookmark) => bookmark.url !== channel.url
+        (bookmark) => bookmark.url !== channel.url,
       );
     } else {
       // Add bookmark - preserve all original data
@@ -136,7 +137,7 @@ const IPTVComponent = () => {
     setBookmarkedChannels(updatedBookmarks);
     localStorage.setItem(
       "iptv_bookmarked_channels",
-      JSON.stringify(updatedBookmarks)
+      JSON.stringify(updatedBookmarks),
     );
   };
 
@@ -220,7 +221,7 @@ const IPTVComponent = () => {
       case "channel":
         // Filter by exact channel match
         filtered = channels.filter(
-          (cnl) => cnl.channel && cnl.channel.toLowerCase() === searchLower
+          (cnl) => cnl.channel && cnl.channel.toLowerCase() === searchLower,
         );
         break;
 
@@ -229,7 +230,7 @@ const IPTVComponent = () => {
         filtered = channels.filter(
           (cnl) =>
             (cnl.name && cnl.name.toLowerCase().includes(searchLower)) ||
-            (cnl.channel && cnl.channel.toLowerCase().includes(searchLower))
+            (cnl.channel && cnl.channel.toLowerCase().includes(searchLower)),
         );
         break;
 
@@ -344,10 +345,10 @@ const IPTVComponent = () => {
                   filterType === "all"
                     ? "Country, Channel Name, URL"
                     : filterType === "country"
-                    ? "Country Name"
-                    : filterType === "channel"
-                    ? "Channel Name (Exact)"
-                    : "Channel Name"
+                      ? "Country Name"
+                      : filterType === "channel"
+                        ? "Channel Name (Exact)"
+                        : "Channel Name"
                 }`}
                 type="text"
                 name="searchText"
@@ -493,7 +494,9 @@ const IPTVComponent = () => {
       {/* Channel Cards */}
       <div className="flex flex-wrap justify-center gap-5 my-12 channels-container">
         {currentChannels?.map((channel, index) => (
-          <div key={index} className="bg-red-50 p-0 w-80 channel-card relative">
+          <div
+            key={index}
+            className="bg-red-50 border border-red-50 z-20 shadow-md bg-white/30 backdrop-blur-md px-6 py-1 isolate p-0 w-80 channel-card relative">
             {/* Bookmark indicator */}
             {isChannelBookmarked(channel?.url) && (
               <div className="absolute top-2 right-2 bg-yellow-100 hover:bg-yellow-200 text-black px-2 py-1 rounded text-xs font-bold">
@@ -548,12 +551,7 @@ const IPTVComponent = () => {
               </button>
             </div>
             {channel?.url && ReactPlayer.canPlay(channel.url) ? (
-              <ReactPlayer
-                src={channel.url}
-                controls
-                width="100%"
-                height="auto"
-              />
+              <HlsVideoPlayer src={channel.url} controls autoPlay={false} />
             ) : (
               <div className="text-center text-gray-400 py-6">
                 Stream not available

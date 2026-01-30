@@ -78,8 +78,8 @@ const NavBar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/iptv" className={getNavLinkClass}>
-                  Watch IPTV
+                <NavLink to="/stream-iptv" className={getNavLinkClass}>
+                  Stream Iptv
                 </NavLink>
               </li>
               <li>
@@ -133,8 +133,8 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/iptv" className={getNavLinkClass}>
-                Watch IPTV
+              <NavLink to="/stream-iptv" className={getNavLinkClass}>
+                Stream Iptv
               </NavLink>
             </li>
             <li>

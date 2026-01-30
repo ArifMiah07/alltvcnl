@@ -18,7 +18,7 @@ const LandingPage = () => {
 
           <div className="flex flex-wrap justify-center gap-6 mt-8">
             <Link
-              to="/iptv"
+              to="/stream-iptv"
               className="px-8 py-4 bg-indigo-500 hover:bg-indigo-600 rounded-lg font-semibold shadow-lg transition">
               Launch IPTV Player
             </Link>

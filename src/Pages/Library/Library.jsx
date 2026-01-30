@@ -18,13 +18,19 @@ export default function Library() {
           <p className="text-lg font-medium text-white  ">
             Stream World Wide IPTV
           </p>
-          <Link to={`/streams`}>
+          <Link to={`/stream-iptv`}>
             <p className="underline text-black">watch</p>
           </Link>
         </div>
         <div className="min-w-[300px] w-fit h-fit p-4 border border-blue-500 bg-green-500   ">
           <p className="text-lg font-medium text-white  ">Stream Asian IPTV</p>
           <Link to={`/stream/asian-iptv`}>
+            <p className="underline text-black">watch</p>
+          </Link>
+        </div>
+        <div className="min-w-[300px] w-fit h-fit p-4 border border-blue-500 bg-green-500   ">
+          <p className="text-lg font-medium text-white  ">Watch IPTV</p>
+          <Link to={`/iptv`}>
             <p className="underline text-black">watch</p>
           </Link>
         </div>

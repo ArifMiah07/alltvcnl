@@ -49,7 +49,7 @@ const router = createHashRouter([
         element: <StreamAsianIptv />,
       },
       {
-        path: "/streams",
+        path: "/stream-iptv",
         element: <Streams />,
       },
       {
