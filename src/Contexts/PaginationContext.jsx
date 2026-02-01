@@ -31,6 +31,7 @@ export const PaginationProvider = ({ children }) => {
   const handleCurrentPage = (page) => {
     setCurrentPage(page);
     setInputRange(page);
+    localStorage.setItem("currentPageValueLocal", String(page));
   };
   // handle GotoPage
   const handleGotoPage = (e) => {
@@ -47,22 +48,30 @@ export const PaginationProvider = ({ children }) => {
     toast.success(`Showing page no. ${pageNumber}`);
   };
 
-  // handle next page btn
+  // handle next page btn (UPDATED CODE FROM CHATGPT)
   const handleNextPage = () => {
-    //
-    if (currentPage < numbersOfPages) {
-      setCurrentPage((prev) => prev + 1);
-      setInputRange(currentPage + 1);
-    }
+    setCurrentPage((prev) => {
+      if (prev < numbersOfPages) {
+        const nextPage = prev + 1;
+        setInputRange(nextPage);
+        localStorage.setItem("currentPageValueLocal", String(nextPage));
+        return nextPage;
+      }
+      return prev;
+    });
   };
 
-  // handle prev page btn
+  // handle prev page btn (UPDATED CODE FORM CHATGPT)
   const handlePrevPage = () => {
-    //
-    if (currentPage > 1) {
-      setCurrentPage((prev) => prev - 1);
-      setInputRange(currentPage - 1);
-    }
+    setCurrentPage((prev) => {
+      if (prev > 1) {
+        const prevPage = prev - 1;
+        setInputRange(prevPage);
+        localStorage.setItem("currentPageValueLocal", String(prevPage));
+        return prevPage;
+      }
+      return prev;
+    });
   };
 
   //   const handleSetChannelsPerPage = (page) => {
@@ -82,7 +91,7 @@ export const PaginationProvider = ({ children }) => {
       toast.error(`plz enter a number between 1 to ${channelsPerPageLimit}`);
       return;
     }
-    //
+
     localStorage.setItem(
       "channelsPerPageValueLocal",
       String(channelsNumberPerPage),
@@ -94,6 +103,7 @@ export const PaginationProvider = ({ children }) => {
     // reset to page 10 when changing items per page
     setCurrentPage(1);
     setInputRange(1);
+    localStorage.setItem("currentPageValueLocal", "1");
   };
 
   const getValues = {
