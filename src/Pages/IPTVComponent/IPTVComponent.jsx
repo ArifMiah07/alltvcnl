@@ -315,7 +315,7 @@ const IPTVComponent = () => {
   return (
     <div className="min-h-screen w-full mb-12 ">
       {/* Navigation */}
-      <nav className="bg-green-500 p-4 mb-6 lg:mb-12">
+      <nav className="bg-green-500 p-4 mb-2 lg:mb-2">
         <div className="flex flex-col lg:flex-row justify-end items-center gap-5 ">
           <div className="text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">
             <h1>IPTV Channels : {channels.length}</h1>

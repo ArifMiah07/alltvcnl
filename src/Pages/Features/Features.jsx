@@ -4,7 +4,8 @@ const Features = () => {
   return (
     <div>
       {/*  */}
-      <h1>features</h1>
+      <h1> We are Actively Working on this page...</h1>
+      <h2>Coming Soon ...</h2>
     </div>
   );
 };
