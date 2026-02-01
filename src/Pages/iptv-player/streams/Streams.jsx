@@ -7,6 +7,7 @@ import PaginationNumbers from "../../../Components/pagination/PaginationNumbers"
 import Sidebar from "../../../Components/sidebar/Sidebar";
 // import { Toaster } from "sonner";
 import StreamsPageSkeletonLoading from "../../../Components/streams/StreamsPageSkeletonLoading";
+import { Helmet } from "react-helmet-async";
 
 /**
  *
@@ -41,37 +42,60 @@ const Streams = () => {
     // setTotalItems,
   } = usePagination();
 
-  // console.log({
-  //   currentPage,
-  //   numbersOfPages,
-  //   inputRange,
-  //   setInputRange,
-  //   handleCurrentPage,
-  //   handleGotoPage,
-  //   handleNextPage,
-  //   handlePrevPage,
-  //   channelsPerPage,
-  //   channelsInput,
-  //   setChannelsInput,
-  //   handleChannelsPerPage,
-  //   totalItems,
-  //   // setTotalItems,
-  // });
-
-  // console.log(streams);
-
-  // const startPage = Math.max(1, currentPage - 4);
-  // const pagesArray = Array.from({ length: 10 }, (_, i) => startPage + i);
-
   //
   if (loading) return <StreamsPageSkeletonLoading />;
   if (error) return <p>Error: {error}</p>;
+
+  // SEO metadata
+  const pageTitle = `Watch Live IPTV Streams - Page ${currentPage} | All TV`;
+  const pageDescription = `Browse ${totalItems}+ live IPTV channels and streams. Watch free TV channels online in HD quality. Page ${currentPage} of ${numbersOfPages}.`;
+  const canonicalUrl = `https://alltvcnl.netlify.app/streams?page=${currentPage}`;
 
   // console.log(import.meta.env.NODE_ENV);
 
   // console.log(pagesArray);
   return (
     <div className="min-h-screen w-full p-4">
+      {/* SEO Head */}
+      <Helmet>
+        {/* Page-specific SEO */}
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+
+        {/* Pagination SEO */}
+        {currentPage > 1 && (
+          <link
+            rel="prev"
+            href={`https://alltvcnl.netlify.app/streams${currentPage > 2 ? `?page=${currentPage - 1}` : ""}`}
+          />
+        )}
+        {currentPage < numbersOfPages && (
+          <link
+            rel="next"
+            href={`https://alltvcnl.netlify.app/streams?page=${currentPage + 1}`}
+          />
+        )}
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: streams
+              .slice(
+                (currentPage - 1) * channelsPerPage,
+                currentPage * channelsPerPage,
+              )
+              .map((stream, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                name: stream.title,
+                url: `https://alltvcnl.netlify.app/streams/${stream.id || index}`,
+              })),
+          })}
+        </script>
+      </Helmet>
       {/* toast */}
       {/* <Toaster richColors position="top-right" className="z-30" /> */}
       {/* <ClockPage /> */}

@@ -9,6 +9,7 @@ import {
 import { LuMonitorPlay } from "react-icons/lu";
 import { HiViewfinderCircle } from "react-icons/hi2";
 import { chinaIPTVSources } from "../../../utils/chinaIptvSourceData";
+import { Helmet } from "react-helmet-async";
 
 const StreamChinaIptv = () => {
   const [searchData, setSearchData] = useState([]);
@@ -25,6 +26,14 @@ const StreamChinaIptv = () => {
   const [bookmarkedChannel, setBookmarkedChannel] = useState({});
 
   const [term, setTerm] = useState("Global");
+
+  // SEO metadata
+  const currentSource = chinaIPTVSources.find((s) => s.base === term);
+  const pageTitle = `Watch ${currentSource?.name || "Chinese"} IPTV Channels Live - Page ${currentPageNumber} | All TV`;
+  const pageDescription = `Stream live Chinese IPTV channels from ${currentSource?.name || "China"}. Watch ${totalItems}+ Chinese TV channels online in HD quality. Page ${currentPageNumber} of ${totalPages}.`;
+  const canonicalUrl = `https://alltvcnl.netlify.app/china-iptv${currentPageNumber > 1 ? `?page=${currentPageNumber}` : ""}${term !== "Global" ? `&source=${term}` : ""}`;
+  const keywords =
+    "chinese iptv, china tv live, mandarin tv channels, chinese television, cctv live, chinese streaming, 中国电视";
 
   // fetch search result
   useEffect(() => {
@@ -113,8 +122,141 @@ const StreamChinaIptv = () => {
 
   return (
     <div className="w-full p-12 flex flex-col">
+      {/* SEO Meta Tags */}
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>{pageTitle}</title>
+        <meta name="title" content={pageTitle} />
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={keywords} />
+        <link rel="canonical" href={canonicalUrl} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta
+          property="og:image"
+          content="https://alltvcnl.netlify.app/og-china-iptv.png"
+        />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={canonicalUrl} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta
+          name="twitter:image"
+          content="https://alltvcnl.netlify.app/og-china-iptv.png"
+        />
+
+        {/* Pagination SEO */}
+        {currentPageNumber > 1 && (
+          <link
+            rel="prev"
+            href={`https://alltvcnl.netlify.app/china-iptv${currentPageNumber > 2 ? `?page=${currentPageNumber - 1}` : ""}${term !== "Global" ? `&source=${term}` : ""}`}
+          />
+        )}
+        {currentPageNumber < totalPages && (
+          <link
+            rel="next"
+            href={`https://alltvcnl.netlify.app/china-iptv?page=${currentPageNumber + 1}${term !== "Global" ? `&source=${term}` : ""}`}
+          />
+        )}
+
+        {/* Structured Data - BroadcastService */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BroadcastService",
+            name: "Chinese IPTV Channels",
+            description: pageDescription,
+            provider: {
+              "@type": "Organization",
+              name: "All TV IPTV Player",
+              url: "https://alltvcnl.netlify.app",
+            },
+            broadcastDisplayName: currentSource?.name || "Chinese TV Channels",
+            broadcastTimezone: "Asia/Shanghai",
+            potentialAction: {
+              "@type": "WatchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: canonicalUrl,
+                actionPlatform: [
+                  "http://schema.org/DesktopWebPlatform",
+                  "http://schema.org/MobileWebPlatform",
+                ],
+              },
+            },
+            areaServed: {
+              "@type": "Place",
+              name: "Worldwide",
+            },
+          })}
+        </script>
+
+        {/* ItemList Schema for channels */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: `${currentSource?.name || "Chinese"} IPTV Channels - Page ${currentPageNumber}`,
+            numberOfItems: totalItems,
+            itemListElement: searchData.slice(0, 10).map((channel, index) => ({
+              "@type": "ListItem",
+              position: (currentPageNumber - 1) * channelsPerPage + index + 1,
+              name: channel.name,
+              url: channel.url,
+            })),
+          })}
+        </script>
+
+        {/* Breadcrumb */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://alltvcnl.netlify.app",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Chinese IPTV Channels",
+                item: "https://alltvcnl.netlify.app/china-iptv",
+              },
+              ...(term !== "Global"
+                ? [
+                    {
+                      "@type": "ListItem",
+                      position: 3,
+                      name: currentSource?.name,
+                      item: canonicalUrl,
+                    },
+                  ]
+                : []),
+            ],
+          })}
+        </script>
+      </Helmet>
       <div className="p-4 w-full ">
-        <h2 className="text-md mb-2">Total channels : {totalItems}</h2>
+        {/* SEO-friendly header */}
+        <header className="mb-6">
+          <h1 className="text-3xl font-bold mb-2">
+            Watch {currentSource?.name || "Chinese"} IPTV Channels Live
+          </h1>
+          <p className="text-black">
+            Stream {totalItems}+ Chinese television channels online. Browse
+            CCTV, provincial channels, and more.
+          </p>
+        </header>
+        <h3 className="text-md mb-2">Total channels : {totalItems}</h3>
         <div className=" w-full flex flex-col lg:flex-row gap-4">
           <div className=" border w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
             {!(searchData?.length === 0) ? (
