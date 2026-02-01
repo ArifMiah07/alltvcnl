@@ -11,8 +11,13 @@ export const PaginationProvider = ({ children }) => {
     return stored ? Number(stored) : 1;
   });
   const [inputRange, setInputRange] = useState(currentPage);
-  const [channelsPerPage, setChannelsPerPage] = useState(10);
-  const [channelsInput, setChannelsInput] = useState(10);
+  const [channelsPerPage, setChannelsPerPage] = useState(() => {
+    // direct init from local storage
+    const stored = localStorage.getItem("channelsPerPageValueLocal");
+    // get value from localStorage, else return 10
+    return stored ? Number(stored) : 10;
+  });
+  const [channelsInput, setChannelsInput] = useState(channelsPerPage);
   const [totalItems, setTotalItems] = useState(0);
 
   // variables
@@ -77,6 +82,11 @@ export const PaginationProvider = ({ children }) => {
       toast.error(`plz enter a number between 1 to ${channelsPerPageLimit}`);
       return;
     }
+    //
+    localStorage.setItem(
+      "channelsPerPageValueLocal",
+      String(channelsNumberPerPage),
+    );
     //
     setChannelsPerPage(channelsNumberPerPage);
     toast.success(`Showing ${channelsNumberPerPage} channels per page`);
