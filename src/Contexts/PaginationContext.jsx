@@ -5,7 +5,11 @@ import { toast } from "sonner";
 export const PaginationContext = createContext();
 
 export const PaginationProvider = ({ children }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(() => {
+    // direct init from local storage
+    const stored = localStorage.getItem("currentPageValueLocal");
+    return stored ? Number(stored) : 1;
+  });
   const [inputRange, setInputRange] = useState(currentPage);
   const [channelsPerPage, setChannelsPerPage] = useState(10);
   const [channelsInput, setChannelsInput] = useState(10);
@@ -32,6 +36,7 @@ export const PaginationProvider = ({ children }) => {
       toast.error(`plz enter a number between ${1} to ${numbersOfPages}`);
       return;
     }
+    localStorage.setItem("currentPageValueLocal", String(pageNumber));
 
     handleCurrentPage(pageNumber);
     toast.success(`Showing page no. ${pageNumber}`);
