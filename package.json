@@ -24,6 +24,7 @@
   "build": {
     "appId": "com.arifmiah.iptv-player",
     "productName": "IPTV-Player",
+    "icon": "assets/icon.png",
     "artifactName": "${productName}-${version}.${ext}",
     "directories": {
       "buildResources": "assets",
