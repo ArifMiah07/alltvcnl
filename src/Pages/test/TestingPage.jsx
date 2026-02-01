@@ -10,6 +10,7 @@ import {
 } from "react-icons/md";
 import HlsVideoPlayer from "./HlsVideoPlayer";
 import { Helmet } from "react-helmet-async";
+import { BASE_API_PATH } from "../../configs/api-url.config";
 
 const TestingPage = () => {
   // search result fetching
@@ -85,7 +86,7 @@ const TestingPage = () => {
     const fetchSearchResult = async () => {
       setLoading(true);
       try {
-        const url = `http://localhost:5000/api/iptv-player/testing-search-url?term=${encodeURIComponent(searchValue)}`;
+        const url = `${BASE_API_PATH}/api/iptv-player/testing-search-url?term=${encodeURIComponent(searchValue)}`;
         const response = await axios.get(url);
         setSearchData(response?.data?.data || []);
         setCurrentIndexSet(response?.data?.currentIndexSet || []);

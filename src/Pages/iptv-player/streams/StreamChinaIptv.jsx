@@ -10,6 +10,7 @@ import { LuMonitorPlay } from "react-icons/lu";
 import { HiViewfinderCircle } from "react-icons/hi2";
 import { chinaIPTVSources } from "../../../utils/chinaIptvSourceData";
 import { Helmet } from "react-helmet-async";
+import { BASE_API_PATH } from "../../../configs/api-url.config";
 
 const StreamChinaIptv = () => {
   const [searchData, setSearchData] = useState([]);
@@ -42,7 +43,7 @@ const StreamChinaIptv = () => {
     const fetchSearchResult = async () => {
       setLoading(true);
       try {
-        const url = `http://localhost:5000/api/iptv-player/stream/china-iptv`;
+        const url = `${BASE_API_PATH}/api/iptv-player/stream/china-iptv`;
         const response = await axios.get(url, {
           params: {
             term,
@@ -86,10 +87,10 @@ const StreamChinaIptv = () => {
     setTerm(source);
     setCurrentPageNumber(1);
   };
-  console.log(term);
+  // console.log(term);
 
   // export default chinaIPTVSources;
-  console.log(chinaIPTVSources);
+  // console.log(chinaIPTVSources);
 
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______START HERE______ */

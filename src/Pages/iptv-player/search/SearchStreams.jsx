@@ -13,6 +13,7 @@ import { Helmet } from "react-helmet-async";
 import StreamsPageSkeletonLoading from "../../../Components/streams/StreamsPageSkeletonLoading";
 import HlsVideoPlayer from "../../../Components/hls-video-player/HlsVideoPlayer";
 import { RiGalleryView2 } from "react-icons/ri";
+import { BASE_API_PATH } from "../../../configs/api-url.config";
 
 const SearchStreams = () => {
   // search result fetching
@@ -96,7 +97,7 @@ const SearchStreams = () => {
     const fetchSearchResult = async () => {
       setLoading(true);
       try {
-        const url = `https://iptv-player-server.vercel.app/api/iptv-player/testing-search-url?term=${encodeURIComponent(searchValue)}`;
+        const url = `${BASE_API_PATH}/api/iptv-player/testing-search-url?term=${encodeURIComponent(searchValue)}`;
         const response = await axios.get(url);
         setSearchData(response?.data?.data || []);
         setCurrentIndexSet(response?.data?.currentIndexSet || []);
