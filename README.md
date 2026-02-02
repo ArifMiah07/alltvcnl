@@ -106,7 +106,7 @@ wget https://github.com/ArifMiah07/alltvcnl/releases/latest/download/IPTV-Player
 chmod +x IPTV-Player-0.0.2.AppImage
 
 # Run
-./IPTV-Player-0.0.2.AppImage
+./IPTV-Player-0.0.2.AppImage --no-sandbox
 ```
 
 **Windows:**
