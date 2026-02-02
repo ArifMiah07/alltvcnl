@@ -1,7 +1,7 @@
 {
   "name": "IPTV-Player",
   "private": true,
-  "version": "0.0.01",
+  "version": "0.0.02",
   "main": "electron-main.js",
   "author": "Arif Miah 07",
   "description": "IPTV Player Desktop App",
