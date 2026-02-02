@@ -8,6 +8,15 @@ const __dirname = path.dirname(__filename);
 // Disable hardware acceleration for better compatibility
 app.disableHardwareAcceleration();
 
+// Add command line switches for better performance on integrated graphics
+app.commandLine.appendSwitch("disable-gpu");
+app.commandLine.appendSwitch("disable-software-rasterizer");
+app.commandLine.appendSwitch("disable-gpu-compositing");
+app.commandLine.appendSwitch("disable-features", "VizDisplayCompositor");
+
+// FIX: Disable sandbox to avoid permission issues on Linux
+app.commandLine.appendSwitch("no-sandbox");
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 1400,
@@ -17,12 +26,15 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
-      webSecurity: false, // Needed for IPTV streams
+      webSecurity: false,
       allowRunningInsecureContent: true,
       experimentalFeatures: true,
+      enableBlinkFeatures: "OverlayScrollbars",
+      disableBlinkFeatures: "Accelerated2dCanvas",
+      sandbox: false, // Add this too
     },
     backgroundColor: "#1a1a1a",
-    show: false, // Don't show until ready
+    show: false,
   });
 
   // Show window when ready to prevent flash
@@ -41,7 +53,7 @@ function createWindow() {
       details.requestHeaders["User-Agent"] =
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36";
       callback({ requestHeaders: details.requestHeaders });
-    }
+    },
   );
 
   win.webContents.session.webRequest.onHeadersReceived(
@@ -55,7 +67,7 @@ function createWindow() {
         "Access-Control-Allow-Credentials": ["true"],
       };
       callback({ responseHeaders });
-    }
+    },
   );
 
   // Dev mode: load Vite dev server
@@ -76,7 +88,7 @@ function createWindow() {
     "console-message",
     (event, level, message, line, sourceId) => {
       console.log(`[Renderer ${level}]:`, message);
-    }
+    },
   );
 
   // Handle external links
