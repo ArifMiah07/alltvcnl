@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { IoIosArrowDown } from "react-icons/io";
+import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const SavedChannelsPage = () => {
@@ -22,12 +22,12 @@ const SavedChannelsPage = () => {
 
   const removeBookmark = (channelUrl) => {
     const updatedBookmarks = bookmarkedChannels.filter(
-      (bookmark) => bookmark.url !== channelUrl
+      (bookmark) => bookmark.url !== channelUrl,
     );
     setBookmarkedChannels(updatedBookmarks);
     localStorage.setItem(
       "iptv_bookmarked_channels",
-      JSON.stringify(updatedBookmarks)
+      JSON.stringify(updatedBookmarks),
     );
 
     // Adjust current page if needed after removal
@@ -199,7 +199,7 @@ const SavedChannelsPage = () => {
             {/* filter options */}
             <div className="flex items-center justify-center gap-2 border px-5  ">
               <p>Filter options</p>
-              <IoIosArrowDown />
+              <ChevronDown />
             </div>
 
             <div className="text-sm text-gray-600">
@@ -314,8 +314,8 @@ const SavedChannelsPage = () => {
                       page === currentPage
                         ? "bg-purple-600 text-white"
                         : page === "..."
-                        ? "bg-white text-gray-400 cursor-default"
-                        : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-300"
+                          ? "bg-white text-gray-400 cursor-default"
+                          : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-300"
                     }`}>
                     {page}
                   </button>

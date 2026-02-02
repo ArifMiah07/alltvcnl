@@ -1,5 +1,5 @@
-import ReactPlayer from "react-player";
 import { useLocation, useNavigate } from "react-router-dom";
+import HlsVideoPlayer from "../../Components/hls-video-player/HlsVideoPlayer";
 
 const ViewUrl = () => {
   //   const { url } = useParams();
@@ -27,8 +27,8 @@ const ViewUrl = () => {
       {/* content section */}
       <section className="mt-12 w-full h-full ">
         <div className=" w-full h-full  p-24">
-          {channelUrl && ReactPlayer.canPlay(channelUrl) ? (
-            <ReactPlayer
+          {channelUrl ? (
+            <HlsVideoPlayer
               src={channelUrl}
               controls={true}
               width="100%"

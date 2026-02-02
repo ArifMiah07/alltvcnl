@@ -1,9 +1,7 @@
-import { HiViewfinderCircle } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
-// import { LuMonitorPlay } from "react-icons/lu";
-import { FaDisplay } from "react-icons/fa6";
+import { Fullscreen, MonitorPlay } from "lucide-react";
 
 const MoreChannels = ({
   // streamData,
@@ -59,7 +57,7 @@ const MoreChannels = ({
                       stream_item.channel || stream_item.title,
                     )}`}
                     state={{ streamData: stream_item }}>
-                    <HiViewfinderCircle className="" />
+                    <Fullscreen className="" />
                   </Link>
                 </span>
                 {/* stream a specific channel on browser in a separate tab */}
@@ -68,7 +66,7 @@ const MoreChannels = ({
                     href={`${stream_item.url}`}
                     target="_blank"
                     rel="noopener noreferrer">
-                    <FaDisplay />
+                    <MonitorPlay />
                   </a>
                 </span>
                 <span>{""}</span>

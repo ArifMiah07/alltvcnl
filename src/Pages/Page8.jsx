@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ReactPlayer from "react-player";
 import Pagination from "./Pagination";
+import HlsVideoPlayer from "../Components/hls-video-player/HlsVideoPlayer";
 
 const Page8 = () => {
   const [cnlData, setCnlData] = useState([]);
@@ -45,7 +45,7 @@ const Page8 = () => {
               <div className="flex justify-center">
                 <p className="text-lg font-bold">{cnl.name}</p>
               </div>
-              <ReactPlayer
+              <HlsVideoPlayer
                 src={cnl.url}
                 controls
                 width="100%"

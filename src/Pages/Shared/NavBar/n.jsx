@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
-import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { Sun, Moon } from "lucide-react";
 
 export default function Navbar({ scrollPositionY }) {
   // states
@@ -120,11 +120,11 @@ export default function Navbar({ scrollPositionY }) {
           onClick={handleToggleTheme}>
           {isDark ? (
             <span className="flex items-center justify-center">
-              <MdLightMode />
+              <Sun />
             </span>
           ) : (
             <span className="flex items-center justify-center">
-              <MdDarkMode />
+              <Moon />
             </span>
           )}
         </button>

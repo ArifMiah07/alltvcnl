@@ -1,26 +1,9 @@
-// import ReactPlayer from "react-player";
-import { MdOutlineStar, MdOutlineStarBorder } from "react-icons/md";
-import { HiViewfinderCircle } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useState } from "react";
-// import {
-//   MediaController,
-//   MediaControlBar,
-//   MediaTimeRange,
-//   MediaTimeDisplay,
-//   MediaVolumeRange,
-//   // MediaPlaybackRateButton,
-//   MediaPlayButton,
-//   // MediaSeekBackwardButton,
-//   // MediaSeekForwardButton,
-//   MediaMuteButton,
-//   MediaFullscreenButton,
-//   MediaCaptionsButton,
-//   MediaPipButton,
-// } from "media-chrome/react";
-import { LuMonitorPlay } from "react-icons/lu";
 import HlsVideoPlayer from "../hls-video-player/HlsVideoPlayer";
+
+import { Bookmark, BookmarkCheck, Fullscreen, MonitorPlay } from "lucide-react";
 
 const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   // react states
@@ -44,7 +27,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   };
 
   // console
-  // console.log(specificChannelStream);
+  console.log(specificChannelStream);
 
   return (
     <div className=" w-full h-full col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center justify-items-center gap-4 p-4  ">
@@ -87,7 +70,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                       ? stream_item.channel
                       : stream_item.title
                   } */}
-                    <HiViewfinderCircle className="" />
+                    <Fullscreen className="" />
                   </Link>
                 </span>
                 {/* stream a specific channel on browser in a separate tab */}
@@ -96,7 +79,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                     href={`${stream_item.url}`}
                     target="_blank"
                     rel="noopener noreferrer">
-                    <LuMonitorPlay />
+                    <MonitorPlay />
                   </a>
                 </span>
                 {/* bookmark a specific channel */}
@@ -105,9 +88,9 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                   onClick={() => handleBookmarkToggle(stream_item.url)}
                   className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
                   {bookmarks[stream_item.url] ? (
-                    <MdOutlineStar />
+                    <BookmarkCheck />
                   ) : (
-                    <MdOutlineStarBorder />
+                    <Bookmark />
                   )}
                 </span>
                 <span>{""}</span>
@@ -119,85 +102,6 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                 controls
                 autoPlay={false}
               />
-              {/* <MediaController
-                style={{
-                  width: "100%",
-                  aspectRatio: "16/9",
-                  "--media-control-background": "rgba(0, 0, 0, 0.8)",
-                  "--media-control-hover-background": "rgba(0, 0, 0, 0.9)",
-                  "--media-icon-color": "#ffffff",
-                  "--media-text-color": "#ffffff",
-                  "--media-range-track-background": "rgba(255, 255, 255, 0.3)",
-                  "--media-range-bar-color": "#8b5cf6",
-                  "--media-range-thumb-background": "#ffffff",
-                }}>
-                <ReactPlayer
-                  // pip={true}
-                  slot="media"
-                  controls={false}
-                  src={stream_item.url}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    "--controls": "none",
-                  }}>
-                  {" "}
-                </ReactPlayer>
-
-                <MediaControlBar
-                  style={{
-                    // background: "red",
-                    "--media-control-padding": "2px",
-                    // gap: "2px",
-                  }}>
-                  <MediaPlayButton />
-                  <MediaSeekBackwardButton seekOffset={10} />
-                  <MediaSeekForwardButton seekOffset={10} />
-                  <MediaTimeRange />
-                  <MediaTimeDisplay showDuration />
-                  Volume control group with hover - use onMouseEnter/onMouseLeave
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      position: "relative",
-                    }}
-                    onMouseEnter={(e) => {
-                      const volumeRange =
-                        e.currentTarget.querySelector("media-volume-range");
-                      if (volumeRange) {
-                        volumeRange.style.width = "60px";
-                        volumeRange.style.opacity = "1";
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      const volumeRange =
-                        e.currentTarget.querySelector("media-volume-range");
-                      if (volumeRange) {
-                        volumeRange.style.width = "0";
-                        volumeRange.style.opacity = "0";
-                      }
-                    }}>
-                    <MediaMuteButton />
-                    <MediaVolumeRange
-                      style={{
-                        width: "0",
-                        opacity: "0",
-                        transition: "width 0.2s ease, opacity 0.2s ease",
-                        overflow: "hidden",
-                      }}
-                    />
-                  </div>
-                                    
-                  <MediaMuteButton />
-                  <MediaVolumeRange />
-
-                  <MediaPlaybackRateButton />
-                  <MediaCaptionsButton />
-                  <MediaFullscreenButton />
-                  <MediaPipButton />
-                </MediaControlBar>
-              </MediaController> */}
             </div>
           </div>
         ))

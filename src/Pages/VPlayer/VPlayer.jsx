@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import ReactPlayer from "react-player";
+import HlsVideoPlayer from "../../Components/hls-video-player/HlsVideoPlayer";
 // import Watch from "../IPTVComponent/Watch";
 
 const isDirectPlayableUrl = (url) => {
@@ -205,7 +205,7 @@ const VPlayer = () => {
         <div className="w-full mt-8 lg:p-12">
           {urlType === "direct" && (
             <div className=" lg:p-10 min-h-screen w-full aspect-video rounded overflow-hidden shadow-lg">
-              <ReactPlayer
+              <HlsVideoPlayer
                 src={playingUrl}
                 controls
                 width="100%"

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ReactPlayer from "react-player";
 import Pagination from "./Pagination";
+import HlsVideoPlayer from "../Components/hls-video-player/HlsVideoPlayer";
 
 const Page1 = () => {
   const [cnlData, setCnlData] = useState([]);
@@ -44,7 +44,7 @@ const Page1 = () => {
                 <p className="text-lg font-bold">{cnl.name}</p>
               </div>
               {Array.isArray(cnl.urls) ? (
-                <ReactPlayer
+                <HlsVideoPlayer
                   src={cnl.urls[0]}
                   controls
                   width="100%"
@@ -52,7 +52,7 @@ const Page1 = () => {
                   className="mt-2"
                 />
               ) : (
-                <ReactPlayer
+                <HlsVideoPlayer
                   src={cnl.url}
                   controls
                   width="100%"

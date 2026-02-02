@@ -1,10 +1,10 @@
-import { MdOutlineExpandLess, MdOutlineExpandMore } from "react-icons/md";
 import BasicControls from "./BasicControls";
 import BasicFilters from "./BasicFilters";
 import { useState } from "react";
 import BasicInfo from "./BasicInfo";
 
 import PropTypes from "prop-types";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const Sidebar = ({
   currentPage,
@@ -43,11 +43,7 @@ const Sidebar = ({
           <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold ">
             Basic Info{" "}
             <span onClick={toggleBasicInfoExpand} className="">
-              {expandBasicInfo ? (
-                <MdOutlineExpandLess />
-              ) : (
-                <MdOutlineExpandMore />
-              )}
+              {expandBasicInfo ? <ChevronUp /> : <ChevronDown />}
             </span>
           </h3>
         </div>
@@ -73,11 +69,7 @@ const Sidebar = ({
           <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold mt-4 ">
             Basic Controls{" "}
             <span onClick={toggleBasicControlsExpand} className="">
-              {expandBasicControls ? (
-                <MdOutlineExpandLess />
-              ) : (
-                <MdOutlineExpandMore />
-              )}
+              {expandBasicControls ? <ChevronUp /> : <ChevronDown />}
             </span>
           </h3>
         </div>

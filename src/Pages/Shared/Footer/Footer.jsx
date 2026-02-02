@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaTwitter, FaYoutube, FaGithub } from "react-icons/fa";
+import {
+  FacebookIcon,
+  GitHubIcon,
+  TwitterIcon,
+  YouTubeIcon,
+} from "../../../Components/icons/SocialIcons";
 
 const Footer = () => {
   return (
@@ -9,7 +14,8 @@ const Footer = () => {
         <div>
           <h2 className="text-2xl font-bold mb-2">IPTV Player</h2>
           <p className="text-sm">
-            Your gateway to seamless entertainment. Stream top channels with ease.
+            Your gateway to seamless entertainment. Stream top channels with
+            ease.
           </p>
         </div>
 
@@ -17,10 +23,26 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold mb-2">Quick Links</h3>
           <ul className="space-y-1 text-sm">
-            <li><Link to="/home" className="hover:underline">Home</Link></li>
-            <li><Link to="/about" className="hover:underline">About</Link></li>
-            <li><Link to="/v-player" className="hover:underline">VPlayer</Link></li>
-            <li><Link to="/more" className="hover:underline">More</Link></li>
+            <li>
+              <Link to="/home" className="hover:underline">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:underline">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/v-player" className="hover:underline">
+                VPlayer
+              </Link>
+            </li>
+            <li>
+              <Link to="/more" className="hover:underline">
+                More
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -35,10 +57,34 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold mb-2">Follow Us</h3>
           <div className="flex space-x-4 text-xl">
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-gray-200"><FaFacebookF /></a>
-            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-gray-200"><FaTwitter /></a>
-            <a href="https://youtube.com" target="_blank" rel="noreferrer" className="hover:text-gray-200"><FaYoutube /></a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-gray-200"><FaGithub /></a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-gray-200">
+              <FacebookIcon />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-gray-200">
+              <TwitterIcon />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-gray-200">
+              <YouTubeIcon />
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-gray-200">
+              <GitHubIcon />
+            </a>
           </div>
         </div>
       </div>

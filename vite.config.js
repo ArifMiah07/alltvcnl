@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base: "./", // Important: allows Electron to load assets correctly in prod
   build: {
+    sourcemap: false, // ← Add this!
     chunkSizeWarningLimit: 1000,
     outDir: "dist", // output folder
     emptyOutDir: true,

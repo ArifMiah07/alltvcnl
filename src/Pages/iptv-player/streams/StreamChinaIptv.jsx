@@ -2,12 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import HlsVideoPlayer from "../../../Components/hls-video-player/HlsVideoPlayer";
 import {
-  MdBookmark,
-  MdBookmarkBorder,
-  MdOutlinePlaylistAdd,
-} from "react-icons/md";
-import { LuMonitorPlay } from "react-icons/lu";
-import { HiViewfinderCircle } from "react-icons/hi2";
+  Bookmark,
+  BookmarkCheck,
+  Fullscreen,
+  MonitorPlay,
+  ListPlus,
+} from "lucide-react";
+
 import { chinaIPTVSources } from "../../../utils/chinaIptvSourceData";
 import { Helmet } from "react-helmet-async";
 import { BASE_API_PATH } from "../../../configs/api-url.config";
@@ -290,27 +291,27 @@ const StreamChinaIptv = () => {
                         //   handleStreamSpecificChannel({ ...item, index })
                         // }
                         className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                        <HiViewfinderCircle />
+                        <Fullscreen />
                       </span>
                       <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                        <LuMonitorPlay />
+                        <MonitorPlay />
                       </span>
                       <span
                         onClick={() => handleBookmarkChannelToggle(item.url)}>
                         {bookmarkedChannel[item.url] ? (
                           <span
                             className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
-                            <MdBookmark />
+                            <BookmarkCheck />
                           </span>
                         ) : (
                           <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <MdBookmarkBorder />
+                            <Bookmark />
                           </span>
                         )}
                       </span>
 
                       <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                        <MdOutlinePlaylistAdd />
+                        <ListPlus />
                       </span>
                     </div>
                   </div>

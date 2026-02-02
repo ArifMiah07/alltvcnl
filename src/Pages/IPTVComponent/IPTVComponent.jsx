@@ -1,11 +1,9 @@
 // IPTVComponent.js
 import { useState, useEffect } from "react";
 import axios from "axios";
-import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
-import { HiViewfinderCircle } from "react-icons/hi2";
-import { FaBookmark } from "react-icons/fa";
-import { MdOutlinePlaylistAdd } from "react-icons/md";
+
+import { BookmarkCheck, Fullscreen, ListPlus } from "lucide-react";
 import HlsVideoPlayer from "../../Components/hls-video-player/HlsVideoPlayer";
 
 const IPTVComponent = () => {
@@ -500,7 +498,7 @@ const IPTVComponent = () => {
             {/* Bookmark indicator */}
             {isChannelBookmarked(channel?.url) && (
               <div className="absolute top-2 right-2 bg-yellow-100 hover:bg-yellow-200 text-black px-2 py-1 rounded text-xs font-bold">
-                <FaBookmark />
+                <BookmarkCheck />
               </div>
             )}
 
@@ -524,7 +522,7 @@ const IPTVComponent = () => {
                     from: location.pathname,
                   }}>
                   <span className="bg-purple-100 hover:bg-purple-200 text-black py-2 px-4 rounded cursor-pointer">
-                    <HiViewfinderCircle className="inline-block w-5 h-5 mr-2" />
+                    <Fullscreen className="inline-block w-5 h-5 mr-2" />
                   </span>
                 </Link>
               </button>
@@ -547,10 +545,10 @@ const IPTVComponent = () => {
               {/* add to playlist btn */}
               <button className="py-2 bg-rose-100 hover:bg-rose-200 px-4 rounded text-gray-500 font-medium flex items-center justify-center ">
                 {/* <span className="" ></span> */}
-                <MdOutlinePlaylistAdd />
+                <ListPlus />
               </button>
             </div>
-            {channel?.url && ReactPlayer.canPlay(channel.url) ? (
+            {channel?.url ? (
               <HlsVideoPlayer src={channel.url} controls autoPlay={false} />
             ) : (
               <div className="text-center text-gray-400 py-6">

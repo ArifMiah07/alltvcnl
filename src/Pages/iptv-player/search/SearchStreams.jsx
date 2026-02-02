@@ -1,19 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import StreamsPageSkeletonLoading from "../../Components/streams/StreamsPageSkeletonLoading";
-import { HiViewfinderCircle } from "react-icons/hi2";
-import { LuMonitorPlay } from "react-icons/lu";
+
 import {
-  MdBookmark,
-  MdBookmarkBorder,
-  MdOutlinePlaylistAdd,
-} from "react-icons/md";
-// import HlsVideoPlayer from "./HlsVideoPlayer";
+  Bookmark,
+  BookmarkCheck,
+  Fullscreen,
+  MonitorPlay,
+  ListPlus,
+} from "lucide-react";
+
 import { Helmet } from "react-helmet-async";
 import StreamsPageSkeletonLoading from "../../../Components/streams/StreamsPageSkeletonLoading";
 import HlsVideoPlayer from "../../../Components/hls-video-player/HlsVideoPlayer";
-import { RiGalleryView2 } from "react-icons/ri";
 import { BASE_API_PATH } from "../../../configs/api-url.config";
+import { LayoutGrid } from "lucide-react";
 
 const SearchStreams = () => {
   // search result fetching
@@ -307,7 +307,7 @@ const SearchStreams = () => {
             <button className="flex flex-row gap-1 items-center justify-center">
               {" "}
               <span>
-                <RiGalleryView2 />
+                <LayoutGrid />
               </span>{" "}
               Back to All{" "}
             </button>
@@ -340,10 +340,10 @@ const SearchStreams = () => {
                     <span
                       // onClick={() => handleStreamSpecificChannel(item)}
                       className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                      <HiViewfinderCircle />
+                      <Fullscreen />
                     </span>
                     <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                      <LuMonitorPlay />
+                      <MonitorPlay />
                     </span>
                     <span
                       onClick={() =>
@@ -352,17 +352,17 @@ const SearchStreams = () => {
                       {bookmarkedChannel[selectedChannel.url] ? (
                         <span
                           className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
-                          <MdBookmark />
+                          <BookmarkCheck />
                         </span>
                       ) : (
                         <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                          <MdBookmarkBorder />
+                          <Bookmark />
                         </span>
                       )}
                     </span>
 
                     <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                      <MdOutlinePlaylistAdd />
+                      <ListPlus />
                     </span>
                     {(selectedChannel.feed || selectedChannel.quality) && (
                       <div className="flex flex-row gap-3 ">
@@ -572,27 +572,27 @@ const SearchStreams = () => {
                             handleStreamSpecificChannel({ ...item, index })
                           }
                           className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                          <HiViewfinderCircle />
+                          <Fullscreen />
                         </span>
                         <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                          <LuMonitorPlay />
+                          <MonitorPlay />
                         </span>
                         <span
                           onClick={() => handleBookmarkChannelToggle(item.url)}>
                           {bookmarkedChannel[item.url] ? (
                             <span
                               className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
-                              <MdBookmark />
+                              <BookmarkCheck />
                             </span>
                           ) : (
                             <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                              <MdBookmarkBorder />
+                              <Bookmark />
                             </span>
                           )}
                         </span>
 
                         <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                          <MdOutlinePlaylistAdd />
+                          <ListPlus />
                         </span>
                         {(item.feed || item.quality) && (
                           <div className="flex flex-row gap-3 ">
@@ -833,27 +833,27 @@ const SearchStreams = () => {
                             })
                           }
                           className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                          <HiViewfinderCircle />
+                          <Fullscreen />
                         </span>
                         <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                          <LuMonitorPlay />
+                          <MonitorPlay />
                         </span>
                         <span
                           onClick={() => handleBookmarkChannelToggle(item.url)}>
                           {bookmarkedChannel[item.url] ? (
                             <span
                               className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
-                              <MdBookmark />
+                              <BookmarkCheck />
                             </span>
                           ) : (
                             <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                              <MdBookmarkBorder />
+                              <Bookmark />
                             </span>
                           )}
                         </span>
 
                         <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                          <MdOutlinePlaylistAdd />
+                          <ListPlus />
                         </span>
                         {(item.feed || item.quality) && (
                           <div className="flex flex-row gap-3 ">
