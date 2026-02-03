@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   Bookmark,
@@ -21,6 +21,8 @@ const SearchStreams = () => {
   const [currentIndexSet, setCurrentIndexSet] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const inputRef = useRef(null);
 
   // store data
   const [showSearchValue, setShowSearchValue] = useState("");
@@ -74,6 +76,32 @@ const SearchStreams = () => {
   //   localStorage.setItem("searchValueLocal", JSON.stringify(value));
   //   setSearchValue(value);
   // };
+
+  // UPDATED CODE BY CLAUDE
+  useEffect(() => {
+    const handleFocusRequest = () => {
+      if (inputRef.current) {
+        inputRef.current.focus();
+        console.log("Input focused!"); // Debug log
+      }
+    };
+
+    const handleClearRequest = () => {
+      if (inputRef.current) {
+        inputRef.current.value = "";
+        inputRef.current.focus();
+        console.log("Input cleared and focused!"); // Debug log
+      }
+    };
+
+    window.addEventListener("focusSearchInput", handleFocusRequest);
+    window.addEventListener("clearSearch", handleClearRequest);
+
+    return () => {
+      window.removeEventListener("focusSearchInput", handleFocusRequest);
+      window.removeEventListener("clearSearch", handleClearRequest);
+    };
+  }, []);
 
   // UPDATED CODE FROM GEMINI
   // START HERE
@@ -282,6 +310,7 @@ const SearchStreams = () => {
           <input
             className=" px-3 py-1 w-full md:w-1/3 border rounded-l-lg  "
             type="text"
+            ref={inputRef}
             value={searchValueInputRange}
             onChange={(e) => setSearchValueInputRange(e.target.value)}
             placeholder="search by channel, title"
