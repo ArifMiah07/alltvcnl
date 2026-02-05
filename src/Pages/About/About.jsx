@@ -3,7 +3,7 @@ import iptv from ".././../assets/images/iptv.png";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-white py-10 px-4">
+    <div className="dark:bg-[#000000] min-h-screen bg-white py-10 px-4">
       <Helmet>
         <title>About Us</title>
         <meta
@@ -18,20 +18,20 @@ const About = () => {
           <h1 className="text-4xl lg:text-5xl font-bold text-green-600">
             About Us
           </h1>
-          <p className="mt-6 text-base lg:text-lg text-black leading-relaxed">
+          <p className="mt-6 text-base lg:text-lg dark:text-[#ffd9] text-black leading-relaxed">
             Welcome to <strong>IPTV Player</strong> – your gateway to seamless
             entertainment. We’re a team committed to delivering a powerful,
             user-friendly IPTV experience packed with top channels and intuitive
             features.
           </p>
 
-          <p className="mt-4 text-base lg:text-lg text-black leading-relaxed">
+          <p className="mt-4 text-base lg:text-lg dark:text-[#ffd9] text-black leading-relaxed">
             Our mission is simple: to make content discovery enjoyable, fast,
             and stress-free. Whether you&apos;re tuning in for sports, movies,
             or international TV — we’ve got you covered.
           </p>
 
-          <p className="mt-4 text-base lg:text-lg text-black leading-relaxed">
+          <p className="mt-4 text-base lg:text-lg dark:text-[#ffd9] text-black leading-relaxed">
             We&apos;re constantly evolving and value your feedback. If you have
             ideas or need help, don’t hesitate to{" "}
             <a
@@ -42,7 +42,7 @@ const About = () => {
             .
           </p>
 
-          <p className="mt-4 text-base lg:text-lg text-black leading-relaxed">
+          <p className="mt-4 text-base lg:text-lg dark:text-[#ffd9] text-black leading-relaxed">
             Thanks for being part of our growing IPTV family. Enjoy the stream!
           </p>
         </div>

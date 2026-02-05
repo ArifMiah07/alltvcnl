@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="favicon.png" type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <!-- Google Site Verification (Search Console) -->
   <meta name="google-site-verification" content="ugyyBMZKICctARHZ6bZvz3RIU3rMdxwLkaASEW7QISE" />
 
@@ -13,20 +13,23 @@
 
   <!-- SEO Meta Tags -->
   <meta name="title" content="IPTV Player – 13K+ Live TV Channels | Fast, Responsive IPTV Web App">
-  <meta name="description" content="Stream over 13,000+ live IPTV channels in a fast, fully responsive React-based web app with real-time search, bookmarks, pagination, and HLS player.">
+  <meta name="description"
+    content="Stream over 13,000+ live IPTV channels in a fast, fully responsive React-based web app with real-time search, bookmarks, pagination, and HLS player.">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://alltvcnl.netlify.app/" />
   <meta property="og:title" content="IPTV Player – 13K+ Live TV Channels" />
-  <meta property="og:description" content="Fast IPTV streaming app with 13K+ live channels, bookmarking, pagination, and stream preview. Built with React and Tailwind." />
+  <meta property="og:description"
+    content="Fast IPTV streaming app with 13K+ live channels, bookmarking, pagination, and stream preview. Built with React and Tailwind." />
   <meta property="og:image" content="https://alltvcnl.netlify.app/og-banner.png" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://alltvcnl.netlify.app/" />
   <meta property="twitter:title" content="IPTV Player – 13K+ Live TV Channels" />
-  <meta property="twitter:description" content="Fast IPTV streaming app with 13K+ live channels, bookmarking, pagination, and stream preview. Built with React and Tailwind." />
+  <meta property="twitter:description"
+    content="Fast IPTV streaming app with 13K+ live channels, bookmarking, pagination, and stream preview. Built with React and Tailwind." />
   <meta property="twitter:image" content="https://alltvcnl.netlify.app/og-banner.png" />
 
 
@@ -46,6 +49,16 @@
 
 <body>
   <div id="root"></div>
+  <script>
+    (function () {
+      const theme = localStorage.theme;
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (theme === "dark" || (!theme && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

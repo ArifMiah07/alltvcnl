@@ -1,5 +1,6 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import ThemeToggle from "../../../Components/themes/ThemeToggle";
 
 const NavBar = () => {
   const location = useLocation();
@@ -183,6 +184,9 @@ const NavBar = () => {
             }`}>
             <p className="flex hover:text-purple-500">Portfolio</p>
           </Link>
+          <div>
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </nav>
