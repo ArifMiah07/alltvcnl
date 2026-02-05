@@ -23,18 +23,17 @@ export const LocalStorageProvider = ({ children }) => {
   }, [bookmarkedChannel]);
   // handle
   // handle bookmark channels
-  const handleBookmarkChannelToggle = (channelUrl) => {
+  const handleBookmarkChannelToggle = (streamItem) => {
+    // ← Receive full object
     setBookmarkedChannel((prev) => {
       const newState = { ...prev };
-
-      if (newState[channelUrl]) {
-        // If already bookmarked, REMOVE it from the object
-        delete newState[channelUrl];
+      if (newState[streamItem.url]) {
+        // If already bookmarked, REMOVE it
+        delete newState[streamItem.url];
       } else {
-        // If not bookmarked, ADD it with value true
-        newState[channelUrl] = true;
+        // If not bookmarked, ADD full object
+        newState[streamItem.url] = streamItem; // ← Store whole object
       }
-
       return newState;
     });
   };

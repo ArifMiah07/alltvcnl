@@ -12,7 +12,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   // const [bookmarkedChannel, setBookmarkedChannel] = useState({});
   const {
     bookmarkedChannel,
-    setBookmarkedChannel,
+    // setBookmarkedChannel,
     handleBookmarkChannelToggle,
   } = useLocalStorage();
   // const [specificChannelParams, setSpecificChannelParams] = useState({});
@@ -91,7 +91,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                 {/* bookmark a specific channel */}
                 {/* save or locally or save to a playlist <localStorage || default, playlist name> */}
                 <span
-                  onClick={() => handleBookmarkChannelToggle(stream_item.url)}
+                  onClick={() => handleBookmarkChannelToggle(stream_item)}
                   className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
                   {bookmarkedChannel[stream_item.url] ? (
                     <BookmarkCheck />
