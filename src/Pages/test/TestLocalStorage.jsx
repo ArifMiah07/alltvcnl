@@ -1,6 +1,8 @@
 // testing local storage more simply :>
 
 import { useEffect, useState } from "react";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+import HlsVideoPlayer from "../../Components/hls-video-player/HlsVideoPlayer";
 
 const TestLocalStorage = () => {
   // states
@@ -12,7 +14,10 @@ const TestLocalStorage = () => {
     status: "",
   });
   //   const [userInfoInput, setUserInfoInput] = useState(null);
+  const { bookmarkedChannel } = useLocalStorage();
 
+  const allBookmarkedChannels = Object.keys(bookmarkedChannel);
+  console.log({ bookmarkedChannel }, allBookmarkedChannels);
   // handle
   // submit
   const submitUserInfo = (e) => {
@@ -82,6 +87,15 @@ const TestLocalStorage = () => {
             </button>
           </div>
         </form>
+      </div>
+      <div className="min-h-screen p-16">
+        {allBookmarkedChannels?.slice(2, 3).map((channel, index) => (
+          <div className="p-2" key={index}>
+            <div>
+              <HlsVideoPlayer src={channel} />
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

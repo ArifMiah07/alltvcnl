@@ -4,11 +4,17 @@ import { useState } from "react";
 import HlsVideoPlayer from "../hls-video-player/HlsVideoPlayer";
 
 import { Bookmark, BookmarkCheck, Fullscreen, MonitorPlay } from "lucide-react";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   // react states
   const [specificChannelStream, setSpecificChannelStream] = useState({});
-  const [bookmarks, setBookmark] = useState({});
+  // const [bookmarkedChannel, setBookmarkedChannel] = useState({});
+  const {
+    bookmarkedChannel,
+    setBookmarkedChannel,
+    handleBookmarkChannelToggle,
+  } = useLocalStorage();
   // const [specificChannelParams, setSpecificChannelParams] = useState({});
 
   // handler functions
@@ -19,12 +25,12 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   };
   // console.log(specificChannelParams);
   // handle bookmark toggle
-  const handleBookmarkToggle = (streamUrl) => {
-    setBookmark((prev) => ({
-      ...prev,
-      [streamUrl]: !prev[streamUrl],
-    }));
-  };
+  // const handleBookmarkChannelToggle = (streamUrl) => {
+  //   setBookmarkedChannel((prev) => ({
+  //     ...prev,
+  //     [streamUrl]: !prev[streamUrl],
+  //   }));
+  // };
 
   // console
   console.log(specificChannelStream);
@@ -85,9 +91,9 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                 {/* bookmark a specific channel */}
                 {/* save or locally or save to a playlist <localStorage || default, playlist name> */}
                 <span
-                  onClick={() => handleBookmarkToggle(stream_item.url)}
+                  onClick={() => handleBookmarkChannelToggle(stream_item.url)}
                   className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
-                  {bookmarks[stream_item.url] ? (
+                  {bookmarkedChannel[stream_item.url] ? (
                     <BookmarkCheck />
                   ) : (
                     <Bookmark />
