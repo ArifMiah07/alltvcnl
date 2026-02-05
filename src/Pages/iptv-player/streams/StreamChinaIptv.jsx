@@ -12,6 +12,7 @@ import {
 import { chinaIPTVSources } from "../../../utils/chinaIptvSourceData";
 import { Helmet } from "react-helmet-async";
 import { BASE_API_PATH } from "../../../configs/api-url.config";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
 
 const StreamChinaIptv = () => {
   const [searchData, setSearchData] = useState([]);
@@ -25,9 +26,14 @@ const StreamChinaIptv = () => {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
   const [channelsPerPage, setChannelsPerPage] = useState(10);
 
-  const [bookmarkedChannel, setBookmarkedChannel] = useState({});
-
+  // const [bookmarkedChannel, setBookmarkedChannel] = useState({});
   const [term, setTerm] = useState("Global");
+
+  const {
+    bookmarkedChannel,
+    // setBookmarkedChannel,
+    handleBookmarkChannelToggle,
+  } = useLocalStorage();
 
   // SEO metadata
   const currentSource = chinaIPTVSources.find((s) => s.base === term);
@@ -75,14 +81,14 @@ const StreamChinaIptv = () => {
   };
 
   // handle bookmark channels
-  const handleBookmarkChannelToggle = (channelUrl) => {
-    setBookmarkedChannel((prev) => ({
-      ...prev,
-      [channelUrl]: !prev[channelUrl],
-    }));
-    // const handleBookmarkToggle = (channelUrl) => {
-    // };
-  };
+  // const handleBookmarkChannelToggle = (channelUrl) => {
+  //   setBookmarkedChannel((prev) => ({
+  //     ...prev,
+  //     [channelUrl]: !prev[channelUrl],
+  //   }));
+  //   // const handleBookmarkToggle = (channelUrl) => {
+  //   // };
+  // };
 
   const handleChianIptvSource = (source) => {
     setTerm(source);
@@ -296,8 +302,7 @@ const StreamChinaIptv = () => {
                       <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
                         <MonitorPlay />
                       </span>
-                      <span
-                        onClick={() => handleBookmarkChannelToggle(item.url)}>
+                      <span onClick={() => handleBookmarkChannelToggle(item)}>
                         {bookmarkedChannel[item.url] ? (
                           <span
                             className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
