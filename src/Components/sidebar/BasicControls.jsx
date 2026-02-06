@@ -50,7 +50,7 @@ const BasicControls = ({
           <div className="w-full flex flex-row  ">
             {/* take input */}
             <input
-              className="outline-0 w-full text-center  border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] dark:text-black text-md  hover:bg-[#a100ff] hover:text-white"
+              className="outline-0 w-full text-center  border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] dark:bg-black dark:text-white text-md  hover:bg-[#a100ff] hover:text-white"
               value={inputRange}
               onChange={(e) => setInputRange(e.target.value)}
               placeholder="Go to a page"
@@ -84,7 +84,7 @@ const BasicControls = ({
           <div className="w-full flex flex-row  ">
             {/* take input */}
             <input
-              className="outline-0 w-full text-center   border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md dark:text-black hover:bg-[#a100ff] hover:text-white "
+              className="outline-0 w-full text-center   border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md dark:bg-black dark:text-white hover:bg-[#a100ff] hover:text-white "
               value={channelsInput}
               onChange={(e) => setChannelsInput(e.target.value)}
               placeholder="Chanls per page"
