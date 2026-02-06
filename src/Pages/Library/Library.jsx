@@ -41,7 +41,7 @@ export default function Library() {
   ];
 
   return (
-    <div className="w-full min-h-screen flex flex-col p-4 items-start justify-start ">
+    <div className="w-full min-h-screen flex flex-col p-4 items-start justify-start dark:bg-black ">
       {/* SEO Meta Tags */}
       <Helmet>
         {/* Primary Meta Tags */}
@@ -134,13 +134,13 @@ export default function Library() {
         </script>
       </Helmet>
       {/* SEO Header */}
-      <header className="mb-8 max-w-4xl">
+      <header className="mb-8 max-w-4xl dark:text-white">
         <h1 className="text-4xl font-bold mb-4">IPTV Channel Library</h1>
-        <p className="text-xl text-gray-700 mb-2">
+        <p className="text-xl dark:text-white text-gray-700  mb-2">
           Browse our extensive collection of live TV channels organized by
           region and category
         </p>
-        <p className="text-lg text-gray-700">
+        <p className="text-lg dark:text-white text-gray-700">
           Access thousands of IPTV channels from around the world. Choose your
           region to start streaming.
         </p>
