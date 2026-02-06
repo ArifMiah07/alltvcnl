@@ -844,7 +844,7 @@ const SearchStreams = () => {
                 searchData?.slice(startIndex, endIndex).map((item, index) => (
                   <div key={index} className=" border p-0">
                     <div className="flex flex-col  p-1 gap-1">
-                      <p className="flex flex-row gap-2">
+                      <p className="flex flex-row gap-2 dark:text-white">
                         {" "}
                         {(currentPageNumber - 1) * channelsPerPage +
                           (index + 1)}
@@ -888,7 +888,7 @@ const SearchStreams = () => {
                           <ListPlus />
                         </span>
                         {(item.feed || item.quality) && (
-                          <div className="flex flex-row gap-3 ">
+                          <div className="flex flex-row gap-3 dark:text-white ">
                             {item.feed && <p>{item.feed}</p>}
                             {item.quality && <p>{item.quality}</p>}
                           </div>
@@ -899,7 +899,7 @@ const SearchStreams = () => {
                   </div>
                 ))
               ) : (
-                <div className="p-4 text-lg bg-green ">
+                <div className="p-4 text-lg bg-green dark:text-white ">
                   {" "}
                   <p>No data found</p>{" "}
                 </div>
