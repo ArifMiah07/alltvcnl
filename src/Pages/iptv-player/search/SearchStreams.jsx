@@ -227,6 +227,7 @@ const SearchStreams = () => {
      * use local storage for preferences and use a database if user have account
      */
     <div className="p-2 flex flex-col dark:bg-black ">
+      {/* SEO */}
       <Helmet>
         {/* UPDATED CODE FROM GEMINI */}
         {/* START HERE */}
@@ -293,6 +294,7 @@ const SearchStreams = () => {
         {/* UPDATED CODE FORM GEMINI */}
         {/* ENDS HERE */}
       </Helmet>
+      {/* search input, form */}
       <form
         onSubmit={handleSubmit}
         className="flex dark:text-white flex-col gap-3">
@@ -325,6 +327,7 @@ const SearchStreams = () => {
         </div>
       </form>
 
+      {/* all contents main container */}
       <div className="p-3 gap-2 ">
         <h1 className="text-md dark:text-white">
           Showing Search results for {showSearchValue}
@@ -578,7 +581,8 @@ const SearchStreams = () => {
             </div>
           </div>
         ) : (
-          // show all channel
+          // show all channels when no single channel is selected for stream
+          // show all channels
           <div className=" w-full min-h-screen flex flex-col lg:flex-row gap-2">
             {/* content */}
             <div className="  lg:w-[70%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
@@ -648,7 +652,7 @@ const SearchStreams = () => {
                   </div>
                 ))
               ) : (
-                <div className="p-4 text-lg bg-green ">
+                <div className="p-4 text-lg bg-green dark:text-white ">
                   {" "}
                   <p>No data found</p>{" "}
                 </div>
@@ -662,7 +666,7 @@ const SearchStreams = () => {
                       <div className=" w-[80px] h-fit" key={index}>
                         <button
                           onClick={() => handleCurrentPage(page)}
-                          className={` w-full h-full  border border-[#ff00ff] text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5  ${
+                          className={` w-full h-full  border border-[#ff00ff] text-md rounded-sm hover:bg-[#a100ff] hover:text-white text-black dark:text-white py-2 px-5  ${
                             page === currentPageNumber
                               ? "bg-green-500 text-white"
                               : ""
@@ -680,7 +684,8 @@ const SearchStreams = () => {
               {/* ______TODO: : :ADD FUNCTIONALITY_______ */}
               <div className=" p-2 w-full h-full  ">
                 {/* Sidebar */}
-                <div className="lg:col-span-1 ">
+                {/* main search page sidebar while no single channel is selected */}
+                <div className="lg:col-span-1 dark:text-white ">
                   <div className="w-full border-b-2 border-red-50 ">
                     <div className="  w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
                       <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold ">
@@ -815,6 +820,7 @@ const SearchStreams = () => {
             </div>
           </div>
         )}
+        {/* main search page pagination present in bottom left in the page  */}
         {/* pagination */}
         <div className="flex gap-2 flex-wrap my-3">
           {pagesArray
@@ -835,6 +841,7 @@ const SearchStreams = () => {
               ))
             : ""}
         </div>
+        {/* show more channels while single channels is selected to stream */}
         {selectedChannel && (
           <div className="  w-full h-full flex flex-col lg:flex-row gap-2">
             {/* // show all channel when streaming a specific channel */}
