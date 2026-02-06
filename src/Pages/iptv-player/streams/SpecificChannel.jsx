@@ -58,9 +58,9 @@ const StreamSpecificChannel = () => {
   // console.log(streams);
   // console.log(channelIndex, channel);
   return (
-    <div className=" p-4">
+    <div className="dark:bg-black p-4">
       {/* <h1>stream a specific channel</h1> */}
-      <h1 className="font-medium mb-4">
+      <h1 className="font-medium dark:text-white mb-4">
         streaming : {channelIndex}. {channel}
       </h1>
       {/* stream specific channel */}
