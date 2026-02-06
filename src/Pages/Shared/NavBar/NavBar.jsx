@@ -51,7 +51,9 @@ const NavBar = () => {
         }`}>
         <div
           className={`navbar-start md:p-0 ${
-            isSticky ? "  absolute left-1/2 -translate-x-1/2  " : ""
+            isSticky
+              ? " dark:text-white absolute left-1/2 -translate-x-1/2  "
+              : ""
           } `}>
           <div className={`dropdown`}>
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -72,7 +74,7 @@ const NavBar = () => {
             <ul
               key={currentPath + "-mobile"}
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-white  rounded-box w-52">
+              className="menu menu-sm dropdown-content mt-3 p-2  shadow bg-white  rounded-box w-52">
               <li>
                 <NavLink to="/home" className={getNavLinkClass}>
                   Home

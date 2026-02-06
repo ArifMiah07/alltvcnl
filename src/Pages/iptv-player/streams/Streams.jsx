@@ -8,6 +8,7 @@ import Sidebar from "../../../Components/sidebar/Sidebar";
 // import { Toaster } from "sonner";
 import StreamsPageSkeletonLoading from "../../../Components/streams/StreamsPageSkeletonLoading";
 import { Helmet } from "react-helmet-async";
+import BackButton from "../../../Components/buttons/BackButton";
 
 /**
  *
@@ -99,35 +100,43 @@ const Streams = () => {
       {/* toast */}
       {/* <Toaster richColors position="top-right" className="z-30" /> */}
       {/* <ClockPage /> */}
-      <h1 className="text-lg font-normal dark:text-white">
-        Iptv player {">"} Streaming
-      </h1>
+      <div className="flex flex-col items-start gap-2 my-6">
+        <h1 className="text-lg font-normal dark:text-white">
+          Iptv player {">"} Streaming
+        </h1>
+        <BackButton styles=" " />
+      </div>
       <div className="  flex flex-row gap-3 p-3 w-full">
         {/* basic information and action */}
       </div>
       {/* main content */}
-      <div className="w-full h-full flex flex-col lg:grid lg:grid-cols-5  ">
+      <div className="w-full h-full flex flex-col lg:grid lg:grid-cols-12  ">
         {/* streams grid */}
-        <StreamsGrid
-          streams={streams}
-          currentPage={currentPage}
-          channelsPerPage={channelsPerPage}
-        />
+        <div className="col-span-9">
+          <StreamsGrid
+            streams={streams}
+            currentPage={currentPage}
+            channelsPerPage={channelsPerPage}
+          />
+        </div>
         {/* sidebar */}
-        <Sidebar
-          currentPage={currentPage}
-          numbersOfPages={numbersOfPages}
-          inputRange={inputRange}
-          setInputRange={setInputRange}
-          onNext={handleNextPage}
-          onPrev={handlePrevPage}
-          onGoto={handleGotoPage}
-          channelsPerPage={channelsPerPage}
-          channelsInput={channelsInput}
-          setChannelsInput={setChannelsInput}
-          handleChannelsPerPage={handleChannelsPerPage}
-          totalChannels={totalItems}
-        />
+        <div className="col-span-3">
+          <Sidebar
+            currentPage={currentPage}
+            numbersOfPages={numbersOfPages}
+            inputRange={inputRange}
+            setInputRange={setInputRange}
+            onNext={handleNextPage}
+            onPrev={handlePrevPage}
+            onGoto={handleGotoPage}
+            channelsPerPage={channelsPerPage}
+            channelsInput={channelsInput}
+            setChannelsInput={setChannelsInput}
+            handleChannelsPerPage={handleChannelsPerPage}
+            totalChannels={totalItems}
+            handleCurrentPage={handleCurrentPage}
+          />
+        </div>
       </div>
       <div className=" flex flex-row gap-3 p-3 w-full">
         <div>{/* <p className="text-lg font-black">{currentPage}</p> */}</div>

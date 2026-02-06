@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
-import { Fullscreen, MonitorPlay } from "lucide-react";
+import {
+  Bookmark,
+  BookmarkCheck,
+  ListPlus,
+  Fullscreen,
+  MonitorPlay,
+} from "lucide-react";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 const MoreChannels = ({
   // streamData,
@@ -17,6 +24,13 @@ const MoreChannels = ({
   // console.log(streamData);
   // console.log(channel, channelIndex);
 
+  // states
+  const {
+    bookmarkedChannel,
+    // setBookmarkedChannel,
+    handleBookmarkChannelToggle,
+  } = useLocalStorage();
+
   useEffect(() => {
     const cIndex = Math.ceil(Number(channelIndex) / 10);
     // console.log(cIndex);
@@ -24,13 +38,13 @@ const MoreChannels = ({
   }, [channelIndex]);
 
   return (
-    <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1">
+    <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-center justify-between gap-0">
       {streams ? (
         streams?.map((stream_item, stream_index) => (
           <div
             className=" w-full h-full flex flex-row items-start justify-center p-2 bg-radial-[at_50%_75%] from-sky-100 via-violet-100 to-fuchsia-100 to-90%"
             key={stream_index}>
-            <div className="w-full flex flex-col flex-wrap border">
+            <div className="w-full flex flex-col flex-wrap border ">
               {/* basic actions */}
               <div className="w-full flex flex-row gap-2 flex-wrap items-start border-b justify-start p-2  ">
                 {/* stream a specific channel */}
@@ -56,7 +70,26 @@ const MoreChannels = ({
                     <MonitorPlay />
                   </a>
                 </span>
-                <span>{""}</span>
+                {/* bookmark a specific channel */}
+                {/* save or locally or save to a playlist <localStorage || default, playlist name> */}
+                <span
+                  onClick={() => handleBookmarkChannelToggle(stream_item)}
+                  className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
+                  {bookmarkedChannel[stream_item.url] ? (
+                    <BookmarkCheck />
+                  ) : (
+                    <Bookmark />
+                  )}
+                </span>
+                <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
+                  <ListPlus />
+                </span>
+                {(stream_item.feed || stream_item.quality) && (
+                  <div className="flex flex-row gap-3 dark:text-white ">
+                    {stream_item.feed && <p>{stream_item.feed}</p>}
+                    {stream_item.quality && <p>{stream_item.quality}</p>}
+                  </div>
+                )}
               </div>
               {/* channel info */}
               <div className="flex gap-2 px-2">

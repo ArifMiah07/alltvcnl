@@ -7,6 +7,7 @@ import { usePagination } from "../../../hooks/usePagination";
 import { useState } from "react";
 import MoreChannels from "../../../Components/streams/MoreChannels";
 import Sidebar from "../../../Components/sidebar/Sidebar";
+import BackButton from "../../../Components/buttons/BackButton";
 
 const StreamSpecificChannel = () => {
   // hooks
@@ -60,9 +61,12 @@ const StreamSpecificChannel = () => {
   return (
     <div className="dark:bg-black p-4">
       {/* <h1>stream a specific channel</h1> */}
-      <h1 className="font-medium dark:text-white mb-4">
-        streaming : {channelIndex}. {channel}
-      </h1>
+      <div className="flex flex-col items-start gap-2 my-6">
+        <h1 className="font-medium dark:text-white dark:border dark:px-5 dark:py-2 ">
+          streaming : {channel} ({channelIndex})
+        </h1>
+        <BackButton styles=" " />
+      </div>
       {/* stream specific channel */}
       <div className="  w-full min-h-screen flex flex-col lg:grid lg:grid-cols-12 ">
         <div className="col-span-9">
