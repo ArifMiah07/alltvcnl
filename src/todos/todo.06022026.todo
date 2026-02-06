@@ -1,0 +1,18 @@
+.:[refactor, new improvements, new features]:.
+1. apply dark theme to in each page and also check where dark theme not applied
+2. use bookmarked in local storage value where bookmarking option available   
+3. add functionality to sidebar where it have'nt implemented yet
+4. add next channel and previous channel button to sidebar
+5. add user register, login page
+6. add user profile and later dashboard
+7. add playlist creation functionality for user only
+8. add super admin and admin and developer and editor role with role base dashboard
+----in___case___in___future-----
+9. ADD LIVE STREAMING CHAT OPTION FOR PUBLIC USER (ADD GUIDE, RULES, POLICY OPTION)
+10. ADD BASIC TO HIGH LEVEL SECURITY IMPLEMENTATIONS AND INSURE ALL LEVEL SECURITY
+11. 
+12.
+13. 
+14.
+15. 
+
