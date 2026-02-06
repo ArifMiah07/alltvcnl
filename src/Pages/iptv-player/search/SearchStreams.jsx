@@ -226,7 +226,7 @@ const SearchStreams = () => {
      * refactor, add all device responsiveness
      * use local storage for preferences and use a database if user have account
      */
-    <div className="p-2 flex flex-col">
+    <div className="p-2 flex flex-col dark:bg-black ">
       <Helmet>
         {/* UPDATED CODE FROM GEMINI */}
         {/* START HERE */}
@@ -293,7 +293,9 @@ const SearchStreams = () => {
         {/* UPDATED CODE FORM GEMINI */}
         {/* ENDS HERE */}
       </Helmet>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+      <form
+        onSubmit={handleSubmit}
+        className="flex dark:text-white flex-col gap-3">
         <label className="flex gap-3" htmlFor="name">
           <h1 className=" ">Search</h1>
           <h2> {">"}</h2>
@@ -308,7 +310,7 @@ const SearchStreams = () => {
         </label>
         <div className="flex items-center ">
           <input
-            className=" px-3 py-1 w-full md:w-1/3 border rounded-l-lg  "
+            className=" dark:text-black px-3 py-1 w-full md:w-1/3 border rounded-l-lg  "
             type="text"
             ref={inputRef}
             value={searchValueInputRange}
@@ -323,12 +325,12 @@ const SearchStreams = () => {
         </div>
       </form>
 
-      <div className="p-3 gap-2">
-        <h1 className="text-md">
+      <div className="p-3 gap-2 ">
+        <h1 className="text-md dark:text-white">
           Showing Search results for {showSearchValue}
         </h1>
         {/* TODO:: MOVE THIS ${TOTAL CHANNELS} INSIDE SIDE BAR */}
-        <h2 className="text-md mb-2">
+        <h2 className="text-md mb-2 dark:text-white">
           Total channels : {searchData?.length || 0}
         </h2>
         <div onClick={handleAllAndOneChannelStream} className="">
@@ -416,6 +418,7 @@ const SearchStreams = () => {
                 </div>
               </div>
             </div>
+            {/* this sidebar is under view a single page inside search page */}
             {/* sidebar */}
             <div className=" lg:w-[30%] sticky top-12 h-fit text-center flex flex-row items-start justify-start ">
               <div className="  flex flex-col gap-2 flex-wrap p-2">
@@ -424,7 +427,7 @@ const SearchStreams = () => {
                       <div className=" w-[80px] h-fit" key={index}>
                         <button
                           onClick={() => handleCurrentPage(page)}
-                          className={` w-full h-full  border border-[#ff00ff] text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5  ${
+                          className={` w-full h-full  border border-[#ff00ff] text-md rounded-sm  hover:bg-[#a100ff] hover:text-white text-black dark:text-white  py-2 px-5  ${
                             page === currentPageNumber
                               ? "bg-green-500 text-white"
                               : ""
@@ -583,7 +586,7 @@ const SearchStreams = () => {
                 searchData?.slice(startIndex, endIndex).map((item, index) => (
                   <div key={index} className=" border p-0">
                     <div className="flex flex-col  p-1 gap-1">
-                      <p className="flex flex-row gap-2">
+                      <p className="flex flex-row gap-2 dark:text-white">
                         {" "}
                         {(currentPageNumber - 1) * channelsPerPage +
                           (index + 1)}
@@ -624,7 +627,7 @@ const SearchStreams = () => {
                           <ListPlus />
                         </span>
                         {(item.feed || item.quality) && (
-                          <div className="flex flex-row gap-3 ">
+                          <div className=" dark:text-white flex flex-row gap-3 ">
                             {item.feed && <p>{item.feed}</p>}
                             {item.quality && <p>{item.quality}</p>}
                           </div>
@@ -820,7 +823,7 @@ const SearchStreams = () => {
                   <div>
                     <button
                       onClick={() => handleCurrentPage(page)}
-                      className={` border border-[#ff00ff] text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5  ${
+                      className={` border border-[#ff00ff] text-md rounded-sm hover:bg-[#a100ff] dark:text-white hover:text-white  py-2 px-5  ${
                         page === currentPageNumber
                           ? "bg-green-500 text-white"
                           : ""
