@@ -31,7 +31,6 @@ const Streams = () => {
     numbersOfPages,
     inputRange,
     setInputRange,
-    handleCurrentPage,
     handleGotoPage,
     handleNextPage,
     handlePrevPage,
@@ -40,6 +39,7 @@ const Streams = () => {
     setChannelsInput,
     handleChannelsPerPage,
     totalItems,
+    handleCurrentPage,
     // setTotalItems,
   } = usePagination();
 
@@ -134,7 +134,7 @@ const Streams = () => {
             setChannelsInput={setChannelsInput}
             handleChannelsPerPage={handleChannelsPerPage}
             totalChannels={totalItems}
-            handleCurrentPage={handleCurrentPage}
+            // handleCurrentPage={handleCurrentPage}
           />
         </div>
       </div>

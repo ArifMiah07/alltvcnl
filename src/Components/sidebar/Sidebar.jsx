@@ -5,6 +5,7 @@ import BasicInfo from "./BasicInfo";
 
 import PropTypes from "prop-types";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { usePagination } from "../../hooks/usePagination";
 // import PaginationNumbers from "../pagination/PaginationNumbers";
 
 const Sidebar = ({
@@ -20,11 +21,27 @@ const Sidebar = ({
   setChannelsInput,
   handleChannelsPerPage,
   totalChannels,
-  handleCurrentPage,
+  // handleCurrentPage,
 }) => {
   // react states
   const [expandBasicControls, setExpandBasicControls] = useState(false);
   const [expandBasicInfo, setExpandBasicInfo] = useState(false);
+  const {
+    // currentPage,
+    // numbersOfPages,
+    // inputRange,
+    // setInputRange,
+    // handleGotoPage,
+    // handleNextPage,
+    // handlePrevPage,
+    // channelsPerPage,
+    // channelsInput,
+    // setChannelsInput,
+    // handleChannelsPerPage,
+    // totalItems,
+    handleCurrentPage,
+    // setTotalItems,
+  } = usePagination();
   // use hooks
 
   // handler function
@@ -148,5 +165,5 @@ Sidebar.propTypes = {
   setChannelsInput: PropTypes.func.isRequired,
   handleChannelsPerPage: PropTypes.func.isRequired,
   totalChannels: PropTypes.number.isRequired,
-  handleCurrentPage: PropTypes.func,
+  // handleCurrentPage: PropTypes.number.isRequired,
 };
