@@ -24,7 +24,7 @@ const BasicControls = ({
       <button
         onClick={onNext}
         disabled={currentPage >= numbersOfPages}
-        className={` w-full border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff]  ${
+        className={` w-full border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] dark:text-white  ${
           currentPage >= numbersOfPages
             ? "text-gray-400"
             : "text-black hover:text-white"
@@ -35,7 +35,7 @@ const BasicControls = ({
       <button
         onClick={onPrev}
         disabled={currentPage <= 1}
-        className={` w-full border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] ${
+        className={` w-full border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] dark:text-white ${
           currentPage <= 1 ? "text-gray-400 " : "text-black hover:text-white "
         } `}>
         Previous Page
@@ -50,7 +50,7 @@ const BasicControls = ({
           <div className="w-full flex flex-row  ">
             {/* take input */}
             <input
-              className="outline-0 w-full text-center  border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] hover:text-white"
+              className="outline-0 w-full text-center  border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] dark:text-black text-md  hover:bg-[#a100ff] hover:text-white"
               value={inputRange}
               onChange={(e) => setInputRange(e.target.value)}
               placeholder="Go to a page"
@@ -61,7 +61,7 @@ const BasicControls = ({
             <button
               type="submit"
               disabled={inputRange === ""}
-              className={`w-fit px-2  border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff]  ${
+              className={`w-fit px-2  border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] dark:text-white  ${
                 inputRange === ""
                   ? "text-gray-400 "
                   : "text-black hover:text-white "
@@ -84,7 +84,7 @@ const BasicControls = ({
           <div className="w-full flex flex-row  ">
             {/* take input */}
             <input
-              className="outline-0 w-full text-center   border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff] hover:text-white "
+              className="outline-0 w-full text-center   border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md dark:text-black hover:bg-[#a100ff] hover:text-white "
               value={channelsInput}
               onChange={(e) => setChannelsInput(e.target.value)}
               placeholder="Chanls per page"
@@ -95,7 +95,7 @@ const BasicControls = ({
             <button
               type="submit"
               disabled={channelsInput === ""}
-              className={`w-fit px-2 border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md  hover:bg-[#a100ff]  ${
+              className={`w-fit px-2 border-2 border-red-50 hover:border-2 hover:border-[#ff00ff] text-md dark:text-white hover:bg-[#a100ff]  ${
                 channelsInput === ""
                   ? "text-gray-400 "
                   : "text-black hover:text-white "
