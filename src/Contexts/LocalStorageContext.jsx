@@ -38,7 +38,7 @@ export const LocalStorageProvider = ({ children }) => {
     });
   };
 
-  console.log(bookmarkedChannel);
+  // console.log(bookmarkedChannel);
 
   const getValues = {
     bookmarkedChannel,

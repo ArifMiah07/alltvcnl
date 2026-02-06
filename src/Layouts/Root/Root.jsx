@@ -46,7 +46,7 @@ const Root = () => {
       keyBufferRef.current += key;
       const currentSequence = keyBufferRef.current;
 
-      console.log("Current sequence:", currentSequence); // Debug log
+      // console.log("Current sequence:", currentSequence); // Debug log
 
       // 4. PAGE-SPECIFIC MULTI-KEY COMMANDS (Check FIRST, highest priority)
       const pageSpecificCommands = {

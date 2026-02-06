@@ -27,7 +27,7 @@ const useFetchStreams = () => {
         const response = await axios.get(BASE_STREAMS_API_URL, {
           params: { currentPage, channelsPerPage },
         });
-        console.log(response?.data);
+        // console.log(response?.data);
         // console.log(BASE_STREAMS_API_URL);
         setStreams(response?.data?.data);
         setTotalItems(response?.data?.totalItems);

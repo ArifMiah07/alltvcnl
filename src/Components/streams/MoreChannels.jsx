@@ -125,5 +125,5 @@ MoreChannels.propTypes = {
   handleCurrentPage: PropTypes.func.isRequired,
   channelsPerPage: PropTypes.number.isRequired,
   handleSpecificChannelStream: PropTypes.func.isRequired,
-  numbersOfPages: PropTypes.number.isRequired,
+  numbersOfPages: PropTypes.number,
 };

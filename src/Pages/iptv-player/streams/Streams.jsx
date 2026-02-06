@@ -104,7 +104,7 @@ const Streams = () => {
         <h1 className="text-lg font-normal dark:text-white">
           Iptv player {">"} Streaming
         </h1>
-        <BackButton styles=" " />
+        <BackButton label=" " styles=" " />
       </div>
       <div className="  flex flex-row gap-3 p-3 w-full">
         {/* basic information and action */}

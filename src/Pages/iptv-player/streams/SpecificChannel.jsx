@@ -37,7 +37,7 @@ const StreamSpecificChannel = () => {
   const [specificChannelStream, setSpecificChannelStream] = useState({});
   // const [bookmarks, setBookmark] = useState({});
   // const [specificChannelParams, setSpecificChannelParams] = useState({});
-  console.log(specificChannelStream);
+  // console.log(specificChannelStream);
   // handler functions
   // handle a specific channels stream
   const handleSpecificChannelStream = (channelInfo) => {
@@ -65,7 +65,7 @@ const StreamSpecificChannel = () => {
         <h1 className="font-medium dark:text-white dark:border dark:px-5 dark:py-2 ">
           streaming : {channel} ({channelIndex})
         </h1>
-        <BackButton styles=" " />
+        <BackButton label=" " styles=" " />
       </div>
       {/* stream specific channel */}
       <div className="  w-full min-h-screen flex flex-col lg:grid lg:grid-cols-12 ">

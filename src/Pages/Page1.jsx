@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Pagination from "./Pagination";
 import HlsVideoPlayer from "../Components/hls-video-player/HlsVideoPlayer";
+// import HlsVideoPlayer from "../Components/hls-video-player/HlsVideoPlayer";
 
 const Page1 = () => {
   const [cnlData, setCnlData] = useState([]);

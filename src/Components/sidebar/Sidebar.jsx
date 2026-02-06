@@ -137,7 +137,7 @@ export default Sidebar;
 
 Sidebar.propTypes = {
   currentPage: PropTypes.number.isRequired,
-  numbersOfPages: PropTypes.number.isRequired,
+  numbersOfPages: PropTypes.number,
   inputRange: PropTypes.number.isRequired,
   setInputRange: PropTypes.func.isRequired,
   onNext: PropTypes.func.isRequired,
@@ -148,5 +148,5 @@ Sidebar.propTypes = {
   setChannelsInput: PropTypes.func.isRequired,
   handleChannelsPerPage: PropTypes.func.isRequired,
   totalChannels: PropTypes.number.isRequired,
-  handleCurrentPage: PropTypes.func.isRequired,
+  handleCurrentPage: PropTypes.func,
 };

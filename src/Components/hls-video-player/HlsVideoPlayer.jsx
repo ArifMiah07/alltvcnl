@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Hls from "hls.js";
 import PropTypes from "prop-types";
 
-const HlsVideoPlayer = ({ src, controls, autoPlay }) => {
+const HlsVideoPlayer = ({ src, controls = true, autoPlay = false }) => {
   const videoRef = useRef(null);
   const hls = useRef(null);
 
@@ -124,19 +124,13 @@ const HlsVideoPlayer = ({ src, controls, autoPlay }) => {
   );
 };
 
+export default HlsVideoPlayer;
+// ____UPDATED CODE FROM GEMINI____ //
+/** ______ENDS HERE______ */
+
 HlsVideoPlayer.propTypes = {
   src: PropTypes.string.isRequired,
   controls: PropTypes.bool,
   autoPlay: PropTypes.bool,
-  muted: PropTypes.bool,
+  // muted: PropTypes.bool,
 };
-
-HlsVideoPlayer.defaultProps = {
-  controls: true,
-  autoPlay: false,
-  muted: true,
-};
-
-export default HlsVideoPlayer;
-// ____UPDATED CODE FROM GEMINI____ //
-/** ______ENDS HERE______ */

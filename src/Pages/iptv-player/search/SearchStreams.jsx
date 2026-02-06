@@ -82,7 +82,7 @@ const SearchStreams = () => {
     const handleFocusRequest = () => {
       if (inputRef.current) {
         inputRef.current.focus();
-        console.log("Input focused!"); // Debug log
+        // console.log("Input focused!"); // Debug log
       }
     };
 
@@ -90,7 +90,7 @@ const SearchStreams = () => {
       if (inputRef.current) {
         inputRef.current.value = "";
         inputRef.current.focus();
-        console.log("Input cleared and focused!"); // Debug log
+        // console.log("Input cleared and focused!"); // Debug log
       }
     };
 
@@ -109,9 +109,9 @@ const SearchStreams = () => {
   useEffect(() => {
     const stored = localStorage.getItem("searchValueLocal");
     setShowSearchValue(stored);
-    if (stored) {
-      console.log("Stored value:", JSON.parse(stored));
-    }
+    // if (stored) {
+    //   console.log("Stored value:", JSON.parse(stored));
+    // }
   }, [searchValue, showSearchValue, searchValueInputRange]);
   //   console.log("stored ", showSearchValue);
 
