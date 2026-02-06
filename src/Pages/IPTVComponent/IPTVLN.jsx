@@ -18,7 +18,7 @@ const IPTVLN = () => {
     const fetchChannels = async () => {
       try {
         const response = await axios.get(
-          "https://iptv-org.github.io/api/streams.json"
+          "https://iptv-org.github.io/api/streams.json",
         );
         setAllChannels(response.data);
         setVisibleChannels(response.data.slice(0, BATCH_SIZE));
@@ -54,20 +54,26 @@ const IPTVLN = () => {
 
   return (
     <div className="max-w-4xl min-h-screen mx-auto p-4">
-      <h1 className="text-2xl text-black font-bold mb-4">IPTV Channels : {allChannels.length}</h1>
+      <h1 className="text-2xl dark:text-white text-black font-bold mb-4">
+        IPTV Channels : {allChannels.length}
+      </h1>
 
       <table className="w-full border-collapse border border-gray-300">
         <thead>
           <tr className="bg-gray-100">
             <th className="border border-gray-300 p-2 text-left">index</th>
-            <th className="border border-gray-300 p-2 text-left">Channel Name</th>
+            <th className="border border-gray-300 p-2 text-left">
+              Channel Name
+            </th>
             <th className="border border-gray-300 p-2 text-left">Link</th>
             <th className="border border-gray-300 p-2 text-left">Actions</th>
           </tr>
         </thead>
         <tbody>
           {visibleChannels?.map((channel, index) => (
-            <tr key={channel?.id || index} className="hover:bg-purple-50">
+            <tr
+              key={channel?.id || index}
+              className=" dark:text-[#ffff] text-black hover:bg-purple-50 hover:dark:text-black ">
               <td className="border border-gray-300 p-2">
                 {index + 1 || "Unknown index"}
               </td>
@@ -79,8 +85,7 @@ const IPTVLN = () => {
                   href={channel?.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
+                  className="text-blue-600 hover:underline">
                   Watch
                 </a>
               </td>
@@ -92,8 +97,7 @@ const IPTVLN = () => {
                     channelUrl: channel?.url,
                     channelId: channel?.id,
                     from: location.pathname,
-                  }}
-                >
+                  }}>
                   <button className="bg-purple-100 hover:bg-purple-200 text-black py-1 px-3 rounded cursor-pointer inline-flex items-center">
                     View
                   </button>

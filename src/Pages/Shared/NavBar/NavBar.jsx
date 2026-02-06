@@ -42,11 +42,11 @@ const NavBar = () => {
     `;
 
   return (
-    <nav className="relative z-20 w-full h-full flex flex-row items-center justify-center">
+    <nav className="dark:bg-black relative z-20 w-full h-full flex flex-row items-center justify-center">
       <div
         className={`${
           isSticky
-            ? "flex flex-row items-center justify-center gap-4 rounded-full fixed top-0 left-1/2 -translate-x-1/2 w-[100px] md:w-[100px] lg:w-[800px] h-[50px] border border-red-50 z-20 shadow-md bg-white/30 backdrop-blur-md px-6 py-1 isolate"
+            ? "flex flex-row items-center justify-center gap-4 rounded-full fixed top-0 left-1/2 -translate-x-1/2 w-[100px] md:w-[100px] lg:w-[800px] h-[50px] border border-red-50 z-20 shadow-md bg-white/30 dark:bg-black backdrop-blur-md px-6 py-1 isolate"
             : "w-full navbar p-0 min-h-0 transition-all duration-0 ease-in shadow-md bg-white/30 backdrop-blur-md isolate"
         }`}>
         <div
@@ -184,7 +184,7 @@ const NavBar = () => {
             }`}>
             <p className="flex hover:text-purple-500">Portfolio</p>
           </Link>
-          <div>
+          <div className="ml-2">
             <ThemeToggle />
           </div>
         </div>

@@ -4,12 +4,14 @@ import IPTVLN from "../IPTVComponent/IPTVLN";
 
 const More = () => {
   return (
-    <div>
+    <div className="dark:bg-black">
       {/* <NavBar></NavBar> */}
       <Helmet>
         <title>Watch and View All IPTV Channels</title>
       </Helmet>
-      <h1 className="text-black  text-lg font-medium ">All IPTV Channels</h1>
+      <h1 className="text-black dark:text-white text-lg font-medium ">
+        All IPTV Channels
+      </h1>
       <IPTVLN></IPTVLN>
     </div>
   );
