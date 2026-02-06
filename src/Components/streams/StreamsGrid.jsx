@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import HlsVideoPlayer from "../hls-video-player/HlsVideoPlayer";
 
-import { Bookmark, BookmarkCheck, Fullscreen, MonitorPlay } from "lucide-react";
+import {
+  Bookmark,
+  BookmarkCheck,
+  Fullscreen,
+  MonitorPlay,
+  ListPlus,
+} from "lucide-react";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
@@ -99,7 +105,15 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                     <Bookmark />
                   )}
                 </span>
-                <span>{""}</span>
+                <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
+                  <ListPlus />
+                </span>
+                {(stream_item.feed || stream_item.quality) && (
+                  <div className="flex flex-row gap-3 dark:text-white ">
+                    {stream_item.feed && <p>{stream_item.feed}</p>}
+                    {stream_item.quality && <p>{stream_item.quality}</p>}
+                  </div>
+                )}
               </div>
             </div>
             <div className="w-full h-full flex flex-col border border-green-50  ">
