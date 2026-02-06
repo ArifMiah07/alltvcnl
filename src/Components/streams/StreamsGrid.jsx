@@ -48,11 +48,11 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
               {/* channel info */}
               <div className="flex gap-2 px-2">
                 {/* channel number */}
-                <span className="font-medium">
+                <span className="font-medium dark:text-white">
                   {(currentPage - 1) * channelsPerPage + (stream_index + 1)}.
                 </span>
                 {/* channel name or title */}
-                <p>
+                <p className="dark:text-white">
                   {stream_item?.channel
                     ? stream_item.channel
                     : stream_item.title}
@@ -112,7 +112,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
           </div>
         ))
       ) : (
-        <p>No streams to play</p>
+        <p className="dark:text-white">No streams to play</p>
       )}
     </div>
   );

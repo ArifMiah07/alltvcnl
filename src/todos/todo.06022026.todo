@@ -1,4 +1,5 @@
 .:[refactor, new improvements, new features]:.
+0. show all bookmarked channels in a page from local storage
 1. apply dark theme to in each page and also check where dark theme not applied
 2. use bookmarked in local storage value where bookmarking option available   
 3. add functionality to sidebar where it have'nt implemented yet

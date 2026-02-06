@@ -55,7 +55,7 @@ const Streams = () => {
 
   // console.log(pagesArray);
   return (
-    <div className="min-h-screen w-full p-4">
+    <div className="min-h-screen w-full p-4 dark:bg-black">
       {/* SEO Head */}
       <Helmet>
         {/* Page-specific SEO */}
@@ -99,12 +99,14 @@ const Streams = () => {
       {/* toast */}
       {/* <Toaster richColors position="top-right" className="z-30" /> */}
       {/* <ClockPage /> */}
-      <h1 className="text-lg font-normal">Iptv player {">"} Streaming</h1>
+      <h1 className="text-lg font-normal dark:text-white">
+        Iptv player {">"} Streaming
+      </h1>
       <div className="  flex flex-row gap-3 p-3 w-full">
         {/* basic information and action */}
       </div>
       {/* main content */}
-      <div className="w-full h-full flex flex-col lg:grid lg:grid-cols-5 ">
+      <div className="w-full h-full flex flex-col lg:grid lg:grid-cols-5  ">
         {/* streams grid */}
         <StreamsGrid
           streams={streams}
