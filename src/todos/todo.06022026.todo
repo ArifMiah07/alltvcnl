@@ -1,4 +1,6 @@
 .:[refactor, new improvements, new features]:.
+-2. fix home and include a better ui/ux
+-1. add dark theme in loading skeleton page
 0. show all bookmarked channels in a page from local storage
 1. apply dark theme to in each page and also check where dark theme not applied
 2. use bookmarked in local storage value where bookmarking option available   
