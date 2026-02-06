@@ -137,7 +137,7 @@ const VPlayer = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen dark:bg-gray-900 bg-gray-50 flex flex-col items-center justify-center p-6">
       <Helmet>
         <title> Video Player</title>
         <meta
@@ -145,11 +145,11 @@ const VPlayer = () => {
           content="Learn more about our IPTV Player and the team behind the experience."
         />
       </Helmet>
-      <h1 className="text-2xl font-bold mb-4 text-center max-w-xl">
+      <h1 className="text-2xl dark:text-white font-bold mb-4 text-center max-w-xl">
         Welcome to the Video Player
       </h1>
 
-      <p className="max-w-xl mb-6 text-center text-gray-700">
+      <p className="max-w-xl mb-6 text-center dark:text-white text-gray-700">
         This player supports:
         <ul className="list-disc list-inside">
           <li>
@@ -169,10 +169,10 @@ const VPlayer = () => {
       <form
         onSubmit={handleSubmit}
         onReset={handleReset}
-        className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+        className="w-full max-w-md bg-white dark:bg-gray-900 rounded-lg shadow-md p-6">
         <label
           htmlFor="video-url"
-          className="block text-gray-700 mb-2 font-medium">
+          className="block dark:text-white text-gray-700 mb-2 font-medium">
           Enter Video URL or Embed Link
         </label>
         <input
@@ -182,7 +182,7 @@ const VPlayer = () => {
           value={videoUrl}
           onChange={(e) => setVideoUrl(e.target.value)}
           placeholder="e.g. https://youtube.com/watch?v=xyz or https://instagram.com/reel/abc"
-          className="w-full p-2 border bg-white border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
+          className="w-full p-2 border bg-white dark:text-white dark:bg-gray-900 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
           required
           autoComplete="off"
         />

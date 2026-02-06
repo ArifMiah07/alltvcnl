@@ -60,7 +60,7 @@ const IPTVLN = () => {
 
       <table className="w-full border-collapse border border-gray-300">
         <thead>
-          <tr className="bg-gray-100">
+          <tr className="bg-gray-100 dark:bg-gray-600 dark:text-gray-300 ">
             <th className="border border-gray-300 p-2 text-left">index</th>
             <th className="border border-gray-300 p-2 text-left">
               Channel Name
@@ -73,7 +73,7 @@ const IPTVLN = () => {
           {visibleChannels?.map((channel, index) => (
             <tr
               key={channel?.id || index}
-              className=" dark:text-[#ffff] text-black hover:bg-purple-50 hover:dark:text-black ">
+              className=" dark:text-[#ffff] text-black hover:bg-purple-50  hover:dark:bg-gray-600 hover:dark:text-gray-300 ">
               <td className="border border-gray-300 p-2">
                 {index + 1 || "Unknown index"}
               </td>
