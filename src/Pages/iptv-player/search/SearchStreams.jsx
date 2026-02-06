@@ -335,7 +335,7 @@ const SearchStreams = () => {
         </h2>
         <div onClick={handleAllAndOneChannelStream} className="">
           {selectedChannel && (
-            <button className="flex flex-row gap-1 items-center justify-center">
+            <button className="dark:text-white flex flex-row gap-1 items-center justify-center">
               {" "}
               <span>
                 <LayoutGrid />
@@ -355,7 +355,7 @@ const SearchStreams = () => {
             <div className="  w-full min-h-screen flex flex-col items-center justify-start gap-2 p-4 md:p-8 lg:p-12 xl:p-16">
               <div className=" w-full border p-0  ">
                 <div className="flex flex-col  p-1 gap-1">
-                  <p className="flex flex-row gap-2">
+                  <p className="flex flex-row gap-2 dark:text-white ">
                     {" "}
                     {(currentPageNumber - 1) * channelsPerPage +
                       (selectedChannel.index + 1)}
@@ -396,7 +396,7 @@ const SearchStreams = () => {
                       <ListPlus />
                     </span>
                     {(selectedChannel.feed || selectedChannel.quality) && (
-                      <div className="flex flex-row gap-3 ">
+                      <div className="flex flex-row gap-3 dark:text-white ">
                         {selectedChannel.feed && <p>{selectedChannel.feed}</p>}
                         {selectedChannel.quality && (
                           <p>{selectedChannel.quality}</p>
@@ -441,7 +441,7 @@ const SearchStreams = () => {
                   : ""}
               </div>
               {/* ______TODO: : :ADD FUNCTIONALITY_______ */}
-              <div className=" p-2 w-full h-full ">
+              <div className=" p-2 w-full h-full dark:text-white ">
                 {/* Sidebar */}
                 <div className="lg:col-span-1 ">
                   <div className="w-full border-b-2 border-red-50 ">
