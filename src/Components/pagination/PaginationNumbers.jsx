@@ -15,7 +15,7 @@ const PaginationNumbers = ({
           <button
             onClick={() => handleCurrentPage(page)}
             key={index}
-            className={` border border-[#ff00ff] text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5  ${
+            className={` border border-[#ff00ff] dark:text-white text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5  ${
               page === currentPage ? "bg-green-500 text-white" : ""
             }  `}>
             {page}
