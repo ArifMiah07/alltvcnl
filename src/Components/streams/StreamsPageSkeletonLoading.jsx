@@ -8,7 +8,7 @@ const StreamsPageSkeletonLoading = () => {
 
   //
   return (
-    <motion.div className="p-4">
+    <motion.div className="p-4 dark:bg-black ">
       <motion.h1
         initial={{ opacity: 0, filter: "blur(10px)" }}
         animate={{ opacity: 1, filter: "none" }}
@@ -17,7 +17,7 @@ const StreamsPageSkeletonLoading = () => {
       </motion.h1>
       {/* <h1>This is Loading skeleton</h1>
       <p>loading...</p> */}
-      <motion.div className="flex flex-col lg:flex-row gap-4">
+      <motion.div className="flex flex-col lg:flex-row gap-4  ">
         <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
           {items?.map((item, index) => (
             <motion.div
@@ -31,7 +31,7 @@ const StreamsPageSkeletonLoading = () => {
             </motion.div>
           ))}
         </motion.div>
-        <motion.div className="">
+        <motion.div className="dark:bg-black">
           <SidebarSkeleton />
         </motion.div>
       </motion.div>

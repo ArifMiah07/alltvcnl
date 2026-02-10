@@ -30,6 +30,7 @@ import TestingVidSrc from "../Pages/test/TestingVidSrc";
 import StreamAsianIptv from "../Pages/stream-asian-iptv/StreamAsianIptv";
 import StreamChinaIptv from "../Pages/iptv-player/streams/StreamChinaIptv";
 import TestLocalStorage from "../Pages/test/TestLocalStorage";
+import StreamsPageSkeletonLoading from "../Components/streams/StreamsPageSkeletonLoading";
 // import IP from "../Pages/iptv-player/IP";
 
 const router = createHashRouter([
@@ -150,6 +151,10 @@ const router = createHashRouter([
       {
         path: "/page11",
         element: <Page11></Page11>,
+      },
+      {
+        path: "/loading",
+        element: <StreamsPageSkeletonLoading />,
       },
     ],
   },
