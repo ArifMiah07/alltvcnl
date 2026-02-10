@@ -3,15 +3,19 @@ import { SettingsContext } from "./SettingsContext";
 import PropTypes from "prop-types";
 export const SettingProvider = ({ children }) => {
   // states
+
   const [hideSidebar, setHideSidebar] = useState(false);
   const [hideChannelsInfo, setHideChannelsInfo] = useState(false);
   const [hideNavBar, setHideNavBar] = useState(false);
 
+  const [isSettingModalOpen, setIsSettingsModalOpen] = useState(false);
+
   // handle
   //
-  const handleSidebarVisibility = () => {
+  const handleSidebarVisibility = (value) => {
     //
-    setHideSidebar(!hideSidebar);
+    console.log(value);
+    setHideSidebar(value);
   };
 
   //
@@ -25,6 +29,16 @@ export const SettingProvider = ({ children }) => {
     setHideNavBar(!hideNavBar);
   };
 
+  const handleSettings = () => {
+    //
+    setIsSettingsModalOpen(!isSettingModalOpen);
+  };
+  if (isSettingModalOpen) {
+    console.log("modal is open");
+  } else {
+    console.log("modal is closed");
+  }
+
   //
   const getValues = {
     hideSidebar,
@@ -36,6 +50,9 @@ export const SettingProvider = ({ children }) => {
     handleSidebarVisibility,
     handleChannelsInfoVisibility,
     handleNavBarVisibility,
+    handleSettings,
+    setIsSettingsModalOpen,
+    isSettingModalOpen,
   };
 
   return (

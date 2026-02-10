@@ -8,6 +8,8 @@ import { useState } from "react";
 import MoreChannels from "../../../Components/streams/MoreChannels";
 import Sidebar from "../../../Components/sidebar/Sidebar";
 import BackButton from "../../../Components/buttons/BackButton";
+import { useSettings } from "../../../hooks/useSettings";
+import { Settings } from "lucide-react";
 
 const StreamSpecificChannel = () => {
   // hooks
@@ -33,6 +35,17 @@ const StreamSpecificChannel = () => {
     // setTotalItems,
   } = usePagination();
 
+  const {
+    hideSidebar,
+    hideChannelsInfo,
+    hideNavBar,
+    handleSidebarVisibility,
+    handleChannelsInfoVisibility,
+    handleNavBarVisibility,
+    handleSettings,
+    isSettingModalOpen,
+  } = useSettings();
+
   // react states
   const [specificChannelStream, setSpecificChannelStream] = useState({});
   // const [bookmarks, setBookmark] = useState({});
@@ -44,27 +57,50 @@ const StreamSpecificChannel = () => {
     setSpecificChannelStream(channelInfo);
     // setSpecificChannelParams(channelInfo);
   };
-  // console.log(specificChannelParams);
-  // handle bookmark toggle
-  // const handleBookmarkToggle = (streamUrl) => {
-  //   setBookmark((prev) => ({
-  //     ...prev,
-  //     [streamUrl]: !prev[streamUrl],
-  //   }));
-  // };
-
-  //
-
-  // console.log(streamData);
-  // console.log(streams);
-  // console.log(channelIndex, channel);
   return (
     <div className="dark:bg-black p-4">
       {/* <h1>stream a specific channel</h1> */}
       <div className="flex flex-col items-start gap-2 my-6">
-        <h1 className="font-medium dark:text-white dark:border dark:px-5 dark:py-2 ">
-          streaming : {channel} ({channelIndex})
-        </h1>
+        <div className=" w-full  flex flex-row items-center justify-between gap-4">
+          <h1 className="font-medium dark:text-white dark:border dark:px-5 dark:py-2 ">
+            streaming : {channel} ({channelIndex})
+          </h1>
+          <div className="relative border">
+            <button
+              onClick={handleSettings}
+              className="dark:text-white dark:border dark:px-5 dark:py-2  flex items-center justify-center border  ">
+              <Settings />
+            </button>
+            {isSettingModalOpen && (
+              <div className="absolute top-10 right-10 -translate-x-1 translate-y-1 bg-white/30 backdrop-blur-lg border border-red-500 w-[400px] h-[248px]">
+                <ul className="flex flex-col gap-2 items-start justify-center p-2">
+                  <li className="flex flex-row gap-3 items-center justify-center">
+                    <input
+                      type="checkbox"
+                      checked={hideSidebar}
+                      onChange={(e) =>
+                        handleSidebarVisibility(e.target.checked)
+                      }
+                    />
+                    <span>Hide Sidebar</span>
+                  </li>
+                  <li>
+                    <button>Options</button>
+                  </li>
+                  <li>
+                    <button>Options</button>
+                  </li>
+                  <li>
+                    <button>Options</button>
+                  </li>
+                  <li>
+                    <button>Options</button>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
         <BackButton label=" " styles=" " />
       </div>
       {/* stream specific channel */}
@@ -72,7 +108,9 @@ const StreamSpecificChannel = () => {
         <div className="col-span-9">
           <StreamSpecificChannelsDetails streamData={streamData} />
         </div>
-        <div className="col-span-3 p-6">
+        <div
+          // ${hideSidebar ? "hidden" : "visible"}
+          className={`  col-span-3 p-6 ${hideSidebar ? "hidden" : "visible"} `}>
           <Sidebar
             currentPage={currentPage}
             numbersOfPages={numbersOfPages}
