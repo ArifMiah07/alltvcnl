@@ -72,9 +72,9 @@ const StreamSpecificChannel = () => {
               <Settings />
             </button>
             {isSettingModalOpen && (
-              <div className="absolute top-10 right-10 -translate-x-1 translate-y-1 bg-white/30 backdrop-blur-lg border border-red-500 w-[400px] h-[248px]">
-                <ul className="flex flex-col gap-2 items-start justify-center p-2">
-                  <li className="flex flex-row gap-3 items-center justify-center">
+              <div className="absolute z-20 top-10 right-10 -translate-x-1 translate-y-1 bg-white/30 backdrop-blur-lg border  w-[400px] h-[248px]">
+                <ul className=" flex flex-col gap-2 items-start justify-center p-2">
+                  <li className=" dark:text-white hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
                     <input
                       type="checkbox"
                       checked={hideSidebar}
@@ -105,7 +105,8 @@ const StreamSpecificChannel = () => {
       </div>
       {/* stream specific channel */}
       <div className="  w-full min-h-screen flex flex-col lg:grid lg:grid-cols-12 ">
-        <div className="col-span-9">
+        <div
+          className={`  ${hideSidebar ? "z-10 col-span-12" : "col-span-9"}    `}>
           <StreamSpecificChannelsDetails streamData={streamData} />
         </div>
         <div
