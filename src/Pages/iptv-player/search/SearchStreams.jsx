@@ -848,6 +848,12 @@ const SearchStreams = () => {
                 </div>
               ))
             : ""}
+          <div className="">
+            <button
+              className={` border border-[#ff00ff] text-md rounded-sm bg-green-900 hover:bg-[#a100ff] dark:text-white hover:text-white  py-2 px-8 `}>
+              ...{numbersOfPages}
+            </button>
+          </div>
         </div>
         {/* show more channels while single channels is selected to stream */}
         {selectedChannel && (
