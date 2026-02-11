@@ -3,6 +3,7 @@ import NavBar from "../../Pages/Shared/NavBar/NavBar";
 import { Helmet } from "react-helmet-async";
 import { Toaster } from "sonner";
 import { useEffect, useRef } from "react";
+import { useSettings } from "../../hooks/useSettings";
 
 const Root = () => {
   // states
@@ -11,6 +12,8 @@ const Root = () => {
   const keyBufferRef = useRef("");
   const bufferTimeoutRef = useRef(null);
   const navigationTimeoutRef = useRef(null);
+  //
+  const { hideNavBar } = useSettings();
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -205,7 +208,7 @@ const Root = () => {
   "
       />
 
-      <div className="h-fit z-20 ">
+      <div className={`h-fit z-20 ${hideNavBar ? "hidden " : "visible"} `}>
         <NavBar></NavBar>
       </div>
       <div className=" z-10 flex-grow">

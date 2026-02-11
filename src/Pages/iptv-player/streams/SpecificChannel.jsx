@@ -82,10 +82,27 @@ const StreamSpecificChannel = () => {
                         handleSidebarVisibility(e.target.checked)
                       }
                     />
-                    <span>Hide Sidebar</span>
+                    {hideSidebar ? (
+                      <span>Unhide Sidebar</span>
+                    ) : (
+                      <span>Hide Sidebar</span>
+                    )}
                   </li>
                   <li>
-                    <button>Options</button>
+                    <li className=" dark:text-white hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
+                      <input
+                        type="checkbox"
+                        checked={hideNavBar}
+                        onChange={(e) =>
+                          handleNavBarVisibility(e.target.checked)
+                        }
+                      />
+                      {hideNavBar ? (
+                        <span>Unhide Navbar</span>
+                      ) : (
+                        <span>Hide Navbar</span>
+                      )}
+                    </li>
                   </li>
                   <li>
                     <button>Options</button>
@@ -104,7 +121,7 @@ const StreamSpecificChannel = () => {
         <BackButton label=" " styles=" " />
       </div>
       {/* stream specific channel */}
-      <div className="  w-full min-h-screen flex flex-col lg:grid lg:grid-cols-12 ">
+      <div className=" w-full min-h-screen flex flex-col lg:grid lg:grid-cols-12 ">
         <div
           className={`  ${hideSidebar ? "z-10 col-span-12" : "col-span-9"}    `}>
           <StreamSpecificChannelsDetails streamData={streamData} />
