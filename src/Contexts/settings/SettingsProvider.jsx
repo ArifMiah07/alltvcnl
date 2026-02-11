@@ -19,9 +19,9 @@ export const SettingProvider = ({ children }) => {
   };
 
   //
-  const handleChannelsInfoVisibility = () => {
+  const handleChannelsInfoVisibility = (value) => {
     //
-    setHideChannelsInfo(!hideChannelsInfo);
+    setHideChannelsInfo(value);
   };
   //
   const handleNavBarVisibility = (value) => {

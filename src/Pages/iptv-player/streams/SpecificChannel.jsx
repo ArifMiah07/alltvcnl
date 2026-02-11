@@ -58,21 +58,23 @@ const StreamSpecificChannel = () => {
     // setSpecificChannelParams(channelInfo);
   };
   return (
-    <div className="dark:bg-black p-4">
+    <div className="dark:bg-black p-4  ">
       {/* <h1>stream a specific channel</h1> */}
-      <div className="flex flex-col items-start gap-2 my-6">
-        <div className=" w-full  flex flex-row items-center justify-between gap-4">
-          <h1 className="font-medium dark:text-white dark:border dark:px-5 dark:py-2 ">
+      <div className="flex flex-col items-start gap-2  ">
+        <div
+          className={` w-full flex flex-row items-center  ${hideChannelsInfo ? "justify-end" : "justify-between "} gap-4 `}>
+          <h1
+            className={`font-medium dark:text-white dark:border dark:px-5 dark:py-2 ${hideChannelsInfo ? "hidden" : "visible"}`}>
             streaming : {channel} ({channelIndex})
           </h1>
-          <div className="relative border">
+          <div className="relative ">
             <button
               onClick={handleSettings}
-              className="dark:text-white dark:border dark:px-5 dark:py-2  flex items-center justify-center border  ">
+              className={`dark:text-white dark:border dark:px-5 dark:py-2  flex items-center justify-center border `}>
               <Settings />
             </button>
             {isSettingModalOpen && (
-              <div className="absolute z-20 top-10 right-10 -translate-x-1 translate-y-1 bg-white/30 backdrop-blur-lg border  w-[400px] h-[248px]">
+              <div className="absolute z-20 top-10 right-10 -translate-x-1 translate-y-1 bg-white/30 backdrop-blur-lg border  w-[200px min-h-[124px] h-fit py-4 px-4 lg:w-[400px] ">
                 <ul className=" flex flex-col gap-2 items-start justify-center p-2">
                   <li className=" dark:text-white hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
                     <input
@@ -88,37 +90,40 @@ const StreamSpecificChannel = () => {
                       <span>Hide Sidebar</span>
                     )}
                   </li>
-                  <li>
-                    <li className=" dark:text-white hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
-                      <input
-                        type="checkbox"
-                        checked={hideNavBar}
-                        onChange={(e) =>
-                          handleNavBarVisibility(e.target.checked)
-                        }
-                      />
-                      {hideNavBar ? (
-                        <span>Unhide Navbar</span>
-                      ) : (
-                        <span>Hide Navbar</span>
-                      )}
-                    </li>
+                  <li className=" dark:text-white hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
+                    <input
+                      type="checkbox"
+                      checked={hideNavBar}
+                      onChange={(e) => handleNavBarVisibility(e.target.checked)}
+                    />
+                    {hideNavBar ? (
+                      <span>Unhide Navbar</span>
+                    ) : (
+                      <span>Hide Navbar</span>
+                    )}
                   </li>
-                  <li>
-                    <button>Options</button>
-                  </li>
-                  <li>
-                    <button>Options</button>
-                  </li>
-                  <li>
-                    <button>Options</button>
+                  <li className=" dark:text-white hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
+                    <input
+                      type="checkbox"
+                      checked={hideChannelsInfo}
+                      onChange={(e) =>
+                        handleChannelsInfoVisibility(e.target.checked)
+                      }
+                    />
+                    {hideNavBar ? (
+                      <span>Unhide Channel Info</span>
+                    ) : (
+                      <span>Hide Channel Info</span>
+                    )}
                   </li>
                 </ul>
               </div>
             )}
           </div>
         </div>
-        <BackButton label=" " styles=" " />
+        <div className={`${hideChannelsInfo ? "hidden" : "visible"}`}>
+          <BackButton label=" " styles=" " />
+        </div>
       </div>
       {/* stream specific channel */}
       <div className=" w-full min-h-screen flex flex-col lg:grid lg:grid-cols-12 ">
