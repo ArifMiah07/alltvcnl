@@ -107,7 +107,7 @@ const SavedChannelsPage = () => {
   };
 
   return (
-    <div className="container mx-auto p-0 mb-12">
+    <div className="container mx-auto p-0 mb-12 dark:bg-black dar:text-white">
       <Helmet>
         <title>Saved Channels</title>
         <meta

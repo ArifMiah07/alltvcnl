@@ -1,0 +1,4 @@
+
+
+# found a bug in search page --
+[1] in search page pagination rightly showing index number on the first page but also showing same channels index for other page's channels
