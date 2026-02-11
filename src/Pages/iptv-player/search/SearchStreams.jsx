@@ -45,12 +45,6 @@ const SearchStreams = () => {
 
   // bookmark states
   const [bookmarkedChannel, setBookmarkedChannel] = useState({});
-  // stream a specific channel
-  // const [isStreamingSpecificChannel, setIsStreamingSpecificChannel] =
-  //   useState(false);
-  // const [storeSpecificChannelsInfo, setStoreSpecificChannelsInfo] = useState(
-  //   {},
-  // );
 
   const [selectedChannel, setSelectedChannel] = useState(null);
 
@@ -71,11 +65,6 @@ const SearchStreams = () => {
     setSearchValue(searchValueInputRange);
     setCurrentPageNumber(1); // Reset to page 1 on new search
   };
-  // handle search value
-  // const handleSearchValue = (value) => {
-  //   localStorage.setItem("searchValueLocal", JSON.stringify(value));
-  //   setSearchValue(value);
-  // };
 
   // UPDATED CODE BY CLAUDE
   useEffect(() => {
@@ -109,14 +98,7 @@ const SearchStreams = () => {
   useEffect(() => {
     const stored = localStorage.getItem("searchValueLocal");
     setShowSearchValue(stored);
-    // if (stored) {
-    //   console.log("Stored value:", JSON.parse(stored));
-    // }
   }, [searchValue, showSearchValue, searchValueInputRange]);
-  //   console.log("stored ", showSearchValue);
-
-  //   const getItem = localStorage.getItem("searchValueLocal");
-  //   console.log("search: value:: ", searchValue, JSON.parse(getItem));
 
   // fetch search result
   useEffect(() => {
@@ -143,7 +125,6 @@ const SearchStreams = () => {
   // ENDS HERE
 
   const handleCurrentPage = (page) => {
-    // console.log(" page: ", Number(page), Math.ceil(totalChannels / 10));
     if (Number(page) > 0 && Number(page) <= numbersOfPages) {
       setCurrentPageNumber(page);
     }
@@ -155,37 +136,16 @@ const SearchStreams = () => {
       ...prev,
       [channelUrl]: !prev[channelUrl],
     }));
-    // const handleBookmarkToggle = (channelUrl) => {
-    // };
   };
 
   // handle handleAllAndOneChannelStream
   const handleAllAndOneChannelStream = () => {
-    //
-    // console.log("Clicked");
-    // setIsStreamingSpecificChannel(!isStreamingSpecificChannel);
     setSelectedChannel(null);
   };
 
   const handleStreamSpecificChannel = (channelInfo) => {
-    // //
-    // setIsStreamingSpecificChannel(!isStreamingSpecificChannel);
-    // setStoreSpecificChannelsInfo((prev) => [...prev, channelInfo]);
-    // console.log("channelInfo: ", { channelInfo });
     setSelectedChannel(channelInfo);
   };
-  // console.log(selectedChannel);
-
-  //   useEffect(()=> {
-  //   }, [])
-
-  //   console.log(searchData);
-
-  //   const s = JSON.parse(showSearchValue);
-  //   console.log("searchValue, showSearchValue", showSearchValue);
-  //   console.log("searchValueInputRange ", searchValueInputRange);
-
-  //   const currentPage = 10;
 
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______START HERE______ */
@@ -694,8 +654,6 @@ const SearchStreams = () => {
                   </button>
                 </div>
               </div>
-              {/* <div className="w-full h-full ">
-            </div> */}
               {/* sidebar */}
               {/* ______TODO: : :ADD FUNCTIONALITY_______ */}
               <div className=" p-2 w-full h-full  ">
