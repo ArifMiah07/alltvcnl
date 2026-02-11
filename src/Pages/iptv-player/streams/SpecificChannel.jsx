@@ -116,7 +116,7 @@ const StreamSpecificChannel = () => {
                         handleChannelsInfoVisibility(e.target.checked)
                       }
                     />
-                    {hideNavBar ? (
+                    {hideChannelsInfo ? (
                       <span>Unhide Channel Info</span>
                     ) : (
                       <span>Hide Channel Info</span>
@@ -130,7 +130,7 @@ const StreamSpecificChannel = () => {
                         handlePaginationBtnsVisibility(e.target.checked)
                       }
                     />
-                    {hideNavBar ? (
+                    {hidePaginationBtns ? (
                       <span>Unhide Pagination Buttons</span>
                     ) : (
                       <span>Hide Pagination Buttons</span>
@@ -144,7 +144,7 @@ const StreamSpecificChannel = () => {
                         handleMoreChannelsSectionVisibility(e.target.checked)
                       }
                     />
-                    {hideNavBar ? (
+                    {hideMoreChannelsSection ? (
                       <span>Unhide More Channels</span>
                     ) : (
                       <span>Hide More Channels</span>
@@ -162,12 +162,12 @@ const StreamSpecificChannel = () => {
       {/* stream specific channel */}
       <div className=" w-full min-h-screen flex flex-col lg:grid lg:grid-cols-12 ">
         <div
-          className={`  ${hideSidebar ? "z-10 col-span-12" : "col-span-9"}    `}>
+          className={`  ${hideSidebar ? "z-10 col-span-11" : "col-span-9"}    `}>
           <StreamSpecificChannelsDetails streamData={streamData} />
         </div>
         <div
           // ${hideSidebar ? "hidden" : "visible"}
-          className={`  col-span-3 p-6 ${hideSidebar ? "hidden" : "visible"} `}>
+          className={` p-6 ${hideSidebar ? " col-span-1 " : " col-span-3 "} `}>
           <Sidebar
             currentPage={currentPage}
             numbersOfPages={numbersOfPages}
@@ -182,6 +182,7 @@ const StreamSpecificChannel = () => {
             handleChannelsPerPage={handleChannelsPerPage}
             totalChannels={totalItems}
             hidePaginationBtns={hidePaginationBtns}
+            hideSidebar={hideSidebar}
           />
         </div>
       </div>

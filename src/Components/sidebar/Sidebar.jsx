@@ -23,6 +23,7 @@ const Sidebar = ({
   totalChannels,
   // handleCurrentPage,
   hidePaginationBtns,
+  hideSidebar,
 }) => {
   // react states
   const [expandBasicControls, setExpandBasicControls] = useState(false);
@@ -87,7 +88,8 @@ const Sidebar = ({
         </div>
       </div>
       {/* sidebar section */}
-      <div className=" w-full h-full flex flex-col">
+      <div
+        className={`w-full h-full flex flex-col ${hideSidebar ? "hidden" : "visible"}`}>
         <div className="w-full border-b-2 border-red-50 ">
           <div className="  w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
             <h3 className=" dark:text-white flex flex-row items-center justify-center gap-1 text-lg font-bold ">
@@ -167,5 +169,7 @@ Sidebar.propTypes = {
   setChannelsInput: PropTypes.func.isRequired,
   handleChannelsPerPage: PropTypes.func.isRequired,
   totalChannels: PropTypes.number.isRequired,
+  hidePaginationBtns: PropTypes.bool,
+  hideSidebar: PropTypes.bool,
   // handleCurrentPage: PropTypes.number.isRequired,
 };
