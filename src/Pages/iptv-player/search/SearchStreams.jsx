@@ -216,7 +216,7 @@ const SearchStreams = () => {
   if (loading) return <StreamsPageSkeletonLoading />;
   if (error) return <p> Error : {error.message} </p>;
 
-  //   console.log(currentIndexSet);
+  console.log(currentIndexSet);
 
   return (
     // this is search page component
@@ -598,7 +598,15 @@ const SearchStreams = () => {
                         <a href={item.url} target="_blank">
                           {item.channel || item.title}
                         </a>
-                        <span>({currentIndexSet[index]})</span>
+                        <span>
+                          (
+                          {
+                            currentIndexSet[
+                              (currentPageNumber - 1) * channelsPerPage + index
+                            ]
+                          }
+                          )
+                        </span>
                       </p>
                       {/* icons */}
                       <div className="flex gap-3 ">

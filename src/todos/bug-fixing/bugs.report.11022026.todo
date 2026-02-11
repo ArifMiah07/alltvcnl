@@ -1,4 +1,5 @@
 
 
 # found a bug in search page --
-[1] in search page pagination rightly showing index number on the first page but also showing same channels index for other page's channels
+[fixed - 11-02-2026 - 19:32 pm - evening] in search page pagination rightly showing index number on the first page but also showing same channels index for other page's channels
+
