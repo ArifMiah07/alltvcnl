@@ -5,9 +5,9 @@ import Footer from "../Shared/Footer/Footer";
 const LandingPage = () => {
   return (
     <>
-      <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-900 to-indigo-700 text-white px-6 md:px-20 py-16">
+      <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-900 to-indigo-700  dark:bg-none dark:bg-black text-white px-6 md:px-20 py-16">
         {/* Hero Section */}
-        <section className="max-w-5xl text-center space-y-8">
+        <section className="  max-w-5xl text-center space-y-8">
           <h1 className="text-5xl font-extrabold drop-shadow-lg leading-tight">
             IPTV Player — Stream 13,000+ Live Channels Instantly
           </h1>

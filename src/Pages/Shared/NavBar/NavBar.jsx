@@ -28,15 +28,15 @@ const NavBar = () => {
   }, [location]);
 
   const baseTextColor = isSticky
-    ? "text-purple-500 lg:text-white"
-    : "text-black";
+    ? "text-purple-500 lg:text-white dark:text-white"
+    : "text-black dark:text-white";
 
   const getNavLinkClass = ({ isActive }) =>
     `
       mx-2 px-3 py-1 rounded text-md transition-colors
       ${
         isActive
-          ? "bg-white text-green-600 font-semibold border border-green-400"
+          ? " text-green-600 font-semibold border border-green-400"
           : `${baseTextColor} hover:bg-green-400 hover:text-white`
       }
     `;
@@ -74,7 +74,7 @@ const NavBar = () => {
             <ul
               key={currentPath + "-mobile"}
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2  shadow bg-white  rounded-box w-52">
+              className="menu menu-sm dropdown-content mt-3 p-2  shadow bg-white dark:bg-black  rounded-box w-52">
               <li>
                 <NavLink to="/home" className={getNavLinkClass}>
                   Home
@@ -120,7 +120,9 @@ const NavBar = () => {
           <Link
             to="/"
             className={`btn btn-ghost text-md lg:text-lg font-medium lg:font-bold ${
-              isSticky ? "text-white hidden" : "text-black visible"
+              isSticky
+                ? "text-white hidden dark:text-black"
+                : "text-black dark:text-white visible"
             }`}>
             <p className="flex items-center">IPTV Player</p>
           </Link>
