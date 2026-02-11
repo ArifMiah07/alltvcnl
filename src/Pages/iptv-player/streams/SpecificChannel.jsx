@@ -1,6 +1,6 @@
 //
 
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import StreamSpecificChannelsDetails from "../../../Components/streams/StreamSpecificChannelsDetails";
 import useFetchStreams from "../../../hooks/useFetch";
 import { usePagination } from "../../../hooks/usePagination";
@@ -9,7 +9,8 @@ import MoreChannels from "../../../Components/streams/MoreChannels";
 import Sidebar from "../../../Components/sidebar/Sidebar";
 import BackButton from "../../../Components/buttons/BackButton";
 import { useSettings } from "../../../hooks/useSettings";
-import { Settings } from "lucide-react";
+import { Activity, LayoutGrid, Settings } from "lucide-react";
+import ActivityAnimated from "../../../Components/icons/ActivityAnimated";
 
 const StreamSpecificChannel = () => {
   // hooks
@@ -70,7 +71,11 @@ const StreamSpecificChannel = () => {
         <div
           className={` w-full flex flex-row items-center  ${hideChannelsInfo ? "justify-end" : "justify-between "} gap-4 `}>
           <h1
-            className={`font-medium dark:text-white dark:border dark:px-5 dark:py-2 ${hideChannelsInfo ? "hidden" : "visible"}`}>
+            className={` text-[18px] flex flex-row items-center justify-center gap-2 font-medium dark:text-white dark:border dark:px-5 dark:py-2 ${hideChannelsInfo ? "hidden" : "visible"}`}>
+            <span className="flex flex-row items-center justify-center">
+              {/* <Activity /> */}
+              <ActivityAnimated />
+            </span>{" "}
             streaming : {channel} ({channelIndex})
           </h1>
           <div className="relative ">
@@ -155,8 +160,19 @@ const StreamSpecificChannel = () => {
             )}
           </div>
         </div>
-        <div className={`${hideChannelsInfo ? "hidden" : "visible"}`}>
+        <div
+          className={` w-full flex flex-col md:flex-row gap-2 items-start justify-start   ${hideChannelsInfo ? "hidden" : "visible"}`}>
           <BackButton label=" " styles=" " />
+          <div>
+            <Link to={"/stream-iptv"}>
+              <button className="flex flex-row items-center justify-center gap-2 dark:text-white border px-5 py-2 hover:border-purple-500 hover:bg-green-500 hover:dark:border-green-500 hover:dark:bg-purple-500 ">
+                <span className="flex flex-row items-center justify-center">
+                  <LayoutGrid />
+                </span>{" "}
+                All Channels
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
       {/* stream specific channel */}
