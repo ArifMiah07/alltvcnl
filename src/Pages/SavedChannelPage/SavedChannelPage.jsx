@@ -107,7 +107,7 @@ const SavedChannelsPage = () => {
   };
 
   return (
-    <div className="container mx-auto p-0 mb-12 dark:bg-black dar:text-white">
+    <div className="container mx-auto p-0 mb-12 dark:bg-black ">
       <Helmet>
         <title>Saved Channels</title>
         <meta
@@ -117,7 +117,7 @@ const SavedChannelsPage = () => {
       </Helmet>
 
       {/* Navigation */}
-      <nav className="w-full bg-green-500 px-4 py-2 mb-6">
+      <nav className="w-full bg-green-500 dark:bg-black px-4 py-2 mb-6">
         <div className="flex flex-row  justify-between items-center">
           {/* search bar */}
           <div className="w-full lg:w-1/3 flex flex-row items-center justify-center gap-1 border rounded-sm bg-gray-300 p-[2px] ">
@@ -136,7 +136,7 @@ const SavedChannelsPage = () => {
           <div className="flex gap-4">
             <Link
               to="/iptv"
-              className="text-white bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">
+              className="text-white bg-purple-600  hover:bg-purple-700 px-4 py-2 rounded">
               Back to All Channels
             </Link>
             {bookmarkedChannels?.length > 0 && (
@@ -151,10 +151,10 @@ const SavedChannelsPage = () => {
       </nav>
 
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
           Your Saved Channels ({bookmarkedChannels?.length})
         </h2>
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-white">
           Manage your bookmarked IPTV channels here
         </p>
       </div>
@@ -162,10 +162,10 @@ const SavedChannelsPage = () => {
       {bookmarkedChannels?.length === 0 ? (
         <div className=" min-h-screen text-center py-12">
           {/* <div className="text-6xl mb-4">📺</div> */}
-          <h3 className="text-xl font-semibold text-gray-700 mb-2">
+          <h3 className="text-xl font-semibold text-gray-700 dark:text-white mb-2">
             No Saved Channels Yet
           </h3>
-          <p className="text-gray-500 mb-6">
+          <p className="text-gray-500 mb-6 dark:text-white">
             Start saving your favorite channels to access them quickly
           </p>
           <Link
@@ -179,7 +179,9 @@ const SavedChannelsPage = () => {
           {/* Items per page selector and pagination info */}
           <div className=" flex justify-between items-center mb-4">
             <div className="flex items-center gap-2">
-              <label htmlFor="itemsPerPage" className="text-sm text-gray-600">
+              <label
+                htmlFor="itemsPerPage"
+                className="text-sm text-gray-600 dark:text-white">
                 Show:
               </label>
               <select
@@ -194,68 +196,72 @@ const SavedChannelsPage = () => {
                 <option value={50}>50</option>
                 <option value={100}>100</option>
               </select>
-              <span className="text-sm text-gray-600">per page</span>
+              <span className="text-sm text-gray-600 dark:text-white">
+                per page
+              </span>
             </div>
             {/* filter options */}
             <div className="flex items-center justify-center gap-2 border px-5  ">
-              <p>Filter options</p>
+              <p className="dark:text-white">Filter options</p>
               <ChevronDown />
             </div>
 
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-600 dark:text-white">
               Showing {startIndex + 1} to{" "}
               {Math.min(endIndex, bookmarkedChannels.length)} of{" "}
               {bookmarkedChannels.length} channels
             </div>
           </div>
 
-          <div className="min-h-screen bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="overflow-x-auto">
+          <div className="min-h-screen dark:bg-black rounded-lg overflow-hidden">
+            <div className="overflow-x-auto  ">
               <table className="w-full">
-                <thead className="bg-gray-50">
+                <thead className="bg-gray-50 dark:bg-black">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                       #
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                       Channel Name
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                       URL
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                       Date Saved
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                       Actions
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-white dark:bg-black    divide-y divide-gray-200 ">
                   {currentChannels?.reverse().map((channel, index) => (
-                    <tr key={startIndex + index} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <tr
+                      key={startIndex + index}
+                      className="hover:bg-gray-50 dark:hover:bg-white/30">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
                         {startIndex + index + 1}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900">
+                        <div className="text-sm font-medium text-gray-900 dark:text-white">
                           {channel?.name || channel?.title || "Unknown Channel"}
                         </div>
                         {channel?.channel &&
                           channel?.channel !== channel?.name && (
-                            <div className="text-sm text-gray-500">
+                            <div className="text-sm text-gray-500 dark:text-white">
                               {channel?.channel || channel?.title}
                             </div>
                           )}
                       </td>
                       <td className="px-6 py-4">
-                        <div className="text-sm text-gray-900 break-all max-w-xs">
+                        <div className="text-sm text-gray-900 dark:text-white break-all max-w-xs">
                           {channel?.url?.length > 50
                             ? `${channel?.url?.substring(0, 50)}...`
                             : channel?.url}
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
                         {new Date(channel?.dateBookmarked).toLocaleDateString()}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
