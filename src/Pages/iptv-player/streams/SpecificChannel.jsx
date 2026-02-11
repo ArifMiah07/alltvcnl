@@ -42,6 +42,12 @@ const StreamSpecificChannel = () => {
     handleSidebarVisibility,
     handleChannelsInfoVisibility,
     handleNavBarVisibility,
+    hidePaginationBtns,
+    // setHidePaginationBtns,
+    hideMoreChannelsSection,
+    // setHideMoreChannelsSection,
+    handlePaginationBtnsVisibility,
+    handleMoreChannelsSectionVisibility,
     handleSettings,
     isSettingModalOpen,
   } = useSettings();
@@ -76,7 +82,7 @@ const StreamSpecificChannel = () => {
             {isSettingModalOpen && (
               <div className="absolute z-20 top-10 right-10 -translate-x-1 translate-y-1 bg-white/30 backdrop-blur-lg border  w-[200px min-h-[124px] h-fit py-4 px-4 lg:w-[400px] ">
                 <ul className=" flex flex-col gap-2 items-start justify-center p-2">
-                  <li className=" dark:text-white hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
+                  <li className=" dark:text-white hover:text-green-500 hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
                     <input
                       type="checkbox"
                       checked={hideSidebar}
@@ -90,7 +96,7 @@ const StreamSpecificChannel = () => {
                       <span>Hide Sidebar</span>
                     )}
                   </li>
-                  <li className=" dark:text-white hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
+                  <li className=" dark:text-white hover:text-green-500 hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
                     <input
                       type="checkbox"
                       checked={hideNavBar}
@@ -102,7 +108,7 @@ const StreamSpecificChannel = () => {
                       <span>Hide Navbar</span>
                     )}
                   </li>
-                  <li className=" dark:text-white hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
+                  <li className=" dark:text-white hover:text-green-500 hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
                     <input
                       type="checkbox"
                       checked={hideChannelsInfo}
@@ -114,6 +120,34 @@ const StreamSpecificChannel = () => {
                       <span>Unhide Channel Info</span>
                     ) : (
                       <span>Hide Channel Info</span>
+                    )}
+                  </li>
+                  <li className=" dark:text-white hover:text-green-500 hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
+                    <input
+                      type="checkbox"
+                      checked={hidePaginationBtns}
+                      onChange={(e) =>
+                        handlePaginationBtnsVisibility(e.target.checked)
+                      }
+                    />
+                    {hideNavBar ? (
+                      <span>Unhide Pagination Buttons</span>
+                    ) : (
+                      <span>Hide Pagination Buttons</span>
+                    )}
+                  </li>
+                  <li className=" dark:text-white hover:text-green-500 hover:dark:text-green-500 flex flex-row gap-3 items-center justify-center">
+                    <input
+                      type="checkbox"
+                      checked={hideMoreChannelsSection}
+                      onChange={(e) =>
+                        handleMoreChannelsSectionVisibility(e.target.checked)
+                      }
+                    />
+                    {hideNavBar ? (
+                      <span>Unhide More Channels</span>
+                    ) : (
+                      <span>Hide More Channels</span>
                     )}
                   </li>
                 </ul>
@@ -147,15 +181,13 @@ const StreamSpecificChannel = () => {
             setChannelsInput={setChannelsInput}
             handleChannelsPerPage={handleChannelsPerPage}
             totalChannels={totalItems}
+            hidePaginationBtns={hidePaginationBtns}
           />
         </div>
-        {/* <div className="">
-        </div>
-        <div>
-        </div> */}
       </div>
       {/* other channels */}
-      <div className="w-full border border-green-50">
+      <div
+        className={`w-full border border-green-50 ${hideMoreChannelsSection ? "hidden" : "visible"}`}>
         {loading && "loading..."}
         {error && "Error..."}
         {/* more channels suggestions */}

@@ -22,6 +22,7 @@ const Sidebar = ({
   handleChannelsPerPage,
   totalChannels,
   // handleCurrentPage,
+  hidePaginationBtns,
 }) => {
   // react states
   const [expandBasicControls, setExpandBasicControls] = useState(false);
@@ -62,7 +63,8 @@ const Sidebar = ({
   return (
     <div className="flex flex-col lg:flex-row gap-2 ">
       {/* pagination */}
-      <div className=" border-r border-green-500 p-1 flex flex-col items-center justify-center">
+      <div
+        className={` border-r border-green-500 p-1 flex flex-col items-center justify-center ${hidePaginationBtns ? "hidden" : "visible"}`}>
         <div className="w-full h-full ">
           <div className="flex flex-row lg:flex-col flex-wrap items-center justify-center gap-2 ">
             {pagesArray?.map((page, index) => (

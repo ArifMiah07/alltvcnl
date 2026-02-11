@@ -186,7 +186,9 @@ const NavBar = () => {
             className={`hover:underline ${
               isSticky ? "text-white hidden" : "text-black visible"
             }`}>
-            <p className="flex hover:text-purple-500">Portfolio</p>
+            <p className="flex dark:text-white hover:text-purple-500">
+              Portfolio
+            </p>
           </Link>
           <div className="ml-2">
             <ThemeToggle />
