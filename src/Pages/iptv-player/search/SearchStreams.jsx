@@ -668,6 +668,7 @@ const SearchStreams = () => {
             </div>
             {/* sidebar */}
             <div className="  lg:w-[30%] sticky top-12 h-fit text-center flex flex-row items-start justify-start ">
+              {/* sidebar pagination */}
               <div className=" flex flex-col gap-2 flex-wrap p-2">
                 {pagesArray
                   ? pagesArray?.map((page, index) => (
@@ -686,9 +687,16 @@ const SearchStreams = () => {
                       </div>
                     ))
                   : ""}
+                <div className=" w-[80px] h-fit">
+                  <button
+                    className={` w-full h-full  border border-[#ff00ff] text-md rounded-sm bg-green-800 hover:bg-[#a100ff] hover:text-white text-black dark:text-white py-2 px-5 `}>
+                    ...{numbersOfPages}
+                  </button>
+                </div>
               </div>
               {/* <div className="w-full h-full ">
             </div> */}
+              {/* sidebar */}
               {/* ______TODO: : :ADD FUNCTIONALITY_______ */}
               <div className=" p-2 w-full h-full  ">
                 {/* Sidebar */}
