@@ -101,8 +101,8 @@ const NavBar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/saved-channels" className={getNavLinkClass}>
-                  Saved Channels
+                <NavLink to="/favorites" className={getNavLinkClass}>
+                  Favorites
                 </NavLink>
               </li>
               <li>
@@ -158,8 +158,8 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/saved-channels" className={getNavLinkClass}>
-                Saved Channels
+              <NavLink to="/favorites" className={getNavLinkClass}>
+                Favorites
               </NavLink>
             </li>
             <li>
