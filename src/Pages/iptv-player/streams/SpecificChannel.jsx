@@ -9,7 +9,7 @@ import MoreChannels from "../../../Components/streams/MoreChannels";
 import Sidebar from "../../../Components/sidebar/Sidebar";
 import BackButton from "../../../Components/buttons/BackButton";
 import { useSettings } from "../../../hooks/useSettings";
-import { Activity, LayoutGrid, Settings } from "lucide-react";
+import { LayoutGrid, Settings } from "lucide-react";
 import ActivityAnimated from "../../../Components/icons/ActivityAnimated";
 
 const StreamSpecificChannel = () => {
@@ -205,8 +205,9 @@ const StreamSpecificChannel = () => {
       {/* other channels */}
       <div
         className={`w-full border border-green-50 ${hideMoreChannelsSection ? "hidden" : "visible"}`}>
-        {loading && "loading..."}
-        {error && "Error..."}
+        {loading && <span className="dark:text-white">Loading...</span>}
+
+        {error && <span className="dark:text-white">Error...</span>}
         {/* more channels suggestions */}
         <MoreChannels
           streamData={streamData}

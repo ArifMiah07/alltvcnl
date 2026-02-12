@@ -45,7 +45,7 @@ const Streams = () => {
 
   //
   if (loading) return <StreamsPageSkeletonLoading />;
-  if (error) return <p>Error: {error}</p>;
+  if (error) return <p className="dark:text-white">Error: {error}</p>;
 
   // SEO metadata
   const pageTitle = `Watch Live IPTV Streams - Page ${currentPage} | All TV`;

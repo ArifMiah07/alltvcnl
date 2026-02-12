@@ -16,11 +16,11 @@ const Watch = () => {
       .then((res) => res.json())
       .then((data) => {
         // Filter for HLS streams only
-        const hlsStreams = data.filter(s => s.url && s.url.includes('.m3u8'));
+        const hlsStreams = data.filter((s) => s.url && s.url.includes(".m3u8"));
         setStreams(hlsStreams);
         setLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error fetching streams:", error);
         setError("Failed to load streams");
         setLoading(false);
@@ -32,10 +32,10 @@ const Watch = () => {
     if (!selectedStreamUrl || !videoRef.current) return;
 
     setError(null);
-    
+
     // The URL for the video manifest, proxied through our Node.js server
-const encodedUrl = btoa(selectedStreamUrl);
-const proxiedUrl = `http://localhost:5000/proxy/${encodedUrl}`;
+    const encodedUrl = btoa(selectedStreamUrl);
+    const proxiedUrl = `http://localhost:5000/proxy/${encodedUrl}`;
     const videoElement = videoRef.current;
     let hls;
 
@@ -44,15 +44,15 @@ const proxiedUrl = `http://localhost:5000/proxy/${encodedUrl}`;
         debug: false,
         enableWorker: true,
         lowLatencyMode: true,
-        backBufferLength: 90
+        backBufferLength: 90,
       });
-      
+
       hls.loadSource(proxiedUrl);
       hls.attachMedia(videoElement);
-      
+
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
         console.log("Manifest parsed, starting playback...");
-        videoElement.play().catch(e => {
+        videoElement.play().catch((e) => {
           console.error("Autoplay was prevented:", e);
           setError("Autoplay prevented - please click play manually");
         });
@@ -77,12 +77,11 @@ const proxiedUrl = `http://localhost:5000/proxy/${encodedUrl}`;
           }
         }
       });
-
     } else if (videoElement.canPlayType("application/vnd.apple.mpegurl")) {
       // For native HLS support (like Safari)
       videoElement.src = proxiedUrl;
-      videoElement.addEventListener('loadedmetadata', () => {
-        videoElement.play().catch(e => {
+      videoElement.addEventListener("loadedmetadata", () => {
+        videoElement.play().catch((e) => {
           console.error("Autoplay was prevented:", e);
           setError("Autoplay prevented - please click play manually");
         });
@@ -100,44 +99,52 @@ const proxiedUrl = `http://localhost:5000/proxy/${encodedUrl}`;
   }, [selectedStreamUrl]);
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif", maxWidth: "1200px", margin: "0 auto" }}>
+    <div
+      style={{
+        padding: "20px",
+        fontFamily: "Arial, sans-serif",
+        maxWidth: "1200px",
+        margin: "0 auto",
+      }}>
       <h1 style={{ color: "#333", marginBottom: "20px" }}>IPTV Player</h1>
       <p style={{ color: "#666", marginBottom: "20px" }}>
-        Select a stream from the dropdown below. This player uses a smart proxy to handle CORS and HLS streaming.
+        Select a stream from the dropdown below. This player uses a smart proxy
+        to handle CORS and HLS streaming.
       </p>
-      
+
       {loading && (
         <div style={{ padding: "20px", textAlign: "center", color: "#666" }}>
           Loading streams...
         </div>
       )}
-      
+
       {error && (
-        <div style={{ 
-          padding: "10px", 
-          backgroundColor: "#ffebee", 
-          color: "#c62828", 
-          border: "1px solid #ef5350",
-          borderRadius: "4px",
-          marginBottom: "20px"
-        }}>
+        <div
+          className="dark:text-white"
+          style={{
+            padding: "10px",
+            backgroundColor: "#ffebee",
+            color: "#c62828",
+            border: "1px solid #ef5350",
+            borderRadius: "4px",
+            marginBottom: "20px",
+          }}>
           {error}
         </div>
       )}
-      
+
       <select
         onChange={(e) => setSelectedStreamUrl(e.target.value)}
         value={selectedStreamUrl}
-        style={{ 
-          width: '100%', 
-          padding: '12px', 
-          marginBottom: '20px',
-          border: '1px solid #ddd',
-          borderRadius: '4px',
-          fontSize: '16px'
+        style={{
+          width: "100%",
+          padding: "12px",
+          marginBottom: "20px",
+          border: "1px solid #ddd",
+          borderRadius: "4px",
+          fontSize: "16px",
         }}
-        disabled={loading}
-      >
+        disabled={loading}>
         <option value="" disabled>
           {loading ? "Loading streams..." : "Select a stream"}
         </option>
@@ -149,13 +156,14 @@ const proxiedUrl = `http://localhost:5000/proxy/${encodedUrl}`;
       </select>
 
       {selectedStreamUrl && (
-        <div style={{ 
-          marginTop: "20px", 
-          backgroundColor: "#000", 
-          borderRadius: "8px",
-          overflow: "hidden",
-          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)"
-        }}>
+        <div
+          style={{
+            marginTop: "20px",
+            backgroundColor: "#000",
+            borderRadius: "8px",
+            overflow: "hidden",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          }}>
           <video
             ref={videoRef}
             controls

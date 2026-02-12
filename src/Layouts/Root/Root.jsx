@@ -211,7 +211,7 @@ const Root = () => {
       <div className={`h-fit z-20 ${hideNavBar ? "hidden " : "visible"} `}>
         <NavBar></NavBar>
       </div>
-      <div className=" z-10 flex-grow">
+      <div className=" z-10 flex-grow dark:bg-black dark:text-white">
         <Outlet></Outlet>
       </div>
     </div>
