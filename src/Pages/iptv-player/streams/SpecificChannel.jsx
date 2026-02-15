@@ -161,7 +161,7 @@ const StreamSpecificChannel = () => {
           </div>
         </div>
         <div
-          className={` w-full flex flex-col md:flex-row gap-2 items-start justify-start   ${hideChannelsInfo ? "hidden" : "visible"}`}>
+          className={` w-full flex flex-col md:flex-row gap-2 mb-4 items-start justify-start   ${hideChannelsInfo ? "hidden" : "visible"}`}>
           <BackButton label=" " styles=" " />
           <div>
             <Link to={"/stream-iptv"}>
