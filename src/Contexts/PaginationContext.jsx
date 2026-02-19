@@ -20,6 +20,14 @@ export const PaginationProvider = ({ children }) => {
   const [channelsInput, setChannelsInput] = useState(channelsPerPage);
   const [totalItems, setTotalItems] = useState(0);
 
+  // show as list or grid
+  const [showMoreChannelsInGridView, setShowMoreChannelsInGridView] = useState(
+    () => {
+      const stored = localStorage.getItem("showMoreChannelsInGridViewLocal");
+      return stored === "true";
+    },
+  );
+
   // variables
   //   let channelsPerPage;
   const numbersOfPages = Math.ceil(totalItems / channelsPerPage);
