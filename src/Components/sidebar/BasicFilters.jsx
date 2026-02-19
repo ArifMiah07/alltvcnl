@@ -1,11 +1,15 @@
 import { Grid3x3, Rows3 } from "lucide-react";
-import { useState } from "react";
+import PropTypes from "prop-types";
+import { usePagination } from "../../hooks/usePagination";
 
 const BasicFilters = () => {
-  const [showGrid, setShowGrid] = useState(false);
-  const handleToggleMoreChannelsLayout = () => {
-    setShowGrid(!showGrid);
-  };
+  // const [showGrid, setShowGrid] = useState(false);
+  // const handleToggleMoreChannelsLayout = () => {
+  //   setShowGrid(!showGrid);
+  // };
+
+  const { showMoreChannelsInGridView, handleToggleMoreChannelsLayout } =
+    usePagination();
 
   return (
     <div className="w-full">
@@ -16,13 +20,13 @@ const BasicFilters = () => {
         <button
           onClick={handleToggleMoreChannelsLayout}
           className={`w-full text-center border-t-2 border-red-50 flex flex-row items-center justify-center gap-1 `}>
-          {showGrid ? (
+          {showMoreChannelsInGridView ? (
             <span className="flex flex-row items-center justify-center gap-1">
-              <Grid3x3 /> Show Grid View
+              <Rows3 /> Show List View
             </span>
           ) : (
             <span className="flex flex-row items-center justify-center gap-1">
-              <Rows3 /> Show List View
+              <Grid3x3 /> Show Grid View
             </span>
           )}
         </button>
@@ -32,3 +36,9 @@ const BasicFilters = () => {
 };
 
 export default BasicFilters;
+
+BasicFilters.propTypes = {
+  showMoreChannelsInGridView: PropTypes.bool,
+  setShowMoreChannelsInGridView: PropTypes.func,
+  handleToggleMoreChannelsLayout: PropTypes.func,
+};

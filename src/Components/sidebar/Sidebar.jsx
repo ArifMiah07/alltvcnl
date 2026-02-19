@@ -24,6 +24,9 @@ const Sidebar = ({
   // handleCurrentPage,
   hidePaginationBtns,
   hideSidebar,
+  // showMoreChannelsInGridView,
+  // setShowMoreChannelsInGridView,
+  // handleToggleMoreChannelsLayout,
 }) => {
   // react states
   const [expandBasicControls, setExpandBasicControls] = useState(false);
@@ -192,4 +195,7 @@ Sidebar.propTypes = {
   hidePaginationBtns: PropTypes.bool,
   hideSidebar: PropTypes.bool,
   // handleCurrentPage: PropTypes.number.isRequired,
+  // showMoreChannelsInGridView: PropTypes.bool,
+  // setShowMoreChannelsInGridView: PropTypes.func,
+  // handleToggleMoreChannelsLayout: PropTypes.func,
 };

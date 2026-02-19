@@ -114,6 +114,17 @@ export const PaginationProvider = ({ children }) => {
     localStorage.setItem("currentPageValueLocal", "1");
   };
 
+  const handleToggleMoreChannelsLayout = () => {
+    setShowMoreChannelsInGridView((prev) => {
+      const newValue = !prev;
+      localStorage.setItem(
+        "showMoreChannelsInGridViewLocal",
+        newValue.toString(),
+      );
+      return newValue;
+    });
+  };
+
   const getValues = {
     currentPage,
     numbersOfPages,
@@ -131,6 +142,9 @@ export const PaginationProvider = ({ children }) => {
     handleChannelsPerPage,
     totalItems,
     setTotalItems,
+    showMoreChannelsInGridView,
+    setShowMoreChannelsInGridView,
+    handleToggleMoreChannelsLayout,
   };
   return (
     <PaginationContext.Provider value={getValues}>

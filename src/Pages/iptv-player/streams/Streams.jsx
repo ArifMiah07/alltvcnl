@@ -40,6 +40,9 @@ const Streams = () => {
     handleChannelsPerPage,
     totalItems,
     handleCurrentPage,
+    // showMoreChannelsInGridView,
+    // setShowMoreChannelsInGridView,
+    // handleToggleMoreChannelsLayout,
     // setTotalItems,
   } = usePagination();
 
@@ -134,6 +137,9 @@ const Streams = () => {
             setChannelsInput={setChannelsInput}
             handleChannelsPerPage={handleChannelsPerPage}
             totalChannels={totalItems}
+            // showMoreChannelsInGridView={showMoreChannelsInGridView}
+            // setShowMoreChannelsInGridView={setShowMoreChannelsInGridView}
+            // handleToggleMoreChannelsLayout={handleToggleMoreChannelsLayout}
             // handleCurrentPage={handleCurrentPage}
           />
         </div>
