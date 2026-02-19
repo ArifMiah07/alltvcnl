@@ -52,6 +52,25 @@ const Favorites = () => {
 
   return (
     <section className="  w-full min-h-screen border border-red-400  ">
+      <div>
+        <ul className="flex flex-row gap-3">
+          <li>
+            <button className="border px-6 py-2 dark:text-white">
+              List View
+            </button>
+          </li>
+          <li>
+            <button className="border px-6 py-2 dark:text-white">
+              Grid View
+            </button>
+          </li>
+          <li>
+            <button className="border px-6 py-2 dark:text-white">
+              Table View
+            </button>
+          </li>
+        </ul>
+      </div>
       <h1 className="dark:text-white">ur favorite channels list</h1>
       <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4">
         {/* contents */}
