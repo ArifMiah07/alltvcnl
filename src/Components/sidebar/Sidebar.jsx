@@ -28,6 +28,7 @@ const Sidebar = ({
   // react states
   const [expandBasicControls, setExpandBasicControls] = useState(false);
   const [expandBasicInfo, setExpandBasicInfo] = useState(false);
+  const [expandBasicFilters, setExpandBasicFilters] = useState(false);
   const {
     // currentPage,
     // numbersOfPages,
@@ -56,6 +57,11 @@ const Sidebar = ({
   const toggleBasicInfoExpand = () => {
     //
     setExpandBasicInfo(!expandBasicInfo);
+  };
+
+  const toggleBasicFiltersExpand = () => {
+    //
+    setExpandBasicFilters(!expandBasicFilters);
   };
 
   const startPage = Math.max(1, currentPage - 4);
@@ -144,8 +150,22 @@ const Sidebar = ({
             />
           </div>
         </div>
-        <div className="w-full dark:text-white mt-4">
+        {/* <div className="w-full dark:text-white mt-4">
           <BasicFilters />
+        </div> */}
+        <div className="w-full border-b-2 border-red-50 ">
+          <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
+            <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold mt-4 dark:text-white ">
+              Basic Filters{" "}
+              <span onClick={toggleBasicFiltersExpand} className="">
+                {expandBasicFilters ? <ChevronUp /> : <ChevronDown />}
+              </span>
+            </h3>
+          </div>
+          <div
+            className={`mb-4 dark:text-white px-2 ${expandBasicFilters ? "hidden" : "visible"}`}>
+            <BasicFilters />
+          </div>
         </div>
       </div>
     </div>
