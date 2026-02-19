@@ -123,7 +123,7 @@ const Streams = () => {
           />
         </div>
         {/* sidebar */}
-        <div className="col-span-3">
+        <div className="col-span-3 sticky top-12 h-fit">
           <Sidebar
             currentPage={currentPage}
             numbersOfPages={numbersOfPages}
