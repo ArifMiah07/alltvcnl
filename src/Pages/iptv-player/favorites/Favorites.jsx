@@ -8,6 +8,9 @@ const Favorites = () => {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
   const [channelsPerPage, setChannelsPerPage] = useState(10);
 
+  //
+  const [activeTab, setActiveTab] = useState("list");
+
   // console.log(getStreams);// getStreams.data => 12k+
   const totalItems = allBookmarkedChannels.length || 0;
   // const currentPageNumber = parseInt(req.query?.currentPage) || 1;
@@ -20,10 +23,19 @@ const Favorites = () => {
   console.log(bookmarkedChannel, allBookmarkedChannels?.length);
 
   //
+
+  //
   const handleCurrentPage = (page) => {
     console.log(page);
     setCurrentPageNumber(page);
   };
+
+  // TAB FUNCTIONALITY
+  // handle
+
+  const handleShowListTab = () => setActiveTab("list");
+  const handleShowGridTab = () => setActiveTab("grid");
+  const handleShowTableTab = () => setActiveTab("table");
 
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______START HERE______ */
@@ -49,29 +61,71 @@ const Favorites = () => {
   );
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______ENDs HERE______ */
+  //
 
   return (
     <section className="  w-full min-h-screen border border-red-400  ">
       <div>
         <ul className="flex flex-row gap-3">
           <li>
-            <button className="border px-6 py-2 dark:text-white">
+            <button
+              onClick={handleShowListTab}
+              className="border px-6 py-2 dark:text-white">
               List View
             </button>
           </li>
           <li>
-            <button className="border px-6 py-2 dark:text-white">
+            <button
+              onClick={handleShowGridTab}
+              className="border px-6 py-2 dark:text-white">
               Grid View
             </button>
           </li>
           <li>
-            <button className="border px-6 py-2 dark:text-white">
+            <button
+              onClick={handleShowTableTab}
+              className="border px-6 py-2 dark:text-white">
               Table View
             </button>
           </li>
         </ul>
       </div>
       <h1 className="dark:text-white">ur favorite channels list</h1>
+      {activeTab === "list" && <List />}
+      {activeTab === "grid" && (
+        <Grid
+          paginatedStreams={paginatedStreams}
+          pagesArray={pagesArray}
+          handleCurrentPage={handleCurrentPage}
+          currentPageNumber={currentPageNumber}
+          numbersOfPages={numbersOfPages}
+        />
+      )}
+      {activeTab === "table" && <Table />}
+    </section>
+  );
+};
+
+export default Favorites;
+
+function List() {
+  return (
+    <div>
+      <p>this is list tab</p>
+    </div>
+  );
+}
+
+function Grid({
+  paginatedStreams,
+  pagesArray,
+  handleCurrentPage,
+  currentPageNumber,
+  numbersOfPages,
+}) {
+  return (
+    <div>
+      <p>this is Grid tab</p>
       <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4">
         {/* contents */}
         <div className="w-full h-full lg:col-span-9 ">
@@ -114,8 +168,21 @@ const Favorites = () => {
           )}
         </div>
       </div>
-    </section>
+    </div>
   );
-};
+}
 
-export default Favorites;
+function Table() {
+  return (
+    <div>
+      <p>this is Table tab</p>
+    </div>
+  );
+}
+
+/**
+ *
+ *
+ *
+ *
+ */
