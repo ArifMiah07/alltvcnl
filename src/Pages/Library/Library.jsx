@@ -173,6 +173,12 @@ export default function Library() {
             <p className="underline text-black">watch</p>
           </Link>
         </div>
+        <div className="min-w-[300px] w-fit h-fit p-4 border border-blue-500 bg-green-500   ">
+          <p className="text-lg font-medium text-white  ">Adda</p>
+          <Link to={`/adda`}>
+            <p className="underline text-black">Start adda</p>
+          </Link>
+        </div>
       </div>
     </div>
   );
