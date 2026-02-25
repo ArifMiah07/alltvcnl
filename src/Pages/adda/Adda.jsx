@@ -10,7 +10,13 @@ const Adda = () => {
       </header>
       <main>
         <section>All posts</section>
-        <AddaPostCard />
+        {Array(10)
+          .fill(0)
+          .map((items, index) => (
+            <div className="p-2" key={index}>
+              <AddaPostCard />
+            </div>
+          ))}
       </main>
       <footer>updating...</footer>
     </section>
