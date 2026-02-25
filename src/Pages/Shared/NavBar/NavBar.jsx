@@ -1,6 +1,7 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ThemeToggle from "../../../Components/themes/ThemeToggle";
+import { Bell, Settings } from "lucide-react";
 
 const NavBar = () => {
   const location = useLocation();
@@ -191,7 +192,13 @@ const NavBar = () => {
             </p>
           </Link>
           <div className="ml-2">
-            <ThemeToggle />
+            <Bell className="dark:text-white w-[16px] h-[16px]" />
+          </div>
+          <div className="ml-2">
+            <ThemeToggle className="" />
+          </div>
+          <div className="ml-2">
+            <Settings className="dark:text-white w-[16px] h-[16px]" />
           </div>
         </div>
       </div>

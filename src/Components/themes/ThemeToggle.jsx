@@ -7,10 +7,14 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className=" flex flex-col items-center justify-center w-[36px] h-[36px] rounded border
+      className=" flex flex-col items-center justify-center rounded border
                  text-black dark:text-white
-                 bg-white dark:bg-gray-800">
-      {theme === "dark" ? <SunMedium /> : <Moon />}
+                 ">
+      {theme === "dark" ? (
+        <SunMedium className="w-[16px] h-[16px]" />
+      ) : (
+        <Moon className="w-[16px] h-[16px]" />
+      )}
     </button>
   );
 }
