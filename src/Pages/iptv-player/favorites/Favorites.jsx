@@ -94,21 +94,21 @@ const Favorites = () => {
           <li>
             <button
               onClick={handleShowListTab}
-              className={` ${activeTab === "list" ? "border border-green-500 bg-purple-600 text-white" : ""}  border px-6 py-2 dark:text-white`}>
+              className={` ${activeTab === "list" ? "border border-green-500 bg-purple-600  text-white" : ""} hover:bg-green-500 hover:text-white  border px-6 py-2 dark:text-white`}>
               List View
             </button>
           </li>
           <li>
             <button
               onClick={handleShowGridTab}
-              className={`${activeTab === "grid" ? "border border-green-500 bg-purple-600 text-white" : ""}  border px-6 py-2 dark:text-white`}>
+              className={`${activeTab === "grid" ? "border border-green-500 bg-purple-600  text-white" : ""} hover:bg-green-500 hover:text-white  border px-6 py-2 dark:text-white`}>
               Grid View
             </button>
           </li>
           <li>
             <button
               onClick={handleShowTableTab}
-              className={` ${activeTab === "table" ? "border border-green-500 bg-purple-600 text-white" : ""}  border px-6 py-2 dark:text-white`}>
+              className={` ${activeTab === "table" ? "border border-green-500 bg-purple-600  text-white" : ""} hover:bg-green-500 hover:text-white  border px-6 py-2 dark:text-white`}>
               Table View
             </button>
           </li>
