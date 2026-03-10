@@ -88,33 +88,35 @@ const Favorites = () => {
   //
 
   return (
-    <section className="  w-full min-h-screen border border-red-400  ">
-      <div>
+    <section className="  p-4 w-full min-h-screen   ">
+      <div className="flex flex-row gap-2">
         <ul className="flex flex-row gap-3">
           <li>
             <button
               onClick={handleShowListTab}
-              className="border px-6 py-2 dark:text-white">
+              className={` ${activeTab === "list" ? "border border-green-500 bg-purple-600 text-white" : ""}  border px-6 py-2 dark:text-white`}>
               List View
             </button>
           </li>
           <li>
             <button
               onClick={handleShowGridTab}
-              className="border px-6 py-2 dark:text-white">
+              className={`${activeTab === "grid" ? "border border-green-500 bg-purple-600 text-white" : ""}  border px-6 py-2 dark:text-white`}>
               Grid View
             </button>
           </li>
           <li>
             <button
               onClick={handleShowTableTab}
-              className="border px-6 py-2 dark:text-white">
+              className={` ${activeTab === "table" ? "border border-green-500 bg-purple-600 text-white" : ""}  border px-6 py-2 dark:text-white`}>
               Table View
             </button>
           </li>
         </ul>
       </div>
-      <h1 className="dark:text-white">ur favorite channels list</h1>
+      <h1 className="dark:text-white text-xl font-medium my-4 ">
+        Your favorite channels list
+      </h1>
       {activeTab === "list" && <List />}
       {activeTab === "grid" && (
         <Grid
@@ -162,8 +164,8 @@ function Grid({
   bookmarkedChannel,
 }) {
   return (
-    <div>
-      <p>this is Grid tab</p>
+    <div className="">
+      {/* <p>Grid tab</p> */}
       <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4">
         {/* contents */}
         <div className="w-full h-full lg:col-span-9 ">
@@ -256,7 +258,7 @@ function Grid({
           </div>
         </div>
         {/* pagination */}
-        <div className="flex gap-2 flex-wrap my-3">
+        <div className=" w-fit h-fit p-1  flex flex-col gap-2 flex-wrap my-3">
           {pagesArray
             ? pagesArray?.map((page, index) => (
                 <div className="w-fit h-fit" key={index}>

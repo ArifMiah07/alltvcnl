@@ -19,6 +19,7 @@ dist-ssr
 .env.production
 # Electron builds
 release/
+blocked.json
 
 # Editor directories and files
 .vscode/*

@@ -1,14 +1,21 @@
-const AddaPostCard = () => {
+import PropTypes from "prop-types";
+
+const AddaPostCard = ({
+  index = 1,
+  reaction = { liked: 1 },
+  comment = 1,
+  share = 1,
+}) => {
   return (
     <section className=" w-full h-full grid grid-cols-12">
       {/*  */}
       {/* interaction */}
       <div className=" w-full flex flex-col col-span-1">
-        <div className="bg-[#FEAEAE]">index</div>
-        {/* like, dislike,show, hide, love, hate,funny, unfny,uvote, dvote, slct-tier, rate */}
-        <div className="bg-[#FFF3A2]">reactions</div>
-        <div className="bg-[#E9FFC7]">comment</div>
-        <div className="bg-[#B1D4FF]">share</div>
+        <div className="bg-[#FEAEAE]">{index}</div>
+        {/* like, dislike,show, hide, love, hate,funny, unfny,uvote, dvote, slct-tier, rate, negative, positive, rare */}
+        <div className="bg-[#FFF3A2]">{reaction.liked}</div>
+        <div className="bg-[#E9FFC7]">{comment}</div>
+        <div className="bg-[#B1D4FF]">{share}</div>
       </div>
       {/* content */}
       <div className="  w-full flex flex-col col-span-10">
@@ -64,6 +71,13 @@ const AddaPostCard = () => {
       </div>
     </section>
   );
+};
+
+AddaPostCard.propTypes = {
+  index: PropTypes.number,
+  reaction: PropTypes.object,
+  comment: PropTypes.number,
+  share: PropTypes.number,
 };
 
 export default AddaPostCard;
