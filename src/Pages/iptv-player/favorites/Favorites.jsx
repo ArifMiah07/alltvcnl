@@ -115,7 +115,7 @@ const Favorites = () => {
         </ul>
       </div>
       <h1 className="dark:text-white text-xl font-medium my-4 ">
-        Your favorite channels list
+        Your favorite channels
       </h1>
       {activeTab === "list" && (
         <List
@@ -409,13 +409,13 @@ function Grid({
                         )}
                       </div>
                     </div>
-                    {/* <div className="w-full h-full flex flex-col border border-green-50  ">
+                    <div className="w-full h-full flex flex-col border border-green-50  ">
                       <HlsVideoPlayer
                         src={stream?.url}
                         controls
                         autoPlay={false}
                       />
-                    </div> */}
+                    </div>
                   </div>
                 ))
               ) : (
@@ -560,13 +560,13 @@ function Table({
                         )}
                       </div>
                     </div>
-                    <div className="w-full h-full flex flex-col border border-green-50  ">
+                    {/* <div className="w-full h-full flex flex-col border border-green-50  ">
                       <HlsVideoPlayer
                         src={stream?.url}
                         controls
                         autoPlay={false}
                       />
-                    </div>
+                    </div> */}
                   </div>
                 ))
               ) : (
