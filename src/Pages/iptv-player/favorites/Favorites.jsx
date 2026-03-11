@@ -482,98 +482,99 @@ function Table({
   bookmarkedChannel,
 }) {
   return (
-    <div className="">
+    <div className=" w-full h-full ">
       {/* <p>Grid tab</p> */}
-      <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4">
+      <div className=" w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4">
         {/* contents */}
-        <div className="w-full h-full lg:col-span-9 ">
-          <div className=" border w-full h-full  p-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start justify-evenly ">
-            <div className=" w-full h-full col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center justify-items-center gap-4 p-4  ">
-              {paginatedStreams ? (
-                paginatedStreams?.map(([url, stream], index) => (
-                  // player container
-                  <div
-                    className=" w-full h-full flex flex-col items-center justify-center border border-rose-50 bg-radial-[at_50%_75%] from-sky-100 via-violet-100 to-fuchsia-100 to-90%"
-                    key={url}>
-                    {/* user actions */}
-                    <div className="w-full flex flex-col flex-wrap">
-                      {/* channel info */}
-                      <div className="flex gap-2 px-2 text-[18px]">
-                        {/* channel number */}
-                        <span className="font-medium dark:text-white">
-                          {(currentPageNumber - 1) * channelsPerPage +
-                            (index + 1)}
-                          .
-                        </span>
-                        {/* channel name or title */}
-                        <p className="dark:text-white">
-                          {stream?.channel ? stream.channel : stream.title}
-                        </p>
-                      </div>
-                      {/* basic actions */}
-                      <div className="w-full flex flex-row gap-2 flex-wrap items-center p-2  ">
-                        {/* stream a specific channel */}
-                        <span
-                          onClick={() =>
-                            handleSpecificChannelStream({ stream })
-                          }
-                          className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
-                          <Link
-                            to={`/specific-channel/${
-                              (currentPageNumber - 1) * channelsPerPage +
-                              (index + 1)
-                            }/${encodeURIComponent(
-                              stream.channel || stream.title,
-                            )}`}
-                            state={{ streamData: stream }}>
-                            <Fullscreen className="" />
-                          </Link>
-                        </span>
-                        {/* stream a specific channel on browser in a separate tab */}
-                        <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
-                          <a
-                            href={`${stream.url}`}
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            <MonitorPlay />
-                          </a>
-                        </span>
-                        {/* bookmark a specific channel */}
-                        {/* save or locally or save to a playlist <localStorage || default, playlist name> */}
-                        <span
-                          onClick={() => handleBookmarkChannelToggle(stream)}
-                          className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
-                          {bookmarkedChannel[stream.url] ? (
-                            <BookmarkCheck />
-                          ) : (
-                            <Bookmark />
-                          )}
-                        </span>
-                        <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
-                          <ListPlus />
-                        </span>
-                        {(stream.feed || stream.quality) && (
-                          <div className="flex flex-row gap-3 dark:text-white ">
-                            {stream.feed && <p>{stream.feed}</p>}
-                            {stream.quality && <p>{stream.quality}</p>}
-                          </div>
+        <div className="w-full lg:col-span-9 ">
+          <table className=" w-full border-collapse">
+            <thead>
+              <tr className=" text-left border border-rose-50">
+                <th>Index</th>
+                <th>Channel</th>
+                <th>Quality</th>
+                <th>Feed</th>
+                <th>Saved</th>
+                <th>Open IA</th>
+                <th>Open OA</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {paginatedStreams && paginatedStreams.length > 0 ? (
+                paginatedStreams.map(([url, stream], index) => (
+                  <tr
+                    key={url}
+                    className="border border-rose-50 bg-radial-[at_50%_75%] from-sky-100 via-violet-100 to-fuchsia-100 to-90%">
+                    <td className="px-2 py-1">
+                      <span className="font-medium dark:text-white">
+                        {(currentPageNumber - 1) * channelsPerPage +
+                          (index + 1)}
+                        .
+                      </span>
+                    </td>
+
+                    <td className="px-2 py-1">
+                      <p className="dark:text-white">
+                        {stream?.channel ? stream.channel : stream.title}
+                      </p>
+                    </td>
+
+                    <td className="px-2 py-1">
+                      <p>{stream?.quality ?? "x"}</p>
+                    </td>
+
+                    <td className="px-2 py-1">
+                      <p>{stream?.feed ?? "x"}</p>
+                    </td>
+                    <td className="px-2 py-1">
+                      <span
+                        onClick={() => handleBookmarkChannelToggle(stream)}
+                        className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                        {bookmarkedChannel[stream.url] ? (
+                          <BookmarkCheck />
+                        ) : (
+                          <Bookmark />
                         )}
-                      </div>
-                    </div>
-                    {/* <div className="w-full h-full flex flex-col border border-green-50  ">
-                      <HlsVideoPlayer
-                        src={stream?.url}
-                        controls
-                        autoPlay={false}
-                      />
-                    </div> */}
-                  </div>
+                      </span>
+                    </td>
+                    <td className="px-2 py-1">
+                      <span
+                        onClick={() => handleSpecificChannelStream({ stream })}
+                        className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                        <Link
+                          to={`/specific-channel/${
+                            (currentPageNumber - 1) * channelsPerPage +
+                            (index + 1)
+                          }/${encodeURIComponent(
+                            stream.channel || stream.title,
+                          )}`}
+                          state={{ streamData: stream }}>
+                          <Fullscreen className="" />
+                        </Link>
+                      </span>
+                    </td>
+                    <td className="px-2 py-1">
+                      <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                        <a
+                          href={`${stream.url}`}
+                          target="_blank"
+                          rel="noopener noreferrer">
+                          <MonitorPlay />
+                        </a>
+                      </span>
+                    </td>
+                  </tr>
                 ))
               ) : (
-                <p className="dark:text-white">No streams to play</p>
+                <tr>
+                  <td colSpan="4" className="text-center py-4 dark:text-white">
+                    No streams to play
+                  </td>
+                </tr>
               )}
-            </div>
-          </div>
+            </tbody>
+          </table>
         </div>
         {/* pagination */}
         <div className=" w-fit h-fit p-1  flex flex-col gap-2 flex-wrap my-3">
