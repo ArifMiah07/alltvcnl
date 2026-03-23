@@ -17,6 +17,8 @@
 
         [x] - in stream page, pagination btns appears for more than total page number
 
+        [] - in search page's sidebar add functionalities
+
         [] - in search page current page number is resetting in every render or refresh
 
 [] - make a list of all broken things or features that exists on all current features

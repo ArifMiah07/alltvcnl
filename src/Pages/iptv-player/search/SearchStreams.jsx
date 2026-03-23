@@ -417,7 +417,7 @@ const SearchStreams = () => {
                   <div className=" w-[80px] h-fit">
                     <button
                       className={` w-full h-full  border border-[#ff00ff] text-md rounded-sm bg-green-800 hover:bg-[#a100ff] hover:text-white text-white dark:text-white py-2 px-5 `}>
-                      ...{numbersOfPages}
+                      {numbersOfPages}
                     </button>
                   </div>
                 )}
@@ -669,7 +669,7 @@ const SearchStreams = () => {
                   <div className=" w-[80px] h-fit">
                     <button
                       className={` w-full h-full  border border-[#ff00ff] text-md rounded-sm bg-green-800 hover:bg-[#a100ff] hover:text-white text-white dark:text-white py-2 px-5 `}>
-                      ...{numbersOfPages}
+                      {numbersOfPages}
                     </button>
                   </div>
                 )}
@@ -838,7 +838,7 @@ const SearchStreams = () => {
             <div className="">
               <button
                 className={` border border-[#ff00ff] text-md rounded-sm bg-green-900 hover:bg-[#a100ff] dark:text-white hover:text-white text-white py-2 px-8 `}>
-                ...{numbersOfPages},
+                {numbersOfPages}
               </button>
             </div>
           )}
