@@ -30,3 +30,7 @@
 [] - at lest make a nice and proper todo list  
 
 [] - add user account register and login options (my app is oss, and i don't have any intention to collect user data, so i will like to add register and login with userName and password only, but there will be an option for acc registering and login with firebase auth (it just optional, implementing so that i remember how to work with firebase) with verified/valid email address).
+
+[] - add a theme store under settings, create theme collection
+
+[] - add primary themes like Default (with light and dark theme), HyperLand, Opera Gx, Anime Style 

@@ -12,6 +12,7 @@ import { SettingProvider } from "./Contexts/settings/SettingsProvider";
 import { FavoritesProvider } from "./Contexts/favorites/FavoritesProvider";
 import { LocalStorageProvider } from "./Contexts/LocalStorageProvider";
 import { PaginationProvider } from "./Contexts/PaginationProvider";
+import { SearchPageProvider } from "./Contexts/search/SearchPageProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -19,11 +20,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <SettingProvider>
         <PaginationProvider>
           <LocalStorageProvider>
-            <FavoritesProvider>
-              <HelmetProvider>
-                <RouterProvider router={router}></RouterProvider>
-              </HelmetProvider>
-            </FavoritesProvider>
+            <SearchPageProvider>
+              <FavoritesProvider>
+                <HelmetProvider>
+                  <RouterProvider router={router}></RouterProvider>
+                </HelmetProvider>
+              </FavoritesProvider>
+            </SearchPageProvider>
           </LocalStorageProvider>
         </PaginationProvider>
       </SettingProvider>
