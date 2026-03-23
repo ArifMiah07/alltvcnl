@@ -401,6 +401,14 @@ const SearchStreams = () => {
                       </div>
                     ))
                   : ""}
+                {numbersOfPages > 10 && (
+                  <div className=" w-[80px] h-fit">
+                    <button
+                      className={` w-full h-full  border border-[#ff00ff] text-md rounded-sm bg-green-800 hover:bg-[#a100ff] hover:text-white text-white dark:text-white py-2 px-5 `}>
+                      ...{numbersOfPages}
+                    </button>
+                  </div>
+                )}
               </div>
               {/* ______TODO: : :ADD FUNCTIONALITY_______ */}
               <div className=" p-2 w-full h-full dark:text-white ">
@@ -646,12 +654,14 @@ const SearchStreams = () => {
                       </div>
                     ))
                   : ""}
-                <div className=" w-[80px] h-fit">
-                  <button
-                    className={` w-full h-full  border border-[#ff00ff] text-md rounded-sm bg-green-800 hover:bg-[#a100ff] hover:text-white text-black dark:text-white py-2 px-5 `}>
-                    ...{numbersOfPages}
-                  </button>
-                </div>
+                {numbersOfPages > 10 && (
+                  <div className=" w-[80px] h-fit">
+                    <button
+                      className={` w-full h-full  border border-[#ff00ff] text-md rounded-sm bg-green-800 hover:bg-[#a100ff] hover:text-white text-white dark:text-white py-2 px-5 `}>
+                      ...{numbersOfPages}
+                    </button>
+                  </div>
+                )}
               </div>
               {/* sidebar */}
               {/* ______TODO: : :ADD FUNCTIONALITY_______ */}
@@ -813,12 +823,14 @@ const SearchStreams = () => {
                 </div>
               ))
             : ""}
-          <div className="">
-            <button
-              className={` border border-[#ff00ff] text-md rounded-sm bg-green-900 hover:bg-[#a100ff] dark:text-white hover:text-white  py-2 px-8 `}>
-              ...{numbersOfPages}
-            </button>
-          </div>
+          {numbersOfPages > 10 && (
+            <div className="">
+              <button
+                className={` border border-[#ff00ff] text-md rounded-sm bg-green-900 hover:bg-[#a100ff] dark:text-white hover:text-white text-white py-2 px-8 `}>
+                ...{numbersOfPages},
+              </button>
+            </div>
+          )}
         </div>
         {/* show more channels while single channels is selected to stream */}
         {selectedChannel && (

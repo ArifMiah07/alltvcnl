@@ -3,6 +3,8 @@
 [] - Lok in dawg
 [] - make a list of all bugs that exists on all current features
 [] - make a list of all uncompleted things or features that exists on all current features
+    - [List] -
+        [x] - in search page pagination showing page number twice when pages is less than {10}  
 [] - make a list of all broken things or features that exists on all current features
 
 # ____NEW_FEATURES____
