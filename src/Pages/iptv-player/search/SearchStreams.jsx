@@ -14,6 +14,7 @@ import StreamsPageSkeletonLoading from "../../../Components/streams/StreamsPageS
 import HlsVideoPlayer from "../../../Components/hls-video-player/HlsVideoPlayer";
 import { BASE_API_PATH } from "../../../configs/api-url.config";
 import { LayoutGrid } from "lucide-react";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
 
 const SearchStreams = () => {
   // search result fetching
@@ -21,6 +22,12 @@ const SearchStreams = () => {
   const [currentIndexSet, setCurrentIndexSet] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const {
+    bookmarkedChannel,
+    setBookmarkedChannel,
+    handleBookmarkChannelToggle,
+  } = useLocalStorage();
 
   const inputRef = useRef(null);
 
@@ -44,7 +51,7 @@ const SearchStreams = () => {
   //     useState(10);
 
   // bookmark states
-  const [bookmarkedChannel, setBookmarkedChannel] = useState({});
+  // const [bookmarkedChannel, setBookmarkedChannel] = useState({});
 
   const [selectedChannel, setSelectedChannel] = useState(null);
 
@@ -131,12 +138,12 @@ const SearchStreams = () => {
   };
 
   // handle bookmark channels
-  const handleBookmarkChannelToggle = (channelUrl) => {
-    setBookmarkedChannel((prev) => ({
-      ...prev,
-      [channelUrl]: !prev[channelUrl],
-    }));
-  };
+  // const handleBookmarkChannelToggle = (channelUrl) => {
+  //   setBookmarkedChannel((prev) => ({
+  //     ...prev,
+  //     [channelUrl]: !prev[channelUrl],
+  //   }));
+  // };
 
   // handle handleAllAndOneChannelStream
   const handleAllAndOneChannelStream = () => {
@@ -349,7 +356,7 @@ const SearchStreams = () => {
                     </span>
                     <span
                       onClick={() =>
-                        handleBookmarkChannelToggle(selectedChannel.url)
+                        handleBookmarkChannelToggle(selectedChannel)
                       }>
                       {bookmarkedChannel[selectedChannel.url] ? (
                         <span
@@ -597,8 +604,7 @@ const SearchStreams = () => {
                         <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
                           <MonitorPlay />
                         </span>
-                        <span
-                          onClick={() => handleBookmarkChannelToggle(item.url)}>
+                        <span onClick={() => handleBookmarkChannelToggle(item)}>
                           {bookmarkedChannel[item.url] ? (
                             <span
                               className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
@@ -885,8 +891,7 @@ const SearchStreams = () => {
                         <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
                           <MonitorPlay />
                         </span>
-                        <span
-                          onClick={() => handleBookmarkChannelToggle(item.url)}>
+                        <span onClick={() => handleBookmarkChannelToggle(item)}>
                           {bookmarkedChannel[item.url] ? (
                             <span
                               className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>

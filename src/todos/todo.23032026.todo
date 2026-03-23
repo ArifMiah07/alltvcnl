@@ -12,7 +12,9 @@
 
         [x] - in search page while streaming a specific channel the current channel index number 
               wasn't matching with channel index number it was assigned with all channels
-        
+              
+        [x] - in search page, bookmarked btn missing functionalities
+
 [] - make a list of all broken things or features that exists on all current features
 
 # ____NEW_FEATURES____
