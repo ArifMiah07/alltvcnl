@@ -1,14 +1,22 @@
 # ____BUGS____
 
-[] - Lok in dawg
-[] - make a list of all bugs that exists on all current features
-[] - make a list of all uncompleted things or features that exists on all current features
+[^^^] - Lok in dawg
+
+[...] - make a list of all bugs that exists on all current features
+
+[...] - make a list of all uncompleted things or features that exists on all current features
+
     - [List] -
-        [x] - in search page pagination showing page number twice when pages is less than {10}  
+
+        [x] - in search page pagination showing page number twice when pages is less than {10}
+
+        [x] - in search page while streaming a specific channel the current channel index number 
+              wasn't matching with channel index number it was assigned with all channels
+        
 [] - make a list of all broken things or features that exists on all current features
 
 # ____NEW_FEATURES____
 
 [] - lokInDawg
 [] - Add GTA 67, make no mistakes, no error, no ai
-[] - al test make a nice and proper todo list  
+[] - at lest make a nice and proper todo list  
