@@ -12,8 +12,12 @@
 
         [x] - in search page while streaming a specific channel the current channel index number 
               wasn't matching with channel index number it was assigned with all channels
-              
+
         [x] - in search page, bookmarked btn missing functionalities
+
+        [x] - in stream page, pagination btns appears for more than total page number
+
+        [] - in search page current page number is resetting in every render or refresh
 
 [] - make a list of all broken things or features that exists on all current features
 
@@ -22,4 +26,5 @@
 [] - lokInDawg
 [] - Add GTA 67, make no mistakes, no error, no ai
 [] - at lest make a nice and proper todo list  
+
 [] - add user account register and login options (my app is oss, and i don't have any intention to collect user data, so i will like to add register and login with userName and password only, but there will be an option for acc registering and login with firebase auth (it just optional, implementing so that i remember how to work with firebase) with verified/valid email address).

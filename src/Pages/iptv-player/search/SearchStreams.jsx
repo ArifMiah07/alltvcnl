@@ -23,11 +23,7 @@ const SearchStreams = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const {
-    bookmarkedChannel,
-    setBookmarkedChannel,
-    handleBookmarkChannelToggle,
-  } = useLocalStorage();
+  const { bookmarkedChannel, handleBookmarkChannelToggle } = useLocalStorage();
 
   const inputRef = useRef(null);
 
