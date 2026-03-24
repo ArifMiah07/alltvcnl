@@ -27,6 +27,8 @@
 
         [x] - show pagination btns top of the more channels list or grid in stream page
 
+        [x] - show grid 5 cols in lg device for more channels in specific channel streaming page 
+
         [x] - add next and prev btn on bottom pagination btns row in stream page with proper functionalities  
         
         [] - add next and prev btn on bottom pagination btns row in search result page with proper functionalities

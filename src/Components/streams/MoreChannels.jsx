@@ -50,7 +50,7 @@ const MoreChannels = ({
     <>
       {showMoreChannelsInGridView ? (
         //  show as grid
-        <div className=" w-full h-full col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center justify-items-center gap-4 p-4  ">
+        <div className=" w-full h-full col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 items-center justify-items-center gap-4 p-4  ">
           {streams ? (
             streams?.map((stream_item, stream_index) => (
               // player container
