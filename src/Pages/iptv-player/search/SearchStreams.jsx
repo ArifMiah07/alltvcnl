@@ -370,7 +370,12 @@ const SearchStreams = () => {
                       <Fullscreen />
                     </span>
                     <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                      <MonitorPlay />
+                      <a
+                        href={`${selectedChannel.url}`}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <MonitorPlay />
+                      </a>
                     </span>
                     <span
                       onClick={() =>
@@ -483,7 +488,12 @@ const SearchStreams = () => {
                             <Fullscreen />
                           </span>
                           <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <MonitorPlay />
+                            <a
+                              href={`${item.url}`}
+                              target="_blank"
+                              rel="noopener noreferrer">
+                              <MonitorPlay />
+                            </a>
                           </span>
                           <span
                             onClick={() => handleBookmarkChannelToggle(item)}>
@@ -567,7 +577,12 @@ const SearchStreams = () => {
                             <Fullscreen />
                           </span>
                           <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <MonitorPlay />
+                            <a
+                              href={`${item.url}`}
+                              target="_blank"
+                              rel="noopener noreferrer">
+                              <MonitorPlay />
+                            </a>
                           </span>
                           <span
                             onClick={() => handleBookmarkChannelToggle(item)}>
@@ -740,7 +755,12 @@ const SearchStreams = () => {
                             <Fullscreen />
                           </span>
                           <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <MonitorPlay />
+                            <a
+                              href={`${item.url}`}
+                              target="_blank"
+                              rel="noopener noreferrer">
+                              <MonitorPlay />
+                            </a>
                           </span>
                           <span
                             onClick={() => handleBookmarkChannelToggle(item)}>
@@ -829,7 +849,12 @@ const SearchStreams = () => {
                             <Fullscreen />
                           </span>
                           <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <MonitorPlay />
+                            <a
+                              href={`${item.url}`}
+                              target="_blank"
+                              rel="noopener noreferrer">
+                              <MonitorPlay />
+                            </a>
                           </span>
                           <span
                             onClick={() => handleBookmarkChannelToggle(item)}>

@@ -33,6 +33,10 @@
         
         [x] - add next and prev btn on bottom pagination btns row in search result page with proper functionalities
 
+        [x] - in search result page hyperlink is missing for opening in new tab
+        
+        [] - in search result page update current page number for new search
+
 [] - make a list of all broken things or features that exists on all current features
 
 # ____NEW_FEATURES____
@@ -45,4 +49,6 @@
 
 [] - add a theme store under settings, create theme collection
 
-[] - add primary themes like Default (with light and dark theme), HyperLand, Opera Gx, Anime Style 
+[] - add primary themes like Default (with light and dark theme), HyperLand, Opera Gx, Anime Style, custom color (with color system, option), upload image wallpaper 
+
+[] - dawg do anything but i need watch history and search history feature
