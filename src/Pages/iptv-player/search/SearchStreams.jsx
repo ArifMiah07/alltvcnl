@@ -446,86 +446,175 @@ const SearchStreams = () => {
           // show all channels
           <div className=" w-full min-h-screen flex flex-col lg:flex-row gap-2">
             {/* content */}
-            <div className="  lg:w-[75%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
-              {!(searchData?.length === 0) ? (
-                searchData?.slice(startIndex, endIndex).map((item, index) => (
-                  <div key={index} className=" border p-0">
-                    <div className="flex flex-col  p-1 gap-1">
-                      <p className="flex flex-row gap-2 dark:text-white">
-                        {" "}
-                        {(currentPageNumber - 1) * channelsPerPage +
-                          (index + 1)}
-                        .{/* {index + 1}.{" "} */}
-                        <a href={item.url} target="_blank">
-                          {item.channel || item.title}
-                        </a>
-                        <span>
-                          (
-                          {
-                            currentIndexSet[
-                              (currentPageNumber - 1) * channelsPerPage + index
-                            ]
-                          }
-                          )
-                        </span>
-                      </p>
-                      {/* icons */}
-                      <div className="flex gap-3 ">
-                        {/* stream a specific channel */}
-                        <span
-                          onClick={() =>
-                            handleStreamSpecificChannel({ ...item, index })
-                          }
-                          className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                          <Fullscreen />
-                        </span>
-                        <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                          <MonitorPlay />
-                        </span>
-                        <span onClick={() => handleBookmarkChannelToggle(item)}>
-                          {bookmarkedChannel[item.url] ? (
-                            <span
-                              className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
-                              <BookmarkCheck />
-                            </span>
-                          ) : (
-                            <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                              <Bookmark />
-                            </span>
-                          )}
-                        </span>
+            {showMoreChannelsInGridView ? (
+              // show all channels in grid view
+              <div className="  lg:w-[75%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
+                {!(searchData?.length === 0) ? (
+                  searchData?.slice(startIndex, endIndex).map((item, index) => (
+                    <div key={index} className=" border p-0">
+                      <div className="flex flex-col  p-1 gap-1">
+                        <p className="flex flex-row gap-2 dark:text-white">
+                          {" "}
+                          {(currentPageNumber - 1) * channelsPerPage +
+                            (index + 1)}
+                          .{/* {index + 1}.{" "} */}
+                          <a href={item.url} target="_blank">
+                            {item.channel || item.title}
+                          </a>
+                          <span>
+                            (
+                            {
+                              currentIndexSet[
+                                (currentPageNumber - 1) * channelsPerPage +
+                                  index
+                              ]
+                            }
+                            )
+                          </span>
+                        </p>
+                        {/* icons */}
+                        <div className="flex gap-3 ">
+                          {/* stream a specific channel */}
+                          <span
+                            onClick={() =>
+                              handleStreamSpecificChannel({ ...item, index })
+                            }
+                            className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <Fullscreen />
+                          </span>
+                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <MonitorPlay />
+                          </span>
+                          <span
+                            onClick={() => handleBookmarkChannelToggle(item)}>
+                            {bookmarkedChannel[item.url] ? (
+                              <span
+                                className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
+                                <BookmarkCheck />
+                              </span>
+                            ) : (
+                              <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                                <Bookmark />
+                              </span>
+                            )}
+                          </span>
 
-                        <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                          <ListPlus />
-                        </span>
-                        {(item.feed || item.quality) && (
-                          <div className=" dark:text-white flex flex-row gap-3 ">
-                            {item.feed && <p>{item.feed}</p>}
-                            {item.quality && <p>{item.quality}</p>}
-                          </div>
-                        )}
+                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <ListPlus />
+                          </span>
+                          {(item.feed || item.quality) && (
+                            <div className=" dark:text-white flex flex-row gap-3 ">
+                              {item.feed && <p>{item.feed}</p>}
+                              {item.quality && <p>{item.quality}</p>}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      {/* player */}
+                      <div className="">
+                        <div className="App">
+                          {/* <h1>HLS.js in React</h1> */}
+                          <HlsVideoPlayer
+                            src={item?.url}
+                            controls
+                            autoPlay={false}
+                          />
+                        </div>
                       </div>
                     </div>
-                    {/* player */}
-                    <div className="">
-                      <div className="App">
-                        {/* <h1>HLS.js in React</h1> */}
-                        <HlsVideoPlayer
-                          src={item?.url}
-                          controls
-                          autoPlay={false}
-                        />
-                      </div>
-                    </div>
+                  ))
+                ) : (
+                  <div className="p-4 text-lg bg-green dark:text-white ">
+                    {" "}
+                    <p>No data found</p>{" "}
                   </div>
-                ))
-              ) : (
-                <div className="p-4 text-lg bg-green dark:text-white ">
-                  {" "}
-                  <p>No data found</p>{" "}
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            ) : (
+              // show all channels in list view
+              <div className="  lg:w-[75%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
+                {!(searchData?.length === 0) ? (
+                  searchData?.slice(startIndex, endIndex).map((item, index) => (
+                    <div key={index} className=" border p-0">
+                      <div className="flex flex-col  p-1 gap-1">
+                        <p className="flex flex-row gap-2 dark:text-white">
+                          {" "}
+                          {(currentPageNumber - 1) * channelsPerPage +
+                            (index + 1)}
+                          .{/* {index + 1}.{" "} */}
+                          <a href={item.url} target="_blank">
+                            {item.channel || item.title}
+                          </a>
+                          <span>
+                            (
+                            {
+                              currentIndexSet[
+                                (currentPageNumber - 1) * channelsPerPage +
+                                  index
+                              ]
+                            }
+                            )
+                          </span>
+                        </p>
+                        {/* icons */}
+                        <div className="flex gap-3 ">
+                          {/* stream a specific channel */}
+                          <span
+                            onClick={() =>
+                              handleStreamSpecificChannel({ ...item, index })
+                            }
+                            className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <Fullscreen />
+                          </span>
+                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <MonitorPlay />
+                          </span>
+                          <span
+                            onClick={() => handleBookmarkChannelToggle(item)}>
+                            {bookmarkedChannel[item.url] ? (
+                              <span
+                                className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
+                                <BookmarkCheck />
+                              </span>
+                            ) : (
+                              <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                                <Bookmark />
+                              </span>
+                            )}
+                          </span>
+
+                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <ListPlus />
+                          </span>
+                          {(item.feed || item.quality) && (
+                            <div className=" dark:text-white flex flex-row gap-3 ">
+                              {item.feed && <p>{item.feed}</p>}
+                              {item.quality && <p>{item.quality}</p>}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      {/* player */}
+                      {/* <h1>HLS.js in React</h1> */}
+                      {/* <div className="">
+                        <div className="App">
+                          <HlsVideoPlayer
+                            src={item?.url}
+                            controls
+                            autoPlay={false}
+                          />
+                        </div>
+                      </div> */}
+                    </div>
+                  ))
+                ) : (
+                  <div className="p-4 text-lg bg-green dark:text-white ">
+                    {" "}
+                    <p>No data found</p>{" "}
+                  </div>
+                )}
+              </div>
+            )}
             {/* sidebar */}
             <div className="  lg:w-[25%] sticky top-12 h-fit text-center flex flex-row items-start justify-start ">
               {/* sidebar */}
