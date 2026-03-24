@@ -9,8 +9,8 @@ import MoreChannels from "../../../Components/streams/MoreChannels";
 import Sidebar from "../../../Components/sidebar/Sidebar";
 import BackButton from "../../../Components/buttons/BackButton";
 import { useSettings } from "../../../hooks/useSettings";
-import { LayoutGrid, Settings } from "lucide-react";
-import ActivityAnimated from "../../../Components/icons/ActivityAnimated";
+import { Activity, LayoutGrid, Settings } from "lucide-react";
+// import ActivityAnimated from "../../../Components/icons/ActivityAnimated";
 import PaginationNumbers from "../../../Components/pagination/PaginationNumbers";
 
 const StreamSpecificChannel = () => {
@@ -68,21 +68,21 @@ const StreamSpecificChannel = () => {
   return (
     <div className="dark:bg-black p-4  ">
       {/* <h1>stream a specific channel</h1> */}
-      <div className="flex flex-col items-start gap-2  ">
+      <div className=" mb-4 md:mb-0 flex flex-col items-start gap-2  ">
         <div
           className={` w-full flex flex-row items-center  ${hideChannelsInfo ? "justify-end" : "justify-between "} gap-4 `}>
           <h1
             className={` text-[18px] flex flex-row items-center justify-center gap-2 font-medium dark:text-white dark:border dark:px-5 dark:py-2 ${hideChannelsInfo ? "hidden" : "visible"}`}>
             <span className="flex flex-row items-center justify-center">
-              {/* <Activity /> */}
-              <ActivityAnimated />
+              <Activity />
+              {/* <ActivityAnimated /> */}
             </span>{" "}
             streaming : {channel} ({channelIndex})
           </h1>
           <div className="relative ">
             <button
               onClick={handleSettings}
-              className={`dark:text-white dark:border dark:px-5 dark:py-2  flex items-center justify-center border `}>
+              className={`dark:text-white dark:border dark:px-5 dark:py-2 flex items-center justify-center border `}>
               <Settings />
             </button>
             {isSettingModalOpen && (
