@@ -41,7 +41,7 @@ const SearchStreams = () => {
     totalItems,
     setTotalItems,
     handleCurrentPage,
-    // showMoreChannelsInGridView,
+    showMoreChannelsInGridView,
     // setShowMoreChannelsInGridView,
     // handleToggleMoreChannelsLayout,
   } = useSearchPage();
@@ -446,7 +446,7 @@ const SearchStreams = () => {
           // show all channels
           <div className=" w-full min-h-screen flex flex-col lg:flex-row gap-2">
             {/* content */}
-            <div className="  lg:w-[70%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
+            <div className="  lg:w-[75%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
               {!(searchData?.length === 0) ? (
                 searchData?.slice(startIndex, endIndex).map((item, index) => (
                   <div key={index} className=" border p-0">
@@ -527,10 +527,10 @@ const SearchStreams = () => {
               )}
             </div>
             {/* sidebar */}
-            <div className="  lg:w-[30%] sticky top-12 h-fit text-center flex flex-row items-start justify-start ">
+            <div className="  lg:w-[25%] sticky top-12 h-fit text-center flex flex-row items-start justify-start ">
               {/* sidebar */}
               {/* ______TODO: : :ADD FUNCTIONALITY_______ */}
-              <div className=" p-2 w-full h-full  ">
+              <div className=" p-2 w-full h-full dark:text-white  ">
                 {/* Sidebar */}
                 {/* main search page sidebar while no single channel is selected */}
                 <Sidebar
@@ -584,87 +584,180 @@ const SearchStreams = () => {
             </div>
           )}
         </div>
-        {/* show more channels while single channels is selected to stream */}
-        {selectedChannel && (
-          <div className="  w-full h-full flex flex-col lg:flex-row gap-2">
-            {/* // show all channel when streaming a specific channel */}
-            {/* content */}
-            <div className=" w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 items-center justify-start gap-2">
-              {!(searchData?.length === 0) ? (
-                searchData?.slice(startIndex, endIndex).map((item, index) => (
-                  <div key={index} className=" border p-0">
-                    <div className="flex flex-col  p-1 gap-1">
-                      <p className="flex flex-row gap-2 dark:text-white">
-                        {" "}
-                        {(currentPageNumber - 1) * channelsPerPage +
-                          (index + 1)}
-                        .{/* {index + 1}.{" "} */}
-                        <a href={item.url} target="_blank">
-                          {item.channel || item.title}
-                        </a>
-                        <span>
-                          (
-                          {
-                            currentIndexSet[
-                              (currentPageNumber - 1) * channelsPerPage + index
-                            ]
-                          }
-                          )
-                        </span>
-                      </p>
-                      {/* icons */}
-                      <div className="flex gap-3 ">
-                        {/* stream a specific channel */}
-                        <span
-                          onClick={() =>
-                            handleStreamSpecificChannel({
-                              ...item,
-                              index,
-                            })
-                          }
-                          className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                          <Fullscreen />
-                        </span>
-                        <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                          <MonitorPlay />
-                        </span>
-                        <span onClick={() => handleBookmarkChannelToggle(item)}>
-                          {bookmarkedChannel[item.url] ? (
-                            <span
-                              className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
-                              <BookmarkCheck />
-                            </span>
-                          ) : (
-                            <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                              <Bookmark />
-                            </span>
-                          )}
-                        </span>
+        {/* show more channels while single channels is selected for stream */}
+        {selectedChannel &&
+          (showMoreChannelsInGridView ? (
+            // show more channels in grid view
+            <div className="  w-full h-full flex flex-col lg:flex-row gap-2">
+              {/* // show all channel when streaming a specific channel */}
+              {/* content */}
+              <div className=" w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 items-center justify-start gap-2">
+                {!(searchData?.length === 0) ? (
+                  searchData?.slice(startIndex, endIndex).map((item, index) => (
+                    <div key={index} className=" border p-0">
+                      <div className="flex flex-col  p-1 gap-1">
+                        <p className="flex flex-row gap-2 dark:text-white">
+                          {" "}
+                          {(currentPageNumber - 1) * channelsPerPage +
+                            (index + 1)}
+                          .{/* {index + 1}.{" "} */}
+                          <a href={item.url} target="_blank">
+                            {item.channel || item.title}
+                          </a>
+                          <span>
+                            (
+                            {
+                              currentIndexSet[
+                                (currentPageNumber - 1) * channelsPerPage +
+                                  index
+                              ]
+                            }
+                            )
+                          </span>
+                        </p>
+                        {/* icons */}
+                        <div className="flex gap-3 ">
+                          {/* stream a specific channel */}
+                          <span
+                            onClick={() =>
+                              handleStreamSpecificChannel({
+                                ...item,
+                                index,
+                              })
+                            }
+                            className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <Fullscreen />
+                          </span>
+                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <MonitorPlay />
+                          </span>
+                          <span
+                            onClick={() => handleBookmarkChannelToggle(item)}>
+                            {bookmarkedChannel[item.url] ? (
+                              <span
+                                className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
+                                <BookmarkCheck />
+                              </span>
+                            ) : (
+                              <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                                <Bookmark />
+                              </span>
+                            )}
+                          </span>
 
-                        <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                          <ListPlus />
-                        </span>
-                        {(item.feed || item.quality) && (
-                          <div className="flex flex-row gap-3 dark:text-white ">
-                            {item.feed && <p>{item.feed}</p>}
-                            {item.quality && <p>{item.quality}</p>}
-                          </div>
-                        )}
+                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <ListPlus />
+                          </span>
+                          {(item.feed || item.quality) && (
+                            <div className="flex flex-row gap-3 dark:text-white ">
+                              {item.feed && <p>{item.feed}</p>}
+                              {item.quality && <p>{item.quality}</p>}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      {/* player */}
+                      <div className="w-full h-full flex flex-col border border-green-50  ">
+                        <HlsVideoPlayer
+                          src={item?.url}
+                          controls
+                          autoPlay={false}
+                        />
                       </div>
                     </div>
-                    {/* player */}
+                  ))
+                ) : (
+                  <div className="p-4 text-lg bg-green dark:text-white ">
+                    {" "}
+                    <p>No data found</p>{" "}
                   </div>
-                ))
-              ) : (
-                <div className="p-4 text-lg bg-green dark:text-white ">
-                  {" "}
-                  <p>No data found</p>{" "}
-                </div>
-              )}
+                )}
+              </div>
+              {/* sidebar */}
             </div>
-            {/* sidebar */}
-          </div>
-        )}
+          ) : (
+            // show more channels in list view
+            <div className="  w-full h-full flex flex-col lg:flex-row gap-2">
+              {/* // show all channel when streaming a specific channel */}
+              {/* content */}
+              <div className=" w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 items-center justify-start gap-2">
+                {!(searchData?.length === 0) ? (
+                  searchData?.slice(startIndex, endIndex).map((item, index) => (
+                    <div key={index} className=" border p-0">
+                      <div className="flex flex-col  p-1 gap-1">
+                        <p className="flex flex-row gap-2 dark:text-white">
+                          {" "}
+                          {(currentPageNumber - 1) * channelsPerPage +
+                            (index + 1)}
+                          .{/* {index + 1}.{" "} */}
+                          <a href={item.url} target="_blank">
+                            {item.channel || item.title}
+                          </a>
+                          <span>
+                            (
+                            {
+                              currentIndexSet[
+                                (currentPageNumber - 1) * channelsPerPage +
+                                  index
+                              ]
+                            }
+                            )
+                          </span>
+                        </p>
+                        {/* icons */}
+                        <div className="flex gap-3 ">
+                          {/* stream a specific channel */}
+                          <span
+                            onClick={() =>
+                              handleStreamSpecificChannel({
+                                ...item,
+                                index,
+                              })
+                            }
+                            className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <Fullscreen />
+                          </span>
+                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <MonitorPlay />
+                          </span>
+                          <span
+                            onClick={() => handleBookmarkChannelToggle(item)}>
+                            {bookmarkedChannel[item.url] ? (
+                              <span
+                                className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
+                                <BookmarkCheck />
+                              </span>
+                            ) : (
+                              <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                                <Bookmark />
+                              </span>
+                            )}
+                          </span>
+
+                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                            <ListPlus />
+                          </span>
+                          {(item.feed || item.quality) && (
+                            <div className="flex flex-row gap-3 dark:text-white ">
+                              {item.feed && <p>{item.feed}</p>}
+                              {item.quality && <p>{item.quality}</p>}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      {/* player */}
+                    </div>
+                  ))
+                ) : (
+                  <div className="p-4 text-lg bg-green dark:text-white ">
+                    {" "}
+                    <p>No data found</p>{" "}
+                  </div>
+                )}
+              </div>
+              {/* sidebar */}
+            </div>
+          ))}
       </div>
     </div>
   );
