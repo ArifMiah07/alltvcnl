@@ -21,9 +21,13 @@
 
         [x] - in search page current page number is resetting in every render or refresh
 
-        [x] - fix grid view for search stream results page
+        [x] - fix toggling grid view and list view in search stream results page
         
-        [] - fix grid view for stream page
+        [x] - fix toggling grid view and list in stream page
+
+        [x] - show pagination btns top of the more channels list or grid in stream page
+
+        [] - add next and prev btn on bottom pagination btns row  
 
 [] - make a list of all broken things or features that exists on all current features
 

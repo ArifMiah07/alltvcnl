@@ -31,7 +31,7 @@ const PaginationNumbers = ({
   /** ______ENDs HERE______ */
   return (
     <div className="w-full h-full ">
-      <div className="flex flex-row items-center justify-evenly gap-2 flex-wrap">
+      <div className="flex flex-row items-center justify-start gap-2 flex-wrap">
         {pagesArray
           ?.filter((page) => page <= numbersOfPages)
           .map((page, index) => (
@@ -48,7 +48,7 @@ const PaginationNumbers = ({
         <button
           disabled
           className={` bg-green-900 text-white border border-red-500  py-2 px-3 `}>
-          ...{numbersOfPages}
+          {numbersOfPages}
         </button>
       </div>
     </div>

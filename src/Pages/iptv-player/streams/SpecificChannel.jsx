@@ -11,6 +11,7 @@ import BackButton from "../../../Components/buttons/BackButton";
 import { useSettings } from "../../../hooks/useSettings";
 import { LayoutGrid, Settings } from "lucide-react";
 import ActivityAnimated from "../../../Components/icons/ActivityAnimated";
+import PaginationNumbers from "../../../Components/pagination/PaginationNumbers";
 
 const StreamSpecificChannel = () => {
   // hooks
@@ -201,6 +202,13 @@ const StreamSpecificChannel = () => {
             hideSidebar={hideSidebar}
           />
         </div>
+      </div>
+      <div className="w-full p-4 flex flex-row items-center justify-center">
+        <PaginationNumbers
+          numbersOfPages={numbersOfPages}
+          currentPage={currentPage}
+          handleCurrentPage={handleCurrentPage}
+        />
       </div>
       {/* other channels */}
       <div
