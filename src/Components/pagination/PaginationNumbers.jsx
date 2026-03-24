@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
+import { usePagination } from "../../hooks/usePagination";
 
 const PaginationNumbers = ({
   numbersOfPages,
   currentPage,
   handleCurrentPage,
 }) => {
+  const { handleNextPage, handlePrevPage } = usePagination();
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______START HERE______ */
   const maxPagesToShow = 10;
@@ -29,6 +31,7 @@ const PaginationNumbers = ({
   );
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______ENDs HERE______ */
+
   return (
     <div className="w-full h-full ">
       <div className="flex flex-row items-center justify-start gap-2 flex-wrap">
@@ -47,8 +50,30 @@ const PaginationNumbers = ({
         {/* <span>{"..."}</span> */}
         <button
           disabled
-          className={` bg-green-900 text-white border border-red-500  py-2 px-3 `}>
+          className={` bg-green-900 text-white border border-[#ff00ff]  py-2 px-3 `}>
           {numbersOfPages}
+        </button>
+        <button
+          // onClick={() => handleCurrentPage(page)}
+          onClick={handlePrevPage}
+          disabled={currentPage <= 1}
+          className={` border border-[#ff00ff] dark:text-white text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5 ${
+            currentPage <= 1
+              ? "text-gray-400 hover:text-gray-300 hover:bg-gray-700 dark:text-gray-500 dark:hover:bg-gray-600"
+              : "text-black hover:text-white"
+          } `}>
+          Prev
+        </button>
+        <button
+          onClick={handleNextPage}
+          disabled={currentPage >= numbersOfPages}
+          // onClick={() => handleCurrentPage(page)}
+          className={` border border-[#ff00ff] dark:text-white text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5 ${
+            currentPage >= numbersOfPages
+              ? "text-gray-400 hover:text-gray-300 hover:bg-gray-700 dark:text-gray-500 dark:hover:bg-gray-600"
+              : "text-black hover:text-white"
+          } `}>
+          Next
         </button>
       </div>
     </div>
