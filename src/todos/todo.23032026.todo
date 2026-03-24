@@ -31,7 +31,7 @@
 
         [x] - add next and prev btn on bottom pagination btns row in stream page with proper functionalities  
         
-        [] - add next and prev btn on bottom pagination btns row in search result page with proper functionalities
+        [x] - add next and prev btn on bottom pagination btns row in search result page with proper functionalities
 
 [] - make a list of all broken things or features that exists on all current features
 

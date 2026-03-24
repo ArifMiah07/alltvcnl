@@ -184,7 +184,7 @@ const StreamSpecificChannel = () => {
         </div>
         <div
           // ${hideSidebar ? "hidden" : "visible"}
-          className={` p-6 ${hideSidebar ? " col-span-1 " : " col-span-3 "} `}>
+          className={` col-span-3 sticky top-12 h-fit p-6 ${hideSidebar ? " col-span-1 " : " col-span-3 "} `}>
           <Sidebar
             currentPage={currentPage}
             numbersOfPages={numbersOfPages}

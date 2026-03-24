@@ -672,6 +672,28 @@ const SearchStreams = () => {
               </button>
             </div>
           )}
+          <button
+            // onClick={() => handleCurrentPage(page)}
+            onClick={handlePrevPage}
+            disabled={currentPageNumber <= 1}
+            className={` border border-[#ff00ff] dark:text-white text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5 ${
+              currentPageNumber <= 1
+                ? "text-gray-400 hover:text-gray-300 hover:bg-gray-700 dark:text-gray-500 dark:hover:bg-gray-600"
+                : "text-black hover:text-white"
+            } `}>
+            Prev
+          </button>
+          <button
+            onClick={handleNextPage}
+            disabled={currentPageNumber >= numbersOfPages}
+            // onClick={() => handleCurrentPage(page)}
+            className={` border border-[#ff00ff] dark:text-white text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5 ${
+              currentPageNumber >= numbersOfPages
+                ? "text-gray-400 hover:text-gray-300 hover:bg-gray-700 dark:text-gray-500 dark:hover:bg-gray-600"
+                : "text-black hover:text-white"
+            } `}>
+            Next
+          </button>
         </div>
         {/* show more channels while single channels is selected for stream */}
         {selectedChannel &&
