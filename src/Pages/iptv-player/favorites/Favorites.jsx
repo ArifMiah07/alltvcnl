@@ -13,6 +13,9 @@ import {
 // import useFetchStreams from "../../../hooks/useFetch";
 // import { usePagination } from "../../../hooks/usePagination";
 import { Link } from "react-router-dom";
+import { TableView } from "../../../Components/favorites/view/TableView";
+import { GridView } from "../../../Components/favorites/view/GridView";
+import { ListView } from "../../../Components/favorites/view/ListView";
 
 const Favorites = () => {
   const { bookmarkedChannel, handleBookmarkChannelToggle } = useLocalStorage();
@@ -118,7 +121,7 @@ const Favorites = () => {
         Your favorite channels
       </h1>
       {activeTab === "list" && (
-        <List
+        <ListView
           paginatedStreams={paginatedStreams}
           pagesArray={pagesArray}
           handleCurrentPage={handleCurrentPage}
@@ -131,7 +134,7 @@ const Favorites = () => {
         />
       )}
       {activeTab === "grid" && (
-        <Grid
+        <GridView
           paginatedStreams={paginatedStreams}
           pagesArray={pagesArray}
           handleCurrentPage={handleCurrentPage}
@@ -144,7 +147,7 @@ const Favorites = () => {
         />
       )}
       {activeTab === "table" && (
-        <Table
+        <TableView
           paginatedStreams={paginatedStreams}
           pagesArray={pagesArray}
           handleCurrentPage={handleCurrentPage}

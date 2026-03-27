@@ -23,8 +23,8 @@ export const TableView = ({
         {/* contents */}
         <div className="w-full lg:col-span-9 ">
           <table className=" w-full border-collapse">
-            <thead>
-              <tr className=" text-left border border-rose-50">
+            <thead className="">
+              <tr className=" text-black dark:text-white text-left border border-rose-50">
                 <th>Index</th>
                 <th>Channel</th>
                 <th>Quality</th>
@@ -49,17 +49,17 @@ export const TableView = ({
                       </span>
                     </td>
 
-                    <td className="px-2 py-1">
-                      <p className="dark:text-white">
+                    <td className="text-black dark:text-white px-2 py-1">
+                      <p className="">
                         {stream?.channel ? stream.channel : stream.title}
                       </p>
                     </td>
 
-                    <td className="px-2 py-1">
+                    <td className="text-black dark:text-white px-2 py-1">
                       <p>{stream?.quality ?? "x"}</p>
                     </td>
 
-                    <td className="px-2 py-1">
+                    <td className="text-black dark:text-white px-2 py-1">
                       <p>{stream?.feed ?? "x"}</p>
                     </td>
                     <td className="px-2 py-1">
