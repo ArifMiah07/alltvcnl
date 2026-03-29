@@ -4,6 +4,7 @@ import {
   Fullscreen,
   MonitorPlay,
   ListPlus,
+  LayoutGrid,
 } from "lucide-react";
 import { useState } from "react";
 import { useFavorites } from "../../../hooks/useFavorites";
@@ -38,6 +39,11 @@ const Favorites = () => {
   const [selectedChannel, setSelectedChannel] = useState(null);
 
   const paginatedStreams = allBookmarkedChannels.slice(startIndex, endIndex);
+
+  // handle handleAllAndOneChannelStream
+  const handleAllAndOneChannelStream = () => {
+    setSelectedChannel(null);
+  };
 
   const handleStreamSpecificChannel = (channelInfo) => {
     setSelectedChannel(channelInfo);
@@ -77,6 +83,17 @@ const Favorites = () => {
       <h1 className="dark:text-white text-xl font-medium my-4 ">
         Your favorite channels
       </h1>
+      <div onClick={handleAllAndOneChannelStream} className="">
+        {selectedChannel && (
+          <button className="dark:text-white flex flex-row gap-1 items-center justify-center">
+            {" "}
+            <span>
+              <LayoutGrid />
+            </span>{" "}
+            Back to All{" "}
+          </button>
+        )}
+      </div>
 
       <div className="p-2 flex flex-col dark:bg-black ">
         {/* all contents main container */}
