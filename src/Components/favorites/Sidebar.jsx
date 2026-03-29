@@ -35,7 +35,7 @@ const Sidebar = ({
   const [expandBasicInfo, setExpandBasicInfo] = useState(false);
   const [expandBasicFilters, setExpandBasicFilters] = useState(false);
   const {
-    currentPage,
+    // currentPage,
     // numbersOfPages,
     // inputRange,
     // setInputRange,
@@ -94,7 +94,7 @@ const Sidebar = ({
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______ENDs HERE______ */
 
-  console.log("currentPage,", currentPage);
+  // console.log("currentPage,", currentPage);
 
   return (
     <div className="flex flex-col lg:flex-row gap-2 ">

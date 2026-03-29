@@ -11,7 +11,7 @@ const BasicFilters = () => {
   const { showMoreChannelsInGridView, handleToggleMoreChannelsLayout } =
     useSearchPage();
 
-  console.log("showMoreChannelsInGridView ", showMoreChannelsInGridView);
+  // console.log("showMoreChannelsInGridView ", showMoreChannelsInGridView);
 
   return (
     <div className="w-full">

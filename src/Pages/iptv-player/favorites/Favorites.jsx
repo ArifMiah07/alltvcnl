@@ -49,8 +49,8 @@ const Favorites = () => {
     setSelectedChannel(channelInfo);
   };
 
-  console.log("totalItems: ", totalItems);
-  console.log("allBookmarkedChannels : ", allBookmarkedChannels);
+  // console.log("totalItems: ", totalItems);
+  // console.log("allBookmarkedChannels : ", allBookmarkedChannels);
 
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______START HERE______ */
