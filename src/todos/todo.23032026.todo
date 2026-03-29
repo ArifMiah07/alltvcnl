@@ -35,9 +35,13 @@
 
         [x] - in search result page hyperlink is missing for opening in new tab
         
-        [] - in search result page update current page number for new search
+        [x] - fix favorites page
 
-        [] - fix favorites page
+        [x] - fixed extra pagination btn showing in sidebar components
+
+        [] - in search result page update current page number for new search
+        
+        [] - fix index number updates + 10 in each render issue in favorites page
 
 [] - make a list of all broken things or features that exists on all current features
 
