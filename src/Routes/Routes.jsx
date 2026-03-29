@@ -33,6 +33,7 @@ import TestLocalStorage from "../Pages/test/TestLocalStorage";
 import StreamsPageSkeletonLoading from "../Components/streams/StreamsPageSkeletonLoading";
 import Favorites from "../Pages/iptv-player/favorites/Favorites";
 import Adda from "../Pages/adda/Adda";
+import FavoritesPageTest from "../Pages/test/FavoritesPageTest";
 // import IP from "../Pages/iptv-player/IP";
 
 const router = createHashRouter([
@@ -161,6 +162,10 @@ const router = createHashRouter([
       {
         path: "/favorites",
         element: <Favorites />,
+      },
+      {
+        path: "/favorites-test",
+        element: <FavoritesPageTest />,
       },
       {
         path: "/adda",

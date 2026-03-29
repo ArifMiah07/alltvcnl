@@ -92,6 +92,7 @@ const Favorites = () => {
 
   return (
     <section className="  p-4 w-full min-h-screen   ">
+      {/* btns */}
       <div className="flex flex-row gap-2">
         <ul className="flex flex-row gap-3">
           <li>
@@ -117,9 +118,11 @@ const Favorites = () => {
           </li>
         </ul>
       </div>
+      {/* heading */}
       <h1 className="dark:text-white text-xl font-medium my-4 ">
         Your favorite channels
       </h1>
+      {/* tabs */}
       {activeTab === "list" && (
         <ListView
           paginatedStreams={paginatedStreams}

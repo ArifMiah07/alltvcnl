@@ -1,24 +1,57 @@
+/**
+ *
+ *  ------  Sorry, I have to write comments for context, whole codebase needs a
+ *  ------  massive refactoring but anyway, refactoring can be done later.
+ *  ------  current problem is hard to catch the codebase and files context.
+ *  ------  each block of code needs explanation comment.
+ *
+ */
+
+/**
+ *  ______IMPORT______
+ */
+
 import { useState } from "react";
 import { FavoritesContext } from "./FavoritesContext";
 import PropTypes from "prop-types";
 import { toast } from "sonner";
+
+/**
+ *  ______COMPONENT______
+ */
+
 export const FavoritesProvider = ({ children }) => {
+  /**
+   * ------------------------
+   * ------React States------
+   * ------------------------
+   */
+
+  // current page number -- set and get from local storage
   const [currentPageNumber, setCurrentPageNumber] = useState(() => {
     // direct init from local storage
     const stored = localStorage.getItem("currentPageValueInFavoriteLocal");
     return stored ? Number(stored) : 1;
   });
+
+  // input range to set current page number safely
   const [inputRange, setInputRange] = useState(currentPageNumber);
+
+  // channel per page number -- set and get from local storage
   const [channelsPerPage, setChannelsPerPage] = useState(() => {
     // direct init from local storage
     const stored = localStorage.getItem("channelsPerPageValueInFavoriteLocal");
     // get value from localStorage, else return 10
     return stored ? Number(stored) : 10;
   });
+
+  // input range to set channel per page number safely
   const [channelsInput, setChannelsInput] = useState(channelsPerPage);
+
+  // total bookmarked items in local storage -- default value 0
   const [totalItems, setTotalItems] = useState(0);
 
-  // show as list or grid
+  // show as list layout view or grid layout view in sidebar
   const [showMoreChannelsInGridView, setShowMoreChannelsInGridView] = useState(
     () => {
       const stored = localStorage.getItem(
@@ -28,19 +61,34 @@ export const FavoritesProvider = ({ children }) => {
     },
   );
 
-  // variables
-  // let channelsPerPage;
+  /**
+   * ---------------------------
+   * ------React Variables------
+   * ---------------------------
+   */
+
+  // define numbers of pages
   const numbersOfPages = Math.ceil(totalItems / channelsPerPage);
+
+  // define start index
   const startIndex = (currentPageNumber - 1) * channelsPerPage;
+
+  // define end index
   const endIndex = currentPageNumber * channelsPerPage;
 
-  // handler functions
+  /**
+   * -----------------------------------
+   * ------React Handler Functions------
+   * -----------------------------------
+   */
+
   // handle current page
   const handleCurrentPage = (page) => {
     setCurrentPageNumber(page);
     setInputRange(page);
     localStorage.setItem("currentPageValueInFavoriteLocal", String(page));
   };
+
   // handle GotoPage
   const handleGotoPage = (e) => {
     e.preventDefault();
@@ -120,6 +168,7 @@ export const FavoritesProvider = ({ children }) => {
     localStorage.setItem("currentPageValueInFavoriteLocal", "1");
   };
 
+  // handle toggling more channels layout
   const handleToggleMoreChannelsLayout = () => {
     setShowMoreChannelsInGridView((prev) => {
       const newValue = !prev;
@@ -131,6 +180,13 @@ export const FavoritesProvider = ({ children }) => {
     });
   };
 
+  /**
+   * -----------------------
+   * ------Props Value------
+   * -----------------------
+   */
+
+  // return props value
   const getValues = {
     currentPageNumber,
     numbersOfPages,
@@ -152,12 +208,23 @@ export const FavoritesProvider = ({ children }) => {
     setShowMoreChannelsInGridView,
     handleToggleMoreChannelsLayout,
   };
+
+  /**
+   * -----------------------------------
+   * ------Return Context Provider------
+   * -----------------------------------
+   */
+
   return (
     <FavoritesContext.Provider value={getValues}>
       {children}
     </FavoritesContext.Provider>
   );
 };
+
+/**
+ *  ______PropTypes______
+ */
 
 FavoritesProvider.propTypes = {
   children: PropTypes.node,
