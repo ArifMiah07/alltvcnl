@@ -113,11 +113,19 @@ const Sidebar = ({
               </button>
             ))}
             {/* <span>{"..."}</span> */}
-            <button
+            {numbersOfPages > 10 && (
+              <div className="">
+                <button
+                  className={` border border-[#ff00ff] text-md rounded-sm bg-green-900 hover:bg-[#a100ff] dark:text-white hover:text-white text-white py-2 px-8 `}>
+                  {numbersOfPages}
+                </button>
+              </div>
+            )}
+            {/* <button
               disabled
               className={` border border-[#ff00ff] text-white text-md rounded-sm  bg-[#004a00]  py-2 px-5  `}>
               {numbersOfPages}
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
