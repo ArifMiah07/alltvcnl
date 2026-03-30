@@ -43,6 +43,10 @@
         
         [] - fix index number updates + 10 in each render issue in favorites page
 
+        [] - fix large string overflow
+
+        [] - fix mobile responsiveness and spacing issues
+
 [] - make a list of all broken things or features that exists on all current features
 
 # ____NEW_FEATURES____
@@ -50,6 +54,8 @@
 [] - lokInDawg
 [] - Add GTA 67, make no mistakes, no error, no ai
 [] - at lest make a nice and proper todo list  
+
+[] - add playlist functionalities
 
 [] - add user account register and login options (my app is oss, and i don't have any intention to collect user data, so i will like to add register and login with userName and password only, but there will be an option for acc registering and login with firebase auth (it just optional, implementing so that i remember how to work with firebase) with verified/valid email address).
 
@@ -62,3 +68,4 @@
 [] - no way, how about and Artificial Remote???? concept::  create an remote system layout, login in pc and also login in mbl from same account, now use mbl as remote and pc as tv. key pressing will be synced...
 
 [] - add a youtube like layout / interface
+

@@ -79,11 +79,11 @@ const Favorites = () => {
   //
 
   return (
-    <section className="  p-4 w-full min-h-screen   ">
+    <section className="  p-1 md:p-4 w-full min-h-screen   ">
       <h1 className="dark:text-white text-xl font-medium my-4 ">
         Your favorite channels
       </h1>
-      <div onClick={handleAllAndOneChannelStream} className="">
+      <div onClick={handleAllAndOneChannelStream} className="mb-4">
         {selectedChannel && (
           <button className="dark:text-white flex flex-row gap-1 items-center justify-center">
             {" "}
@@ -95,9 +95,9 @@ const Favorites = () => {
         )}
       </div>
 
-      <div className="p-2 flex flex-col dark:bg-black ">
+      <div className=" md:p-2 flex flex-col dark:bg-black ">
         {/* all contents main container */}
-        <div className="p-3 gap-2 ">
+        <div className="md:p-3 gap-2 ">
           {/* Toggle all channel & specific channel */}
           {/* content container */}
           {selectedChannel ? (
@@ -105,7 +105,7 @@ const Favorites = () => {
             <div className=" w-full h-full flex flex-col lg:flex-row gap-2">
               {/* <div> Watching a Specific channel</div> */}
               {/* content */}
-              <div className="  w-full min-h-screen flex flex-col items-center justify-start gap-2 p-4 md:p-8 lg:p-12 xl:p-16">
+              <div className="  w-full min-h-screen flex flex-col items-center justify-start gap-2 p-1 md:p-8 lg:p-12 xl:p-16">
                 <div className=" w-full border p-0  ">
                   <div className="flex flex-col  p-1 gap-1">
                     <p className="flex flex-row gap-2 dark:text-white ">
