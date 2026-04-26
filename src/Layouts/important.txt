@@ -1,0 +1,8 @@
+Page Layout and Web Site layout is not the same thing.
+
+Page layout define a dedicated layout system for all the elements in a specific page ---- 
+
+for example: I need a yt layout for specifically on video stream page
+
+
+Website layout define where each page or section or components will be placed by following a standard ui/ux system
