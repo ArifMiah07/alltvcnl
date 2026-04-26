@@ -96,11 +96,11 @@ const NavBar = () => {
                   Search
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/v-player" className={getNavLinkClass}>
                   VPlayer
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink to="/favorites" className={getNavLinkClass}>
                   Favorites
@@ -153,11 +153,11 @@ const NavBar = () => {
                 Search
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink to="/v-player" className={getNavLinkClass}>
                 VPlayer
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink to="/favorites" className={getNavLinkClass}>
                 Favorites
