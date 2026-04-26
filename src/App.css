@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,14 +39,14 @@
 
 .read-the-docs {
   color: #888;
-}
+} */
 
 /* custom classes */
 /* first_radial_bg */
 
-.first_radial_bg {
+/* .first_radial_bg {
   background-image: radial-gradient(red, green, blue);
 }
 .lb {
   filter: blur(500);
-}
+} */

@@ -104,3 +104,36 @@ body {
     top: 0px;
   }
 }
+
+/*  */
+
+/* make tools */
+/* tooltips */
+/* src ---> w3school.com */
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px solid black; /* Add dots under the hoverable text */
+  cursor: pointer;
+}
+
+/* Tooltip text */
+.tooltiptext {
+  visibility: hidden; /* Hidden by default */
+  width: fit;
+  background-color: black;
+  color: #ffffff;
+  text-align: center;
+  padding: 2px 6px;
+  border-radius: 6px;
+  top: 0px;
+  right: 20px;
+  position: fixed; /* or move tooltip outside */
+  z-index: 9999; /* Ensure tooltip is displayed above content */
+}
+
+/* Show the tooltip text on hover */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

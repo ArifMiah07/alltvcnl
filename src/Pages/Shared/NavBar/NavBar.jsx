@@ -42,6 +42,9 @@ const NavBar = () => {
       }
     `;
 
+  //
+  const isUserSeenNewItem = false;
+
   return (
     <nav className="dark:bg-black relative z-20 w-full h-full flex flex-row items-center justify-center">
       <div
@@ -143,9 +146,47 @@ const NavBar = () => {
                 Stream Iptv
               </NavLink>
             </li>
-            <li>
+            <li className="relative">
               <NavLink to="/library" className={getNavLinkClass}>
                 Library
+                {!isUserSeenNewItem ? (
+                  <span className="w-6 h-6 bg-green-500 absolute -top-2 -right-1 flex flex-row items-center justify-center rounded-full border ">
+                    <span className=" tooltip text-[12px] text-white ">
+                      <p className="tooltiptext text-sm">
+                        New item has been added
+                      </p>
+                      1
+                    </span>{" "}
+                  </span>
+                ) : (
+                  ""
+                )}
+                {/* <div className="w-full h-[30px] bg-[#D9D9D933] border border-[#A100FF] shadow-sm hover:drop-shadow-sm flex items-center p-5 backdrop-blur-xs">
+                    <button
+                      className="cursor-pointer"
+                      // onClick={() => toggleSection(key)}
+                    >
+                      <span className="tooltip">
+                        <p className="tooltiptext text-sm">
+                          Show Complete Section
+                        </p>
+                      </span>
+                    </button>
+                  </div> */}
+                {/* 
+                  
+                  system design :: 
+                  task: show a static number if library page got a new item
+                  how to handle ::
+                  count current total item and define isUserNotifiedAndSeen = false
+                  , store it in local storage
+                  introduce a global event that check if user is visiting /library path
+                  if user visits /library path update current total item in library page
+                  and also update isUserNotifiedAndSeen = true and clear notifies number
+                  and also clear local storage
+                  
+                  
+                  */}
               </NavLink>
             </li>
             <li>
