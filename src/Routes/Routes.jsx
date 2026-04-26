@@ -33,6 +33,7 @@ import TestLocalStorage from "../Pages/test/TestLocalStorage";
 import StreamsPageSkeletonLoading from "../Components/streams/StreamsPageSkeletonLoading";
 import Favorites from "../Pages/iptv-player/favorites/Favorites";
 import Adda from "../Pages/adda/Adda";
+import ThemeStore from "../Pages/theme/ThemeStore";
 // import FavoritesPageTest from "../Pages/test/FavoritesPageTest";
 // import IP from "../Pages/iptv-player/IP";
 
@@ -85,6 +86,10 @@ const router = createHashRouter([
       {
         path: "/library",
         element: <Library></Library>,
+      },
+      {
+        path: "/theme-store",
+        element: <ThemeStore></ThemeStore>,
       },
       {
         path: "/stream/china-iptv",

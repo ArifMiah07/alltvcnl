@@ -161,18 +161,6 @@ const NavBar = () => {
                 ) : (
                   ""
                 )}
-                {/* <div className="w-full h-[30px] bg-[#D9D9D933] border border-[#A100FF] shadow-sm hover:drop-shadow-sm flex items-center p-5 backdrop-blur-xs">
-                    <button
-                      className="cursor-pointer"
-                      // onClick={() => toggleSection(key)}
-                    >
-                      <span className="tooltip">
-                        <p className="tooltiptext text-sm">
-                          Show Complete Section
-                        </p>
-                      </span>
-                    </button>
-                  </div> */}
                 {/* 
                   
                   system design :: 
