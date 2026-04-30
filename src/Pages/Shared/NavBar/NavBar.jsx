@@ -7,7 +7,11 @@ const NavBar = () => {
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
   const [isSticky, setIsSticky] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
+  const user = false;
+
+  // minimize nav in scroll
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 144) {
@@ -44,6 +48,12 @@ const NavBar = () => {
 
   //
   const isUserSeenNewItem = false;
+
+  // handler
+  const handleProfileOpen = () => {
+    setIsProfileOpen(!isProfileOpen);
+    console.log(isProfileOpen);
+  };
 
   return (
     <nav className="dark:bg-black relative z-20 w-full h-full flex flex-row items-center justify-center">
@@ -163,6 +173,8 @@ const NavBar = () => {
                 )}
                 {/* 
                   
+                  ___________TODO___________:
+
                   system design :: 
                   task: show a static number if library page got a new item
                   how to handle ::
@@ -226,8 +238,41 @@ const NavBar = () => {
           <div className="ml-2">
             <ThemeToggle className="" />
           </div>
-          <div className="ml-2">
-            <SquareUserRound className="dark:text-white w-[16px] h-[16px]" />
+          {/* profile */}
+          <div className="relative ml-2">
+            {/* The Trigger Icon */}
+            <div onClick={handleProfileOpen} className="cursor-pointer">
+              <SquareUserRound className="dark:text-white w-[16px] h-[16px]" />
+            </div>
+
+            {/* The Modal */}
+            {!user && isProfileOpen && (
+              <div
+                className=" w-[100vw] h-[120vh] absolute -top-10 -right-10  z-[99999] flex items-center justify-center bg-black/40"
+                onClick={() => setIsProfileOpen(false)} // Close when clicking the backdrop
+              >
+                <div
+                  className=" relative w-[60vw] h-[40vh] bg-white dark:bg-slate-800 p-10 border border-red-500"
+                  onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the content
+                >
+                  <div className="flex flex-col gap-2 ">
+                    {/* register */}
+                    <button className="border border-green-600 hover:bg-purple-600 hover:text-white ">
+                      <Link to={"/auth/register"}>Register</Link>
+                    </button>
+                    {/* login */}
+                    <button className="border border-green-600 hover:bg-purple-600 hover:text-white">
+                      <Link to={"/auth/login"}>Login</Link>
+                    </button>
+                  </div>
+                  <button
+                    className="absolute top-2 right-2"
+                    onClick={() => setIsProfileOpen(false)}>
+                    Close
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
           <div className="ml-2">
             <Settings className="dark:text-white w-[16px] h-[16px]" />
