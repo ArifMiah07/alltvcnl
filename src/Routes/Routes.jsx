@@ -1,4 +1,4 @@
-import { createHashRouter } from "react-router-dom";
+import { createHashRouter, Outlet } from "react-router-dom";
 import Home from "../Pages/Home/Home";
 import Root from "../Layouts/Root/Root";
 import About from "../Pages/About/About";
@@ -34,6 +34,8 @@ import StreamsPageSkeletonLoading from "../Components/streams/StreamsPageSkeleto
 import Favorites from "../Pages/iptv-player/favorites/Favorites";
 import Adda from "../Pages/adda/Adda";
 import ThemeStore from "../Pages/theme/ThemeStore";
+import RegisterPage from "../Pages/auth/register/RegisterPage";
+import LoginPage from "../Pages/auth/login/LoginPage";
 // import FavoritesPageTest from "../Pages/test/FavoritesPageTest";
 // import IP from "../Pages/iptv-player/IP";
 
@@ -175,6 +177,25 @@ const router = createHashRouter([
       {
         path: "/adda",
         element: <Adda />,
+      },
+    ],
+  },
+  {
+    path: "auth",
+    element: (
+      <div className=" w-full min-h-screen z-10 p-12  ">
+        <Outlet></Outlet>
+      </div>
+    ),
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "register",
+        element: <RegisterPage />,
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
       },
     ],
   },

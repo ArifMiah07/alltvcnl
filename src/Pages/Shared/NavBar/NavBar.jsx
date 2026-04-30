@@ -240,39 +240,42 @@ const NavBar = () => {
           </div>
           {/* profile */}
           <div className="relative ml-2">
-            {/* The Trigger Icon */}
+            {/* open profile */}
             <div onClick={handleProfileOpen} className="cursor-pointer">
               <SquareUserRound className="dark:text-white w-[16px] h-[16px]" />
             </div>
 
-            {/* The Modal */}
+            {/* show modal when user is not login and open profile */}
             {!user && isProfileOpen && (
               <div
                 className=" w-[100vw] h-[120vh] absolute -top-10 -right-10  z-[99999] flex items-center justify-center bg-black/40"
-                onClick={() => setIsProfileOpen(false)} // Close when clicking the backdrop
+                onClick={() => setIsProfileOpen(false)} // close when clicking the backdrop
               >
                 <div
-                  className=" relative w-[60vw] h-[40vh] bg-white dark:bg-slate-800 p-10 border border-red-500"
-                  onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the content
+                  className=" relative w-[60vw] h-[40vh] bg-white dark:bg-slate-800 p-10 border "
+                  onClick={(e) => e.stopPropagation()} // prevent closing when clicking the content
                 >
                   <div className="flex flex-col gap-2 ">
                     {/* register */}
-                    <button className="border border-green-600 hover:bg-purple-600 hover:text-white ">
+                    <button className="border border-green-600 dark:text-white hover:bg-purple-600 hover:text-white ">
                       <Link to={"/auth/register"}>Register</Link>
                     </button>
                     {/* login */}
-                    <button className="border border-green-600 hover:bg-purple-600 hover:text-white">
+                    <button className="border border-green-600 dark:text-white hover:bg-purple-600 hover:text-white">
                       <Link to={"/auth/login"}>Login</Link>
                     </button>
                   </div>
                   <button
-                    className="absolute top-2 right-2"
+                    className="absolute top-2 right-2 dark:text-white"
                     onClick={() => setIsProfileOpen(false)}>
                     Close
                   </button>
                 </div>
               </div>
             )}
+
+            {/* _____________TODO_____________ */}
+            {/* show modal when user is login and open profile */}
           </div>
           <div className="ml-2">
             <Settings className="dark:text-white w-[16px] h-[16px]" />
