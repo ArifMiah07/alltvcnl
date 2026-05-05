@@ -137,3 +137,14 @@ body {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+/* Button */
+
+.create_account_button {
+  background: linear-gradient(180deg, #27ff0b 0%, #189907 100%);
+  box-shadow: 0px 3px #004f00ff;
+}
+.continue_with_google_button {
+  background: linear-gradient(90deg, #ea4335, #fbbc05, #34a853, #4285f4);
+  box-shadow: 0px 3px #004f00ff;
+}

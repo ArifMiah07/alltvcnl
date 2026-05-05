@@ -1,3 +1,5 @@
+import google_img from "../../../assets/images/google.png";
+
 const RegisterPage = () => {
   return (
     <div className=" w-full min-h-screen z-10 p-4">
@@ -14,6 +16,7 @@ const RegisterPage = () => {
               className="w-[90%] text-center p-4 rounded-full border-2 border-black hover:border-[#00ff00] outline-none "
               type="text"
               name="username"
+              // required
               placeholder="enter a username"
             />
           </div>
@@ -21,6 +24,7 @@ const RegisterPage = () => {
             {/* <label htmlFor="username">User Name</label> */}
             <input
               className="w-[90%] text-center p-4 rounded-full border-2 border-black hover:border-[#00ff00] outline-none "
+              // required
               type="password"
               name="password"
               placeholder="enter a password"
@@ -35,9 +39,39 @@ const RegisterPage = () => {
           </div>
           <div className="flex flex-col items-center gap-3   rounded-full   p-1">
             <button
-              className="w-[90%] text-center p-4 rounded-full border-2 border-black hover:border-[#00ff00] outline-none "
+              className="relative w-[90%] text-white text-lg font-bold uppercase text-center p-4 rounded-full create_account_button"
               type="submit">
               Create An Account
+              <span className="absolute top-0 left-0 w-[100px] h-[40px] rounded-full bg-[#ffffff23] ">
+                <div className="relative  ">
+                  <span className="absolute top-3 left-4 w-[14px] h-[20px] rotate-[45deg] rounded-full bg-[#fffffffa]  "></span>
+                  <span className="absolute  top-1 left-8  w-[7px] h-[7px] rotate-[45deg] rounded-full bg-[#ffffffff]  "></span>
+                </div>
+              </span>
+              <span className="absolute bottom-0 right-5 w-[70px] h-[20px] rounded-l-md bg-[#ffffff23] "></span>
+              <span className="absolute top-0 right-0 w-[20px] h-[60px] rounded-l-lg  bg-[#ffffff23] "></span>
+            </button>
+            <button
+              className="relative w-[90%] text-center p-4 rounded-full continue_with_google_button"
+              type="submit">
+              <span className="flex flex-row gap-4 items-center justify-center w-full h-full">
+                <img
+                  className="w-[16px] h-[16px] "
+                  src={google_img}
+                  alt="google logo"
+                />
+                <p className="text-lg text-white font-bold uppercase ">
+                  Continue With Google
+                </p>
+              </span>
+              <span className="absolute top-0 left-0 w-[100px] h-[40px] rounded-full bg-[#ffffff23] ">
+                <div className="relative  ">
+                  <span className="absolute top-3 left-4 w-[14px] h-[20px] rotate-[45deg] rounded-full bg-[#fffffffa]  "></span>
+                  <span className="absolute  top-1 left-8  w-[7px] h-[7px] rotate-[45deg] rounded-full bg-[#ffffffff]  "></span>
+                </div>
+              </span>
+              <span className="absolute bottom-0 right-5 w-[70px] h-[20px] rounded-l-md bg-[#ffffff23] "></span>
+              <span className="absolute top-0 right-0 w-[20px] h-[60px] rounded-l-lg  bg-[#ffffff23] "></span>
             </button>
           </div>
         </form>
