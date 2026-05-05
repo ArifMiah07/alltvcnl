@@ -1,0 +1,30 @@
+<!-- Save as bg.svg -->
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4285F4"/>
+      <stop offset="50%" stop-color="#34A853"/>
+      <stop offset="75%" stop-color="#FBBC05"/>
+      <stop offset="100%" stop-color="#EA4335"/>
+    </linearGradient>
+
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="80"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="900" fill="#f6f8fb"/>
+
+  <!-- Right side gradient blob -->
+  <g filter="url(#blur)">
+    <circle cx="1200" cy="250" r="300" fill="#4285F4" opacity="0.5"/>
+    <circle cx="1350" cy="500" r="350" fill="#34A853" opacity="0.5"/>
+    <circle cx="1100" cy="700" r="300" fill="#FBBC05" opacity="0.4"/>
+    <circle cx="1450" cy="200" r="250" fill="#EA4335" opacity="0.4"/>
+  </g>
+
+  <!-- Soft wave overlay -->
+  <path d="M900 0 C1100 200, 1300 100, 1600 300 L1600 0 Z" fill="url(#grad1)" opacity="0.2"/>
+  <path d="M800 900 C1100 700, 1300 800, 1600 600 L1600 900 Z" fill="url(#grad1)" opacity="0.2"/>
+</svg>
