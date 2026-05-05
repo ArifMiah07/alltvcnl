@@ -31,11 +31,21 @@ const RegisterPage = () => {
               placeholder="Password"
             />
           </div>
+          {/*  */}
           <div className="flex flex-row items-center justify-center gap-3   rounded-full  p-1">
             <input className=" " type="checkbox" id="scales" name="scales" />
             <label>
               I Accept the{" "}
               <span className="text-[#00af00ff] font-bold">Privacy Policy</span>
+            </label>
+          </div>
+          {/*  */}
+          <div className="flex flex-row items-center justify-center gap-3   rounded-full  p-1">
+            <input className=" " type="checkbox" id="scales" name="scales" />
+            <label>
+              I understand this account cannot <br /> be recovered without
+              adding an email{" "}
+              {/* <span className="text-[#00af00ff] font-bold">Privacy Policy</span> */}
             </label>
           </div>
 
