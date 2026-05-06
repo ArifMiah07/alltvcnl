@@ -37,6 +37,7 @@ import ThemeStore from "../Pages/theme/ThemeStore";
 import RegisterPage from "../Pages/auth/register/RegisterPage";
 import LoginPage from "../Pages/auth/login/LoginPage";
 import AuthPage from "../Pages/auth/Auth";
+// import WatchUrl from "../Pages/watch/WatchUrl";
 // import FavoritesPageTest from "../Pages/test/FavoritesPageTest";
 // import IP from "../Pages/iptv-player/IP";
 
@@ -179,6 +180,10 @@ const router = createHashRouter([
         path: "/adda",
         element: <Adda />,
       },
+      // {
+      //   path: `/watch/:url`,
+      //   element: <WatchUrl />,
+      // },
     ],
   },
   {
