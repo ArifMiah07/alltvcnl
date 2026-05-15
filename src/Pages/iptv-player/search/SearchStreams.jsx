@@ -342,12 +342,15 @@ const SearchStreams = () => {
             <div className="  w-full min-h-screen flex flex-col items-center justify-start gap-2 p-4 md:p-8 lg:p-12 xl:p-16">
               <div className=" w-full border p-0  ">
                 <div className="flex flex-col  p-1 gap-1">
-                  <p className="flex flex-row gap-2 dark:text-white ">
+                  <p className="flex flex-row gap-2 dark:text-white  ">
                     {" "}
                     {(currentPageNumber - 1) * channelsPerPage +
                       (selectedChannel.index + 1)}
                     .{/* {index + 1}.{" "} */}
-                    <a href={selectedChannel.url} target="_blank">
+                    <a
+                      href={selectedChannel.url}
+                      target="_blank"
+                      className="break-normal md:break-all">
                       {selectedChannel.channel || selectedChannel.title}
                     </a>
                     <span>
@@ -463,7 +466,10 @@ const SearchStreams = () => {
                           {(currentPageNumber - 1) * channelsPerPage +
                             (index + 1)}
                           .{/* {index + 1}.{" "} */}
-                          <a href={item.url} target="_blank">
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            className="break-normal md:break-all">
                             {item.channel || item.title}
                           </a>
                           <span>
@@ -552,7 +558,10 @@ const SearchStreams = () => {
                           {(currentPageNumber - 1) * channelsPerPage +
                             (index + 1)}
                           .{/* {index + 1}.{" "} */}
-                          <a href={item.url} target="_blank">
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            className="break-normal md:break-all">
                             {item.channel || item.title}
                           </a>
                           <span>
@@ -727,7 +736,10 @@ const SearchStreams = () => {
                           {(currentPageNumber - 1) * channelsPerPage +
                             (index + 1)}
                           .{/* {index + 1}.{" "} */}
-                          <a href={item.url} target="_blank">
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            className="break-normal md:break-all">
                             {item.channel || item.title}
                           </a>
                           <span>
@@ -821,7 +833,10 @@ const SearchStreams = () => {
                           {(currentPageNumber - 1) * channelsPerPage +
                             (index + 1)}
                           .{/* {index + 1}.{" "} */}
-                          <a href={item.url} target="_blank">
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            className="break-normal md:break-all">
                             {item.channel || item.title}
                           </a>
                           <span>
