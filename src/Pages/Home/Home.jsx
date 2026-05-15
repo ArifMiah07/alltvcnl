@@ -1,7 +1,8 @@
 // import NavBar from "../Shared/NavBar/NavBar";
 
 import { Helmet } from "react-helmet-async";
-import Features from "../Features/Features";
+// import Features from "../Features/Features";
+import FeaturedPage from "./featured/Featured";
 // import Features from "../Features/Features";
 
 // import { Helmet } from "react-helmet-async";
@@ -15,7 +16,7 @@ const Home = () => {
   const keywords =
     "iptv player, free iptv, live tv online, watch tv free, iptv channels, hls streaming, m3u8 player, live television";
   return (
-    <div className="h-full ">
+    <div className="relative w-full h-full box-border ">
       {/* SEO Meta Tags */}
       <Helmet>
         {/* Primary Meta Tags */}
@@ -146,9 +147,24 @@ const Home = () => {
       </Helmet>
       {/* <h1 className="text-red-600 font-extrabold text-4xl">This is a part of practice project. No Harm full intention there.</h1> */}
       <div>{/* <Banner></Banner> */}</div>
-      <div>
-        <Features></Features>
-      </div>
+      {/* <div>
+        <FeaturedPage></FeaturedPage>
+      </div> */}
+      <main className=" relative w-full h-full min-h-[calc(100vh-60px)] grid grid-cols-12 ">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#ff00ff_0%,#ff00ff_50%,#ffffff_100%)] blur-[300px] opacity-10 -z-10"></div>
+        {/* sidebar */}
+        {/* <section className=" col-span-2  ">
+          <div></div>
+        </section> */}
+        {/* content */}
+        <section className=" col-span-12 py-12 px-12 ">
+          <FeaturedPage />
+        </section>
+        {/* right sidebar */}
+        {/* <section className=" col-span-1  ">
+          <div></div>
+        </section> */}
+      </main>
     </div>
   );
 };

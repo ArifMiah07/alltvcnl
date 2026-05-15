@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -154,4 +156,203 @@ body {
   background: url("./assets/auth_pg_bg.svg") no-repeat right center;
   background-size: cover;
   background-color: #f6f8fb;
+}
+/* from my repo */
+
+/* @import "tailwindcss"; */
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: #0f0f0f;
+  background-color: #f6f6f6;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  /* colors */
+  --primary-color: #ff0062;
+  --secondary-color: #a100ff;
+  --third-option-color: #ff00ff;
+  /* font family */
+  --primary-font: "Inter", sans-serif;
+  --secondary-font: "Roboto", sans-serif;
+  --extra-font: "Montserrat", sans-serif;
+  /* custom buttons */
+  /* header > navbar */
+  --primary-color-link-btn: #fff;
+  --secondary-color-link-btn: #000;
+  --primary-border-radius-link-btn: 4px;
+  --primary-padding-link-btn: 4px 12px;
+  --primary-font-size-link-btn: 16px;
+  --primary-background-color-nav-link-btn: #fc06ae;
+  --primary-background-color-active-link-btn: #0648fc;
+  --primary-background-color-extra-link-btn: #f600ff;
+  --primary-background-color-unique-link-btn: #0cf8e9;
+  --primary-drop-shadow-link-btn: 0 4px 4px rgba(0, 0, 0, 0.19);
+  --primary-inner-shadow-link-btn: inset 0 4px 44px rgba(0, 0, 0, 0.8);
+  --primary-box-shadow:
+    var(--primary-drop-shadow-link-btn), var(--primary-inner-shadow-link-btn);
+  /* across pages > call for action */
+  --primary-color-cta-btn: #fff;
+  --secondary-color-cta-btn: #000;
+  --primary-drop-shadow-cta-btn: 0 4px 4px rgba(0, 0, 0, 0.19);
+  --primary-inner-shadow-cta-btn: inset 0 4px 44px rgba(0, 0, 0, 0.8);
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+}
+.roboto {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+}
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+}
+
+body {
+  font-family: var(--extra-font);
+}
+
+/* component styles */
+/* header ? navbar */
+.link-btn {
+  color: var(--primary-color-link-btn);
+  border-radius: var(--primary-border-radius-link-btn);
+  padding: var(--primary-padding-link-btn);
+  box-shadow: var(--primary-box-shadow);
+  font-size: var(--primary-font-size-link-btn);
+}
+.nav-link-btn {
+  /*  */
+  background: var(--primary-background-color-nav-link-btn);
+}
+.active-link-btn {
+  /*  */
+  background: var(--primary-background-color-active-link-btn);
+}
+.extra-link-btn {
+  /*  */
+  background: var(--primary-background-color-extra-link-btn);
+}
+.unique-link-btn {
+  /*  */
+  background: var(--primary-background-color-unique-link-btn);
+}
+/* across pages > call for action */
+.atc-btn {
+  /*  */
+  color: #4d9f0c;
+}
+.softWhiteBtn {
+  /*  */
+  color: #4d9f0c;
+}
+.downloadNowBtn {
+  /*  */
+  color: #4d9f0c;
+}
+
+/*
+* ------------ 
+* Landing Page 
+* -------------
+*/
+.frame {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+.frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    rgba(255, 0, 255, 0.1) 0%,
+    rgba(255, 0, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  opacity: 10;
+  z-index: -1;
+}
+
+/*
+* ------------ 
+* Home Page 
+* -------------
+*/
+
+.baseBg {
+  background:
+    radial-gradient(ellipse at top, #e66465, transparent),
+    radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+}
+
+/* 
+  Featured page
+*/
+
+/* watch bow button */
+.watch-now-btn {
+  box-shadow:
+    -2px -2px 0px rgba(0, 128, 255, 0.44),
+    inset 0 12px 24px rgba(0, 0, 0, 0.88);
+  background-color: #225dc9;
+  color: #fff;
+}
+/* learn more button */
+.learn-more-btn {
+  box-shadow: 2px 2px 0px rgba(0, 128, 255, 0.44);
+  background-color: #fff;
+  color: #000;
+}
+.play-now-btn {
+  box-shadow: -2px 2px 0px rgba(81, 0, 255, 0.25);
+  background-color: #fff;
+  color: #000;
+}
+.download-now-btn {
+  box-shadow: 2px -2px 0px rgba(173, 30, 255, 0.25);
+  background-color: #225dc9;
+  color: #fff;
+}
+
+/* make tools */
+/* tooltips */
+/* src ---> w3school.com */
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px solid black; /* Add dots under the hoverable text */
+  cursor: pointer;
+}
+
+/* Tooltip text */
+.tooltiptext {
+  visibility: hidden; /* Hidden by default */
+  width: fit;
+  background-color: black;
+  color: #ffffff;
+  text-align: center;
+  padding: 2px 6px;
+  border-radius: 6px;
+  top: 0px;
+  right: 20px;
+  position: fixed; /* or move tooltip outside */
+  z-index: 9999; /* Ensure tooltip is displayed above content */
+}
+
+/* Show the tooltip text on hover */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
