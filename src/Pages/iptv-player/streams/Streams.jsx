@@ -109,9 +109,9 @@ const Streams = () => {
         </h1>
         <BackButton label=" " styles=" " />
       </div>
-      <div className="  flex flex-row gap-3 p-3 w-full">
-        {/* basic information and action */}
-      </div>
+      {/* basic information and action */}
+      {/* <div className="  flex flex-row gap-3 p-3 w-full">
+      </div> */}
       {/* main content */}
       <div className="w-full h-full flex flex-col lg:grid lg:grid-cols-12  ">
         {/* streams grid */}

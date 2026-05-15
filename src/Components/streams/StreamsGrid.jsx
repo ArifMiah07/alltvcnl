@@ -34,7 +34,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   };
 
   return (
-    <div className=" w-full h-full col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center justify-items-center gap-4 p-4  ">
+    <div className=" col-span-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-center justify-items-center gap-4 p-4  ">
       {showMoreChannelsInGridView ? (
         streams ? (
           streams?.map((stream_item, stream_index) => (

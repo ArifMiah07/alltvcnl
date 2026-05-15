@@ -14,7 +14,7 @@ const NavBar = () => {
   // minimize nav in scroll
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 144) {
+      if (window.scrollY > 162) {
         setIsSticky(true);
       } else {
         setIsSticky(false);
