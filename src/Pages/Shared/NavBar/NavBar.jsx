@@ -33,7 +33,7 @@ const NavBar = () => {
   }, [location]);
 
   const baseTextColor = isSticky
-    ? "text-purple-500 lg:text-white dark:text-white"
+    ? "text-purple-500 lg:text-black dark:text-white"
     : "text-black dark:text-white";
 
   const getNavLinkClass = ({ isActive }) =>
