@@ -113,7 +113,10 @@ const Favorites = () => {
                       {(currentPageNumber - 1) * channelsPerPage +
                         (selectedChannel.index + 1)}
                       .{/* {index + 1}.{" "} */}
-                      <a href={selectedChannel.url} target="_blank">
+                      <a
+                        href={selectedChannel.url}
+                        target="_blank"
+                        className="break-normal md:break-all">
                         {selectedChannel.channel || selectedChannel.title}
                       </a>
                       {/* <span>
@@ -231,7 +234,10 @@ const Favorites = () => {
                             {(currentPageNumber - 1) * channelsPerPage +
                               (index + 1)}
                             .{/* {index + 1}.{" "} */}
-                            <a href={stream.url} target="_blank">
+                            <a
+                              href={stream.url}
+                              target="_blank"
+                              className="break-normal md:break-all">
                               {stream.channel || stream.title}
                             </a>
                             {/* <span>
@@ -325,7 +331,10 @@ const Favorites = () => {
                             {(currentPageNumber - 1) * channelsPerPage +
                               (index + 1)}
                             .{/* {index + 1}.{" "} */}
-                            <a href={stream.url} target="_blank">
+                            <a
+                              href={stream.url}
+                              target="_blank"
+                              className="break-normal md:break-all">
                               {stream.channel || stream.title}
                             </a>
                             {/* <span>
@@ -505,7 +514,10 @@ const Favorites = () => {
                             {(currentPageNumber - 1) * channelsPerPage +
                               (index + 1)}
                             .{/* {index + 1}.{" "} */}
-                            <a href={stream.url} target="_blank">
+                            <a
+                              href={stream.url}
+                              target="_blank"
+                              className="break-normal md:break-all">
                               {stream.channel || stream.title}
                             </a>
                             {/* <span>
@@ -601,7 +613,10 @@ const Favorites = () => {
                             {(currentPageNumber - 1) * channelsPerPage +
                               (index + 1)}
                             .{/* {index + 1}.{" "} */}
-                            <a href={stream.url} target="_blank">
+                            <a
+                              href={stream.url}
+                              target="_blank"
+                              className="break-normal md:break-all">
                               {stream.channel || stream.title}
                             </a>
                             {/* <span>
