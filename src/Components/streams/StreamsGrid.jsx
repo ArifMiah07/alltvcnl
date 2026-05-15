@@ -51,7 +51,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                     {(currentPage - 1) * channelsPerPage + (stream_index + 1)}.
                   </span>
                   {/* channel name or title */}
-                  <p className="dark:text-white">
+                  <p className="dark:text-white break-normal md:break-all">
                     {stream_item?.channel
                       ? stream_item.channel
                       : stream_item.title}
@@ -136,7 +136,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                   {(currentPage - 1) * channelsPerPage + (stream_index + 1)}.
                 </span>
                 {/* channel name or title */}
-                <p className="dark:text-white">
+                <p className="dark:text-white break-normal md:break-all">
                   {stream_item?.channel
                     ? stream_item.channel
                     : stream_item.title}

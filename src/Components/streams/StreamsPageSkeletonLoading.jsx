@@ -23,7 +23,7 @@ const StreamsPageSkeletonLoading = () => {
             <motion.div
               initial={{ opacity: 0, filter: "blur(10px)" }}
               animate={{ opacity: 1, filter: "none" }}
-              className="flex flex-row items-start animate-pulse justify-start text-purple-500 text-lg mb-6 w-[300px] h-[270px] md:w-[360px] md:h-[300px]  lg:w-[390px] lg:h-[332px] bg-white/30 border border-gray-200 "
+              className="flex flex-row items-start animate-pulse justify-start text-purple-500 text-lg mb-6 w-[100px] h-[170px] md:w-[260px] md:h-[200px]  lg:w-[390px] lg:h-[332px] bg-white/30 border border-gray-200 "
               key={index}>
               {/* <div className="px-2">{item}</div>
               <div>{item}</div> */}
