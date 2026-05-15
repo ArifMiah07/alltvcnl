@@ -22,7 +22,7 @@ export default function PlayAndDownloadVideo({ handleSectionVisibility }) {
           <span className="dark:text-white"> X</span>
         </button>
       </div>
-      <div className="w-full h-full drop-shadow-md flex flex-row">
+      <div className="w-full h-full drop-shadow-md flex flex-col lg:flex-row">
         <div className="w-full h-full">
           {/* heading */}
           <h1
@@ -53,7 +53,7 @@ export default function PlayAndDownloadVideo({ handleSectionVisibility }) {
             </div>
           </div>
         </div>
-        <div className=" w-full h-full relative mx-12 ">
+        <div className=" hidden md:visible w-full h-full relative mx-12 ">
           <motion.div
             initial={{ opacity: 0, scale: 0, rotate: 50, x: -100 }}
             animate={{

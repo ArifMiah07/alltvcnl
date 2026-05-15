@@ -69,7 +69,7 @@ export default function FeaturedPage() {
       {featuresSections?.map(({ key, title, components: Feature }) => (
         <div key={key}>
           {!sections[key] ? (
-            <div className="w-full h-[300px] border border-[#A100FF] shadow-sm hover:drop-shadow-sm bg-[#D9D9D933] p-5 backdrop-blur-xs">
+            <div className="w-full lg:h-[300px] border border-[#A100FF] shadow-sm hover:drop-shadow-sm bg-[#D9D9D933] p-5 backdrop-blur-xs">
               <Feature handleSectionVisibility={() => toggleSection(key)} />
             </div>
           ) : (
