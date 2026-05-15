@@ -18,31 +18,33 @@ export default function PlayAndDownloadVideo({ handleSectionVisibility }) {
         <button
           onClick={handleSectionVisibility}
           className="cursor-pointer tooltip ">
-          <p className="tooltiptext text-sm">Hide</p>X
+          <p className="tooltiptext text-sm">Hide</p>
+          <span className="dark:text-white"> X</span>
         </button>
       </div>
       <div className="w-full h-full drop-shadow-md flex flex-row">
         <div className="w-full h-full">
           {/* heading */}
-          <h1 className={`text-[#000000b3] text-[24px] font-bold  `}>
+          <h1
+            className={`text-[#000000b3] dark:text-white text-[24px] font-bold  `}>
             Play and Download Videos
           </h1>
           {/* content */}
           {/* heading */}
           <div className="w-full h-full flex flex-col  relative z-10 ">
-            <p className=" text-[rgba(0,0,0,0.7)] max-w-md my-3">
+            <p className=" text-[rgba(0,0,0,0.7)] dark:text-white max-w-md my-3">
               Play Video From Mainstream Platforms <br />
               And download video from Facebook, <br />
               YouTube, Instagram, Twitter...
             </p>
             <div className=" flex flex-row items-center gap-4">
-              <Link to="/home/iptv-player/player">
+              <Link to="/v-player">
                 <button
                   className={`flex items-center justify-center cursor-pointer play-now-btn px-3.5 py-1.5`}>
                   Play Now
                 </button>
               </Link>
-              <Link to="/home/iptv-player/library">
+              <Link to="/v-player">
                 <button
                   className={`flex items-center justify-center cursor-pointer download-now-btn px-3.5 py-1.5`}>
                   Download Now

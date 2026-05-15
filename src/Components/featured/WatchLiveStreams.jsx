@@ -16,11 +16,13 @@ export default function WatchLiveStreams({ handleSectionVisibility }) {
         <button
           onClick={handleSectionVisibility}
           className="cursor-pointer tooltip ">
-          <p className="tooltiptext text-sm">Hide</p>X
+          <p className="tooltiptext text-sm">Hide</p>
+          <span className="dark:text-white"> X</span>
         </button>
       </div>
       {/* heading */}
-      <h1 className={`text-[#000000b3] mb-3 text-[24px] font-bold  `}>
+      <h1
+        className={`text-[#000000b3] dark:text-white mb-3 text-[24px] font-bold  `}>
         Watch Live Streams
       </h1>
       {/* content */}
@@ -72,23 +74,23 @@ export default function WatchLiveStreams({ handleSectionVisibility }) {
         </div>
         {/* heading */}
         <div className="w-full lg:w-[70%]  h-full flex flex-col items-start justify-center relative z-10 ">
-          <h1 className=" text-3xl  font-bold ">
+          <h1 className=" text-3xl dark:text-white font-bold ">
             Stream 13,000+ Live <br />
             Channels Instantly
           </h1>
-          <p className=" text-[rgba(0,0,0,0.7)]  max-w-md my-3">
+          <p className=" text-[rgba(0,0,0,0.7)] dark:text-white max-w-md my-3">
             Access sports, movies, news, and <br /> entertainment channels
             worldwide — <br />
             all in one seamless platform.
           </p>
           <div className="  w-full lg:w-[70%] h-fit flex flex-row  gap-4">
-            <Link to="/home/iptv-player/streams">
+            <Link to="/stream-iptv">
               <button
                 className={`flex items-center justify-center cursor-pointer watch-now-btn px-3.5 py-1.5`}>
                 Watch Now
               </button>
             </Link>
-            <Link to="/home/iptv-player/learn">
+            <Link to="/about">
               <button
                 className={`flex items-center justify-center cursor-pointer learn-more-btn px-3.5 py-1.5`}>
                 Learn More
