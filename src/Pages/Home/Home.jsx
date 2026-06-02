@@ -3,6 +3,7 @@
 import { Helmet } from "react-helmet-async";
 // import Features from "../Features/Features";
 import FeaturedPage from "./featured/Featured";
+import Hero from "./hero/Hero";
 // import Features from "../Features/Features";
 
 // import { Helmet } from "react-helmet-async";
@@ -157,6 +158,9 @@ const Home = () => {
           <div></div>
         </section> */}
         {/* content */}
+        <section className=" col-span-12 py-12 px-12 ">
+          <Hero />
+        </section>
         <section className=" col-span-12 py-12 px-12 ">
           <FeaturedPage />
         </section>
