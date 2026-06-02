@@ -158,7 +158,7 @@ const Home = () => {
           <div></div>
         </section> */}
         {/* content */}
-        <section className=" col-span-12 py-12 px-12 ">
+        <section className=" col-span-12  ">
           <Hero />
         </section>
         <section className=" col-span-12 py-12 px-12 ">
