@@ -1,39 +1,93 @@
 // import { useState } from "react";
-import hero_img_Action_Hollywood_Movies from "../../assets/images/hero/hero-img-Action-Hollywood-Movies.png";
-// import hero_img_mr_bean_01 from "../../assets/images/hero/hero-img-mr-bean-0.png";
-import hero_img_mr_bean_02 from "../../assets/images/hero/hero-img-mr-bean-01.png";
-
-// import HlsVideoPlayer from "../../Components/hls-video-player/HlsVideoPlayer";
-
-const slide = {
-  id: 1,
-  imageUrl: hero_img_Action_Hollywood_Movies,
-  title: "Action Hollywood Movies",
-  description: "watch hollywood movies form decades old archive",
-  category: "",
-  streamUrl:
-    "https://amg01076-lightningintern-actionhollywood-samsungau-rs69y.amagi.tv/playlist/amg01076-lightningintern-actionhollywood-samsungau/playlist.m3u8",
-};
-const slide2 = {
-  id: 1,
-  imageUrl: hero_img_mr_bean_02,
-  title: "Mr. Bean Anime Italy",
-  description: "watch Mr. Bean Anime Italy form decades old archive",
-  category: "2d animation",
-  streamUrl:
-    "https://amg00627-amg00627c29-rakuten-it-3989.playouts.now.amagi.tv/playlist/amg00627-banijayfast-mrbeanitcc-rakutenit/playlist.m3u8",
-};
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import slides from "../../data/slidesData.json";
 
 export default function HeroSection() {
-  //   const [isStreamPlaying, setIsStreamPlaying] = useState(false);
-  //   const [isHovered, setIsHovered] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const activeSlide = slides[currentIndex];
 
-  //   const handleStreamOnOff = () => {
-  //     setIsStreamPlaying(!isStreamPlaying);
-  //   };
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  if (!activeSlide) return null;
+
   return (
-    <>
-      {/* {isStreamPlaying ? (
+    <section
+      className="relative w-full h-[95vh] bg-cover bg-center flex items-center px-6 lg:px-12 transition-all duration-700 ease-in-out"
+      style={{
+        backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url(${activeSlide.imageUrl})`,
+      }}>
+      <div className="max-w-xl flex flex-col gap-4">
+        {activeSlide.category && (
+          <span className="text-xs uppercase tracking-widest text-green-400 font-semibold">
+            {activeSlide.category}
+          </span>
+        )}
+        <h1 className="text-4xl lg:text-5xl font-bold text-white transition-all">
+          {activeSlide.title}
+        </h1>
+        <p className="text-gray-300 text-lg">{activeSlide.description}</p>
+
+        <Link
+          to="/stream-iptv"
+          state={{ streamUrl: activeSlide.streamUrl }} // Pass stream URL to player route
+          className="w-fit">
+          <button className="bg-green-600 hover:bg-green-700 transition-colors text-white px-8 py-3 rounded font-medium shadow-lg">
+            Watch Now
+          </button>
+        </Link>
+      </div>
+
+      {/* Slider Indicators (Dots) */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              index === currentIndex ? "w-8 bg-green-500" : "w-2 bg-white/40"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+{
+  /* <h1 className="dark:text-white text-black">this is hero section</h1> */
+}
+{
+  /* <img
+  src={hero_img_Action_Hollywood_Movies}
+  alt="hero_img_Action_Hollywood_Movies"
+  className="w-full h-full bg-cover"
+/> */
+}
+
+{
+  /* <div className="w-24 h-24 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6   ">
+          <div
+            onClick={handleStreamOnOff}
+            className="relative flex h-24 w-24 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border-2 border-white shadow-xl transition-transform hover:scale-110 cursor-pointer">
+            <div
+              className="absolute left-[55%] top-1/2 -translate-x-1/2 -translate-y-1/2 
+                w-0 h-0 
+                border-t-[15px] border-t-transparent 
+                border-l-[25px] border-l-white 
+                border-b-[15px] border-b-transparent"></div>
+          </div>
+        </div> */
+}
+{
+  /* {isStreamPlaying ? (
         <div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -54,44 +108,11 @@ export default function HeroSection() {
           )}
           <HlsVideoPlayer src={slide2?.streamUrl} controls autoPlay={false} />
         </div>
-      ) : ( */}
-      <section
-        className="relative w-full h-[95vh] bg-cover bg-center flex items-center px-6 lg:px-12"
-        style={{
-          backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url(${slide2.imageUrl})`,
-        }}>
-        {/* <div className="w-24 h-24 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6   ">
-          <div
-            onClick={handleStreamOnOff}
-            className="relative flex h-24 w-24 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border-2 border-white shadow-xl transition-transform hover:scale-110 cursor-pointer">
-            <div
-              className="absolute left-[55%] top-1/2 -translate-x-1/2 -translate-y-1/2 
-                w-0 h-0 
-                border-t-[15px] border-t-transparent 
-                border-l-[25px] border-l-white 
-                border-b-[15px] border-b-transparent"></div>
-          </div>
-        </div> */}
-        <div className="max-w-xl space-y-4">
-          <h1 className="text-4xl font-bold text-white">{slide2.title}</h1>
-          <p className="text-gray-300">{slide2.description}</p>
-          <button className="bg-blue-600 text-white px-6 py-2 rounded">
-            Watch Now
-          </button>
-        </div>
-      </section>
-      {/* )} */}
-    </>
-  );
+      ) : ( */
 }
+//   const [isStreamPlaying, setIsStreamPlaying] = useState(false);
+//   const [isHovered, setIsHovered] = useState(false);
 
-{
-  /* <h1 className="dark:text-white text-black">this is hero section</h1> */
-}
-{
-  /* <img
-  src={hero_img_Action_Hollywood_Movies}
-  alt="hero_img_Action_Hollywood_Movies"
-  className="w-full h-full bg-cover"
-/> */
-}
+//   const handleStreamOnOff = () => {
+//     setIsStreamPlaying(!isStreamPlaying);
+//   };

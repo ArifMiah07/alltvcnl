@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "/hero/hero-img-Action-Hollywood-Movies.png",
+    "title": "Action Hollywood Movies",
+    "description": "Watch hollywood movies from a decades old archive.",
+    "category": "Action",
+    "streamUrl": "https://amg01076-lightningintern-actionhollywood-samsungau-rs69y.amagi.tv/playlist/amg01076-lightningintern-actionhollywood-samsungau/playlist.m3u8"
+  },
+  {
+    "id": 2,
+    "imageUrl": "/hero/hero-img-mr-bean-01.png",
+    "title": "Mr. Bean Anime Italy",
+    "description": "Watch Mr. Bean Anime Italy from a decades old archive.",
+    "category": "2d Animation",
+    "streamUrl": "https://amg00627-amg00627c29-rakuten-it-3989.playouts.now.amagi.tv/playlist/amg00627-banijayfast-mrbeanitcc-rakutenit/playlist.m3u8"
+  },
+  {
+    "id": 3,
+    "imageUrl": "/hero/hero-img-bbc-earth.png",
+    "title": "BBC Earth UK",
+    "description": "Watch BBC Earth UK. Feel the Nature and world natural wonder with cleanest eye",
+    "category": "Nature",
+    "streamUrl": "https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8"
+  }
+]
