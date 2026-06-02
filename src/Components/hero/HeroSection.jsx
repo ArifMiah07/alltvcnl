@@ -35,8 +35,8 @@ export default function HeroSection() {
         <p className="text-gray-300 text-lg">{activeSlide.description}</p>
 
         <Link
-          to="/stream-iptv"
-          state={{ streamUrl: activeSlide.streamUrl }} // Pass stream URL to player route
+          to={`/specific-channel/${currentIndex}/${encodeURIComponent(activeSlide.title)}`}
+          state={{ streamData: activeSlide }}
           className="w-fit">
           <button className="bg-green-600 hover:bg-green-700 transition-colors text-white px-8 py-3 rounded font-medium shadow-lg">
             Watch Now

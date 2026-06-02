@@ -5,7 +5,7 @@
     "title": "Action Hollywood Movies",
     "description": "Watch hollywood movies from a decades old archive.",
     "category": "Action",
-    "streamUrl": "https://amg01076-lightningintern-actionhollywood-samsungau-rs69y.amagi.tv/playlist/amg01076-lightningintern-actionhollywood-samsungau/playlist.m3u8"
+    "url": "https://amg01076-lightningintern-actionhollywood-samsungau-rs69y.amagi.tv/playlist/amg01076-lightningintern-actionhollywood-samsungau/playlist.m3u8"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "title": "Mr. Bean Anime Italy",
     "description": "Watch Mr. Bean Anime Italy from a decades old archive.",
     "category": "2d Animation",
-    "streamUrl": "https://amg00627-amg00627c29-rakuten-it-3989.playouts.now.amagi.tv/playlist/amg00627-banijayfast-mrbeanitcc-rakutenit/playlist.m3u8"
+    "url": "https://amg00627-amg00627c29-rakuten-it-3989.playouts.now.amagi.tv/playlist/amg00627-banijayfast-mrbeanitcc-rakutenit/playlist.m3u8"
   },
   {
     "id": 3,
@@ -21,6 +21,14 @@
     "title": "BBC Earth UK",
     "description": "Watch BBC Earth UK. Feel the Nature and world natural wonder with cleanest eye",
     "category": "Nature",
-    "streamUrl": "https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8"
+    "url": "https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8"
+  },
+  {
+    "id": 4,
+    "imageUrl": "/hero/hero-img-heritage-plus.png",
+    "title": "HERITAGE+",
+    "description": "Watch HERITAGE+. Know the heritage and world history wonder.",
+    "category": "History",
+    "url": "https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/e4523706-f2a8-4b0f-b081-40fe59a46f81/manifest.m3u8"
   }
 ]
