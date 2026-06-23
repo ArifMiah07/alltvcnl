@@ -37,8 +37,9 @@ import ThemeStore from "../Pages/theme/ThemeStore";
 import RegisterPage from "../Pages/auth/register/RegisterPage";
 import LoginPage from "../Pages/auth/login/LoginPage";
 import AuthPage from "../Pages/auth/Auth";
-import TestingCollectedChannels from "../Pages/test/TestingCollectedChannels";
-import StreamCollectedChannels from "../Pages/iptv-player/streams/StreamCollectedChannels";
+// import TestingCollectedChannels from "../Pages/test/TestingCollectedChannels";
+// import StreamCollectedChannels from "../Pages/iptv-player/streams/StreamCollectedChannels";
+import CollectedChannelsZezeZeon from "../Pages/iptv-player/collected/CollectedChannelsZezeZeon";
 // import WatchUrl from "../Pages/watch/WatchUrl";
 // import FavoritesPageTest from "../Pages/test/FavoritesPageTest";
 // import IP from "../Pages/iptv-player/IP";
@@ -180,7 +181,7 @@ const router = createHashRouter([
       // },
       {
         path: "/test_collected_channels",
-        element: <StreamCollectedChannels />,
+        element: <CollectedChannelsZezeZeon />,
       },
       {
         path: "/adda",

@@ -13,22 +13,25 @@ import { FavoritesProvider } from "./Contexts/favorites/FavoritesProvider";
 import { LocalStorageProvider } from "./Contexts/LocalStorageProvider";
 import { PaginationProvider } from "./Contexts/PaginationProvider";
 import { SearchPageProvider } from "./Contexts/search/SearchPageProvider";
+import { CollectedChannelsProvider } from "./Contexts/collectedChannels/CollectedChannelsProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider>
       <SettingProvider>
-        <PaginationProvider>
-          <LocalStorageProvider>
-            <SearchPageProvider>
-              <FavoritesProvider>
-                <HelmetProvider>
-                  <RouterProvider router={router}></RouterProvider>
-                </HelmetProvider>
-              </FavoritesProvider>
-            </SearchPageProvider>
-          </LocalStorageProvider>
-        </PaginationProvider>
+        <CollectedChannelsProvider>
+          <PaginationProvider>
+            <LocalStorageProvider>
+              <SearchPageProvider>
+                <FavoritesProvider>
+                  <HelmetProvider>
+                    <RouterProvider router={router}></RouterProvider>
+                  </HelmetProvider>
+                </FavoritesProvider>
+              </SearchPageProvider>
+            </LocalStorageProvider>
+          </PaginationProvider>
+        </CollectedChannelsProvider>
       </SettingProvider>
     </ThemeProvider>
   </React.StrictMode>,
