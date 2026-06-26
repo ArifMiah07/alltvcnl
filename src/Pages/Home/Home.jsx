@@ -34,7 +34,7 @@ const Home = () => {
         <meta property="og:description" content={pageDescription} />
         <meta
           property="og:image"
-          content="https://alltvcnl.netlify.app/og-banner.png"
+          content="https://alltvcnl.netlify.app/og-banner.webp"
         />
 
         {/* Twitter */}
@@ -44,7 +44,7 @@ const Home = () => {
         <meta name="twitter:description" content={pageDescription} />
         <meta
           name="twitter:image"
-          content="https://alltvcnl.netlify.app/og-banner.png"
+          content="https://alltvcnl.netlify.app/og-banner.webp"
         />
 
         {/* Organization Schema */}

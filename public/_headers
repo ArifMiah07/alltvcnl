@@ -13,5 +13,5 @@
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
 
-/og-banner.png
+/og-banner.webp
   Cache-Control: public, max-age=604800

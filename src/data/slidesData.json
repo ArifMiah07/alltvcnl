@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "imageUrl": "/hero/hero-img-Action-Hollywood-Movies.png",
+    "imageUrl": "/hero/hero-img-Action-Hollywood-Movies.webp",
     "title": "Action Hollywood Movies",
     "description": "Watch hollywood movies from a decades old archive.",
     "category": "Action",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "imageUrl": "/hero/hero-img-mr-bean-01.png",
+    "imageUrl": "/hero/hero-img-mr-bean.webp",
     "title": "Mr. Bean Anime Italy",
     "description": "Watch Mr. Bean Anime Italy from a decades old archive.",
     "category": "2d Animation",
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "imageUrl": "/hero/hero-img-bbc-earth.png",
+    "imageUrl": "/hero/hero-img-bbc-earth.webp",
     "title": "BBC Earth UK",
     "description": "Watch BBC Earth UK. Feel the Nature and world natural wonder with cleanest eye",
     "category": "Nature",
@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "imageUrl": "/hero/hero-img-heritage-plus.png",
+    "imageUrl": "/hero/hero-img-heritage-plus.webp",
     "title": "HERITAGE+",
     "description": "Watch HERITAGE+. Know the heritage and world history wonder.",
     "category": "History",
@@ -33,7 +33,7 @@
   },
   {
     "id": 5,
-    "imageUrl": "/hero/hero-img-the-explorers.png",
+    "imageUrl": "/hero/hero-img-the-explorers.webp",
     "title": "The Explorers",
     "description": "Watch The Explorers. Bless yours eyes with most wonderful and  beautiful places on the Earth.",
     "category": "Documentary",

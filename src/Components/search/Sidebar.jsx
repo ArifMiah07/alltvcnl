@@ -1,3 +1,5 @@
+// search/Sidebar.jsx
+
 import BasicControls from "./BasicControls";
 import BasicFilters from "./BasicFilters";
 import { useState } from "react";
