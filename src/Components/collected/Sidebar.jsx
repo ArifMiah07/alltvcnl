@@ -26,11 +26,14 @@ const Sidebar = ({
   // handleCurrentPage,
   hidePaginationBtns,
   hideSidebar,
+  collectedChannelsData,
+  groups,
   // showMoreChannelsInGridView,
   // setShowMoreChannelsInGridView,
   // handleToggleMoreChannelsLayout,
 }) => {
   // react states
+  const [toggleSidebarExpansion, setToggleSidebarExpansion] = useState(false);
   const [expandBasicControls, setExpandBasicControls] = useState(false);
   const [expandBasicInfo, setExpandBasicInfo] = useState(false);
   const [expandBasicFilters, setExpandBasicFilters] = useState(false);
@@ -69,6 +72,11 @@ const Sidebar = ({
     setExpandBasicFilters(!expandBasicFilters);
   };
 
+  // handle sidebar expansion
+  const handleToggleSidebarExpansion = () => {
+    setToggleSidebarExpansion(!toggleSidebarExpansion);
+  };
+
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______START HERE______ */
   const maxPagesToShow = 10;
@@ -94,10 +102,10 @@ const Sidebar = ({
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______ENDs HERE______ */
 
-  // console.log("currentPage,", currentPage);
+  console.log("collectedChannelsData,", collectedChannelsData);
 
   return (
-    <div className="flex flex-col lg:flex-row gap-2 ">
+    <div className=" w-full flex flex-col lg:flex-row gap-2 ">
       {/* pagination */}
       <div
         className={` border-r border-green-500 p-1 flex flex-col items-center justify-center ${hidePaginationBtns ? "hidden" : "visible"}`}>
@@ -132,76 +140,120 @@ const Sidebar = ({
       </div>
       {/* sidebar section */}
       <div
-        className={`w-full h-full flex flex-col ${hideSidebar ? "hidden" : "visible"}`}>
-        <div className="w-full border-b-2 border-red-50 ">
-          <div className="  w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
-            <h3 className=" dark:text-white flex flex-row items-center justify-center gap-1 text-lg font-bold ">
-              Basic Info{" "}
-              <span onClick={toggleBasicInfoExpand} className="">
-                {expandBasicInfo ? <ChevronUp /> : <ChevronDown />}
-              </span>
-            </h3>
-          </div>
+        className={` relative w-full h-full border-2 p-4 flex flex-col ${hideSidebar ? "hidden" : "visible"}`}>
+        {/* USER CONTROL */}
+        <div
+          className={` relative w-full h-full border-2 p-4 flex flex-col ${hideSidebar ? "hidden" : "visible"}`}>
+          {/* expansion control btn */}
           <div
-            className={`mb-4 dark:text-white  ${expandBasicInfo ? "hidden" : "visible"}`}>
-            <BasicInfo
-              currentPage={currentPageNumber}
-              numbersOfPages={numbersOfPages}
-              // inputRange={inputRange}
-              // setInputRange={setInputRange}
-              // onNext={onNext}
-              // onPrev={onPrev}
-              // onGoto={onGoto}
-              channelsPerPage={channelsPerPage}
-              // channelsInput={channelsInput}
-              // setChannelsInput={setChannelsInput}
-              // handleChannelsPerPage={handleChannelsPerPage}
-              totalChannels={totalChannels}
-            />
+            onClick={handleToggleSidebarExpansion}
+            className="absolute top-0 right-0 bg-green-500 w-6 h-6">
+            <div className=" w-full h-full  flex flex-col items-center justify-center">
+              {toggleSidebarExpansion ? <ChevronUp /> : <ChevronDown />}
+            </div>
+          </div>
+          {/* user control bar */}
+          {toggleSidebarExpansion ? (
+            <div>
+              <p>Control Bar</p>
+            </div>
+          ) : (
+            <div
+              className={`w-full h-full flex flex-col ${hideSidebar ? "hidden" : "visible"}`}>
+              <div className="w-full  ">
+                <div className="  w-full h-full flex flex-row items-center justify-start gap-2 mb-4  ">
+                  <h3 className="flex flex-row items-center justify-center gap-1 text-md font-semibold dark:text-white ">
+                    Basic Info{" "}
+                    <span onClick={toggleBasicInfoExpand} className="">
+                      {expandBasicInfo ? <ChevronUp /> : <ChevronDown />}
+                    </span>
+                  </h3>
+                </div>
+                <div
+                  className={` dark:text-white  ${expandBasicInfo ? "hidden" : "visible"}`}>
+                  <BasicInfo
+                    currentPage={currentPageNumber}
+                    numbersOfPages={numbersOfPages}
+                    // inputRange={inputRange}
+                    // setInputRange={setInputRange}
+                    // onNext={onNext}
+                    // onPrev={onPrev}
+                    // onGoto={onGoto}
+                    channelsPerPage={channelsPerPage}
+                    // channelsInput={channelsInput}
+                    // setChannelsInput={setChannelsInput}
+                    // handleChannelsPerPage={handleChannelsPerPage}
+                    totalChannels={totalChannels}
+                  />
+                </div>
+              </div>
+              <div className="w-full ">
+                <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
+                  <h3 className=" flex flex-row items-center justify-center gap-1 text-md font-semibold mt-4 dark:text-white ">
+                    Basic Controls{" "}
+                    <span onClick={toggleBasicControlsExpand} className="">
+                      {expandBasicControls ? <ChevronUp /> : <ChevronDown />}
+                    </span>
+                  </h3>
+                </div>
+                <div
+                  className={` dark:text-white px-2 ${expandBasicControls ? "hidden" : "visible"}`}>
+                  <BasicControls
+                    currentPage={currentPageNumber}
+                    numbersOfPages={numbersOfPages}
+                    inputRange={inputRange}
+                    setInputRange={setInputRange}
+                    onNext={onNext}
+                    onPrev={onPrev}
+                    onGoto={onGoto}
+                    channelsPerPage={channelsPerPage}
+                    channelsInput={channelsInput}
+                    setChannelsInput={setChannelsInput}
+                    handleChannelsPerPage={handleChannelsPerPage}
+                    totalChannels={totalChannels}
+                  />
+                </div>
+              </div>
+              <div className="w-full  ">
+                <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
+                  <h3 className=" flex flex-row items-center justify-center gap-1 text-md font-semibold mt-4 dark:text-white ">
+                    Basic Filters{" "}
+                    <span onClick={toggleBasicFiltersExpand} className="">
+                      {expandBasicFilters ? <ChevronUp /> : <ChevronDown />}
+                    </span>
+                  </h3>
+                </div>
+                <div
+                  className={` dark:text-white px-2 ${expandBasicFilters ? "hidden" : "visible"}`}>
+                  <BasicFilters />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+        {/* CHANNELS LIST */}
+        <div className="w-full dark:text-white mt-4">
+          <p>Channels</p>
+          <div className="flex flex-col gap-2 p-2">
+            {collectedChannelsData?.map((channel, indx) => (
+              <div className="" key={channel.url || indx}>
+                <p className=" border text-black dark:text-white">
+                  {channel?.name}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
-        <div className="w-full border-b-2 border-red-50 ">
-          <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
-            <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold mt-4 dark:text-white ">
-              Basic Controls{" "}
-              <span onClick={toggleBasicControlsExpand} className="">
-                {expandBasicControls ? <ChevronUp /> : <ChevronDown />}
-              </span>
-            </h3>
-          </div>
-          <div
-            className={`mb-4 dark:text-white px-2 ${expandBasicControls ? "hidden" : "visible"}`}>
-            <BasicControls
-              currentPage={currentPageNumber}
-              numbersOfPages={numbersOfPages}
-              inputRange={inputRange}
-              setInputRange={setInputRange}
-              onNext={onNext}
-              onPrev={onPrev}
-              onGoto={onGoto}
-              channelsPerPage={channelsPerPage}
-              channelsInput={channelsInput}
-              setChannelsInput={setChannelsInput}
-              handleChannelsPerPage={handleChannelsPerPage}
-              totalChannels={totalChannels}
-            />
-          </div>
-        </div>
-        {/* <div className="w-full dark:text-white mt-4">
-          <BasicFilters />
-        </div> */}
-        <div className="w-full border-b-2 border-red-50 ">
-          <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
-            <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold mt-4 dark:text-white ">
-              Basic Filters{" "}
-              <span onClick={toggleBasicFiltersExpand} className="">
-                {expandBasicFilters ? <ChevronUp /> : <ChevronDown />}
-              </span>
-            </h3>
-          </div>
-          <div
-            className={`mb-4 dark:text-white px-2 ${expandBasicFilters ? "hidden" : "visible"}`}>
-            <BasicFilters />
+
+        {/* CHANNELS GROUP TYPES */}
+        <div className=" dark:text-white mt-4">
+          <p>Group</p>
+          <div className="w-full flex flex-col border max-h-[400px] overflow-y-auto">
+            {groups?.map((group, indx) => (
+              <div className="" key={group || indx}>
+                <p className="border text-black dark:text-white">{group}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -228,6 +280,8 @@ Sidebar.propTypes = {
   totalChannels: PropTypes.number.isRequired,
   hidePaginationBtns: PropTypes.bool,
   hideSidebar: PropTypes.bool,
+  collectedChannelsData: PropTypes.array,
+  groups: PropTypes.array,
   // handleCurrentPage: PropTypes.number.isRequired,
   // showMoreChannelsInGridView: PropTypes.bool,
   // setShowMoreChannelsInGridView: PropTypes.func,

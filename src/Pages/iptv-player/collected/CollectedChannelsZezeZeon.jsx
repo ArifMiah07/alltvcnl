@@ -31,6 +31,8 @@ const CollectedChannelsZezeZeon = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const [groups, setGroups] = useState([]);
+
   const { bookmarkedChannel, handleBookmarkChannelToggle } = useLocalStorage();
   const {
     currentPageNumber,
@@ -141,6 +143,12 @@ const CollectedChannelsZezeZeon = () => {
         const response = await axios.get(url);
         console.log(response);
         setCollectedCnlData(response?.data || []);
+        const uniqueGroups = [
+          "All",
+          ...new Set(response?.data.map((ch) => ch.group).filter(Boolean)),
+        ];
+        setGroups(uniqueGroups);
+        console.log("groups:", groups);
         setTotalItems(response?.data?.length);
         // setCurrentIndexSet(response?.data?.currentIndexSet || []);
         setError(null);
@@ -203,6 +211,8 @@ const CollectedChannelsZezeZeon = () => {
   );
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______ENDs HERE______ */
+
+  const collectedChannelsData = collectedCnlData?.slice(startIndex, endIndex);
 
   if (loading) return <StreamsPageSkeletonLoading />;
   if (error) return <p> Error : {error.message} </p>;
@@ -448,6 +458,8 @@ const CollectedChannelsZezeZeon = () => {
                   setChannelsInput={setChannelsInput}
                   handleChannelsPerPage={handleChannelsPerPage}
                   totalChannels={totalItems}
+                  collectedChannelsData={collectedChannelsData}
+                  groups={groups}
                   // showMoreChannelsInGridView={showMoreChannelsInGridView}
                   // setShowMoreChannelsInGridView={setShowMoreChannelsInGridView}
                   // handleToggleMoreChannelsLayout={handleToggleMoreChannelsLayout}
@@ -670,6 +682,8 @@ const CollectedChannelsZezeZeon = () => {
                   setChannelsInput={setChannelsInput}
                   handleChannelsPerPage={handleChannelsPerPage}
                   totalChannels={totalItems}
+                  collectedChannelsData={collectedChannelsData}
+                  groups={groups}
                   // showMoreChannelsInGridView={showMoreChannelsInGridView}
                   // setShowMoreChannelsInGridView={setShowMoreChannelsInGridView}
                   // handleToggleMoreChannelsLayout={handleToggleMoreChannelsLayout}
@@ -930,3 +944,20 @@ const CollectedChannelsZezeZeon = () => {
 };
 
 export default CollectedChannelsZezeZeon;
+
+/**
+ * 
+ * 
+ * 
+ * [
+  {
+    "name": "Ananda TV",
+    "logo": "https://s3.aynaott.com/storage/897698f593fc07974fc46881a440733d",
+    "group": "Bangla",
+    "url": "https://tvsen6.aynaott.com/anandatv/index.m3u8?e=1779283759&u=78be6644-0a65-48ec-81a4-089ac65a2619&token=504b9350b4703116ca4ab20e4013288e",
+    "status": "live",
+    "verified_at": "2026-06-04T15:05:55.710901",
+    "status_code": 200,
+    "content_type": "application/vnd.apple.mpegurl"
+  },
+ */
