@@ -26,7 +26,7 @@ import Sidebar from "../../../Components/collected/Sidebar";
 
 const CollectedChannelsZezeZeon = () => {
   // search result fetching
-  const [searchData, setSearchData] = useState([]);
+  const [collectedCnlData, setCollectedCnlData] = useState([]);
   const [currentIndexSet, setCurrentIndexSet] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -55,14 +55,14 @@ const CollectedChannelsZezeZeon = () => {
   const inputRef = useRef(null);
 
   // store data
-  const [showSearchValue, setShowSearchValue] = useState("");
-  const [searchValue, setSearchValue] = useState(() => {
+  const [showCollectedCnlValue, setShowCollectedCnlValue] = useState("");
+  const [collectedCnlValue, setCollectedCnlValue] = useState(() => {
     // Initialize from localStorage directly to avoid extra useEffects
-    const stored = localStorage.getItem("searchValueLocal");
+    const stored = localStorage.getItem("CollectedCnlValueLocal");
     return stored ? JSON.parse(stored) : "";
   });
-  const [searchValueInputRange, setSearchValueInputRange] =
-    useState(searchValue);
+  const [collectedCnlValueInputRange, setCollectedCnlValueInputRange] =
+    useState(collectedCnlValue);
 
   // pagination states
   // const [currentPageNumber, setCurrentPageNumber] = useState(1);
@@ -89,10 +89,10 @@ const CollectedChannelsZezeZeon = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem(
-      "searchValueLocal",
-      JSON.stringify(searchValueInputRange),
+      "CollectedCnlValueLocal",
+      JSON.stringify(collectedCnlValueInputRange),
     );
-    setSearchValue(searchValueInputRange);
+    setCollectedCnlValue(collectedCnlValueInputRange);
     // setCurrentPageNumber(1); // Reset to page 1 on new search
   };
 
@@ -126,22 +126,23 @@ const CollectedChannelsZezeZeon = () => {
   // START HERE
   // store and get search data from browser local storage
   useEffect(() => {
-    const stored = localStorage.getItem("searchValueLocal");
-    setShowSearchValue(stored);
-  }, [searchValue, showSearchValue, searchValueInputRange]);
+    const stored = localStorage.getItem("collectedCnlValueLocal");
+    setShowCollectedCnlValue(stored);
+  }, [collectedCnlValue, showCollectedCnlValue, collectedCnlValueInputRange]);
 
   // fetch search result
   useEffect(() => {
-    if (!searchValue) return;
+    if (!collectedCnlValue) return;
 
     const fetchSearchResult = async () => {
       setLoading(true);
       try {
-        const url = `/jsons/collected_channels_01.json?term=${encodeURIComponent(searchValue)}`;
+        const url = `/jsons/collected_channels_01.json?term=${encodeURIComponent(collectedCnlValue)}`;
         const response = await axios.get(url);
-        setSearchData(response?.data?.data || []);
-        setTotalItems(response?.data?.data?.length);
-        setCurrentIndexSet(response?.data?.currentIndexSet || []);
+        console.log(response);
+        setCollectedCnlData(response?.data || []);
+        setTotalItems(response?.data?.length);
+        // setCurrentIndexSet(response?.data?.currentIndexSet || []);
         setError(null);
       } catch (err) {
         setError(err);
@@ -151,7 +152,7 @@ const CollectedChannelsZezeZeon = () => {
     };
 
     fetchSearchResult();
-  }, [searchValue]);
+  }, [collectedCnlValue]);
   // UPDATED CODE FROM GEMINI
   // ENDS HERE
 
@@ -211,7 +212,7 @@ const CollectedChannelsZezeZeon = () => {
   return (
     // this is search page component
     /**
-     * Search by channel, title and show all search results with
+     * Search by channel, name and show all search results with
      * pagination and add a sidebar for filtering and control user actions
      * refactor, add all device responsiveness
      * use local storage for preferences and use a database if user have account
@@ -223,8 +224,8 @@ const CollectedChannelsZezeZeon = () => {
         {/* START HERE */}
         {/* Standard Metadata */}
         <title>
-          {showSearchValue
-            ? `${showSearchValue} - Live Streams | MyStreamSite`
+          {showCollectedCnlValue
+            ? `${showCollectedCnlValue} - Live Streams | MyStreamSite`
             : "Search 13,000+ Live Channels | MyStreamSite"}
         </title>
         {/* JSON-LD Structured Data */}
@@ -232,22 +233,22 @@ const CollectedChannelsZezeZeon = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SearchResultsPage",
-            description: `Search results for ${showSearchValue}`,
-            name: `Search results for ${showSearchValue}`,
+            description: `Search results for ${showCollectedCnlValue}`,
+            name: `Search results for ${showCollectedCnlValue}`,
             mainEntity: {
               "@type": "ItemList",
               itemListOrder: "https://schema.org/ItemListOrderDescending",
-              numberOfItems: searchData?.length || 0,
+              numberOfItems: collectedCnlData?.length || 0,
             },
           })}
         </script>
         <meta
           name="description"
-          content={`Find and watch ${showSearchValue || "live channels"} online. Streaming ${totalItems} channels in high quality. No registration required.`}
+          content={`Find and watch ${showCollectedCnlValue || "live channels"} online. Streaming ${totalItems} channels in high quality. No registration required.`}
         />
         <meta
           name="keywords"
-          content={`IPTV, Live Stream, ${showSearchValue}, Watch ${showSearchValue} online, Free Channels`}
+          content={`IPTV, Live Stream, ${showCollectedCnlValue}, Watch ${showCollectedCnlValue} online, Free Channels`}
         />
 
         {/* Open Graph / Facebook */}
@@ -255,14 +256,14 @@ const CollectedChannelsZezeZeon = () => {
         <meta
           property="og:title"
           content={
-            showSearchValue
-              ? `Watch ${showSearchValue} Live`
+            showCollectedCnlValue
+              ? `Watch ${showCollectedCnlValue} Live`
               : "Live Stream Search Engine"
           }
         />
         <meta
           property="og:description"
-          content={`Currently showing ${totalItems} search results for ${showSearchValue}.`}
+          content={`Currently showing ${totalItems} search results for ${showCollectedCnlValue}.`}
         />
         <meta
           property="og:image"
@@ -273,13 +274,13 @@ const CollectedChannelsZezeZeon = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content={`Search Results for: ${showSearchValue}`}
+          content={`Search Results for: ${showCollectedCnlValue}`}
         />
 
         {/* Canonical Tag - CRITICAL for Search Pages */}
         <link
           rel="canonical"
-          href={`https:https://iptv-player-server.vercel.app/api/iptv-player/testing-search-url?term==${encodeURIComponent(showSearchValue)}`}
+          href={`https:https://iptv-player-server.vercel.app/api/iptv-player/testing-search-url?term==${encodeURIComponent(showCollectedCnlValue)}`}
         />
         {/* UPDATED CODE FORM GEMINI */}
         {/* ENDS HERE */}
@@ -291,10 +292,10 @@ const CollectedChannelsZezeZeon = () => {
         <label className="flex gap-3" htmlFor="name">
           <h1 className=" ">Search</h1>
           <h2> {">"}</h2>
-          {searchValueInputRange === "" ? (
+          {collectedCnlValueInputRange === "" ? (
             "search for "
           ) : (
-            <> Searching for {searchValueInputRange} </>
+            <> Searching for {collectedCnlValueInputRange} </>
           )}
           {/* showSearchValue === !"" ? (
             <>Searched for {showSearchValue} </>
@@ -305,8 +306,8 @@ const CollectedChannelsZezeZeon = () => {
             className=" dark:text-black px-3 py-1 w-full md:w-1/3 border rounded-l-lg  "
             type="text"
             ref={inputRef}
-            value={searchValueInputRange}
-            onChange={(e) => setSearchValueInputRange(e.target.value)}
+            value={collectedCnlValueInputRange}
+            onChange={(e) => setCollectedCnlValueInputRange(e.target.value)}
             placeholder="search by channel, title"
           />
           <button
@@ -320,11 +321,11 @@ const CollectedChannelsZezeZeon = () => {
       {/* all contents main container */}
       <div className="p-3 gap-2 ">
         <h1 className="text-md dark:text-white">
-          Showing Search results for {showSearchValue}
+          Showing Search results for {showCollectedCnlValue}
         </h1>
         {/* TODO:: MOVE THIS ${TOTAL CHANNELS} INSIDE SIDE BAR */}
         <h2 className="text-md mb-2 dark:text-white">
-          Total channels : {searchData?.length || 0}
+          Total channels : {collectedCnlData?.length || 0}
         </h2>
         <div onClick={handleAllAndOneChannelStream} className="">
           {selectedChannel && (
@@ -357,7 +358,7 @@ const CollectedChannelsZezeZeon = () => {
                       href={selectedChannel.url}
                       target="_blank"
                       className="break-normal md:break-all">
-                      {selectedChannel.channel || selectedChannel.title}
+                      {selectedChannel.channel || selectedChannel.name}
                     </a>
                     <span>
                       (
@@ -463,88 +464,90 @@ const CollectedChannelsZezeZeon = () => {
             {showMoreChannelsInGridView ? (
               // show all channels in grid view
               <div className="  lg:w-[75%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
-                {!(searchData?.length === 0) ? (
-                  searchData?.slice(startIndex, endIndex).map((item, index) => (
-                    <div key={index} className=" border p-0">
-                      <div className="flex flex-col  p-1 gap-1">
-                        <p className="flex flex-row gap-2 dark:text-white">
-                          {" "}
-                          {(currentPageNumber - 1) * channelsPerPage +
-                            (index + 1)}
-                          .{/* {index + 1}.{" "} */}
-                          <a
-                            href={item.url}
-                            target="_blank"
-                            className="break-normal md:break-all">
-                            {item.channel || item.title}
-                          </a>
-                          <span>
-                            (
-                            {
-                              currentIndexSet[
-                                (currentPageNumber - 1) * channelsPerPage +
-                                  index
-                              ]
-                            }
-                            )
-                          </span>
-                        </p>
-                        {/* icons */}
-                        <div className="flex gap-3 ">
-                          {/* stream a specific channel */}
-                          <span
-                            onClick={() =>
-                              handleStreamSpecificChannel({ ...item, index })
-                            }
-                            className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <Fullscreen />
-                          </span>
-                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                {!(collectedCnlData?.length === 0) ? (
+                  collectedCnlData
+                    ?.slice(startIndex, endIndex)
+                    .map((item, index) => (
+                      <div key={index} className=" border p-0">
+                        <div className="flex flex-col  p-1 gap-1">
+                          <p className="flex flex-row gap-2 dark:text-white">
+                            {" "}
+                            {(currentPageNumber - 1) * channelsPerPage +
+                              (index + 1)}
+                            .{/* {index + 1}.{" "} */}
                             <a
-                              href={`${item.url}`}
+                              href={item.url}
                               target="_blank"
-                              rel="noopener noreferrer">
-                              <MonitorPlay />
+                              className="break-normal md:break-all">
+                              {item.channel || item.name}
                             </a>
-                          </span>
-                          <span
-                            onClick={() => handleBookmarkChannelToggle(item)}>
-                            {bookmarkedChannel[item.url] ? (
-                              <span
-                                className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
-                                <BookmarkCheck />
-                              </span>
-                            ) : (
-                              <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                                <Bookmark />
-                              </span>
-                            )}
-                          </span>
+                            <span>
+                              (
+                              {
+                                currentIndexSet[
+                                  (currentPageNumber - 1) * channelsPerPage +
+                                    index
+                                ]
+                              }
+                              )
+                            </span>
+                          </p>
+                          {/* icons */}
+                          <div className="flex gap-3 ">
+                            {/* stream a specific channel */}
+                            <span
+                              onClick={() =>
+                                handleStreamSpecificChannel({ ...item, index })
+                              }
+                              className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <Fullscreen />
+                            </span>
+                            <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <a
+                                href={`${item.url}`}
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                <MonitorPlay />
+                              </a>
+                            </span>
+                            <span
+                              onClick={() => handleBookmarkChannelToggle(item)}>
+                              {bookmarkedChannel[item.url] ? (
+                                <span
+                                  className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
+                                  <BookmarkCheck />
+                                </span>
+                              ) : (
+                                <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                                  <Bookmark />
+                                </span>
+                              )}
+                            </span>
 
-                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <ListPlus />
-                          </span>
-                          {(item.feed || item.quality) && (
-                            <div className=" dark:text-white flex flex-row gap-3 ">
-                              {item.feed && <p>{item.feed}</p>}
-                              {item.quality && <p>{item.quality}</p>}
-                            </div>
-                          )}
+                            <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <ListPlus />
+                            </span>
+                            {(item.feed || item.quality) && (
+                              <div className=" dark:text-white flex flex-row gap-3 ">
+                                {item.feed && <p>{item.feed}</p>}
+                                {item.quality && <p>{item.quality}</p>}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        {/* player */}
+                        <div className="">
+                          <div className="App">
+                            {/* <h1>HLS.js in React</h1> */}
+                            <HlsVideoPlayer
+                              src={item?.url}
+                              controls
+                              autoPlay={false}
+                            />
+                          </div>
                         </div>
                       </div>
-                      {/* player */}
-                      <div className="">
-                        <div className="App">
-                          {/* <h1>HLS.js in React</h1> */}
-                          <HlsVideoPlayer
-                            src={item?.url}
-                            controls
-                            autoPlay={false}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  ))
+                    ))
                 ) : (
                   <div className="p-4 text-lg bg-green dark:text-white ">
                     {" "}
@@ -555,78 +558,80 @@ const CollectedChannelsZezeZeon = () => {
             ) : (
               // show all channels in list view
               <div className="  lg:w-[75%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
-                {!(searchData?.length === 0) ? (
-                  searchData?.slice(startIndex, endIndex).map((item, index) => (
-                    <div key={index} className=" border p-0">
-                      <div className="flex flex-col  p-1 gap-1">
-                        <p className="flex flex-row gap-2 dark:text-white">
-                          {" "}
-                          {(currentPageNumber - 1) * channelsPerPage +
-                            (index + 1)}
-                          .{/* {index + 1}.{" "} */}
-                          <a
-                            href={item.url}
-                            target="_blank"
-                            className="break-normal md:break-all">
-                            {item.channel || item.title}
-                          </a>
-                          <span>
-                            (
-                            {
-                              currentIndexSet[
-                                (currentPageNumber - 1) * channelsPerPage +
-                                  index
-                              ]
-                            }
-                            )
-                          </span>
-                        </p>
-                        {/* icons */}
-                        <div className="flex gap-3 ">
-                          {/* stream a specific channel */}
-                          <span
-                            onClick={() =>
-                              handleStreamSpecificChannel({ ...item, index })
-                            }
-                            className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <Fullscreen />
-                          </span>
-                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                {!(collectedCnlData?.length === 0) ? (
+                  collectedCnlData
+                    ?.slice(startIndex, endIndex)
+                    .map((item, index) => (
+                      <div key={index} className=" border p-0">
+                        <div className="flex flex-col  p-1 gap-1">
+                          <p className="flex flex-row gap-2 dark:text-white">
+                            {" "}
+                            {(currentPageNumber - 1) * channelsPerPage +
+                              (index + 1)}
+                            .{/* {index + 1}.{" "} */}
                             <a
-                              href={`${item.url}`}
+                              href={item.url}
                               target="_blank"
-                              rel="noopener noreferrer">
-                              <MonitorPlay />
+                              className="break-normal md:break-all">
+                              {item.channel || item.name}
                             </a>
-                          </span>
-                          <span
-                            onClick={() => handleBookmarkChannelToggle(item)}>
-                            {bookmarkedChannel[item.url] ? (
-                              <span
-                                className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
-                                <BookmarkCheck />
-                              </span>
-                            ) : (
-                              <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                                <Bookmark />
-                              </span>
-                            )}
-                          </span>
+                            <span>
+                              (
+                              {
+                                currentIndexSet[
+                                  (currentPageNumber - 1) * channelsPerPage +
+                                    index
+                                ]
+                              }
+                              )
+                            </span>
+                          </p>
+                          {/* icons */}
+                          <div className="flex gap-3 ">
+                            {/* stream a specific channel */}
+                            <span
+                              onClick={() =>
+                                handleStreamSpecificChannel({ ...item, index })
+                              }
+                              className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <Fullscreen />
+                            </span>
+                            <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <a
+                                href={`${item.url}`}
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                <MonitorPlay />
+                              </a>
+                            </span>
+                            <span
+                              onClick={() => handleBookmarkChannelToggle(item)}>
+                              {bookmarkedChannel[item.url] ? (
+                                <span
+                                  className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
+                                  <BookmarkCheck />
+                                </span>
+                              ) : (
+                                <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                                  <Bookmark />
+                                </span>
+                              )}
+                            </span>
 
-                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <ListPlus />
-                          </span>
-                          {(item.feed || item.quality) && (
-                            <div className=" dark:text-white flex flex-row gap-3 ">
-                              {item.feed && <p>{item.feed}</p>}
-                              {item.quality && <p>{item.quality}</p>}
-                            </div>
-                          )}
+                            <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <ListPlus />
+                            </span>
+                            {(item.feed || item.quality) && (
+                              <div className=" dark:text-white flex flex-row gap-3 ">
+                                {item.feed && <p>{item.feed}</p>}
+                                {item.quality && <p>{item.quality}</p>}
+                              </div>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                      {/* player */}
-                      {/* <h1>HLS.js in React</h1> */}
-                      {/* <div className="">
+                        {/* player */}
+                        {/* <h1>HLS.js in React</h1> */}
+                        {/* <div className="">
                         <div className="App">
                           <HlsVideoPlayer
                             src={item?.url}
@@ -635,8 +640,8 @@ const CollectedChannelsZezeZeon = () => {
                           />
                         </div>
                       </div> */}
-                    </div>
-                  ))
+                      </div>
+                    ))
                 ) : (
                   <div className="p-4 text-lg bg-green dark:text-white ">
                     {" "}
@@ -733,88 +738,90 @@ const CollectedChannelsZezeZeon = () => {
               {/* // show all channel when streaming a specific channel */}
               {/* content */}
               <div className=" w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 items-center justify-start gap-2">
-                {!(searchData?.length === 0) ? (
-                  searchData?.slice(startIndex, endIndex).map((item, index) => (
-                    <div key={index} className=" border p-0">
-                      <div className="flex flex-col  p-1 gap-1">
-                        <p className="flex flex-row gap-2 dark:text-white">
-                          {" "}
-                          {(currentPageNumber - 1) * channelsPerPage +
-                            (index + 1)}
-                          .{/* {index + 1}.{" "} */}
-                          <a
-                            href={item.url}
-                            target="_blank"
-                            className="break-normal md:break-all">
-                            {item.channel || item.title}
-                          </a>
-                          <span>
-                            (
-                            {
-                              currentIndexSet[
-                                (currentPageNumber - 1) * channelsPerPage +
-                                  index
-                              ]
-                            }
-                            )
-                          </span>
-                        </p>
-                        {/* icons */}
-                        <div className="flex gap-3 ">
-                          {/* stream a specific channel */}
-                          <span
-                            onClick={() =>
-                              handleStreamSpecificChannel({
-                                ...item,
-                                index,
-                              })
-                            }
-                            className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <Fullscreen />
-                          </span>
-                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                {!(collectedCnlData?.length === 0) ? (
+                  collectedCnlData
+                    ?.slice(startIndex, endIndex)
+                    .map((item, index) => (
+                      <div key={index} className=" border p-0">
+                        <div className="flex flex-col  p-1 gap-1">
+                          <p className="flex flex-row gap-2 dark:text-white">
+                            {" "}
+                            {(currentPageNumber - 1) * channelsPerPage +
+                              (index + 1)}
+                            .{/* {index + 1}.{" "} */}
                             <a
-                              href={`${item.url}`}
+                              href={item.url}
                               target="_blank"
-                              rel="noopener noreferrer">
-                              <MonitorPlay />
+                              className="break-normal md:break-all">
+                              {item.channel || item.name}
                             </a>
-                          </span>
-                          <span
-                            onClick={() => handleBookmarkChannelToggle(item)}>
-                            {bookmarkedChannel[item.url] ? (
-                              <span
-                                className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
-                                <BookmarkCheck />
-                              </span>
-                            ) : (
-                              <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                                <Bookmark />
-                              </span>
-                            )}
-                          </span>
+                            <span>
+                              (
+                              {
+                                currentIndexSet[
+                                  (currentPageNumber - 1) * channelsPerPage +
+                                    index
+                                ]
+                              }
+                              )
+                            </span>
+                          </p>
+                          {/* icons */}
+                          <div className="flex gap-3 ">
+                            {/* stream a specific channel */}
+                            <span
+                              onClick={() =>
+                                handleStreamSpecificChannel({
+                                  ...item,
+                                  index,
+                                })
+                              }
+                              className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <Fullscreen />
+                            </span>
+                            <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <a
+                                href={`${item.url}`}
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                <MonitorPlay />
+                              </a>
+                            </span>
+                            <span
+                              onClick={() => handleBookmarkChannelToggle(item)}>
+                              {bookmarkedChannel[item.url] ? (
+                                <span
+                                  className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
+                                  <BookmarkCheck />
+                                </span>
+                              ) : (
+                                <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                                  <Bookmark />
+                                </span>
+                              )}
+                            </span>
 
-                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <ListPlus />
-                          </span>
-                          {(item.feed || item.quality) && (
-                            <div className="flex flex-row gap-3 dark:text-white ">
-                              {item.feed && <p>{item.feed}</p>}
-                              {item.quality && <p>{item.quality}</p>}
-                            </div>
-                          )}
+                            <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <ListPlus />
+                            </span>
+                            {(item.feed || item.quality) && (
+                              <div className="flex flex-row gap-3 dark:text-white ">
+                                {item.feed && <p>{item.feed}</p>}
+                                {item.quality && <p>{item.quality}</p>}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        {/* player */}
+                        <div className="w-full h-full flex flex-col border border-green-50  ">
+                          <HlsVideoPlayer
+                            src={item?.url}
+                            controls
+                            autoPlay={false}
+                          />
                         </div>
                       </div>
-                      {/* player */}
-                      <div className="w-full h-full flex flex-col border border-green-50  ">
-                        <HlsVideoPlayer
-                          src={item?.url}
-                          controls
-                          autoPlay={false}
-                        />
-                      </div>
-                    </div>
-                  ))
+                    ))
                 ) : (
                   <div className="p-4 text-lg bg-green dark:text-white ">
                     {" "}
@@ -830,81 +837,83 @@ const CollectedChannelsZezeZeon = () => {
               {/* // show all channel when streaming a specific channel */}
               {/* content */}
               <div className=" w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 items-center justify-start gap-2">
-                {!(searchData?.length === 0) ? (
-                  searchData?.slice(startIndex, endIndex).map((item, index) => (
-                    <div key={index} className=" border p-0">
-                      <div className="flex flex-col  p-1 gap-1">
-                        <p className="flex flex-row gap-2 dark:text-white">
-                          {" "}
-                          {(currentPageNumber - 1) * channelsPerPage +
-                            (index + 1)}
-                          .{/* {index + 1}.{" "} */}
-                          <a
-                            href={item.url}
-                            target="_blank"
-                            className="break-normal md:break-all">
-                            {item.channel || item.title}
-                          </a>
-                          <span>
-                            (
-                            {
-                              currentIndexSet[
-                                (currentPageNumber - 1) * channelsPerPage +
-                                  index
-                              ]
-                            }
-                            )
-                          </span>
-                        </p>
-                        {/* icons */}
-                        <div className="flex gap-3 ">
-                          {/* stream a specific channel */}
-                          <span
-                            onClick={() =>
-                              handleStreamSpecificChannel({
-                                ...item,
-                                index,
-                              })
-                            }
-                            className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <Fullscreen />
-                          </span>
-                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                {!(collectedCnlData?.length === 0) ? (
+                  collectedCnlData
+                    ?.slice(startIndex, endIndex)
+                    .map((item, index) => (
+                      <div key={index} className=" border p-0">
+                        <div className="flex flex-col  p-1 gap-1">
+                          <p className="flex flex-row gap-2 dark:text-white">
+                            {" "}
+                            {(currentPageNumber - 1) * channelsPerPage +
+                              (index + 1)}
+                            .{/* {index + 1}.{" "} */}
                             <a
-                              href={`${item.url}`}
+                              href={item.url}
                               target="_blank"
-                              rel="noopener noreferrer">
-                              <MonitorPlay />
+                              className="break-normal md:break-all">
+                              {item.channel || item.name}
                             </a>
-                          </span>
-                          <span
-                            onClick={() => handleBookmarkChannelToggle(item)}>
-                            {bookmarkedChannel[item.url] ? (
-                              <span
-                                className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
-                                <BookmarkCheck />
-                              </span>
-                            ) : (
-                              <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                                <Bookmark />
-                              </span>
-                            )}
-                          </span>
+                            <span>
+                              (
+                              {
+                                currentIndexSet[
+                                  (currentPageNumber - 1) * channelsPerPage +
+                                    index
+                                ]
+                              }
+                              )
+                            </span>
+                          </p>
+                          {/* icons */}
+                          <div className="flex gap-3 ">
+                            {/* stream a specific channel */}
+                            <span
+                              onClick={() =>
+                                handleStreamSpecificChannel({
+                                  ...item,
+                                  index,
+                                })
+                              }
+                              className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <Fullscreen />
+                            </span>
+                            <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <a
+                                href={`${item.url}`}
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                <MonitorPlay />
+                              </a>
+                            </span>
+                            <span
+                              onClick={() => handleBookmarkChannelToggle(item)}>
+                              {bookmarkedChannel[item.url] ? (
+                                <span
+                                  className={` p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300  ${bookmarkedChannel ? "" : ""} `}>
+                                  <BookmarkCheck />
+                                </span>
+                              ) : (
+                                <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                                  <Bookmark />
+                                </span>
+                              )}
+                            </span>
 
-                          <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
-                            <ListPlus />
-                          </span>
-                          {(item.feed || item.quality) && (
-                            <div className="flex flex-row gap-3 dark:text-white ">
-                              {item.feed && <p>{item.feed}</p>}
-                              {item.quality && <p>{item.quality}</p>}
-                            </div>
-                          )}
+                            <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
+                              <ListPlus />
+                            </span>
+                            {(item.feed || item.quality) && (
+                              <div className="flex flex-row gap-3 dark:text-white ">
+                                {item.feed && <p>{item.feed}</p>}
+                                {item.quality && <p>{item.quality}</p>}
+                              </div>
+                            )}
+                          </div>
                         </div>
+                        {/* player */}
                       </div>
-                      {/* player */}
-                    </div>
-                  ))
+                    ))
                 ) : (
                   <div className="p-4 text-lg bg-green dark:text-white ">
                     {" "}

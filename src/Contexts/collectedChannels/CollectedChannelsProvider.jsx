@@ -4,28 +4,35 @@ import { toast } from "sonner";
 import { useState } from "react";
 
 export const CollectedChannelsProvider = ({ children }) => {
+  // store current page number
   const [currentPageNumber, setCurrentPageNumber] = useState(() => {
     // direct init from local storage
-    const stored = localStorage.getItem("currentPageValueInCollectedChlsLocal");
+    const stored = localStorage.getItem("currentPageValueInCollectedCnlLocal");
     return stored ? Number(stored) : 1;
   });
+  // input range for current page number
   const [inputRange, setInputRange] = useState(currentPageNumber);
+
+  // store channels per page number
   const [channelsPerPage, setChannelsPerPage] = useState(() => {
     // direct init from local storage
     const stored = localStorage.getItem(
-      "channelsPerPageValueInCollectedChlsLocal",
+      "channelsPerPageValueInCollectedCnlLocal",
     );
     // get value from localStorage, else return 10
     return stored ? Number(stored) : 10;
   });
+  // input range for channels per page number
   const [channelsInput, setChannelsInput] = useState(channelsPerPage);
+
+  // total channels
   const [totalItems, setTotalItems] = useState(0);
 
-  // show as list or grid
+  // handle showing as list or grid view
   const [showMoreChannelsInGridView, setShowMoreChannelsInGridView] = useState(
     () => {
       const stored = localStorage.getItem(
-        "showMoreChannelsInGridViewInCollectedChlsLocal",
+        "showMoreChannelsInGridViewInCollectedCnlLocal",
       );
       return stored === "true";
     },
@@ -42,7 +49,7 @@ export const CollectedChannelsProvider = ({ children }) => {
   const handleCurrentPage = (page) => {
     setCurrentPageNumber(page);
     setInputRange(page);
-    localStorage.setItem("currentPageValueInCollectedChlsLocal", String(page));
+    localStorage.setItem("currentPageValueInCollectedCnlLocal", String(page));
   };
   // handle GotoPage
   const handleGotoPage = (e) => {
@@ -54,7 +61,7 @@ export const CollectedChannelsProvider = ({ children }) => {
       return;
     }
     localStorage.setItem(
-      "currentPageValueInCollectedChlsLocal",
+      "currentPageValueInCollectedCnlLocal",
       String(pageNumber),
     );
 
@@ -69,7 +76,7 @@ export const CollectedChannelsProvider = ({ children }) => {
         const nextPage = prev + 1;
         setInputRange(nextPage);
         localStorage.setItem(
-          "currentPageValueInCollectedChlsLocal",
+          "currentPageValueInCollectedCnlLocal",
           String(nextPage),
         );
         return nextPage;
@@ -85,7 +92,7 @@ export const CollectedChannelsProvider = ({ children }) => {
         const prevPage = prev - 1;
         setInputRange(prevPage);
         localStorage.setItem(
-          "currentPageValueInCollectedChlsLocal",
+          "currentPageValueInCollectedCnlLocal",
           String(prevPage),
         );
         return prevPage;
@@ -113,7 +120,7 @@ export const CollectedChannelsProvider = ({ children }) => {
     }
 
     localStorage.setItem(
-      "channelsPerPageValueInCollectedChlsLocal",
+      "channelsPerPageValueInCollectedCnlLocal",
       String(channelsNumberPerPage),
     );
     //
@@ -123,20 +130,22 @@ export const CollectedChannelsProvider = ({ children }) => {
     // reset to page 10 when changing items per page
     setCurrentPageNumber(1);
     setInputRange(1);
-    localStorage.setItem("currentPageValueInCollectedChlsLocal", "1");
+    localStorage.setItem("currentPageValueInCollectedCnlLocal", "1");
   };
 
+  // handle more channels list in the footer area
   const handleToggleMoreChannelsLayout = () => {
     setShowMoreChannelsInGridView((prev) => {
       const newValue = !prev;
       localStorage.setItem(
-        "showMoreChannelsInGridViewInCollectedChlsLocal",
+        "showMoreChannelsInGridViewInCollectedCnlLocal",
         newValue.toString(),
       );
       return newValue;
     });
   };
 
+  // props value
   const getValues = {
     currentPageNumber,
     numbersOfPages,
