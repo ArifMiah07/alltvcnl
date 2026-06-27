@@ -141,14 +141,14 @@ const CollectedChannelsZezeZeon = () => {
       try {
         const url = `/jsons/collected_channels_01.json?term=${encodeURIComponent(collectedCnlValue)}`;
         const response = await axios.get(url);
-        console.log(response);
+        // console.log(response);
         setCollectedCnlData(response?.data || []);
         const uniqueGroups = [
           "All",
           ...new Set(response?.data.map((ch) => ch.group).filter(Boolean)),
         ];
         setGroups(uniqueGroups);
-        console.log("groups:", groups);
+        // console.log("groups:", groups);
         setTotalItems(response?.data?.length);
         // setCurrentIndexSet(response?.data?.currentIndexSet || []);
         setError(null);

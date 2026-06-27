@@ -104,7 +104,7 @@ const Sidebar = ({
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______ENDs HERE______ */
 
-  console.log("collectedChannelsData,", collectedChannelsData);
+  // console.log("collectedChannelsData,", collectedChannelsData);
 
   return (
     <div className=" w-full flex flex-col lg:flex-row gap-2 ">
