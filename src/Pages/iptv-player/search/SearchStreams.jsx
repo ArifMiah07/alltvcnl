@@ -296,7 +296,7 @@ const SearchStreams = () => {
         </label>
         <div className="flex items-center ">
           <input
-            className=" dark:text-black px-3 py-1 w-full md:w-1/3 border rounded-l-lg  "
+            className=" dark:text-white text-black px-3 py-1 w-full md:w-1/3 border rounded-l-lg  "
             type="text"
             ref={inputRef}
             value={searchValueInputRange}

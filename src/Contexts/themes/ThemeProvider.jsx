@@ -5,17 +5,22 @@ import PropTypes from "prop-types";
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
+    // 1. If user previously selected a theme, use it
     if (localStorage.theme) return localStorage.theme;
 
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-
-    return prefersDark ? "dark" : "light";
+    // 2. Otherwise, default strictly to 'dark' (ignore OS preferences completely)
+    return "dark";
   });
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
+    const root = document.documentElement;
+
+    // Apply Tailwind dark class
+    root.classList.toggle("dark", theme === "dark");
+
+    // Apply DaisyUI theme attribute
+    root.setAttribute("data-theme", theme === "dark" ? "dark" : "light");
+
     localStorage.theme = theme;
   }, [theme]);
 
