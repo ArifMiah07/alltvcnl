@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "title": "Added Streaming Card Expansion Toggle",
+    "description": "Implemented individual expand and collapse controls for video cards across Grid and List layouts. Expansion states are now stored in LocalStorage to preserve user view preferences across page refreshes.",
+    "images": [
+      {
+        "id": 1,
+        "url": "",
+        "alt": "",
+        "description": ""
+      },
+      {
+        "id": 2,
+        "url": "",
+        "alt": "",
+        "description": ""
+      }
+    ],
+    "status": "complete",
+    "topic": "New Feature",
+    "date": "25-07-2026"
+  }
+]

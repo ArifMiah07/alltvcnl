@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import iptv from ".././../assets/images/iptv.png";
+import iptv from ".././../assets/Group 104.png";
 
 const About = () => {
   return (

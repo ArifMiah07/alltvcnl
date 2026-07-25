@@ -1,7 +1,7 @@
 // import { NavMenuButton } from "../buttons/CustomButtons";
-import image1 from "../../assets/black-white-tv.png";
+import image1 from "../../assets/black-white-tv.webp";
 import image2 from "../../assets/wild-life-nature.jpg";
-import logo1 from "../../assets/universal_monsters_01.jpg";
+import logo1 from "../../assets/universal_monsters_01.webp";
 import logo2 from "../../assets/BBC_Earth_.svg";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";

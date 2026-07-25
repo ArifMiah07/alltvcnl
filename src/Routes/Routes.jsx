@@ -40,6 +40,7 @@ import AuthPage from "../Pages/auth/Auth";
 // import TestingCollectedChannels from "../Pages/test/TestingCollectedChannels";
 // import StreamCollectedChannels from "../Pages/iptv-player/streams/StreamCollectedChannels";
 import CollectedChannelsZezeZeon from "../Pages/iptv-player/collected/CollectedChannelsZezeZeon";
+import WorkingUpdates from "../Pages/WorkingUpdates/WorkingUpdates";
 // import WatchUrl from "../Pages/watch/WatchUrl";
 // import FavoritesPageTest from "../Pages/test/FavoritesPageTest";
 // import IP from "../Pages/iptv-player/IP";
@@ -186,6 +187,10 @@ const router = createHashRouter([
       {
         path: "/adda",
         element: <Adda />,
+      },
+      {
+        path: "/working-updates",
+        element: <WorkingUpdates />,
       },
       // {
       //   path: `/watch/:url`,

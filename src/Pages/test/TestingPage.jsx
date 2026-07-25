@@ -71,9 +71,9 @@ const TestingPage = () => {
   useEffect(() => {
     const stored = localStorage.getItem("searchValueLocal");
     setShowSearchValue(stored);
-    if (stored) {
-      console.log("Stored value:", JSON.parse(stored));
-    }
+    // if (stored) {
+    //   console.log("Stored value:", JSON.parse(stored));
+    // }
   }, [searchValue, showSearchValue, searchValueInputRange]);
   // console.log("stored ", showSearchValue);
 

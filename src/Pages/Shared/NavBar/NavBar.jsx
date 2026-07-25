@@ -52,7 +52,7 @@ const NavBar = () => {
   // handler
   const handleProfileOpen = () => {
     setIsProfileOpen(!isProfileOpen);
-    console.log(isProfileOpen);
+    // console.log(isProfileOpen);
   };
 
   return (
@@ -233,7 +233,9 @@ const NavBar = () => {
             </p>
           </Link>
           <div className="ml-2 relative">
-            <Bell className="dark:text-white w-6 h-6" />
+            <Link to={"/working-updates"}>
+              <Bell className="dark:text-white w-6 h-6" />
+            </Link>
             {!isUserSeenNewItem ? (
               <span className="w-4 h-4 bg-green-500 absolute -top-2 -right-1 flex flex-row items-center justify-center rounded-full border ">
                 <span className=" tooltip text-[12px] text-white ">
