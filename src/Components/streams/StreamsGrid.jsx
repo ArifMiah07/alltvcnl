@@ -9,6 +9,8 @@ import {
   Fullscreen,
   MonitorPlay,
   ListPlus,
+  ChevronsUpDown,
+  ChevronsDownUp,
 } from "lucide-react";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { usePagination } from "../../hooks/usePagination";
@@ -16,13 +18,20 @@ import { usePagination } from "../../hooks/usePagination";
 const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   // react states
   const [specificChannelStream, setSpecificChannelStream] = useState({});
+
   // const [bookmarkedChannel, setBookmarkedChannel] = useState({});
 
   const { showMoreChannelsInGridView } = usePagination();
+  //
+  // const [isExpanded, setIsExpanded] = useState(false);
+
   const {
     bookmarkedChannel,
     // setBookmarkedChannel,
     handleBookmarkChannelToggle,
+    expandedChannel,
+    // setExpandedChannel,
+    handleToggleExpand,
   } = useLocalStorage();
   // const [specificChannelParams, setSpecificChannelParams] = useState({});
 
@@ -32,6 +41,11 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
     setSpecificChannelStream(channelInfo);
     // setSpecificChannelParams(channelInfo);
   };
+
+  // const handleToggleExpand = (item) => {
+  //   setIsExpanded((prev) => !prev);
+  //   console.log(item);
+  // };
 
   return (
     <div className=" col-span-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-center justify-items-center gap-4 p-4  ">
@@ -101,6 +115,16 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                   <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                     <ListPlus />
                   </span>
+                  <span
+                    onClick={() => handleToggleExpand(stream_item)}
+                    className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                    {expandedChannel[stream_item.url] ? (
+                      <ChevronsDownUp />
+                    ) : (
+                      <ChevronsUpDown />
+                    )}
+                  </span>
+
                   {(stream_item.feed || stream_item.quality) && (
                     <div className="flex flex-row gap-3 dark:text-white ">
                       {stream_item.feed && <p>{stream_item.feed}</p>}
@@ -186,11 +210,38 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                 <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                   <ListPlus />
                 </span>
+                <span
+                  onClick={() => handleToggleExpand(stream_item)}
+                  className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                  {expandedChannel[stream_item.url] ? (
+                    <ChevronsDownUp />
+                  ) : (
+                    <ChevronsUpDown />
+                  )}
+                </span>
+                {/* 
                 {(stream_item.feed || stream_item.quality) && (
                   <div className="flex flex-row gap-3 dark:text-white ">
                     {stream_item.feed && <p>{stream_item.feed}</p>}
                     {stream_item.quality && <p>{stream_item.quality}</p>}
                   </div>
+                )} */}
+
+                {expandedChannel[stream_item.url] ? (
+                  <div className="w-full h-full flex flex-col border border-green-50  ">
+                    <HlsVideoPlayer
+                      src={stream_item?.url}
+                      controls
+                      autoPlay={false}
+                    />
+                  </div>
+                ) : (
+                  (stream_item.feed || stream_item.quality) && (
+                    <div className="flex flex-row gap-3 dark:text-white ">
+                      {stream_item.feed && <p>{stream_item.feed}</p>}
+                      {stream_item.quality && <p>{stream_item.quality}</p>}
+                    </div>
+                  )
                 )}
               </div>
             </div>
