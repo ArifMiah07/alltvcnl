@@ -7,6 +7,8 @@ import {
   ListPlus,
   Fullscreen,
   MonitorPlay,
+  ChevronsUpDown,
+  ChevronsDownUp,
 } from "lucide-react";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import HlsVideoPlayer from "../hls-video-player/HlsVideoPlayer";
@@ -31,6 +33,9 @@ const MoreChannels = ({
     bookmarkedChannel,
     // setBookmarkedChannel,
     handleBookmarkChannelToggle,
+    expandedChannel,
+    // setExpandedChannel,
+    handleToggleExpand,
   } = useLocalStorage();
   const {
     showMoreChannelsInGridView,
@@ -120,6 +125,15 @@ const MoreChannels = ({
                     <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                       <ListPlus />
                     </span>
+                    <span
+                      onClick={() => handleToggleExpand(stream_item)}
+                      className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                      {expandedChannel[stream_item.url] ? (
+                        <ChevronsDownUp />
+                      ) : (
+                        <ChevronsUpDown />
+                      )}
+                    </span>
                     {(stream_item.feed || stream_item.quality) && (
                       <div className="flex flex-row gap-3 dark:text-white ">
                         {stream_item.feed && <p>{stream_item.feed}</p>}
@@ -192,12 +206,38 @@ const MoreChannels = ({
                     <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
                       <ListPlus />
                     </span>
-                    {(stream_item.feed || stream_item.quality) && (
+                    <span
+                      onClick={() => handleToggleExpand(stream_item)}
+                      className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                      {expandedChannel[stream_item.url] ? (
+                        <ChevronsDownUp />
+                      ) : (
+                        <ChevronsUpDown />
+                      )}
+                    </span>
+
+                    {expandedChannel[stream_item.url] ? (
+                      <div className="w-full h-full flex flex-col border border-green-50  ">
+                        <HlsVideoPlayer
+                          src={stream_item?.url}
+                          controls
+                          autoPlay={false}
+                        />
+                      </div>
+                    ) : (
+                      (stream_item.feed || stream_item.quality) && (
+                        <div className="flex flex-row gap-3 dark:text-white ">
+                          {stream_item.feed && <p>{stream_item.feed}</p>}
+                          {stream_item.quality && <p>{stream_item.quality}</p>}
+                        </div>
+                      )
+                    )}
+                    {/* {(stream_item.feed || stream_item.quality) && (
                       <div className="flex flex-row gap-3 dark:text-white ">
                         {stream_item.feed && <p>{stream_item.feed}</p>}
                         {stream_item.quality && <p>{stream_item.quality}</p>}
                       </div>
-                    )}
+                    )} */}
                   </div>
                   {/* channel info */}
                   <div className="flex gap-2 px-2">

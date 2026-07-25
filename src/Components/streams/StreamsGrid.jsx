@@ -18,12 +18,8 @@ import { usePagination } from "../../hooks/usePagination";
 const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   // react states
   const [specificChannelStream, setSpecificChannelStream] = useState({});
-
   // const [bookmarkedChannel, setBookmarkedChannel] = useState({});
-
   const { showMoreChannelsInGridView } = usePagination();
-  //
-  // const [isExpanded, setIsExpanded] = useState(false);
 
   const {
     bookmarkedChannel,
@@ -41,11 +37,6 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
     setSpecificChannelStream(channelInfo);
     // setSpecificChannelParams(channelInfo);
   };
-
-  // const handleToggleExpand = (item) => {
-  //   setIsExpanded((prev) => !prev);
-  //   console.log(item);
-  // };
 
   return (
     <div className=" col-span-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-center justify-items-center gap-4 p-4  ">
