@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Added Streaming Card Expansion Toggle",
-    "description": "Implemented individual expand and collapse controls for video cards across Grid and List layouts. Expansion states are now stored in LocalStorage to preserve user view preferences across page refreshes.",
+    "description": "Implemented individual expand and collapse controls for video cards across Grid and List layouts with LocalStorage state persistence. Additionally, decoupled the app's theme logic from OS native preferences to ensure consistent dark and light mode rendering across input elements and components.",
     "images": [
       {
         "id": 1,
