@@ -120,8 +120,8 @@ const NavBar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/more" className={getNavLinkClass}>
-                  Channel List
+                <NavLink to="/verified-iptv-stream" className={getNavLinkClass}>
+                  Verified Streams
                 </NavLink>
               </li>
               <li>
@@ -205,8 +205,8 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/more" className={getNavLinkClass}>
-                Channel List
+              <NavLink to="/verified-iptv-stream" className={getNavLinkClass}>
+                Verified Stream
               </NavLink>
             </li>
             <li>

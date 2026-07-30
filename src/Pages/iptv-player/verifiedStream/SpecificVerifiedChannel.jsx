@@ -1,24 +1,32 @@
 //
 
-import { Link, useLocation, useParams } from "react-router-dom";
-import StreamSpecificChannelsDetails from "../../../Components/streams/StreamSpecificChannelsDetails";
-import useFetchStreams from "../../../hooks/useFetch";
-import { usePagination } from "../../../hooks/usePagination";
 import { useState } from "react";
-import MoreChannels from "../../../Components/streams/MoreChannels";
-import Sidebar from "../../../Components/sidebar/Sidebar";
-import BackButton from "../../../Components/buttons/BackButton";
-import { useSettings } from "../../../hooks/useSettings";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { Activity, LayoutGrid, Settings } from "lucide-react";
+import useVerifiedFetchStream from "../../../hooks/useVerifiedStreamFetch";
+import { useVerifiedStream } from "../../../hooks/useVerifiedStream";
+import { useSettings } from "../../../hooks/useSettings";
+import BackButton from "../../../Components/buttons/BackButton";
+import StreamSpecificChannelsDetails from "../../../Components/verifiedStream/StreamSpecificChannelsDetails";
+import Sidebar from "../../../Components/verifiedStream/Sidebar";
+import PaginationNumbers from "../../../Components/verifiedStream/PaginationNumbers";
+import MoreChannels from "../../../Components/verifiedStream/MoreChannels";
+// import StreamSpecificChannelsDetails from "../../../Components/streams/StreamSpecificChannelsDetails";
+// import useFetchStreams from "../../../hooks/useFetch";
+// import { usePagination } from "../../../hooks/usePagination";
+// import MoreChannels from "../../../Components/streams/MoreChannels";
+// import Sidebar from "../../../Components/sidebar/Sidebar";
+// import BackButton from "../../../Components/buttons/BackButton";
+// import { useSettings } from "../../../hooks/useSettings";
 // import ActivityAnimated from "../../../Components/icons/ActivityAnimated";
-import PaginationNumbers from "../../../Components/pagination/PaginationNumbers";
+// import PaginationNumbers from "../../../Components/pagination/PaginationNumbers";
 
-const StreamSpecificChannel = () => {
+const StreamSpecificVerifiedChannel = () => {
   // hooks
   const { channelIndex, channel } = useParams();
   const location = useLocation();
   const streamData = location.state?.streamData;
-  const { streams, loading, error } = useFetchStreams();
+  const { streams, loading, error } = useVerifiedFetchStream();
 
   const {
     currentPage,
@@ -35,7 +43,7 @@ const StreamSpecificChannel = () => {
     handleChannelsPerPage,
     totalItems,
     // setTotalItems,
-  } = usePagination();
+  } = useVerifiedStream();
 
   const {
     hideSidebar,
@@ -233,4 +241,4 @@ const StreamSpecificChannel = () => {
   );
 };
 
-export default StreamSpecificChannel;
+export default StreamSpecificVerifiedChannel;

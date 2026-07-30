@@ -13,13 +13,14 @@ import {
   ChevronsDownUp,
 } from "lucide-react";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { usePagination } from "../../hooks/usePagination";
+// import { usePagination } from "../../hooks/usePagination";
+import { useVerifiedStream } from "../../hooks/useVerifiedStream";
 
 const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   // react states
   const [specificChannelStream, setSpecificChannelStream] = useState({});
   // const [bookmarkedChannel, setBookmarkedChannel] = useState({});
-  const { showMoreChannelsInGridView } = usePagination();
+  const { showMoreChannelsInGridView } = useVerifiedStream();
 
   const {
     bookmarkedChannel,

@@ -197,6 +197,12 @@ export default function Library() {
             <p className="underline text-black">Collected channels</p>
           </Link>
         </div>
+        <div className="min-w-[300px] w-fit h-fit p-4 border border-blue-500 bg-green-500   ">
+          <p className="text-lg font-medium text-white  ">All Channels list</p>
+          <Link to={`/more`}>
+            <p className="underline text-black">All Channels list</p>
+          </Link>
+        </div>
       </div>
     </div>
   );

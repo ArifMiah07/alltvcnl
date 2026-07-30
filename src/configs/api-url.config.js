@@ -1,3 +1,5 @@
+// api-url.config.js
+
 const STREAMS_API_URL = {
   dev: "http://localhost:5000/api/iptv-player/streams",
   prod: "https://iptv-player-server.vercel.app/api/iptv-player/streams",
@@ -5,6 +7,13 @@ const STREAMS_API_URL = {
 export const BASE_STREAMS_API_URL = import.meta.env.DEV
   ? STREAMS_API_URL.dev
   : STREAMS_API_URL.prod;
+const VSTREAMS_API_URL = {
+  dev: "http://localhost:5000/api/iptv-player/verified-streams",
+  prod: "https://iptv-player-server.vercel.app/api/iptv-player/verified-streams",
+};
+export const BASE_VSTREAMS_API_URL = import.meta.env.DEV
+  ? VSTREAMS_API_URL.dev
+  : VSTREAMS_API_URL.prod;
 
 const BASE_API_URL = {
   dev: "http://localhost:5000",

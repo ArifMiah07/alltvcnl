@@ -22,6 +22,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import LandingPage from "../Pages/LandingPage/LandingPage";
 import Library from "../Pages/Library/Library";
 import Streams from "../Pages/iptv-player/streams/Streams";
+// import VerifiedStreams from "../Pages/iptv-player/verifiedStream/VerifiedStreams";
 import StreamSpecificChannel from "../Pages/iptv-player/streams/SpecificChannel";
 import TestingPage from "../Pages/test/TestingPage";
 import SearchStreams from "../Pages/iptv-player/search/SearchStreams";
@@ -41,6 +42,9 @@ import AuthPage from "../Pages/auth/Auth";
 // import StreamCollectedChannels from "../Pages/iptv-player/streams/StreamCollectedChannels";
 import CollectedChannelsZezeZeon from "../Pages/iptv-player/collected/CollectedChannelsZezeZeon";
 import WorkingUpdates from "../Pages/WorkingUpdates/WorkingUpdates";
+import StreamVerifiedChannels from "../Pages/iptv-player/verifiedStream/StreamVerifiedChannels";
+import VerifiedStreams from "../Pages/iptv-player/verifiedStream/VerifiedStreams";
+import StreamSpecificVerifiedChannel from "../Pages/iptv-player/verifiedStream/SpecificVerifiedChannel";
 // import WatchUrl from "../Pages/watch/WatchUrl";
 // import FavoritesPageTest from "../Pages/test/FavoritesPageTest";
 // import IP from "../Pages/iptv-player/IP";
@@ -68,6 +72,18 @@ const router = createHashRouter([
         element: <Streams />,
       },
       {
+        path: "/specific-channel/:channelIndex/:channel",
+        element: <StreamSpecificChannel />,
+      },
+      {
+        path: "/verified-iptv-stream",
+        element: <VerifiedStreams />,
+      },
+      {
+        path: "/specific-verfied-channel/:channelIndex/:channel",
+        element: <StreamSpecificVerifiedChannel />,
+      },
+      {
         path: "/search",
         element: <SearchStreams />,
       },
@@ -78,10 +94,6 @@ const router = createHashRouter([
       {
         path: "/testing-vid-src",
         element: <TestingVidSrc />,
-      },
-      {
-        path: "/specific-channel/:channelIndex/:channel",
-        element: <StreamSpecificChannel />,
       },
       {
         path: "/iptv",
@@ -175,6 +187,10 @@ const router = createHashRouter([
       {
         path: "/favorites",
         element: <Favorites />,
+      },
+      {
+        path: "/verified-stream",
+        element: <StreamVerifiedChannels />,
       },
       // {
       //   path: "/favorites-test",
