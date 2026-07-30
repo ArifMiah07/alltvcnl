@@ -20,5 +20,27 @@
     "status": "complete",
     "topic": "New Feature",
     "date": "25-07-2026"
+  },
+  {
+    "id": 2,
+    "title": "Added Verified Channels Streaming Capabilities",
+    "description": "Added a new page where users can now watch live streams from verified channels. Usually, IPTV providers offer many types of links: normally some links only show a 404 message, some links may no longer be valid, some links are area-restricted, and some links require official tokens. To deal with this problem, after a long wait, we are finally launching a new page where almost all channels are much more likely to play instantly. We tried to solve the forever-loading issues in a more effective way, though this will normally reduce the total number of channels we can stream.",
+    "images": [
+      {
+        "id": 1,
+        "url": "",
+        "alt": "",
+        "description": ""
+      },
+      {
+        "id": 2,
+        "url": "",
+        "alt": "",
+        "description": ""
+      }
+    ],
+    "status": "partially complete",
+    "topic": "New Feature",
+    "date": "30-07-2026"
   }
 ]

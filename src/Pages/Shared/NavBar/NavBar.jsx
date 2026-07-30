@@ -95,6 +95,11 @@ const NavBar = () => {
                 </NavLink>
               </li>
               <li>
+                <NavLink to="/verified-iptv-stream" className={getNavLinkClass}>
+                  Verified Streams
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="/stream-iptv" className={getNavLinkClass}>
                   Stream Iptv
                 </NavLink>
@@ -119,11 +124,7 @@ const NavBar = () => {
                   Favorites
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/verified-iptv-stream" className={getNavLinkClass}>
-                  Verified Streams
-                </NavLink>
-              </li>
+
               <li>
                 <NavLink to="/about" className={getNavLinkClass}>
                   About
@@ -149,6 +150,11 @@ const NavBar = () => {
             <li>
               <NavLink to="/home" className={getNavLinkClass}>
                 Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/verified-iptv-stream" className={getNavLinkClass}>
+                Verified Stream
               </NavLink>
             </li>
             <li>
@@ -204,11 +210,7 @@ const NavBar = () => {
                 Favorites
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/verified-iptv-stream" className={getNavLinkClass}>
-                Verified Stream
-              </NavLink>
-            </li>
+
             <li>
               <NavLink to="/about" className={getNavLinkClass}>
                 About

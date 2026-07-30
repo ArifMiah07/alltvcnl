@@ -145,63 +145,96 @@ export default function Library() {
           region to start streaming.
         </p>
       </header>
-      <div className="flex flex-col lg:flex-row items-start justify-start flex-wrap gap-4">
-        <div className="min-w-[300px] w-fit h-fit p-4 border border-blue-500 bg-green-500   ">
-          <p className="text-lg font-medium text-white  ">
-            Stream World Wide IPTV
-          </p>
-          <Link to={`/stream-iptv`}>
-            <p className="underline text-black">watch</p>
-          </Link>
+      <div className="flex flex-col gap-8 p-6 dark:text-white text-black">
+        {/* Category 1: IPTV Streaming */}
+        <div>
+          <h3 className=" dark:text-white text-black text-xl font-bold mb-4 border-b pb-2">
+            IPTV Streaming
+          </h3>
+          <div className="flex flex-col sm:flex-row items-start justify-start flex-wrap gap-4">
+            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
+              <p className="text-lg font-medium text-white">
+                Stream World Wide IPTV
+              </p>
+              <Link to={`/stream-iptv`}>
+                <p className="underline text-black">Watch</p>
+              </Link>
+            </div>
+            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
+              <p className="text-lg font-medium text-white">
+                Stream Asian IPTV
+              </p>
+              <Link to={`/stream/asian-iptv`}>
+                <p className="underline text-black">Watch</p>
+              </Link>
+            </div>
+            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
+              <p className="text-lg font-medium text-white">
+                Stream China IPTV
+              </p>
+              <Link to={`/stream/china-iptv`}>
+                <p className="underline text-black">Watch</p>
+              </Link>
+            </div>
+            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
+              <p className="text-lg font-medium text-white">Watch IPTV</p>
+              <Link to={`/iptv`}>
+                <p className="underline text-black">Watch</p>
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="min-w-[300px] w-fit h-fit p-4 border border-blue-500 bg-green-500   ">
-          <p className="text-lg font-medium text-white  ">Stream Asian IPTV</p>
-          <Link to={`/stream/asian-iptv`}>
-            <p className="underline text-black">watch</p>
-          </Link>
+
+        {/* Category 2: Channels & Lists */}
+        <div>
+          <h3 className=" dark:text-white text-black text-xl font-bold  mb-4 border-b pb-2">
+            Channels & Directories
+          </h3>
+          <div className="flex flex-col sm:flex-row items-start justify-start flex-wrap gap-4">
+            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
+              <p className="text-lg font-medium text-white">
+                Collected Channels
+              </p>
+              <Link to={`/test_collected_channels`}>
+                <p className="underline text-black">Collected channels</p>
+              </Link>
+            </div>
+            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
+              <p className="text-lg font-medium text-white">
+                All Channels List
+              </p>
+              <Link to={`/more`}>
+                <p className="underline text-black">All channels list</p>
+              </Link>
+            </div>
+          </div>
         </div>
-        {/* stream/china-iptv */}
-        <div className="min-w-[300px] w-fit h-fit p-4 border border-blue-500 bg-green-500   ">
-          <p className="text-lg font-medium text-white  ">Stream China IPTV</p>
-          <Link to={`/stream/china-iptv`}>
-            <p className="underline text-black">watch</p>
-          </Link>
-        </div>
-        <div className="min-w-[300px] w-fit h-fit p-4 border border-blue-500 bg-green-500   ">
-          <p className="text-lg font-medium text-white  ">Watch IPTV</p>
-          <Link to={`/iptv`}>
-            <p className="underline text-black">watch</p>
-          </Link>
-        </div>
-        <div className="min-w-[300px] w-fit h-fit p-4 border border-blue-500 bg-green-500   ">
-          <p className="text-lg font-medium text-white  ">Adda</p>
-          <Link to={`/adda`}>
-            <p className="underline text-black">Start adda</p>
-          </Link>
-        </div>
-        <div className="min-w-[300px] w-fit h-fit p-4 border border-blue-500 bg-green-500   ">
-          <p className="text-lg font-medium text-white  ">VPlayer</p>
-          <Link to={`/v-player`}>
-            <p className="underline text-black">VPlayer</p>
-          </Link>
-        </div>
-        <div className="min-w-[300px] w-fit h-fit p-4 border border-blue-500 bg-green-500   ">
-          <p className="text-lg font-medium text-white  ">Theme</p>
-          <Link to={`/theme-store`}>
-            <p className="underline text-black">Theme</p>
-          </Link>
-        </div>
-        <div className="min-w-[300px] w-fit h-fit p-4 border border-blue-500 bg-green-500   ">
-          <p className="text-lg font-medium text-white  ">Collected channels</p>
-          <Link to={`/test_collected_channels`}>
-            <p className="underline text-black">Collected channels</p>
-          </Link>
-        </div>
-        <div className="min-w-[300px] w-fit h-fit p-4 border border-blue-500 bg-green-500   ">
-          <p className="text-lg font-medium text-white  ">All Channels list</p>
-          <Link to={`/more`}>
-            <p className="underline text-black">All Channels list</p>
-          </Link>
+
+        {/* Category 3: Tools & Social */}
+        <div>
+          <h3 className=" dark:text-white text-black text-xl font-bold  mb-4 border-b pb-2">
+            Tools & Community
+          </h3>
+          <div className="flex flex-col sm:flex-row items-start justify-start flex-wrap gap-4">
+            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
+              <p className="text-lg font-medium text-white">VPlayer</p>
+              <Link to={`/v-player`}>
+                <p className="underline text-black">Open VPlayer</p>
+              </Link>
+            </div>
+            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
+              <p className="text-lg font-medium text-white">Discussion</p>
+              <Link to={`/adda`}>
+                <p className="underline text-black">Start Discussion</p>
+              </Link>
+            </div>
+            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
+              <p className="text-lg font-medium text-white">Theme</p>
+              <Link to={`/theme-store`}>
+                <p className="underline text-black">Theme store</p>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
