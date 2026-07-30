@@ -104,10 +104,13 @@ const VerifiedStreams = () => {
       {/* toast */}
       {/* <Toaster richColors position="top-right" className="z-30" /> */}
       {/* <ClockPage /> */}
-      <div className="flex flex-col items-start gap-2 my-6">
+      <div className="flex flex-col items-start gap-2 my-2">
         <h1 className="text-lg font-normal dark:text-white">
-          Iptv player {">"} Streaming
+          Iptv player {">"} Streaming verified channels
         </h1>
+        <p className="text-md font-normal dark:text-white mb-2">
+          This page shows channels thats are more certainly going to be played
+        </p>
         <BackButton label=" " styles=" " />
       </div>
       {/* basic information and action */}

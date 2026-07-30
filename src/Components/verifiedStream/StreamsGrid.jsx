@@ -18,6 +18,7 @@ import { useVerifiedStream } from "../../hooks/useVerifiedStream";
 
 const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   // react states
+  // eslint-disable-next-line no-unused-vars
   const [specificChannelStream, setSpecificChannelStream] = useState({});
   // const [bookmarkedChannel, setBookmarkedChannel] = useState({});
   const { showMoreChannelsInGridView } = useVerifiedStream();
@@ -70,7 +71,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                     onClick={() => handleSpecificChannelStream({ stream_item })}
                     className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                     <Link
-                      to={`/specific-channel/${
+                      to={`/specific-verified-channel/${
                         (currentPage - 1) * channelsPerPage + (stream_index + 1)
                       }/${encodeURIComponent(
                         stream_item.channel || stream_item.title,
@@ -166,7 +167,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                   onClick={() => handleSpecificChannelStream({ stream_item })}
                   className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                   <Link
-                    to={`/specific-channel/${
+                    to={`/specific-verified-channel/${
                       (currentPage - 1) * channelsPerPage + (stream_index + 1)
                     }/${encodeURIComponent(
                       stream_item.channel || stream_item.title,

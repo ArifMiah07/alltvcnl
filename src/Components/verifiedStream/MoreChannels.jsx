@@ -88,7 +88,7 @@ const MoreChannels = ({
                       }
                       className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                       <Link
-                        to={`/specific-channel/${
+                        to={`/specific-verified-channel/${
                           (currentPage - 1) * channelsPerPage +
                           (stream_index + 1)
                         }/${encodeURIComponent(
@@ -174,7 +174,7 @@ const MoreChannels = ({
                       }
                       className=" flex flex-row items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
                       <Link
-                        to={`/specific-channel/${
+                        to={`/specific-verified-channel/${
                           (currentPage - 1) * channelsPerPage +
                           (stream_index + 1)
                         }/${encodeURIComponent(

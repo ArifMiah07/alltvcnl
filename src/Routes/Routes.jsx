@@ -80,7 +80,7 @@ const router = createHashRouter([
         element: <VerifiedStreams />,
       },
       {
-        path: "/specific-verfied-channel/:channelIndex/:channel",
+        path: "/specific-verified-channel/:channelIndex/:channel",
         element: <StreamSpecificVerifiedChannel />,
       },
       {

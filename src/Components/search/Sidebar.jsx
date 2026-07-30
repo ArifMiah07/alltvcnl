@@ -118,7 +118,7 @@ const Sidebar = ({
             {numbersOfPages > 10 && (
               <div className="">
                 <button
-                  className={` border border-[#ff00ff] text-md rounded-sm bg-green-900 hover:bg-[#a100ff] dark:text-white hover:text-white text-white py-2 px-8 `}>
+                  className={` border border-[#ff00ff] text-md rounded-sm bg-green-900 hover:bg-[#a100ff] dark:text-white hover:text-white text-white py-2 px-5 `}>
                   {numbersOfPages}
                 </button>
               </div>
