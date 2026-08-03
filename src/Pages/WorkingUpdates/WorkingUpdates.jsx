@@ -102,11 +102,11 @@ const WorkingUpdates = () => {
             </li>
 
             {/* Section 3 */}
-            <li className="bg-slate-800/50 p-4 rounded-lg border border-slate-700/50">
-              <p className="font-semibold text-lg text-emerald-400 mb-2">
+            <li className=" p-4 rounded-lg border ">
+              <p className="font-semibold text-lg mb-2">
                 3. Refactor the entire project
               </p>
-              <ul className="list-disc list-inside space-y-1 text-slate-300 text-sm pl-4">
+              <ul className="list-disc list-inside space-y-1 text-sm pl-4">
                 <li>Eliminate repetitive code.</li>
                 <li>Implement reusable utility functions.</li>
                 <li>Centralize control points for shared logic.</li>
@@ -115,11 +115,11 @@ const WorkingUpdates = () => {
             </li>
 
             {/* Section 4 */}
-            <li className="bg-slate-800/50 p-4 rounded-lg border border-slate-700/50">
-              <p className="font-semibold text-lg text-emerald-400 mb-2">
+            <li className=" p-4 rounded-lg border ">
+              <p className="font-semibold text-lg mb-2">
                 4. Optimize everything possible
               </p>
-              <ul className="list-disc list-inside space-y-1 text-slate-300 text-sm pl-4">
+              <ul className="list-disc list-inside space-y-1 text-sm pl-4">
                 <li>
                   Introduce animations thoughtfully while optimizing them for
                   low-end devices.
@@ -143,11 +143,11 @@ const WorkingUpdates = () => {
             </li>
 
             {/* Section 5 */}
-            <li className="bg-slate-800/50 p-4 rounded-lg border border-slate-700/50">
-              <p className="font-semibold text-lg text-emerald-400 mb-2">
+            <li className=" p-4 rounded-lg border ">
+              <p className="font-semibold text-lg mb-2">
                 5. Security audit, updates, and best practices
               </p>
-              <ul className="list-disc list-inside space-y-1 text-slate-300 text-sm pl-4">
+              <ul className="list-disc list-inside space-y-1 text-sm pl-4">
                 <li>Use secure, up-to-date package versions.</li>
                 <li>
                   Sanitize, filter, and validate all user-supplied input before
