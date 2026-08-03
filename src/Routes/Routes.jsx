@@ -45,6 +45,7 @@ import WorkingUpdates from "../Pages/WorkingUpdates/WorkingUpdates";
 import StreamVerifiedChannels from "../Pages/iptv-player/verifiedStream/StreamVerifiedChannels";
 import VerifiedStreams from "../Pages/iptv-player/verifiedStream/VerifiedStreams";
 import StreamSpecificVerifiedChannel from "../Pages/iptv-player/verifiedStream/SpecificVerifiedChannel";
+import PlaylistManager from "../Components/playlist/PlaylistManager";
 // import WatchUrl from "../Pages/watch/WatchUrl";
 // import FavoritesPageTest from "../Pages/test/FavoritesPageTest";
 // import IP from "../Pages/iptv-player/IP";
@@ -82,6 +83,10 @@ const router = createHashRouter([
       {
         path: "/specific-verified-channel/:channelIndex/:channel",
         element: <StreamSpecificVerifiedChannel />,
+      },
+      {
+        path: "/playlists",
+        element: <PlaylistManager />,
       },
       {
         path: "/search",
