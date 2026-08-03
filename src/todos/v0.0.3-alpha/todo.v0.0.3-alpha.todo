@@ -1,0 +1,41 @@
+# Alpha version - v0.0.3-alpha
+1. complete the minimum features and do a final version
+    [#] - minimum features
+        * create a playlist
+        * group list and filtering
+        * list all fix all visible bugs
+
+2. make it pixel perfect for all devices
+    [#] - pixel perfect design
+        * design and apply for sm device
+        * design and apply in md device
+        * design it for lg, lx and 2xl devices
+        * design it for android tv 
+
+3. refactor whole project
+    [#] - refactor whole whole project
+        * no more reapetative code
+        * use more utility functions
+        * control from one signle point for similar code
+        * remove unused pages and code files 
+        * use more pages like privacy policy, term and 
+        *
+
+4. optimize everything possible
+    [#] - optimize everything possible
+        * do more animation but optimize it for low end devices
+        * remove layered abs bg colors..grad
+        * use loading but not dismiss ux
+        * host every files like json, image in cloud 
+        * use a database and optimize it for possible usecase
+        * look for how can we make it more optimize
+        * do unit minimum test
+
+5. security audit, update and follow best practices
+    [#] - security audit, update, best practice
+        * use all safe version of packages
+        * handle user given input more secure way and filter, validate
+            it before writing user input or applying user input anywhere
+        * follow latest security best preactice
+        * do security for mbl app, windows, linux app, web version
+        * revise and wrap up the project for alpha version
