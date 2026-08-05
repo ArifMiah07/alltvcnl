@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import HlsVideoPlayer from "../hls-video-player/HlsVideoPlayer";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { usePagination } from "../../hooks/usePagination";
 
 import {
   Bookmark,
@@ -11,15 +13,23 @@ import {
   ListPlus,
   ChevronsUpDown,
   ChevronsDownUp,
+  Plus,
 } from "lucide-react";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { usePagination } from "../../hooks/usePagination";
 
 const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   // react states
+  // eslint-disable-next-line no-unused-vars
   const [specificChannelStream, setSpecificChannelStream] = useState({});
   // const [bookmarkedChannel, setBookmarkedChannel] = useState({});
-  const { showMoreChannelsInGridView } = usePagination();
+  const [newPlaylistName, setNewPlaylistName] = useState("");
+
+  const {
+    showMoreChannelsInGridView,
+    addToPlaylist,
+    // eslint-disable-next-line no-unused-vars
+    setAddToPlaylist,
+    handlePlaylistCreation,
+  } = usePagination();
 
   const {
     bookmarkedChannel,
@@ -36,6 +46,16 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   const handleSpecificChannelStream = (channelInfo) => {
     setSpecificChannelStream(channelInfo);
     // setSpecificChannelParams(channelInfo);
+  };
+
+  const handleCreatePlaylistSubmit = (e) => {
+    e.preventDefault();
+    if (!newPlaylistName.trim()) return;
+
+    // Call your playlist creation function here
+    // e.g., createNewPlaylist(newPlaylistName, stream_item);
+
+    setNewPlaylistName(""); // Reset input field
   };
 
   return (
@@ -103,9 +123,11 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                       <Bookmark />
                     )}
                   </span>
-                  <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                  <div
+                    onClick={() => handlePlaylistCreation(stream_item)}
+                    className="relative flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                     <ListPlus />
-                  </span>
+                  </div>
                   <span
                     onClick={() => handleToggleExpand(stream_item)}
                     className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
@@ -124,6 +146,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                   )}
                 </div>
               </div>
+
               <div className="w-full h-full flex flex-col border border-green-50  ">
                 <HlsVideoPlayer
                   src={stream_item?.url}
@@ -159,7 +182,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                 </p>
               </div>
               {/* basic actions */}
-              <div className="w-full flex flex-row gap-2 flex-wrap items-center p-2  ">
+              <div className="relative w-full flex flex-row gap-2 flex-wrap items-center p-2  ">
                 {/* stream a specific channel */}
                 <span
                   onClick={() => handleSpecificChannelStream({ stream_item })}
@@ -199,7 +222,9 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                     <Bookmark />
                   )}
                 </span>
-                <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                <span
+                  onClick={() => handlePlaylistCreation(stream_item)}
+                  className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                   <ListPlus />
                 </span>
                 <span
@@ -211,7 +236,56 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                     <ChevronsUpDown />
                   )}
                 </span>
-                {/* 
+                {addToPlaylist[stream_item.url] && (
+                  <div className="absolute top-full right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl z-[9999] p-3 text-gray-800">
+                    <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 px-1">
+                      Save to...
+                    </h4>
+
+                    {/* Playlist Checkbox List */}
+                    <div className="space-y-1 max-h-40 overflow-y-auto pr-1">
+                      <label className="flex items-center gap-2 text-sm p-1.5 hover:bg-gray-100 rounded cursor-pointer transition-colors">
+                        <input
+                          type="checkbox"
+                          className="rounded text-purple-600 focus:ring-purple-500"
+                        />
+                        <span className="truncate select-none">Favorites</span>
+                      </label>
+                      <label className="flex items-center gap-2 text-sm p-1.5 hover:bg-gray-100 rounded cursor-pointer transition-colors">
+                        <input
+                          type="checkbox"
+                          className="rounded text-purple-600 focus:ring-purple-500"
+                        />
+                        <span className="truncate select-none">
+                          Watch Later
+                        </span>
+                      </label>
+                    </div>
+
+                    <hr className="my-2.5 border-gray-100" />
+
+                    {/* Embedded Quick-Create Input Form */}
+                    <form
+                      onSubmit={handleCreatePlaylistSubmit}
+                      className="flex items-center gap-1.5">
+                      <input
+                        type="text"
+                        placeholder="New playlist name..."
+                        value={newPlaylistName}
+                        onChange={(e) => setNewPlaylistName(e.target.value)}
+                        className="w-full text-xs px-2.5 py-1.5 border border-gray-200 rounded bg-gray-50 focus:bg-white focus:outline-none focus:border-purple-500 transition-colors"
+                      />
+                      <button
+                        type="submit"
+                        disabled={!newPlaylistName.trim()}
+                        title="Create Playlist"
+                        className="bg-purple-600 hover:bg-purple-700 disabled:opacity-40 text-white p-1.5 rounded transition-opacity flex items-center justify-center shrink-0">
+                        <Plus className="w-4 h-4" />
+                      </button>
+                    </form>
+                  </div>
+                )}
+                {/*
                 {(stream_item.feed || stream_item.quality) && (
                   <div className="flex flex-row gap-3 dark:text-white ">
                     {stream_item.feed && <p>{stream_item.feed}</p>}

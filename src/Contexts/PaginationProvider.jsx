@@ -27,6 +27,9 @@ export const PaginationProvider = ({ children }) => {
     },
   );
 
+  // playlist creation::
+  const [addToPlaylist, setAddToPlaylist] = useState({});
+
   // variables
   //   let channelsPerPage;
   const numbersOfPages = Math.ceil(totalItems / channelsPerPage);
@@ -124,6 +127,39 @@ export const PaginationProvider = ({ children }) => {
     });
   };
 
+  // handle playlist creation
+  const handlePlaylistCreation = (streamItem) => {
+    setAddToPlaylist((prev) => {
+        const newState = { ...prev };
+        if (newState[streamItem.url]) {
+          // If already bookmarked, REMOVE it
+          delete newState[streamItem.url];
+        } else {
+          // If not bookmarked, ADD full object
+          newState[streamItem.url] = streamItem; // ← Store whole object
+        }
+        return newState;
+      });
+    console.log(addToPlaylist, streamItem);
+
+
+  };
+
+  // const handleToggleExpand = (streamItem) => {
+  //   // ← Receive full object
+  //   setExpandedChannel((prev) => {
+  //     const newState = { ...prev };
+  //     if (newState[streamItem.url]) {
+  //       // If already bookmarked, REMOVE it
+  //       delete newState[streamItem.url];
+  //     } else {
+  //       // If not bookmarked, ADD full object
+  //       newState[streamItem.url] = streamItem; // ← Store whole object
+  //     }
+  //     return newState;
+  //   });
+  // };
+
   const getValues = {
     currentPage,
     numbersOfPages,
@@ -144,6 +180,9 @@ export const PaginationProvider = ({ children }) => {
     showMoreChannelsInGridView,
     setShowMoreChannelsInGridView,
     handleToggleMoreChannelsLayout,
+    addToPlaylist,
+    setAddToPlaylist,
+    handlePlaylistCreation,
   };
   return (
     <PaginationContext.Provider value={getValues}>
