@@ -20,9 +20,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider>
       <SettingProvider>
-        <CollectedChannelsProvider>
-          <VerifiedStreamProvider>
-            <PaginationProvider>
+        <PaginationProvider>
+          <CollectedChannelsProvider>
+            <VerifiedStreamProvider>
               <LocalStorageProvider>
                 <SearchPageProvider>
                   <FavoritesProvider>
@@ -32,9 +32,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                   </FavoritesProvider>
                 </SearchPageProvider>
               </LocalStorageProvider>
-            </PaginationProvider>
-          </VerifiedStreamProvider>
-        </CollectedChannelsProvider>
+            </VerifiedStreamProvider>
+          </CollectedChannelsProvider>
+        </PaginationProvider>
       </SettingProvider>
     </ThemeProvider>
   </React.StrictMode>,

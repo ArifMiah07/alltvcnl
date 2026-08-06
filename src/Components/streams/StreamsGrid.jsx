@@ -21,7 +21,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
   // eslint-disable-next-line no-unused-vars
   const [specificChannelStream, setSpecificChannelStream] = useState({});
   // const [bookmarkedChannel, setBookmarkedChannel] = useState({});
-  const [newPlaylistName, setNewPlaylistName] = useState("");
+  // const [newPlaylistName, setNewPlaylistName] = useState("");
 
   const {
     showMoreChannelsInGridView,
@@ -29,6 +29,16 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
     // eslint-disable-next-line no-unused-vars
     setAddToPlaylist,
     handlePlaylistCreation,
+    setPlaylistNameInput,
+    playlistNameInput,
+    // playlistNameInput,
+    // setPlaylistNameInput,
+
+    handleAddPlatlists,
+    playlists,
+    setPlaylists,
+
+    loading,
   } = usePagination();
 
   const {
@@ -48,15 +58,15 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
     // setSpecificChannelParams(channelInfo);
   };
 
-  const handleCreatePlaylistSubmit = (e) => {
-    e.preventDefault();
-    if (!newPlaylistName.trim()) return;
+  // const handleCreatePlaylistSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (!newPlaylistName.trim()) return;
 
-    // Call your playlist creation function here
-    // e.g., createNewPlaylist(newPlaylistName, stream_item);
+  //   // Call your playlist creation function here
+  //   // e.g., createNewPlaylist(newPlaylistName, stream_item);
 
-    setNewPlaylistName(""); // Reset input field
-  };
+  //   setNewPlaylistName(""); // Reset input field
+  // };
 
   return (
     <div className=" col-span-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-center justify-items-center gap-4 p-4  ">
@@ -260,24 +270,32 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                           Watch Later
                         </span>
                       </label>
+                      <span className="text-xs text-slate-400">
+                        Total Playlists: {Object.keys(playlists).length}
+                      </span>
+                      <div>
+                        {Object.keys(playlists).map((item, index) => (
+                          <div key={index}></div>
+                        ))}
+                      </div>
                     </div>
 
                     <hr className="my-2.5 border-gray-100" />
 
                     {/* Embedded Quick-Create Input Form */}
                     <form
-                      onSubmit={handleCreatePlaylistSubmit}
+                      onSubmit={handleAddPlatlists}
                       className="flex items-center gap-1.5">
                       <input
                         type="text"
                         placeholder="New playlist name..."
-                        value={newPlaylistName}
-                        onChange={(e) => setNewPlaylistName(e.target.value)}
+                        value={playlistNameInput}
+                        onChange={(e) => setPlaylistNameInput(e.target.value)}
                         className="w-full text-xs px-2.5 py-1.5 border border-gray-200 rounded bg-gray-50 focus:bg-white focus:outline-none focus:border-purple-500 transition-colors"
                       />
                       <button
                         type="submit"
-                        disabled={!newPlaylistName.trim()}
+                        disabled={!playlistNameInput.trim()}
                         title="Create Playlist"
                         className="bg-purple-600 hover:bg-purple-700 disabled:opacity-40 text-white p-1.5 rounded transition-opacity flex items-center justify-center shrink-0">
                         <Plus className="w-4 h-4" />
