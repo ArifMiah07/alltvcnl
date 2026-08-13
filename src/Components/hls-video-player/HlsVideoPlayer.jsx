@@ -1,14 +1,26 @@
+/***
+ * UPDATED CODE FROM GOOGLE GEMINI AI
+ * STARTS HERE
+ */
+
 import { useEffect, useRef, useState } from "react";
 import Hls from "hls.js";
 import PropTypes from "prop-types";
 
-const HlsVideoPlayer = ({ src, controls = true, autoPlay = false, status }) => {
+const HlsVideoPlayer = ({
+  src,
+  controls = true,
+  autoPlay = false,
+  status,
+  selectedQuality, // Added quality prop
+  onManifestParsed, // Added manifest callback prop
+}) => {
   const videoRef = useRef(null);
   const hlsRef = useRef(null);
 
   // 1. If status === true from API prop, initialize immediately as "purple"
   const [streamStatus, setStreamStatus] = useState(
-    status === true ? "purple" : "green"
+    status === true ? "purple" : "green",
   );
 
   useEffect(() => {
@@ -37,10 +49,13 @@ const HlsVideoPlayer = ({ src, controls = true, autoPlay = false, status }) => {
       hls.loadSource(src);
       hls.attachMedia(videoRef.current);
 
-      // If manifest parses successfully, turn purple
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+      // If manifest parses successfully, turn purple & emit available quality levels
+      hls.on(Hls.Events.MANIFEST_PARSED, (event, data) => {
         clearTimeout(watchdogTimer);
         setStreamStatus("purple");
+        if (onManifestParsed && data?.levels) {
+          onManifestParsed(data.levels);
+        }
       });
 
       hls.on(Hls.Events.ERROR, (event, data) => {
@@ -68,6 +83,13 @@ const HlsVideoPlayer = ({ src, controls = true, autoPlay = false, status }) => {
     };
   }, [src, status]);
 
+  // Effect to switch HLS level dynamically when selectedQuality changes
+  useEffect(() => {
+    if (hlsRef.current) {
+      hlsRef.current.currentLevel = selectedQuality ?? -1;
+    }
+  }, [selectedQuality]);
+
   // Original border-[1px] styling strictly preserved
   let borderClasses = "border-green-500 shadow-[0_0_10px_rgba(34,197,94,0.4)]";
 
@@ -80,8 +102,7 @@ const HlsVideoPlayer = ({ src, controls = true, autoPlay = false, status }) => {
   return (
     <div
       className={`relative overflow-hidden bg-black transition-all duration-500 border-[1px] ${borderClasses}`}
-      style={{ aspectRatio: "16 / 9", width: "100%", minHeight: "150px" }}
-    >
+      style={{ aspectRatio: "16 / 9", width: "100%", minHeight: "150px" }}>
       {/* {streamStatus === "purple" && (
         // <div className="absolute top-2 left-2 z-20 bg-purple-600/90 text-white text-[10px] font-black px-2 py-0.5 rounded shadow uppercase tracking-wider">
         //   Verified
@@ -97,8 +118,7 @@ const HlsVideoPlayer = ({ src, controls = true, autoPlay = false, status }) => {
             href={src}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white text-blue-700 text-[10px] font-black px-3 py-1 rounded shadow hover:bg-gray-100 transition-colors uppercase"
-          >
+            className="bg-white text-blue-700 text-[10px] font-black px-3 py-1 rounded shadow hover:bg-gray-100 transition-colors uppercase">
             Open Stream Link
           </a>
         </div>
@@ -122,6 +142,12 @@ HlsVideoPlayer.propTypes = {
   controls: PropTypes.bool,
   autoPlay: PropTypes.bool,
   status: PropTypes.bool,
+  selectedQuality: PropTypes.number,
+  onManifestParsed: PropTypes.func,
 };
 
 export default HlsVideoPlayer;
+/***
+ * UPDATED CODE FROM GOOGLE GEMINI AI
+ * ENDS HERE
+ */
