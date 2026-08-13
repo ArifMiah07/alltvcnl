@@ -23,6 +23,24 @@ import PaginationNumbers from "../../../Components/verifiedStream/PaginationNumb
  * user_agent : null
  */
 
+/**
+ *
+ * @returns
+ * channel:  null
+ * channelName: "BuzzFeed Unsolved"
+ * feed: null
+ * group: "Uncategorized"
+ * index: 120
+ * label: null
+ * logo: null
+ * quality: "1080p"
+ * referrer: null
+ * status: true
+ * title: "BuzzFeed Unsolved"
+ * url: "https://d1727vwt6h9ghr.cloudfront.net/BuzzFeed_Unsolved.m3u8"
+ * user_agent: null
+ */
+
 const VerifiedStreams = () => {
   // react states
   // use hooks
@@ -46,7 +64,7 @@ const VerifiedStreams = () => {
     // handleToggleMoreChannelsLayout,
     // setTotalItems,
   } = useVerifiedStream();
-
+  console.log(": ", streams);
   //
   if (loading) return <StreamsPageSkeletonLoading />;
   if (error) return <p className="dark:text-white">Error: {error}</p>;
