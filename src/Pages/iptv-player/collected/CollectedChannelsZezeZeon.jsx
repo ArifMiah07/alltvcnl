@@ -61,7 +61,7 @@ const CollectedChannelsZezeZeon = () => {
   const [collectedCnlValue, setCollectedCnlValue] = useState(() => {
     // Initialize from localStorage directly to avoid extra useEffects
     const stored = localStorage.getItem("CollectedCnlValueLocal");
-    return stored ? JSON.parse(stored) : "";
+    return stored ? JSON.parse(stored) : "a";
   });
   const [collectedCnlValueInputRange, setCollectedCnlValueInputRange] =
     useState(collectedCnlValue);
@@ -372,12 +372,13 @@ const CollectedChannelsZezeZeon = () => {
                     </a>
                     <span>
                       (
-                      {
+                      {selectedChannel?.group}
+                      {/*{
                         currentIndexSet[
                           (currentPageNumber - 1) * channelsPerPage +
                             selectedChannel.index
                         ]
-                      }
+                      }*/}
                       )
                     </span>
                   </p>
@@ -495,12 +496,13 @@ const CollectedChannelsZezeZeon = () => {
                             </a>
                             <span>
                               (
-                              {
+                              {item?.group}
+                              {/*{
                                 currentIndexSet[
                                   (currentPageNumber - 1) * channelsPerPage +
-                                    index
+                                    selectedChannel.index
                                 ]
-                              }
+                              }*/}
                               )
                             </span>
                           </p>
@@ -575,6 +577,14 @@ const CollectedChannelsZezeZeon = () => {
                     ?.slice(startIndex, endIndex)
                     .map((item, index) => (
                       <div key={index} className=" border p-0">
+                        <div className="flex flex-row items-center justify-center shrink-0 p-1">
+                          <img
+                            src={item?.logo || "/favicon.png"}
+                            /* Dual contrast shadow gives ANY logo (black, white, colored) an edge boundary */
+                            className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain rounded p-1 bg-slate-500/20 backdrop-blur-sm border border-black/10 dark:border-white/10 [filter:drop-shadow(0px_0px_1px_rgba(0,0,0,0.8))_drop-shadow(0px_0px_1px_rgba(255,255,255,0.8))] shrink-0"
+                            alt={`${item?.name} logo`}
+                          />
+                        </div>
                         <div className="flex flex-col  p-1 gap-1">
                           <p className="flex flex-row gap-2 dark:text-white">
                             {" "}
@@ -589,14 +599,15 @@ const CollectedChannelsZezeZeon = () => {
                             </a>
                             <span>
                               (
-                              {
+                              {item?.group}
+                              {/*{
                                 currentIndexSet[
                                   (currentPageNumber - 1) * channelsPerPage +
-                                    index
+                                    selectedChannel.index
                                 ]
-                              }
+                              }*/}
                               )
-                            </span>
+                            </span> 
                           </p>
                           {/* icons */}
                           <div className="flex gap-3 ">
@@ -769,14 +780,15 @@ const CollectedChannelsZezeZeon = () => {
                               className="break-normal md:break-all">
                               {item.channel || item.name}
                             </a>
-                            <span>
+                           <span>
                               (
-                              {
+                              {item?.group}
+                              {/*{
                                 currentIndexSet[
                                   (currentPageNumber - 1) * channelsPerPage +
-                                    index
+                                    selectedChannel.index
                                 ]
-                              }
+                              }*/}
                               )
                             </span>
                           </p>
@@ -856,6 +868,14 @@ const CollectedChannelsZezeZeon = () => {
                     ?.slice(startIndex, endIndex)
                     .map((item, index) => (
                       <div key={index} className=" border p-0">
+                        <div className="flex flex-row items-center justify-center shrink-0 p-1">
+                          <img
+                            src={item?.logo || "/favicon.png"}
+                            /* Dual contrast shadow gives ANY logo (black, white, colored) an edge boundary */
+                            className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain rounded p-1 bg-slate-500/20 backdrop-blur-sm border border-black/10 dark:border-white/10 [filter:drop-shadow(0px_0px_1px_rgba(0,0,0,0.8))_drop-shadow(0px_0px_1px_rgba(255,255,255,0.8))] shrink-0"
+                            alt={`${item?.name} logo`}
+                          />
+                        </div>
                         <div className="flex flex-col  p-1 gap-1">
                           <p className="flex flex-row gap-2 dark:text-white">
                             {" "}
@@ -868,16 +888,17 @@ const CollectedChannelsZezeZeon = () => {
                               className="break-normal md:break-all">
                               {item.channel || item.name}
                             </a>
-                            <span>
+                           <span>
                               (
-                              {
+                              {item?.group}
+                              {/*{
                                 currentIndexSet[
                                   (currentPageNumber - 1) * channelsPerPage +
-                                    index
+                                    selectedChannel.index
                                 ]
-                              }
+                              }*/}
                               )
-                            </span>
+                            </span> 
                           </p>
                           {/* icons */}
                           <div className="flex gap-3 ">

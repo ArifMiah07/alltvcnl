@@ -1,0 +1,71 @@
+[
+  {
+    "name": "ELEVEN SPORTS",
+    "logo": "",
+    "url": "https://r.e.blueonline.tv/l/tvsmart/live/eds/Eleven_Sport_1/DHD/Manifest.mpd",
+    "type": "dash",
+    "group": "ELEVEN",
+    "kid": "69021095220f3c0eae9bc24215fd692b",
+    "key": "eb58cfe0458ed0b48f7351fa3393ad59",
+    "useProxy": true
+  },
+  {
+    "name": "Tap Sports",
+    "logo": "",
+    "url": "https://qp-pldt-live-grp-11-prod.akamaized.net/out/u/dr_tapsports.mpd",
+    "type": "dash",
+    "group": "Tap",
+    "kid": "eabd2d95c89e42f2b0b0b40ce4179ea0",
+    "key": "0e7e35a07e2c12822316c0dc4873903f",
+    "useProxy": true
+  },
+  {
+    "name": "Fox Sports UHD [US VPN]",
+    "logo": "https://images.seeklogo.com/logo-png/28/1/fox-sports-logo-png_seeklogo-284763.png",
+    "url": "https://foxdtc-video.akamaized.net/ZXhwPTE3ODQ1NjQxODc7YWNsPS8qO3dzaWQ9ZThkZWM0NWJhZDNjN2Y3ODNlYWMxNjYxNDk2NjQyOTVfZm94ZHRjX2FuZHJvaWR0dl9lbi1VUztobWFjPW41QjV5bE90dDdFVkhTei9aVEU4QmlxcjFxWmNmTEJWN1VXK3BLSkhsMWs9/live/uhd-1-b-uw2/index.m3u8",
+    "group": "FOX",
+    "useProxy": false
+  },
+  {
+    "name": "CT SPORTS FHD",
+    "logo": "",
+    "url": "https://dash2.antik.sk/stream/nvidia_ct_sport/playlist_cenc.mpd",
+    "type": "dash",
+    "group": "CT",
+    "kid": "11223344556677889900112233445566",
+    "key": "4b80724d0ef86bcb2c21f7999d67739d",
+    "useProxy": true
+  },
+  {
+    "name": "EUROSPORT2 FHD",
+    "logo": "",
+    "url": "https://dash2.antik.sk/stream/nvidia_eurosport2/playlist_cenc.mpd",
+    "type": "dash",
+    "group": "EUROSPORT",
+    "kid": "11223344556677889900112233445566",
+    "key": "4b80724d0ef86bcb2c21f7999d67739d",
+    "useProxy": true
+  },
+  {
+    "logo": "https://imglink.cc/cdn/kIiut6WBq0.jpg",
+    "group": "Bein Sports",
+    "name": "Bein Sports 4",
+    "url": "https://bein-esp-xumo.amagi.tv/playlistR1080p.m3u8",
+    "useProxy": false
+  },
+  {
+    "logo": "https://imglink.cc/cdn/kIiut6WBq0.jpg",
+    "group": "BeIN Sports Xtra",
+    "name": "beIN Sports Xtra",
+    "url": "https://bein-esp-xumo.amagi.tv/playlistR720P.m3u8",
+    "useProxy": false
+  },
+  {
+    "name": "SP0TV2 HD",
+    "logo": "",
+    "url": "https://qp-pldt-live-grp-13-prod.akamaized.net/out/u/dr_spotv2hd.mpd",
+    "type": "dash",
+    "group": "SP0TV",
+    "useProxy": true
+  }
+]
