@@ -47,7 +47,7 @@ export const PaginationProvider = ({ children }) => {
       const data = await PlaylistStorage.getPlaylists();
       setPlaylists(data.playlists);
       setLoading(false);
-      console.log(playlists);
+      //console.log(playlists);
     }
 
     loadData();
@@ -75,7 +75,7 @@ export const PaginationProvider = ({ children }) => {
     });
 
     setChannel(streamItem);
-    console.log(addToPlaylist, streamItem);
+    //console.log(addToPlaylist, streamItem);
   };
 
   const handleAddPlatlists = async (e) => {
@@ -95,10 +95,10 @@ export const PaginationProvider = ({ children }) => {
     const updated = await PlaylistStorage.getPlaylists();
     setPlaylists(updated.playlists);
 
-    console.log(
-      "playlistsplaylistsplaylistsplaylists: ",
-      await PlaylistStorage.getPlaylists(),
-    );
+    // console.log(
+    //   "playlistsplaylistsplaylistsplaylists: ",
+    //   await PlaylistStorage.getPlaylists(),
+    // );
   };
 
   // handle current page
