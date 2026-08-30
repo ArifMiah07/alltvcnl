@@ -217,7 +217,7 @@ const CollectedChannelsZezeZeon = () => {
   if (loading) return <StreamsPageSkeletonLoading />;
   if (error) return <p> Error : {error.message} </p>;
 
-  // console.log(currentIndexSet);
+  console.log(groups);
 
   return (
     // this is search page component
@@ -607,7 +607,7 @@ const CollectedChannelsZezeZeon = () => {
                                 ]
                               }*/}
                               )
-                            </span> 
+                            </span>
                           </p>
                           {/* icons */}
                           <div className="flex gap-3 ">
@@ -898,7 +898,7 @@ const CollectedChannelsZezeZeon = () => {
                                 ]
                               }*/}
                               )
-                            </span> 
+                            </span>
                           </p>
                           {/* icons */}
                           <div className="flex gap-3 ">
@@ -967,9 +967,9 @@ const CollectedChannelsZezeZeon = () => {
 export default CollectedChannelsZezeZeon;
 
 /**
- * 
- * 
- * 
+ *
+ *
+ *
  * [
   {
     "name": "Ananda TV",

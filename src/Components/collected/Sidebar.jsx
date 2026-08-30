@@ -39,6 +39,17 @@ const Sidebar = ({
   const [expandBasicControls, setExpandBasicControls] = useState(false);
   const [expandBasicInfo, setExpandBasicInfo] = useState(false);
   const [expandBasicFilters, setExpandBasicFilters] = useState(false);
+  const [activeTab, setActiveTab] = useState("sidebar");
+
+  //
+  // [
+  // {sidebar: true},
+  // {cetegory: false},
+  // {channels: false}
+  // ]
+  // userClick tab ==> clicked tab became true ==> other items become false ==> in UI: show true one as active and show it content
+
+
   const {
     // currentPage,
     // numbersOfPages,
@@ -107,111 +118,164 @@ const Sidebar = ({
   // console.log("collectedChannelsData,", collectedChannelsData);
 
   return (
-    <div className=" w-full flex flex-col lg:flex-row gap-2 ">
-      {/* pagination */}
-      <div
-        className={` border-r border-green-500 p-1 flex flex-col items-center justify-center ${hidePaginationBtns ? "hidden" : "visible"}`}>
-        <div className="w-full h-full ">
-          <div className="flex flex-row lg:flex-col flex-wrap items-center justify-center gap-2 ">
-            {pagesArray?.map((page, index) => (
-              <button
-                onClick={() => handleCurrentPage(page)}
-                key={index}
-                className={` border border-[#ff00ff] dark:text-white text-md  rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5  ${
-                  page === currentPageNumber ? "bg-green-500 text-white" : ""
-                }  `}>
-                {page}
-              </button>
-            ))}
-            {/* <span>{"..."}</span> */}
-            {numbersOfPages > 10 && (
-              <div className="">
+    <div className=" w-full border ">
+      {/*<p>Hello world </p>*/}
+      <div className="w-full my-4 flex flex-row flex-wrap gap-2 items-center justify-evenly dark:text-white text-black  ">
+        <button
+          onClick={() => setActiveTab("sidebar")}
+          className={`${activeTab === 'sidebar' ? ' bg-green-500' : ''} border border-purple-600 px-3 py-1 text-lg `}>Sibebar</button>
+        <button
+          onClick={() => setActiveTab("category")}
+          className={`${activeTab === 'category' ? ' bg-green-500' : ''} border border-purple-600 px-3 py-1 text-lg `}>category</button>
+        <button
+          onClick={() => setActiveTab("groups")}
+          className={`${activeTab === 'groups' ? ' bg-green-500' : ''} border border-purple-600 px-3 py-1 text-lg `}>Groups</button>
+        <button
+          onClick={() => setActiveTab("channels")}
+          className={`${activeTab === 'channels' ? ' bg-green-500' : ''} border border-purple-600 px-3 py-1 text-lg `}>channels</button>
+      </div>
+      {/* entire sidebar*/}
+      {
+        activeTab === 'sidebar' && <div className=" w-full flex flex-col lg:flex-row gap-2 ">
+        {/* pagination */}
+        <div
+          className={` border-r border-green-500 p-1 flex flex-col items-center justify-center ${hidePaginationBtns ? "hidden" : "visible"}`}>
+          <div className="w-full h-full ">
+            <div className="flex flex-row lg:flex-col flex-wrap items-center justify-center gap-2 ">
+              {pagesArray?.map((page, index) => (
                 <button
-                  className={` border border-[#ff00ff] text-md rounded-sm bg-green-900 hover:bg-[#a100ff] dark:text-white hover:text-white text-white py-2 px-8 `}>
-                  {numbersOfPages}
+                  onClick={() => handleCurrentPage(page)}
+                  key={index}
+                  className={` border border-[#ff00ff] dark:text-white text-md  rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5  ${
+                    page === currentPageNumber ? "bg-green-500 text-white" : ""
+                  }  `}>
+                  {page}
                 </button>
+              ))}
+              {/* <span>{"..."}</span> */}
+              {numbersOfPages > 10 && (
+                <div className="">
+                  <button
+                    className={` border border-[#ff00ff] text-md rounded-sm bg-green-900 hover:bg-[#a100ff] dark:text-white hover:text-white text-white py-2 px-8 `}>
+                    {numbersOfPages}
+                  </button>
+                </div>
+              )}
+              {/* <button
+                disabled
+                className={` border border-[#ff00ff] text-white text-md rounded-sm  bg-[#004a00]  py-2 px-5  `}>
+                {numbersOfPages}
+              </button> */}
+            </div>
+          </div>
+        </div>
+        {/* sidebar section */}
+        <div
+          className={`w-full h-full flex flex-col ${hideSidebar ? "hidden" : "visible"}`}>
+          <div className="w-full  ">
+            <div className="  w-full h-full flex flex-row items-center justify-start gap-2 mb-4  ">
+              <h3 className="flex flex-row items-center justify-center gap-1 text-md font-semibold dark:text-white ">
+                Basic Info{" "}
+                <span onClick={toggleBasicInfoExpand} className="">
+                  {expandBasicInfo ? <ChevronUp /> : <ChevronDown />}
+                </span>
+              </h3>
+            </div>
+            <div
+              className={` dark:text-white  ${expandBasicInfo ? "hidden" : "visible"}`}>
+              <BasicInfo
+                currentPage={currentPageNumber}
+                numbersOfPages={numbersOfPages}
+                // inputRange={inputRange}
+                // setInputRange={setInputRange}
+                // onNext={onNext}
+                // onPrev={onPrev}
+                // onGoto={onGoto}
+                channelsPerPage={channelsPerPage}
+                // channelsInput={channelsInput}
+                // setChannelsInput={setChannelsInput}
+                // handleChannelsPerPage={handleChannelsPerPage}
+                totalChannels={totalChannels}
+              />
+            </div>
+          </div>
+          <div className="w-full ">
+            <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
+              <h3 className=" flex flex-row items-center justify-center gap-1 text-md font-semibold mt-4 dark:text-white ">
+                Basic Controls{" "}
+                <span onClick={toggleBasicControlsExpand} className="">
+                  {expandBasicControls ? <ChevronUp /> : <ChevronDown />}
+                </span>
+              </h3>
+            </div>
+            <div
+              className={` dark:text-white px-2 ${expandBasicControls ? "hidden" : "visible"}`}>
+              <BasicControls
+                currentPage={currentPageNumber}
+                numbersOfPages={numbersOfPages}
+                inputRange={inputRange}
+                setInputRange={setInputRange}
+                onNext={onNext}
+                onPrev={onPrev}
+                onGoto={onGoto}
+                channelsPerPage={channelsPerPage}
+                channelsInput={channelsInput}
+                setChannelsInput={setChannelsInput}
+                handleChannelsPerPage={handleChannelsPerPage}
+                totalChannels={totalChannels}
+              />
+            </div>
+          </div>
+          <div className="w-full  ">
+            <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
+              <h3 className=" flex flex-row items-center justify-center gap-1 text-md font-semibold mt-4 dark:text-white ">
+                Basic Filters{" "}
+                <span onClick={toggleBasicFiltersExpand} className="">
+                  {expandBasicFilters ? <ChevronUp /> : <ChevronDown />}
+                </span>
+              </h3>
+            </div>
+            <div
+              className={` dark:text-white px-2 ${expandBasicFilters ? "hidden" : "visible"}`}>
+              <BasicFilters />
+            </div>
+          </div>
+        </div>
+        </div>
+      }
+      {/* all groups*/}
+      {activeTab === 'groups' && (
+        <div className="w-full max-h-[500px] flex flex-col bg-slate-900 border border-slate-800 rounded-xl shadow-xl overflow-hidden">
+          {/* Header */}
+          <div className="p-4 border-b border-slate-800 flex items-center justify-between">
+            <h3 className="text-sm font-semibold tracking-wider text-slate-400 uppercase">
+              Categories
+            </h3>
+            <span className="text-xs font-medium text-slate-500 bg-slate-800 px-2.5 py-1 rounded-full">
+              {groups?.length || 0}
+            </span>
+          </div>
+
+          {/* Scrollable Group List */}
+          <div className="overflow-y-auto p-2 space-y-1">
+            {groups?.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-slate-300 text-sm font-medium hover:bg-slate-800/70 hover:text-slate-100 transition-colors cursor-pointer group"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:scale-125 transition-transform" />
+                <p>{typeof item === 'object' ? item?.name : item}</p>
               </div>
-            )}
-            {/* <button
-              disabled
-              className={` border border-[#ff00ff] text-white text-md rounded-sm  bg-[#004a00]  py-2 px-5  `}>
-              {numbersOfPages}
-            </button> */}
+            ))}
           </div>
         </div>
-      </div>
-      {/* sidebar section */}
-      <div
-        className={`w-full h-full flex flex-col ${hideSidebar ? "hidden" : "visible"}`}>
-        <div className="w-full  ">
-          <div className="  w-full h-full flex flex-row items-center justify-start gap-2 mb-4  ">
-            <h3 className="flex flex-row items-center justify-center gap-1 text-md font-semibold dark:text-white ">
-              Basic Info{" "}
-              <span onClick={toggleBasicInfoExpand} className="">
-                {expandBasicInfo ? <ChevronUp /> : <ChevronDown />}
-              </span>
-            </h3>
-          </div>
-          <div
-            className={` dark:text-white  ${expandBasicInfo ? "hidden" : "visible"}`}>
-            <BasicInfo
-              currentPage={currentPageNumber}
-              numbersOfPages={numbersOfPages}
-              // inputRange={inputRange}
-              // setInputRange={setInputRange}
-              // onNext={onNext}
-              // onPrev={onPrev}
-              // onGoto={onGoto}
-              channelsPerPage={channelsPerPage}
-              // channelsInput={channelsInput}
-              // setChannelsInput={setChannelsInput}
-              // handleChannelsPerPage={handleChannelsPerPage}
-              totalChannels={totalChannels}
-            />
-          </div>
-        </div>
-        <div className="w-full ">
-          <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
-            <h3 className=" flex flex-row items-center justify-center gap-1 text-md font-semibold mt-4 dark:text-white ">
-              Basic Controls{" "}
-              <span onClick={toggleBasicControlsExpand} className="">
-                {expandBasicControls ? <ChevronUp /> : <ChevronDown />}
-              </span>
-            </h3>
-          </div>
-          <div
-            className={` dark:text-white px-2 ${expandBasicControls ? "hidden" : "visible"}`}>
-            <BasicControls
-              currentPage={currentPageNumber}
-              numbersOfPages={numbersOfPages}
-              inputRange={inputRange}
-              setInputRange={setInputRange}
-              onNext={onNext}
-              onPrev={onPrev}
-              onGoto={onGoto}
-              channelsPerPage={channelsPerPage}
-              channelsInput={channelsInput}
-              setChannelsInput={setChannelsInput}
-              handleChannelsPerPage={handleChannelsPerPage}
-              totalChannels={totalChannels}
-            />
-          </div>
-        </div>
-        <div className="w-full  ">
-          <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
-            <h3 className=" flex flex-row items-center justify-center gap-1 text-md font-semibold mt-4 dark:text-white ">
-              Basic Filters{" "}
-              <span onClick={toggleBasicFiltersExpand} className="">
-                {expandBasicFilters ? <ChevronUp /> : <ChevronDown />}
-              </span>
-            </h3>
-          </div>
-          <div
-            className={` dark:text-white px-2 ${expandBasicFilters ? "hidden" : "visible"}`}>
-            <BasicFilters />
-          </div>
-        </div>
-      </div>
+      )}
+      {/* all channels*/}
+      {activeTab === 'channels' && <div>
+        <p className="text-lg text-white">
+          Channels Content
+        </p>
+      </div>}
     </div>
     // <div className=" ">
     // </div>
