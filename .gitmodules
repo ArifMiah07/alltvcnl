@@ -1,0 +1,3 @@
+[submodule "vendor/zustand"]
+	path = vendor/zustand
+	url = https://github.com/ArifMiah07/zustand.git
