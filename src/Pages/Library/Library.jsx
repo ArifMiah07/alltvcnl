@@ -222,7 +222,7 @@ export default function Library() {
                 <p className="underline text-black">Open VPlayer</p>
               </Link>
             </div>
-            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
+            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-purple-500 rounded-md shadow-sm">
               <p className="text-lg font-medium text-white">Playlist Player</p>
               <Link to={`/playlist-player`}>
                 <p className="underline text-black">Open Playlist Player</p>

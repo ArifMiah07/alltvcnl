@@ -166,7 +166,7 @@ const NavBar = () => {
               <NavLink to="/library" className={getNavLinkClass}>
                 Library
                 {!isUserSeenNewItem ? (
-                  <span className="w-6 h-6 bg-green-500 absolute -top-2 -right-1 flex flex-row items-center justify-center rounded-full border ">
+                  <span className="w-6 h-6 bg-purple-500 absolute -top-2 -right-1 flex flex-row items-center justify-center rounded-full border ">
                     <span className=" tooltip text-[12px] text-white ">
                       <p className="tooltiptext text-sm">
                         New item has been added
@@ -177,11 +177,11 @@ const NavBar = () => {
                 ) : (
                   ""
                 )}
-                {/* 
-                  
+                {/*
+
                   ___________TODO___________:
 
-                  system design :: 
+                  system design ::
                   task: show a static number if library page got a new item
                   how to handle ::
                   count current total item and define isUserNotifiedAndSeen = false
@@ -190,8 +190,8 @@ const NavBar = () => {
                   if user visits /library path update current total item in library page
                   and also update isUserNotifiedAndSeen = true and clear notifies number
                   and also clear local storage
-                  
-                  
+
+
                   */}
               </NavLink>
             </li>

@@ -199,7 +199,7 @@ function VideoStage({ channel }) {
 
   return (
     <div
-      className="w-full border-b border-[#232838] bg-black"
+      className="w-full p-4 border-b border-[#232838] bg-black"
       style={{ aspectRatio: "16 / 9" }}>
       <HlsVideoPlayer key={channel.id} src={channel.url} controls autoPlay />
     </div>
