@@ -26,6 +26,8 @@ const Streams = () => {
   // react states
   // use hooks
   const { streams, loading, error } = useFetchStreams();
+
+  console.log(streams);
   const {
     currentPage,
     numbersOfPages,

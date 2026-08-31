@@ -96,11 +96,11 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                           stream_item.channel || stream_item.title,
                         )}`}
                         state={{ streamData: stream_item }}>
-                        {/* /${
-          stream_item.channel
-            ? stream_item.channel
-            : stream_item.title
-        } */}
+                          {/* /${
+                            stream_item.channel
+                              ? stream_item.channel
+                              : stream_item.title
+                          } */}
                         <Fullscreen className="" />
                       </Link>
                     </span>
@@ -233,10 +233,10 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                       )}`}
                       state={{ streamData: stream_item }}>
                       {/* /${
-          stream_item.channel
-            ? stream_item.channel
-            : stream_item.title
-        } */}
+                        stream_item.channel
+                          ? stream_item.channel
+                          : stream_item.title
+                      } */}
                       <Fullscreen className="" />
                     </Link>
                   </span>

@@ -96,10 +96,10 @@ const MoreChannels = ({
                         )}`}
                         state={{ streamData: stream_item }}>
                         {/* /${
-                stream_item.channel
-                  ? stream_item.channel
-                  : stream_item.title
-              } */}
+                          stream_item.channel
+                            ? stream_item.channel
+                            : stream_item.title
+                        } */}
                         <Fullscreen className="" />
                       </Link>
                     </span>

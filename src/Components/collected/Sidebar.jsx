@@ -118,7 +118,7 @@ const Sidebar = ({
   // console.log("collectedChannelsData,", collectedChannelsData);
 
   return (
-    <div className=" w-full border ">
+    <div className=" w-full border pb-4 ">
       {/*<p>Hello world </p>*/}
       <div className="w-full my-4 flex flex-row flex-wrap gap-2 items-center justify-evenly dark:text-white text-black  ">
         <button
@@ -245,13 +245,13 @@ const Sidebar = ({
       }
       {/* all groups*/}
       {activeTab === 'groups' && (
-        <div className="w-full max-h-[500px] flex flex-col bg-slate-900 border border-slate-800 rounded-xl shadow-xl overflow-hidden">
+        <div className="w-full max-h-[500px] flex flex-col border border-slate-800 rounded-xl shadow-xl overflow-hidden">
           {/* Header */}
           <div className="p-4 border-b border-slate-800 flex items-center justify-between">
             <h3 className="text-sm font-semibold tracking-wider text-slate-400 uppercase">
               Categories
             </h3>
-            <span className="text-xs font-medium text-slate-500 bg-slate-800 px-2.5 py-1 rounded-full">
+            <span className="text-xs font-medium text-slate-500 px-2.5 py-1 rounded-full">
               {groups?.length || 0}
             </span>
           </div>
