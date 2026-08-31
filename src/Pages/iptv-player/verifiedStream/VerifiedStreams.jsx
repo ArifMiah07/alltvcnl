@@ -64,7 +64,7 @@ const VerifiedStreams = () => {
     // handleToggleMoreChannelsLayout,
     // setTotalItems,
   } = useVerifiedStream();
-  console.log(": ", streams);
+  // console.log(": ", streams);
   //
   if (loading) return <StreamsPageSkeletonLoading />;
   if (error) return <p className="dark:text-white">Error: {error}</p>;

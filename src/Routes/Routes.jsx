@@ -49,6 +49,8 @@ import PlaylistManager from "../Components/playlist/PlaylistManager";
 // import WatchUrl from "../Pages/watch/WatchUrl";
 // import FavoritesPageTest from "../Pages/test/FavoritesPageTest";
 // import IP from "../Pages/iptv-player/IP";
+// import TestPlaylistPlayer from "../Pages/test/TestPlaylistPlayer";
+import SignalDeckPlayer from "../Pages/test/TestPlaylistPlayer";
 
 const router = createHashRouter([
   {
@@ -204,6 +206,10 @@ const router = createHashRouter([
       {
         path: "/test_collected_channels",
         element: <CollectedChannelsZezeZeon />,
+      },
+      {
+        path: "/playlist-player",
+        element: <SignalDeckPlayer />,
       },
       {
         path: "/adda",

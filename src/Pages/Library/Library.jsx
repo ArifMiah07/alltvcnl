@@ -223,6 +223,12 @@ export default function Library() {
               </Link>
             </div>
             <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
+              <p className="text-lg font-medium text-white">Playlist Player</p>
+              <Link to={`/playlist-player`}>
+                <p className="underline text-black">Open Playlist Player</p>
+              </Link>
+            </div>
+            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
               <p className="text-lg font-medium text-white">Discussion</p>
               <Link to={`/adda`}>
                 <p className="underline text-black">Start Discussion</p>
