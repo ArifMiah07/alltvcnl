@@ -18,6 +18,8 @@ import {
   Globe,
   Plus,
   Loader2,
+  Menu,
+  PanelLeft,
 } from "lucide-react";
 import HlsVideoPlayer from "../../Components/hls-video-player/HlsVideoPlayer";
 
@@ -32,12 +34,12 @@ const playlistStorage = localforage.createInstance({
 function normalizeChannel(raw, index) {
   const url = raw.url || raw.Url || raw.URL || "";
   const name =
-    raw.name || raw["tvg-name"] || raw.title || `Channel ${index + 1}`;
+    raw.name || raw.channel_name || raw["tvg-name"] || raw.title || `Channel ${index + 1}`;
   return {
     id: raw["tvg-id"] || raw.id || `${name}-${index}`,
     name,
     tvgName: raw["tvg-name"] || name,
-    logo: raw["tvg-logo"] || raw.logo || "",
+    logo: raw["tvg-logo"] || raw.logo || raw.image || "",
     country: raw["tvg-country"] || raw.country || "",
     group: raw["group-title"] || raw.group || "Uncategorized",
     url,
@@ -54,10 +56,19 @@ function parseAsJSON(text) {
     list = data.channels;
   } else if (data && data.url) {
     list = [data];
-  } else {
-    throw new Error("JSON did not contain a recognizable channel list");
+  } else if (data && typeof data === "object") {
+    // TV server format: { "Category": [{ channel_name, url, image }, ...], ... }
+    const keys = Object.keys(data);
+    if (keys.length > 0 && Array.isArray(data[keys[0]])) {
+      list = [];
+      keys.forEach((cat) => {
+        (data[cat] || []).forEach((ch) => {
+          list.push({ ...ch, "group-title": cat });
+        });
+      });
+    }
   }
-  if (list.length === 0) throw new Error("No channels found in JSON");
+  if (list.length === 0) throw new Error("JSON did not contain a recognizable channel list");
   return list.map(normalizeChannel);
 }
 
@@ -187,7 +198,9 @@ function VideoStage({ channel }) {
   }
 
   return (
-    <div className="border-b border-[#232838]">
+    <div
+      className="w-full border-b border-[#232838] bg-black"
+      style={{ aspectRatio: "16 / 9" }}>
       <HlsVideoPlayer key={channel.id} src={channel.url} controls autoPlay />
     </div>
   );
@@ -467,11 +480,34 @@ ImportScreen.propTypes = {
 
 // ---------- Sidebar ----------
 
-function Sidebar({ groups, selectedId, onSelect, openGroups, onToggleGroup }) {
+function Sidebar({
+  groups,
+  selectedId,
+  onSelect,
+  openGroups,
+  onToggleGroup,
+  onClose,
+  open,
+}) {
   return (
     <nav
-      className="w-[300px] h-[100vh] flex-shrink-0 overflow-y-auto border-r border-[#232838] bg-[#12151D] p-2"
+      className={`fixed inset-y-0 left-0 z-40 flex w-[300px] h-[100vh] flex-col overflow-y-auto border-r border-[#232838] bg-[#12151D] transition-transform duration-200 lg:static lg:z-auto lg:translate-x-0 ${
+        open ? "translate-x-0" : "-translate-x-full"
+      }`}
       aria-label="Channel groups">
+      <div className="flex items-center justify-between border-b border-[#232838] p-3 lg:hidden">
+        <span className="font-['Oswald'] text-sm tracking-wide text-[#E9E7E0]">
+          Channels
+        </span>
+        <button
+          type="button"
+          onClick={onClose}
+          className="rounded-md p-1.5 text-[#868C9C] hover:bg-[#171B25] hover:text-[#E9E7E0]"
+          aria-label="Close channel list">
+          <X size={16} />
+        </button>
+      </div>
+      <div className="min-h-0 flex-1 overflow-y-auto p-2">
       {groups.map((group) => {
         const isOpen = openGroups.has(group.name);
         return (
@@ -536,6 +572,7 @@ function Sidebar({ groups, selectedId, onSelect, openGroups, onToggleGroup }) {
           </div>
         );
       })}
+      </div>
     </nav>
   );
 }
@@ -551,6 +588,8 @@ Sidebar.propTypes = {
   onSelect: PropTypes.func.isRequired,
   openGroups: PropTypes.instanceOf(Set).isRequired,
   onToggleGroup: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
+  open: PropTypes.bool,
 };
 
 // ---------- Main App ----------
@@ -564,6 +603,8 @@ export default function SignalDeckPlayer() {
   const [selected, setSelected] = useState(null);
   const [openGroups, setOpenGroups] = useState(new Set());
   const [savedPlaylists, setSavedPlaylists] = useState([]);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   // Fetch saved playlists from localforage IndexedDB on mount
   const refreshSavedPlaylists = useCallback(async () => {
@@ -704,17 +745,24 @@ export default function SignalDeckPlayer() {
         />
       ) : (
         <>
-          <div className="flex items-center gap-4 border-b border-[#232838] bg-[#12151D] px-5 py-3.5">
-            <div className="flex items-baseline gap-2">
-              <ListMusic size={18} className="text-[#F2A93B]" />
-              <h2 className="font-['Oswald'] text-[19px] tracking-wide">
+          <div className="flex items-center gap-3 border-b border-[#232838] bg-[#12151D] px-3 py-2.5 sm:px-5 sm:py-3.5">
+            <button
+              type="button"
+              onClick={() => setSidebarOpen(true)}
+              className="flex items-center justify-center rounded-md p-1.5 text-[#868C9C] hover:bg-[#171B25] hover:text-[#E9E7E0] lg:hidden"
+              aria-label="Open channel list">
+              <Menu size={18} />
+            </button>
+            <div className="flex min-w-0 items-baseline gap-2">
+              <ListMusic size={18} className="hidden flex-shrink-0 text-[#F2A93B] sm:block" />
+              <h2 className="font-['Oswald'] text-base tracking-wide sm:text-[19px]">
                 Signal Deck
               </h2>
-              <span className="text-[11px] text-[#868C9C]">
+              <span className="hidden flex-shrink-0 text-[11px] text-[#868C9C] sm:inline">
                 {channels.length} channels
               </span>
             </div>
-            <div className="flex max-w-[340px] flex-1 items-center gap-2 rounded-md border border-[#232838] bg-[#171B25] px-2.5 py-1.5 text-[#868C9C]">
+            <div className="min-w-0 flex-1 items-center gap-2 rounded-md border border-[#232838] bg-[#171B25] px-2.5 py-1.5 text-[#868C9C] hidden sm:flex">
               <Search size={14} />
               <input
                 placeholder="Search channels, groups, or countries"
@@ -732,40 +780,108 @@ export default function SignalDeckPlayer() {
                 </button>
               )}
             </div>
-            <div className="ml-auto flex items-center gap-2.5 text-xs text-[#868C9C]">
-              <span className="rounded border border-[#232838] px-2 py-0.5 text-[11px]">
+            <div className="ml-auto flex items-center gap-2 text-[#868C9C] sm:gap-2.5">
+              <button
+                type="button"
+                onClick={() => setSidebarCollapsed((c) => !c)}
+                className="hidden items-center gap-1.5 rounded-md border border-[#232838] bg-[#171B25] px-2.5 py-1.5 text-[12px] text-[#E9E7E0] hover:border-[#868C9C] lg:inline-flex"
+                aria-label={sidebarCollapsed ? "Expand channel list" : "Collapse channel list"}>
+                <PanelLeft size={14} />
+                <span className="hidden sm:inline">
+                  {sidebarCollapsed ? "Expand" : "Collapse"}
+                </span>
+              </button>
+              <span className="hidden rounded border border-[#232838] px-2 py-0.5 text-[11px] sm:inline">
                 {format}
               </span>
               <button
                 type="button"
-                className="inline-flex items-center gap-1.5 rounded-md border border-[#232838] bg-[#171B25] px-3.5 py-2 text-[13px] text-[#E9E7E0] hover:border-[#868C9C]"
+                className="inline-flex items-center gap-1.5 rounded-md border border-[#232838] bg-[#171B25] px-2 py-1.5 text-[12px] text-[#E9E7E0] hover:border-[#868C9C] sm:px-3.5 sm:text-[13px]"
                 onClick={reset}>
-                <Trash2 size={13} /> Switch playlist
+                <Trash2 size={13} /> <span className="hidden sm:inline">Switch playlist</span><span className="sm:hidden">Switch</span>
               </button>
             </div>
           </div>
 
-          <div className="flex min-h-0 flex-1">
-            {groups.length > 0 ? (
-              <Sidebar
-                groups={groups}
-                selectedId={selected?.id}
-                onSelect={setSelected}
-                openGroups={openGroups}
-                onToggleGroup={toggleGroup}
+          <div className="relative flex min-h-0 flex-1">
+            {sidebarOpen && (
+              <div
+                className="fixed inset-0 z-30 bg-black/50 lg:hidden"
+                onClick={() => setSidebarOpen(false)}
+                aria-hidden="true"
               />
-            ) : (
-              <div className="w-[300px] flex-shrink-0 border-r border-[#232838] bg-[#12151D] p-2">
-                <div className="px-5 py-10 text-center text-[13px] text-[#868C9C]">
-                  No channels match &quot;{search}&quot;
-                </div>
-              </div>
             )}
 
-            <div className="flex min-w-0 flex-1 flex-col p-4">
+            <div className="lg:flex">
+              {sidebarCollapsed ? (
+                <div className="fixed inset-y-0 left-0 z-40 hidden h-full w-11 flex-col items-center border-r border-[#232838] bg-[#12151D] py-3 lg:static lg:z-auto lg:flex">
+                  <button
+                    type="button"
+                    onClick={() => setSidebarCollapsed(false)}
+                    className="rounded-md p-2 text-[#868C9C] hover:bg-[#171B25] hover:text-[#E9E7E0]"
+                    aria-label="Expand channel list">
+                    <PanelLeft size={16} />
+                  </button>
+                </div>
+              ) : groups.length > 0 ? (
+                <Sidebar
+                  groups={groups}
+                  selectedId={selected?.id}
+                  onSelect={(ch) => {
+                    setSelected(ch);
+                    setSidebarOpen(false);
+                  }}
+                  openGroups={openGroups}
+                  onToggleGroup={toggleGroup}
+                  onClose={() => setSidebarOpen(false)}
+                  open={sidebarOpen}
+                />
+              ) : (
+                <div
+                  className={`fixed inset-y-0 left-0 z-40 flex w-[300px] flex-col border-r border-[#232838] bg-[#12151D] p-2 transition-transform duration-200 lg:h-full lg:static lg:z-auto lg:translate-x-0 ${
+                    sidebarOpen ? "translate-x-0" : "-translate-x-full"
+                  }`}>
+                  <div className="flex items-center justify-between border-b border-[#232838] p-3 lg:hidden">
+                    <span className="font-['Oswald'] text-sm tracking-wide text-[#E9E7E0]">
+                      Channels
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setSidebarOpen(false)}
+                      className="rounded-md p-1.5 text-[#868C9C] hover:bg-[#171B25] hover:text-[#E9E7E0]"
+                      aria-label="Close channel list">
+                      <X size={16} />
+                    </button>
+                  </div>
+                  <div className="px-5 py-10 text-center text-[13px] text-[#868C9C]">
+                    No channels match &quot;{search}&quot;
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
+              <div className="flex items-center gap-2 border-b border-[#232838] bg-[#171B25] px-2.5 py-1.5 text-[#868C9C] sm:hidden">
+                <Search size={14} className="flex-shrink-0" />
+                <input
+                  placeholder="Search channels, groups, or countries"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="w-full bg-transparent text-[13px] text-[#E9E7E0] outline-none placeholder:text-[#868C9C]"
+                />
+                {search && (
+                  <button
+                    type="button"
+                    onClick={() => setSearch("")}
+                    className="flex flex-shrink-0 text-inherit"
+                    aria-label="Clear search">
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
               <VideoStage channel={selected} />
               {selected && (
-                <div className="flex items-center gap-3.5 px-5 py-4">
+                <div className="flex items-center gap-3 px-4 py-4 sm:gap-3.5 sm:px-5">
                   {selected.logo ? (
                     <img
                       src={selected.logo}
