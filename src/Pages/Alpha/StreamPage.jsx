@@ -11,7 +11,7 @@ const StreamPage = () => {
     //
     //
     //
-    <section className="max-w-7xl mx-auto ">
+    <section className="w-full mx-auto ">
       <StreamDisplay />
     </section>
   );

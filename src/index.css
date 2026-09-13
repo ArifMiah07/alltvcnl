@@ -356,3 +356,36 @@ body {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+.main-bg {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  /* Base vertical gradient (#160845 to #201C2B) */
+  background-color: #160845;
+  background-image: 
+    /* Center Orb (Pink/Magenta) */
+    radial-gradient(
+      circle at 52% 59%,
+      rgba(255, 0, 106, 0.36) 0%,
+      rgba(132, 5, 48, 0) 50%
+    ),
+    /* Left Orb (Pink/Magenta) */
+    radial-gradient(
+        circle at 29% 41%,
+        rgba(255, 0, 106, 0.36) 0%,
+        rgba(132, 5, 48, 0) 50%
+      ),
+    /* Right Orb (Pink/Magenta) */
+    radial-gradient(
+        circle at 71% 41%,
+        rgba(255, 0, 106, 0.36) 0%,
+        rgba(132, 5, 48, 0) 50%
+      ),
+    /* Upper Glow Section (#40078A to #0F084C) */
+    linear-gradient(180deg, rgba(64, 7, 138, 0.8) 0%, rgba(15, 8, 76, 0) 70%),
+    /* Base Background Gradient */
+    linear-gradient(180deg, #160845 0%, #201c2b 100%);
+}
