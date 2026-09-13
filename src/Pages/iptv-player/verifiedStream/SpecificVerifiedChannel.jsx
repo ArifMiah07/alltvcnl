@@ -174,7 +174,7 @@ const StreamSpecificVerifiedChannel = () => {
           className={` w-full flex flex-col md:flex-row gap-2 mb-4 items-start justify-start   ${hideChannelsInfo ? "hidden" : "visible"}`}>
           <BackButton label=" " styles=" " />
           <div>
-            <Link to={"/stream-iptv"}>
+            <Link to={"/verified-iptv-stream"}>
               <button className="flex flex-row items-center justify-center gap-2 dark:text-white border px-5 py-2 hover:border-purple-500 hover:bg-green-500 hover:dark:border-green-500 hover:dark:bg-purple-500 ">
                 <span className="flex flex-row items-center justify-center">
                   <LayoutGrid />

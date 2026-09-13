@@ -39,3 +39,7 @@
         * follow latest security best preactice
         * do security for mbl app, windows, linux app, web version
         * revise and wrap up the project for alpha version
+#. Bugs list
+
+    [x] - StreamGrid more channels was showing verified pages content
+    [x] - Verified SpecificChannleStream was redirecting to Main SpecificChannleStream page while clicking on [All channels] btn

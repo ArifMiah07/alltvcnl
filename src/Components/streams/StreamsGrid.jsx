@@ -13,7 +13,7 @@ import {
   ListPlus,
   ChevronsUpDown,
   ChevronsDownUp,
-  Plus,
+  // Plus,
 } from "lucide-react";
 
 const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
@@ -25,20 +25,20 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
 
   const {
     showMoreChannelsInGridView,
-    addToPlaylist,
+    // addToPlaylist,
     // eslint-disable-next-line no-unused-vars
     setAddToPlaylist,
     handlePlaylistCreation,
-    setPlaylistNameInput,
-    playlistNameInput,
+    // setPlaylistNameInput,
+    // playlistNameInput,
     // playlistNameInput,
     // setPlaylistNameInput,
 
-    handleAddPlatlists,
-    playlists,
-    setPlaylists,
+    // handleAddPlatlists,
+    // playlists,
+    // setPlaylists,
 
-    loading,
+    // loading,
   } = usePagination();
 
   const {
@@ -213,7 +213,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                     onClick={() => handleSpecificChannelStream({ stream_item })}
                     className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                     <Link
-                      to={`/specific-verified-channel/${
+                      to={`/specific-channel/${
                         (currentPage - 1) * channelsPerPage + (stream_index + 1)
                       }/${encodeURIComponent(
                         stream_item.channel || stream_item.title,
