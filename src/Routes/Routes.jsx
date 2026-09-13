@@ -240,6 +240,17 @@ const router = createHashRouter([
       },
     ],
   },
+  {
+    path: "alpha",
+    element: "",
+    errorElement: "error page",
+    children: [
+      {
+        path: "home",
+        element: "",
+      }
+    ]
+  }
 ]);
 
 export default router;
