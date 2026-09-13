@@ -51,6 +51,8 @@ import PlaylistManager from "../Components/playlist/PlaylistManager";
 // import IP from "../Pages/iptv-player/IP";
 // import TestPlaylistPlayer from "../Pages/test/TestPlaylistPlayer";
 import SignalDeckPlayer from "../Pages/test/TestPlaylistPlayer";
+import Alpha from "../Pages/Alpha/Alpha";
+import StreamPage from "../Pages/Alpha/StreamPage";
 
 const router = createHashRouter([
   {
@@ -242,13 +244,17 @@ const router = createHashRouter([
   },
   {
     path: "alpha",
-    element: "",
+    element: <Alpha />,
     errorElement: "error page",
     children: [
       {
         path: "home",
         element: "",
-      }
+      },
+      {
+        path: "stream-all-channels",
+        element: <StreamPage />,
+      },
     ]
   }
 ]);
