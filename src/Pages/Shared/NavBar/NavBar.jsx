@@ -239,7 +239,7 @@ const NavBar = () => {
               <Bell className="dark:text-white w-6 h-6" />
             </Link>
             {!isUserSeenNewItem ? (
-              <span className="w-4 h-4 bg-green-500 absolute -top-2 -right-1 flex flex-row items-center justify-center rounded-full border ">
+              <span className="w-4 h-4 bg-purple-500 absolute -top-2 -right-1 flex flex-row items-center justify-center rounded-full border ">
                 <span className=" tooltip text-[12px] text-white ">
                   <p className="tooltiptext text-sm">New item has been added</p>
                   1

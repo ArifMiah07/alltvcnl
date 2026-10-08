@@ -20,7 +20,9 @@ const WorkingUpdates = () => {
       <h1 className="dark:text-white text-black text-3xl">Working Updates:</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
         {data?.map((item, index) => (
-          <div className="border p-4" key={index}>
+          <div
+            className={`border p-4  ${data.length === item.id ? "border-purple-500" : ""}`}
+            key={index}>
             <h1 className="dark:text-white text-black text-xl mb-4">
               {item.title}
             </h1>
