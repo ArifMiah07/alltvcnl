@@ -7,6 +7,8 @@ import {
   Fullscreen,
   MonitorPlay,
   ListPlus,
+  ChevronsDownUp,
+  ChevronsUpDown,
 } from "lucide-react";
 
 import { Helmet } from "react-helmet-async";
@@ -25,7 +27,12 @@ const SearchStreams = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const { bookmarkedChannel, handleBookmarkChannelToggle } = useLocalStorage();
+  const {
+    bookmarkedChannel,
+    handleBookmarkChannelToggle,
+    handleToggleExpand,
+    expandedChannel,
+  } = useLocalStorage();
   const {
     currentPageNumber,
     // numbersOfPages,
@@ -455,7 +462,7 @@ const SearchStreams = () => {
           <div className=" w-full min-h-screen flex flex-col lg:flex-row gap-2">
             {/* content */}
             {showMoreChannelsInGridView ? (
-              // show all channels in grid view
+              // show all channels in grid view // Card view
               <div className="  lg:w-[75%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
                 {!(searchData?.length === 0) ? (
                   searchData?.slice(startIndex, endIndex).map((item, index) => (
@@ -547,7 +554,7 @@ const SearchStreams = () => {
                 )}
               </div>
             ) : (
-              // show all channels in list view
+              // show all channels in list view // item view
               <div className="  lg:w-[75%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
                 {!(searchData?.length === 0) ? (
                   searchData?.slice(startIndex, endIndex).map((item, index) => (
@@ -610,6 +617,15 @@ const SearchStreams = () => {
                           <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
                             <ListPlus />
                           </span>
+                          <span
+                            onClick={() => handleToggleExpand(item)}
+                            className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                            {expandedChannel[item.url] ? (
+                              <ChevronsDownUp />
+                            ) : (
+                              <ChevronsUpDown />
+                            )}
+                          </span>
                           {(item.feed || item.quality) && (
                             <div className=" dark:text-white flex flex-row gap-3 ">
                               {item.feed && <p>{item.feed}</p>}
@@ -619,6 +635,16 @@ const SearchStreams = () => {
                         </div>
                       </div>
                       {/* player */}
+                      {expandedChannel[item.url] && (
+                        <div className="w-full h-full flex flex-col border border-green-50">
+                          <HlsVideoPlayer
+                            src={item?.url}
+                            status={item?.status}
+                            controls
+                            autoPlay={false}
+                          />
+                        </div>
+                      )}
                       {/* <h1>HLS.js in React</h1> */}
                       {/* <div className="">
                         <div className="App">
@@ -888,6 +914,16 @@ const SearchStreams = () => {
                           <span className=" p-1 flex flex-row items-center justify-center w-[24px] h-[24px] bg-purple-300 ">
                             <ListPlus />
                           </span>
+
+                          <span
+                            onClick={() => handleToggleExpand(item)}
+                            className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                            {expandedChannel[item.url] ? (
+                              <ChevronsDownUp />
+                            ) : (
+                              <ChevronsUpDown />
+                            )}
+                          </span>
                           {(item.feed || item.quality) && (
                             <div className="flex flex-row gap-3 dark:text-white ">
                               {item.feed && <p>{item.feed}</p>}
@@ -897,6 +933,16 @@ const SearchStreams = () => {
                         </div>
                       </div>
                       {/* player */}
+                      {expandedChannel[item.url] && (
+                        <div className="w-full h-full flex flex-col border border-green-50">
+                          <HlsVideoPlayer
+                            src={item?.url}
+                            status={item?.status}
+                            controls
+                            autoPlay={false}
+                          />
+                        </div>
+                      )}
                     </div>
                   ))
                 ) : (
