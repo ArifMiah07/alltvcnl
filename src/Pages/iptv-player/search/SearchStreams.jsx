@@ -327,9 +327,9 @@ const SearchStreams = () => {
         <h2 className="text-md mb-2 dark:text-white">
           Total channels : {searchData?.length || 0}
         </h2>
-        <div onClick={handleAllAndOneChannelStream} className="">
+        <div onClick={handleAllAndOneChannelStream} className="w-fit px-3 py-2">
           {selectedChannel && (
-            <button className="dark:text-white flex flex-row gap-1 items-center justify-center">
+            <button className="dark:text-white flex flex-row gap-1 items-center justify-center w-fit px-3 py-2">
               {" "}
               <span>
                 <LayoutGrid />

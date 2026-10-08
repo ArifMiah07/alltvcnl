@@ -42,5 +42,27 @@
     "status": "partially complete",
     "topic": "New Feature",
     "date": "30-07-2026"
+  },
+  {
+    "id": 3,
+    "title": "Expanded Channel Card Functionality",
+    "description": "Added expandable channel cards to both Search and Favorites pages, making it easier to discover and browse specific channels. While watching a video in the main player, you can now expand any channel card from the list to preview its stream in real time without interrupting your current playback.",
+    "images": [
+      {
+        "id": 1,
+        "url": "",
+        "alt": "",
+        "description": ""
+      },
+      {
+        "id": 2,
+        "url": "",
+        "alt": "",
+        "description": ""
+      }
+    ],
+    "status": "complete",
+    "topic": "New Feature",
+    "date": "8-10-2026"
   }
 ]
