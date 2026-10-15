@@ -41,7 +41,7 @@ const NavBar = () => {
       mx-2 px-3 py-1 rounded text-md transition-colors
       ${
         isActive
-          ? " text-green-600 font-semibold border border-green-400"
+          ? " text-black font-semibold border border-green-400"
           : `${baseTextColor} hover:bg-green-400 hover:text-white`
       }
     `;
@@ -56,7 +56,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="dark:bg-black relative z-20 w-full h-full flex flex-row items-center justify-center">
+    <nav className=" relative z-20 w-full h-full flex flex-row items-center justify-center">
       <div
         className={`${
           isSticky

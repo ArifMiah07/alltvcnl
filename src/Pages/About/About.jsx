@@ -3,7 +3,7 @@ import iptv from ".././../assets/Group 104.png";
 
 const About = () => {
   return (
-    <div className="dark:bg-[#000000] min-h-screen bg-white py-10 px-4">
+    <div className=" min-h-screen main_bg_img py-10 px-4">
       <Helmet>
         <title>About Us</title>
         <meta
@@ -14,7 +14,7 @@ const About = () => {
 
       <div className="max-w-5xl  mx-auto flex flex-col lg:flex-row items-center gap-10">
         {/* Text Content */}
-        <div className="flex-1 text-center lg:text-left">
+        <div className=" bg-white dark:bg-[#000000] rounded-lg shadow-2xl md:p-6 lg:p-12 flex-1 text-center lg:text-left">
           <h1 className="text-4xl lg:text-5xl font-bold text-green-600">
             About Us
           </h1>

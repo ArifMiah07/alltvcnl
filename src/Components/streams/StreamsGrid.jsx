@@ -174,11 +174,11 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
         streams?.map((stream_item, stream_index) => (
           // player container
           <div
-            className=" w-full h-fit flex flex-col justify-start border border-rose-50 bg-radial-[at_50%_75%] from-sky-100 via-violet-100 to-fuchsia-100 to-90% "
+            className=" w-full h-fit flex flex-col justify-start border  border-rose-50 bg-radial-[at_50%_75%] from-sky-100 via-violet-100 to-fuchsia-100 to-90% "
             key={stream_index}>
             {/* user actions - Top row matching your wireframe: [Logo] [Title / Controls] */}
-            <div className="w-full flex flex-row flex-nowrap items-center ">
-              {/* logo */}
+            <div className="bg-slate-500/20 backdrop-blur-sm w-full flex flex-row flex-nowrap items-center ">
+              {/* logo || image */}
               <div className="flex flex-row items-center justify-center shrink-0 p-1">
                 <img
                   src={stream_item?.logo || "/favicon.png"}

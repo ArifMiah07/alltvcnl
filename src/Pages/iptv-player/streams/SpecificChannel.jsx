@@ -67,7 +67,7 @@ const StreamSpecificChannel = () => {
     // setSpecificChannelParams(channelInfo);
   };
   return (
-    <div className="dark:bg-black p-4  ">
+    <div className=" p-4  ">
       {/* <h1>stream a specific channel</h1> */}
       <div className=" mb-4 md:mb-0 flex flex-col items-start gap-2  ">
         <div
