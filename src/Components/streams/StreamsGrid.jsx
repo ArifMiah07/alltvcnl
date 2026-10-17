@@ -177,7 +177,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
             className=" w-full h-fit flex flex-col justify-start border  border-rose-50 bg-radial-[at_50%_75%] from-sky-100 via-violet-100 to-fuchsia-100 to-90% "
             key={stream_index}>
             {/* user actions - Top row matching your wireframe: [Logo] [Title / Controls] */}
-            <div className="bg-slate-500/20 backdrop-blur-sm w-full flex flex-row flex-nowrap items-center ">
+            <div className="shadow-md bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate w-full flex flex-row flex-nowrap items-center ">
               {/* logo || image */}
               <div className="flex flex-row items-center justify-center shrink-0 p-1">
                 <img
@@ -187,7 +187,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                     e.currentTarget.src = "/favicon.png";
                   }}
                   /* Dual contrast shadow gives ANY logo (black, white, colored) an edge boundary */
-                  className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain rounded p-1 bg-slate-500/20 backdrop-blur-sm border border-black/10 dark:border-white/10 [filter:drop-shadow(0px_0px_1px_rgba(0,0,0,0.8))_drop-shadow(0px_0px_1px_rgba(255,255,255,0.8))] shrink-0"
+                  className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain rounded p-1 shadow-md bg-white/30 backdrop-blur-md isolate border border-black/10 dark:border-white/10 [filter:drop-shadow(0px_0px_1px_rgba(0,0,0,0.8))_drop-shadow(0px_0px_1px_rgba(255,255,255,0.8))] shrink-0"
                   alt={`logo of channel ${stream_item?.channel ? stream_item.channel : stream_item.title}`}
                 />
               </div>

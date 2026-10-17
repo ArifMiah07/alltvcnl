@@ -96,7 +96,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                           stream_item.channel || stream_item.title,
                         )}`}
                         state={{ streamData: stream_item }}>
-                          {/* /${
+                        {/* /${
                             stream_item.channel
                               ? stream_item.channel
                               : stream_item.title
