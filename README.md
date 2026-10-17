@@ -1,4 +1,4 @@
-# 📺 IPTV Player
+# alltvcnl (All tv channel) - 📺 IPTV Player
 
 [![Release](https://img.shields.io/github/v/release/ArifMiah07/alltvcnl?label=Release)](https://github.com/ArifMiah07/alltvcnl/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/ArifMiah07/alltvcnl/total?label=Downloads)](https://github.com/ArifMiah07/alltvcnl/releases)
