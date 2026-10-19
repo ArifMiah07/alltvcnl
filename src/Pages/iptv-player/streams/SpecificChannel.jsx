@@ -73,7 +73,7 @@ const StreamSpecificChannel = () => {
         <div
           className={` w-full flex flex-row items-center  ${hideChannelsInfo ? "justify-end" : "justify-between "} gap-4 `}>
           <h1
-            className={` text-[18px] flex flex-row items-center justify-center gap-2 font-medium dark:text-white dark:border dark:px-5 dark:py-2 ${hideChannelsInfo ? "hidden" : "visible"}`}>
+            className={` shadow-md bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate text-[18px] flex flex-row items-center justify-center gap-2 font-medium dark:text-white dark:border dark:px-5 dark:py-2 px-5 py-2  ${hideChannelsInfo ? "hidden" : "visible"}`}>
             <span className="flex flex-row items-center justify-center">
               <Activity />
               {/* <ActivityAnimated /> */}
@@ -83,7 +83,7 @@ const StreamSpecificChannel = () => {
           <div className="relative ">
             <button
               onClick={handleSettings}
-              className={`dark:text-white dark:border dark:px-5 dark:py-2 flex items-center justify-center border `}>
+              className={`shadow-md bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate dark:text-white dark:border dark:px-5 dark:py-2 px-5 py-2 flex items-center justify-center border `}>
               <Settings />
             </button>
             {isSettingModalOpen && (
@@ -163,11 +163,11 @@ const StreamSpecificChannel = () => {
           </div>
         </div>
         <div
-          className={` w-full flex flex-col md:flex-row gap-2 mb-4 items-start justify-start   ${hideChannelsInfo ? "hidden" : "visible"}`}>
+          className={` w-fit flex flex-col md:flex-row gap-2 mb-4 items-start justify-start   ${hideChannelsInfo ? "hidden" : "visible"}`}>
           <BackButton label=" " styles=" " />
           <div>
             <Link to={"/stream-iptv"}>
-              <button className="flex flex-row items-center justify-center gap-2 dark:text-white border px-5 py-2 hover:border-purple-500 hover:bg-green-500 hover:dark:border-green-500 hover:dark:bg-purple-500 ">
+              <button className=" shadow-md bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate flex flex-row items-center justify-center gap-2 dark:text-white border px-5 py-2 hover:border-purple-500 hover:dark:border-green-500 hover:dark:bg-purple-500 ">
                 <span className="flex flex-row items-center justify-center">
                   <LayoutGrid />
                 </span>{" "}

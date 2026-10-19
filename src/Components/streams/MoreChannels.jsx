@@ -55,7 +55,7 @@ const MoreChannels = ({
     <>
       {showMoreChannelsInGridView ? (
         //  show as grid
-        <div className=" w-full h-full col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 items-center justify-items-center gap-4 p-4  ">
+        <div className=" w-full h-full col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 items-center justify-items-center gap-4 p-4   ">
           {streams ? (
             streams?.map((stream_item, stream_index) => (
               // player container
@@ -165,7 +165,7 @@ const MoreChannels = ({
                 key={stream_index}>
                 <div className="w-full flex flex-col flex-wrap border ">
                   {/* basic actions */}
-                  <div className="w-full flex flex-row gap-2 flex-wrap items-start border-b justify-start p-2  ">
+                  <div className="shadow-md bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate w-full flex flex-row gap-2 flex-wrap items-start border-b justify-start p-2  ">
                     {/* stream a specific channel */}
                     <span
                       onClick={() =>
@@ -240,7 +240,7 @@ const MoreChannels = ({
                     )} */}
                   </div>
                   {/* channel info */}
-                  <div className="flex gap-2 px-2">
+                  <div className=" shadow-md bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate flex gap-2 px-2">
                     {/* channel number */}
                     <span className="font-medium dark:text-white">
                       {(currentPage - 1) * channelsPerPage + (stream_index + 1)}

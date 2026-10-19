@@ -102,7 +102,7 @@ const Favorites = () => {
         )}
       </div>
 
-      <div className=" md:p-2 flex flex-col dark:bg-black ">
+      <div className=" md:p-2 flex flex-col ">
         {/* all contents main container */}
         <div className="md:p-3 gap-2 ">
           {/* Toggle all channel & specific channel */}
@@ -328,10 +328,12 @@ const Favorites = () => {
                 </div>
               ) : (
                 // show all channels in list view || item view
-                <div className="  lg:w-[75%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2">
+                <div className="  lg:w-[75%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-start gap-2  ">
                   {!(paginatedStreams?.length === 0) ? (
                     paginatedStreams?.map(([url, stream], index) => (
-                      <div key={url} className=" border p-0">
+                      <div
+                        key={url}
+                        className=" border p-0 shadow-md bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate">
                         <div className="flex flex-col  p-1 gap-1">
                           <p className="flex flex-row gap-2 dark:text-white">
                             {" "}
@@ -634,7 +636,9 @@ const Favorites = () => {
                 <div className=" w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 items-center justify-start gap-2">
                   {!(paginatedStreams?.length === 0) ? (
                     paginatedStreams?.map(([url, stream], index) => (
-                      <div key={url} className=" border p-0">
+                      <div
+                        key={url}
+                        className=" border p-0 shadow-md bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate">
                         <div className="flex flex-col  p-1 gap-1">
                           <p className="flex flex-row gap-2 dark:text-white">
                             {" "}
