@@ -106,7 +106,7 @@ const Streams = () => {
       {/* <Toaster richColors position="top-right" className="z-30" /> */}
       {/* <ClockPage /> */}
       <div className="flex flex-col items-start gap-2 my-6">
-        <h1 className="shadow-md bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate px-5 py-2 border text-lg font-normal dark:text-white">
+        <h1 className="shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border text-lg font-normal dark:text-white">
           Iptv player {">"} Streaming
         </h1>
         <BackButton label=" " styles=" " />

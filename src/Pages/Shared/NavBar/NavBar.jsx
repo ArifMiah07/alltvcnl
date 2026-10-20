@@ -41,8 +41,8 @@ const NavBar = () => {
       mx-2 px-3 py-1 rounded text-md transition-colors
       ${
         isActive
-          ? " text-black font-semibold border border-green-400"
-          : `${baseTextColor} hover:bg-green-400 hover:text-white`
+          ? " shadow-md  hover:bg-purple-600 backdrop-blur-md isolate text-black hover:text-white dark:text-white font-semibold border "
+          : `${baseTextColor} hover:bg-purple-600 hover:text-white  `
       }
     `;
 
@@ -56,11 +56,11 @@ const NavBar = () => {
   };
 
   return (
-    <nav className=" relative z-20 w-full h-full flex flex-row items-center justify-center">
+    <nav className=" relative z-20 w-full h-full flex flex-row items-center justify-center ">
       <div
         className={`${
           isSticky
-            ? "flex flex-row items-center justify-center gap-4 rounded-full fixed top-0 left-1/2 -translate-x-1/2 w-[100px] md:w-[100px] lg:w-[800px] h-[50px] border border-red-50 z-20 shadow-md bg-white/30 dark:bg-black backdrop-blur-md px-6 py-1 isolate"
+            ? "flex flex-row items-center justify-center gap-4 rounded-full fixed top-0 left-1/2 -translate-x-1/2 w-[100px] md:w-[100px] lg:w-[800px] h-[50px] border border-red-50 z-20 shadow-md bg-white/30  backdrop-blur-md px-6 py-1 isolate"
             : "w-full navbar p-0 min-h-0 transition-all duration-0 ease-in shadow-md bg-white/30 backdrop-blur-md isolate"
         }`}>
         <div

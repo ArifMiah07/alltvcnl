@@ -165,13 +165,13 @@ const MoreChannels = ({
                 key={stream_index}>
                 <div className="w-full flex flex-col flex-wrap border ">
                   {/* basic actions */}
-                  <div className="shadow-md bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate w-full flex flex-row gap-2 flex-wrap items-start border-b justify-start p-2  ">
+                  <div className="shadow-md bg-white/30 hover:text-white hover:bg-purple-600 backdrop-blur-md isolate w-full flex flex-row gap-2 flex-wrap items-start border-b justify-start p-2  ">
                     {/* stream a specific channel */}
                     <span
                       onClick={() =>
                         handleSpecificChannelStream({ stream_item })
                       }
-                      className=" flex flex-row items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
+                      className=" flex flex-row items-center justify-center rounded-sm text-black bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
                       <Link
                         to={`/specific-channel/${
                           (currentPage - 1) * channelsPerPage +
@@ -184,7 +184,7 @@ const MoreChannels = ({
                       </Link>
                     </span>
                     {/* stream a specific channel on browser in a separate tab */}
-                    <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
+                    <span className=" flex flex-col items-center justify-center rounded-sm text-black bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
                       <a
                         href={`${stream_item.url}`}
                         target="_blank"
@@ -196,19 +196,19 @@ const MoreChannels = ({
                     {/* save or locally or save to a playlist <localStorage || default, playlist name> */}
                     <span
                       onClick={() => handleBookmarkChannelToggle(stream_item)}
-                      className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
+                      className=" flex flex-col items-center justify-center rounded-sm text-black bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
                       {bookmarkedChannel[stream_item.url] ? (
                         <BookmarkCheck />
                       ) : (
                         <Bookmark />
                       )}
                     </span>
-                    <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
+                    <span className=" flex flex-col items-center justify-center rounded-sm text-black bg-purple-200 hover:bg-purple-300 w-6 h-6 ">
                       <ListPlus />
                     </span>
                     <span
                       onClick={() => handleToggleExpand(stream_item)}
-                      className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                      className=" flex flex-col items-center justify-center rounded-sm text-black bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                       {expandedChannel[stream_item.url] ? (
                         <ChevronsDownUp />
                       ) : (
@@ -240,7 +240,7 @@ const MoreChannels = ({
                     )} */}
                   </div>
                   {/* channel info */}
-                  <div className=" shadow-md bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate flex gap-2 px-2">
+                  <div className=" shadow-md bg-white/30 hover:text-white hover:bg-purple-600 backdrop-blur-md isolate flex gap-2 px-2">
                     {/* channel number */}
                     <span className="font-medium dark:text-white">
                       {(currentPage - 1) * channelsPerPage + (stream_index + 1)}

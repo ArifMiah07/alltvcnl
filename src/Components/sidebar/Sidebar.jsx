@@ -135,7 +135,7 @@ const Sidebar = ({
       <div
         className={`w-full h-full flex flex-col ${hideSidebar ? "hidden" : "visible"}`}>
         <div className="w-full border-b-2 border-red-50 ">
-          <div className="  w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
+          <div className="  w-full h-full flex flex-row items-center justify-start gap-2 mb-4  border-2 border-red-50 shadow-md hover:text-white bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate px-5 py-2 ">
             <h3 className=" dark:text-white flex flex-row items-center justify-center gap-1 text-lg font-bold ">
               Basic Info{" "}
               <span onClick={toggleBasicInfoExpand} className="">
@@ -162,8 +162,8 @@ const Sidebar = ({
           </div>
         </div>
         <div className="w-full border-b-2 border-red-50 ">
-          <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
-            <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold mt-4 dark:text-white ">
+          <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 border-2 border-red-50 shadow-md hover:text-white bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate px-5 py-2 ">
+            <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold dark:text-white ">
               Basic Controls{" "}
               <span onClick={toggleBasicControlsExpand} className="">
                 {expandBasicControls ? <ChevronUp /> : <ChevronDown />}
@@ -192,8 +192,8 @@ const Sidebar = ({
           <BasicFilters />
         </div> */}
         <div className="w-full border-b-2 border-red-50 ">
-          <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 ">
-            <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold mt-4 dark:text-white ">
+          <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 border-2 border-red-50 shadow-md hover:text-white bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate px-5 py-2">
+            <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold dark:text-white ">
               Basic Filters{" "}
               <span onClick={toggleBasicFiltersExpand} className="">
                 {expandBasicFilters ? <ChevronUp /> : <ChevronDown />}
