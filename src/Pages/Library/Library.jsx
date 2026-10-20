@@ -41,7 +41,7 @@ export default function Library() {
   ];
 
   return (
-    <div className="w-full min-h-screen flex flex-col p-4 items-start justify-start dark:bg-black ">
+    <div className="w-full min-h-screen flex flex-col p-4 items-start justify-start ">
       {/* SEO Meta Tags */}
       <Helmet>
         {/* Primary Meta Tags */}
@@ -135,12 +135,14 @@ export default function Library() {
       </Helmet>
       {/* SEO Header */}
       <header className="mb-8 max-w-4xl dark:text-white">
-        <h1 className="text-4xl font-bold mb-4">IPTV Channel Library</h1>
-        <p className="text-xl dark:text-white text-gray-700  mb-2">
+        <h1 className="w-fit text-4xl font-bold mb-4 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
+          IPTV Channel Library
+        </h1>
+        <p className="text-xl  text-gray-700  mb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border font-normal dark:text-white">
           Browse our extensive collection of live TV channels organized by
-          region and category
+          region and category.
         </p>
-        <p className="text-lg dark:text-white text-gray-700">
+        <p className="text-xl  text-gray-700  mb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border font-normal dark:text-white">
           Access thousands of IPTV channels from around the world. Choose your
           region to start streaming.
         </p>
@@ -148,36 +150,30 @@ export default function Library() {
       <div className="flex flex-col gap-8 p-6 dark:text-white text-black">
         {/* Category 1: IPTV Streaming */}
         <div>
-          <h3 className=" dark:text-white text-black text-xl font-bold mb-4 border-b pb-2">
+          <h3 className=" w-fit text-black text-xl font-bold mb-4 border-b pb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
             IPTV Streaming
           </h3>
           <div className="flex flex-col sm:flex-row items-start justify-start flex-wrap gap-4">
-            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
-              <p className="text-lg font-medium text-white">
-                Stream World Wide IPTV
-              </p>
+            <div className="w-fit text-black text-xl font-bold mb-4 border-b pb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
+              <p className="text-lg font-medium ">Stream World Wide IPTV</p>
               <Link to={`/stream-iptv`}>
                 <p className="underline text-black">Watch</p>
               </Link>
             </div>
-            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
-              <p className="text-lg font-medium text-white">
-                Stream Asian IPTV
-              </p>
+            <div className="w-fit text-black text-xl font-bold mb-4 border-b pb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
+              <p className="text-lg font-medium ">Stream Asian IPTV</p>
               <Link to={`/stream/asian-iptv`}>
                 <p className="underline text-black">Watch</p>
               </Link>
             </div>
-            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
-              <p className="text-lg font-medium text-white">
-                Stream China IPTV
-              </p>
+            <div className="w-fit text-black text-xl font-bold mb-4 border-b pb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
+              <p className="text-lg font-medium ">Stream China IPTV</p>
               <Link to={`/stream/china-iptv`}>
                 <p className="underline text-black">Watch</p>
               </Link>
             </div>
-            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
-              <p className="text-lg font-medium text-white">Watch IPTV</p>
+            <div className="w-fit text-black text-xl font-bold mb-4 border-b pb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
+              <p className="text-lg font-medium ">Watch IPTV</p>
               <Link to={`/iptv`}>
                 <p className="underline text-black">Watch</p>
               </Link>
@@ -187,22 +183,18 @@ export default function Library() {
 
         {/* Category 2: Channels & Lists */}
         <div>
-          <h3 className=" dark:text-white text-black text-xl font-bold  mb-4 border-b pb-2">
+          <h3 className=" w-fit text-black text-xl font-bold mb-4 border-b pb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
             Channels & Directories
           </h3>
           <div className="flex flex-col sm:flex-row items-start justify-start flex-wrap gap-4">
-            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
-              <p className="text-lg font-medium text-white">
-                Collected Channels
-              </p>
+            <div className="w-fit text-black text-xl font-bold mb-4 border-b pb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
+              <p className="text-lg font-medium ">Collected Channels</p>
               <Link to={`/test_collected_channels`}>
                 <p className="underline text-black">Collected channels</p>
               </Link>
             </div>
-            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
-              <p className="text-lg font-medium text-white">
-                All Channels List
-              </p>
+            <div className="w-fit text-black text-xl font-bold mb-4 border-b pb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
+              <p className="text-lg font-medium ">All Channels List</p>
               <Link to={`/more`}>
                 <p className="underline text-black">All channels list</p>
               </Link>
@@ -212,30 +204,30 @@ export default function Library() {
 
         {/* Category 3: Tools & Social */}
         <div>
-          <h3 className=" dark:text-white text-black text-xl font-bold  mb-4 border-b pb-2">
+          <h3 className=" w-fit text-black text-xl font-bold mb-4 border-b pb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
             Tools & Community
           </h3>
           <div className="flex flex-col sm:flex-row items-start justify-start flex-wrap gap-4">
-            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
-              <p className="text-lg font-medium text-white">VPlayer</p>
+            <div className="w-fit text-black text-xl font-bold mb-4 border-b pb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
+              <p className="text-lg font-medium ">VPlayer</p>
               <Link to={`/v-player`}>
                 <p className="underline text-black">Open VPlayer</p>
               </Link>
             </div>
-            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-purple-500 rounded-md shadow-sm">
-              <p className="text-lg font-medium text-white">Playlist Player</p>
+            <div className="w-fit text-black text-xl font-bold mb-4 border-b pb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
+              <p className="text-lg font-medium ">Playlist Player</p>
               <Link to={`/playlist-player`}>
                 <p className="underline text-black">Open Playlist Player</p>
               </Link>
             </div>
-            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
-              <p className="text-lg font-medium text-white">Discussion</p>
+            <div className="w-fit text-black text-xl font-bold mb-4 border-b pb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
+              <p className="text-lg font-medium ">Discussion</p>
               <Link to={`/adda`}>
                 <p className="underline text-black">Start Discussion</p>
               </Link>
             </div>
-            <div className="min-w-[280px] w-fit h-fit p-4 border border-blue-500 bg-green-500 rounded-md shadow-sm">
-              <p className="text-lg font-medium text-white">Theme</p>
+            <div className="w-fit text-black text-xl font-bold mb-4 border-b pb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border dark:text-white">
+              <p className="text-lg font-medium ">Theme</p>
               <Link to={`/theme-store`}>
                 <p className="underline text-black">Theme store</p>
               </Link>
