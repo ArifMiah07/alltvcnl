@@ -24,6 +24,7 @@ const StreamChinaIptv = () => {
   const [totalItems, setTotalItems] = useState(0);
 
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
+  // eslint-disable-next-line no-unused-vars
   const [channelsPerPage, setChannelsPerPage] = useState(10);
 
   // const [bookmarkedChannel, setBookmarkedChannel] = useState({});

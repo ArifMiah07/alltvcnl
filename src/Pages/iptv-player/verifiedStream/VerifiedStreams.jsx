@@ -1,4 +1,5 @@
-// streams here
+// verified streams here
+// this one being used in prod
 
 // import { Toaster } from "sonner";
 import { Helmet } from "react-helmet-async";
@@ -78,7 +79,7 @@ const VerifiedStreams = () => {
 
   // console.log(pagesArray);
   return (
-    <div className="min-h-screen w-full p-4 dark:bg-black">
+    <div className="min-h-screen w-full p-4 ">
       {/* SEO Head */}
       <Helmet>
         {/* Page-specific SEO */}
@@ -123,11 +124,13 @@ const VerifiedStreams = () => {
       {/* <Toaster richColors position="top-right" className="z-30" /> */}
       {/* <ClockPage /> */}
       <div className="flex flex-col items-start gap-2 my-2">
-        <h1 className="text-lg font-normal dark:text-white">
+        <h1 className="shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border text-lg font-normal dark:text-white ">
           Iptv player {">"} Streaming verified channels
         </h1>
-        <p className="text-md font-normal dark:text-white mb-2">
-          This page shows channels thats are more certainly going to be played
+        <p className="text-md mb-2 shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border text-lg font-normal dark:text-white">
+          This page shows channels thats are more certainly going to be played{" "}
+          <br />
+          Current valid location : USA
         </p>
         <BackButton label=" " styles=" " />
       </div>

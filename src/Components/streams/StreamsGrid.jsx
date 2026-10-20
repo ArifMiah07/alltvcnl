@@ -176,8 +176,8 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
           <div
             className=" w-full h-fit flex flex-col justify-start border  border-rose-50 bg-radial-[at_50%_75%] from-sky-100 via-violet-100 to-fuchsia-100 to-90% "
             key={stream_index}>
-            {/* user actions - Top row matching your wireframe: [Logo] [Title / Controls] */}
-            <div className="shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate w-full flex flex-row flex-nowrap items-center ">
+            {/* user actions - Top row matching your wireframe: [Logo] [Title / Controls] || list view */}
+            <div className=" w-full flex flex-row flex-nowrap items-center shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate">
               {/* logo || image */}
               <div className="flex flex-row items-center justify-center shrink-0 p-1">
                 <img
@@ -211,7 +211,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                   {/* stream a specific channel */}
                   <span
                     onClick={() => handleSpecificChannelStream({ stream_item })}
-                    className=" flex flex-col items-center justify-center rounded-sm text-black text-black bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                    className=" flex flex-col items-center justify-center rounded-sm text-black bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                     <Link
                       to={`/specific-channel/${
                         (currentPage - 1) * channelsPerPage + (stream_index + 1)

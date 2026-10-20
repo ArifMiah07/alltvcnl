@@ -43,7 +43,9 @@ const PaginationNumbers = ({
               onClick={() => handleCurrentPage(page)}
               key={index}
               className={` border border-[#ff00ff] dark:text-white text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5  ${
-                page === currentPage ? "bg-green-500 text-white" : ""
+                page === currentPage
+                  ? "bg-green-500 text-white"
+                  : "shadow-md bg-white/30 backdrop-blur-md isolate"
               }  `}>
               {page}
             </button>
@@ -58,18 +60,18 @@ const PaginationNumbers = ({
           // onClick={() => handleCurrentPage(page)}
           onClick={handlePrevPage}
           disabled={currentPage <= 1}
-          className={` border border-[#ff00ff] dark:text-white text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5 ${
+          className={` border border-[#ff00ff] dark:text-white text-md rounded-sm shadow-md  hover:bg-[#a100ff] hover:text-white py-2 px-5 ${
             currentPage <= 1
-              ? "text-gray-400 hover:text-gray-300 hover:bg-gray-700 dark:text-gray-500 dark:hover:bg-gray-600"
-              : "text-black hover:text-white"
-          } `}>
+              ? "text-gray-400 hover:text-gray-300 hover:bg-gray-700 bg-gray-500 dark:text-gray-500 dark:bg-gray-500 dark:hover:bg-gray-600"
+              : "text-black hover:text-white shadow-md bg-white/30 backdrop-blur-md isolate"
+          }`}>
           Prev
         </button>
         <button
           onClick={handleNextPage}
           disabled={currentPage >= numbersOfPages}
           // onClick={() => handleCurrentPage(page)}
-          className={` border border-[#ff00ff] dark:text-white text-md rounded-sm hover:bg-[#a100ff] hover:text-white  py-2 px-5 ${
+          className={` border border-[#ff00ff] dark:text-white text-md rounded-sm shadow-md bg-white/30 backdrop-blur-md isolate hover:bg-[#a100ff] hover:text-white  py-2 px-5 ${
             currentPage >= numbersOfPages
               ? "text-gray-400 hover:text-gray-300 hover:bg-gray-700 dark:text-gray-500 dark:hover:bg-gray-600"
               : "text-black hover:text-white"

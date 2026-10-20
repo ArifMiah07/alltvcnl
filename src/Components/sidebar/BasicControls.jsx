@@ -46,7 +46,9 @@ const BasicControls = ({
       <div className="w-full ">
         {/* form */}
         <form onSubmit={onGoto} className=" w-full flex flex-col ">
-          <label htmlFor="goto_page" className="mb-1">
+          <label
+            htmlFor="goto_page"
+            className="mb-1 px-2 border-2 text-black hover:text-white shadow-md bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate">
             Go to a page
           </label>
           <div className="w-full flex flex-row  ">
@@ -80,7 +82,9 @@ const BasicControls = ({
           onSubmit={handleChannelsPerPage}
           className=" w-full flex flex-col  ">
           {/* handle numbers of cnl's per page */}
-          <label htmlFor="goto_page" className="mb-1">
+          <label
+            htmlFor="goto_page"
+            className="mb-1 px-2 border-2 text-black hover:text-white shadow-md bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate">
             Channels per page
           </label>
           <div className="w-full flex flex-row  ">
