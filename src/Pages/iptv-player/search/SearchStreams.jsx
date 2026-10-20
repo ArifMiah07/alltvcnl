@@ -217,7 +217,7 @@ const SearchStreams = () => {
      * refactor, add all device responsiveness
      * use local storage for preferences and use a database if user have account
      */
-    <div className="p-2 flex flex-col dark:bg-black ">
+    <div className="p-2 flex flex-col ">
       {/* SEO */}
       <Helmet>
         {/* UPDATED CODE FROM GEMINI */}

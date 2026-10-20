@@ -396,7 +396,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   --bg-gradient: none;
-  background-image: var(--bg-gradient), url("/background/image6.png");
+  background-image:
+    var(--bg-gradient), url("/background/terrain-3321-16x9.png");
 }
 html.dark .main_bg_img {
   --bg-gradient: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
