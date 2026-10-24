@@ -135,7 +135,7 @@ const Sidebar = ({
       {/* sidebar section */}
       <div
         className={`w-full h-full flex flex-col ${hideSidebar ? "hidden" : "visible"}`}>
-        <div className="w-full border-b-2 border-red-50 ">
+        <div className="w-full border-b-2 border-red-50 mb-4">
           <div className="  w-full h-full flex flex-row items-center justify-start gap-2 mb-4  border-2 border-red-50 shadow-md hover:text-white bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate px-5 py-2  ">
             <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold dark:text-white ">
               Basic Info{" "}
@@ -145,7 +145,7 @@ const Sidebar = ({
             </h3>
           </div>
           <div
-            className={`mb-4 dark:text-white  ${expandBasicInfo ? "hidden" : "visible"}`}>
+            className={`mb-2 dark:text-white  ${expandBasicInfo ? "hidden" : "visible"}`}>
             <BasicInfo
               currentPage={currentPage}
               numbersOfPages={numbersOfPages}
@@ -162,7 +162,7 @@ const Sidebar = ({
             />
           </div>
         </div>
-        <div className="w-full border-b-2 border-red-50 ">
+        <div className="w-full border-b-2 border-red-50 mb-4">
           <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 border-2 border-red-50 shadow-md hover:text-white bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate px-5 py-2 ">
             <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold  dark:text-white ">
               Basic Controls{" "}
@@ -192,7 +192,7 @@ const Sidebar = ({
         {/* <div className="w-full dark:text-white mt-4">
           <BasicFilters />
         </div> */}
-        <div className="w-full border-b-2 border-red-50 ">
+        <div className="w-full border-b-2 border-red-50 mb-4">
           <div className=" w-full h-full flex flex-row items-center justify-start gap-2 mb-4 border-2 border-red-50 shadow-md hover:text-white bg-white/30 hover:bg-purple-600 backdrop-blur-md isolate px-5 py-2 ">
             <h3 className=" flex flex-row items-center justify-center gap-1 text-lg font-bold  dark:text-white ">
               Basic Filters{" "}
