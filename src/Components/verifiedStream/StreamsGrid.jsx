@@ -50,7 +50,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
               className=" w-full h-fit flex flex-col justify-start border border-rose-50 bg-radial-[at_50%_75%] from-sky-100 via-violet-100 to-fuchsia-100 to-90% "
               key={stream_index}>
               {/* user actions - Top row matching your wireframe: [Logo] [Title / Controls] */}
-              <div className="w-full flex flex-row flex-nowrap items-center">
+              <div className="w-full flex flex-row flex-nowrap items-center shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate">
                 {/* logo */}
                 <div className="flex flex-row items-center justify-center shrink-0 p-1">
                   <img
@@ -87,7 +87,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                       onClick={() =>
                         handleSpecificChannelStream({ stream_item })
                       }
-                      className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                      className=" flex flex-col items-center justify-center rounded-sm text-black bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                       <Link
                         to={`/specific-verified-channel/${
                           (currentPage - 1) * channelsPerPage +
@@ -106,7 +106,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                     </span>
 
                     {/* stream a specific channel on browser in a separate tab */}
-                    <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                    <span className=" flex flex-col items-center justify-center rounded-sm text-black bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                       <a
                         href={`${stream_item.url}`}
                         target="_blank"
@@ -119,7 +119,7 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                     {/* save or locally or save to a playlist <localStorage || default, playlist name> */}
                     <span
                       onClick={() => handleBookmarkChannelToggle(stream_item)}
-                      className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                      className=" flex flex-col items-center justify-center rounded-sm text-black bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                       {bookmarkedChannel[stream_item.url] ? (
                         <BookmarkCheck />
                       ) : (
@@ -127,13 +127,13 @@ const StreamsGrid = ({ streams, currentPage, channelsPerPage }) => {
                       )}
                     </span>
 
-                    <span className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                    <span className=" flex flex-col items-center justify-center rounded-sm text-black bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                       <ListPlus />
                     </span>
 
                     <span
                       onClick={() => handleToggleExpand(stream_item)}
-                      className=" flex flex-col items-center justify-center rounded-sm bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
+                      className=" flex flex-col items-center justify-center rounded-sm text-black bg-purple-200 hover:bg-purple-300  w-6 h-6 ">
                       {expandedChannel[stream_item.url] ? (
                         <ChevronsDownUp />
                       ) : (

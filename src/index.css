@@ -396,9 +396,13 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   --bg-gradient: none;
-  background-image:
-    var(--bg-gradient), url("/background/terrain-3321-16x9.png");
+  --bg-url: url("/background/choose/aura-50749-16x9.png");
+  background-image: var(--bg-gradient), var(--bg-url);
 }
 html.dark .main_bg_img {
   --bg-gradient: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
 }
+/* 
+coral-20080-16x9
+terrain-3321-16x9
+whorl-61437-16x9 */

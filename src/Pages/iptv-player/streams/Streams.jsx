@@ -61,7 +61,7 @@ const Streams = () => {
 
   // console.log(pagesArray);
   return (
-    <div className="main_bg_img min-h-screen w-full p-4 ">
+    <div className=" min-h-screen w-full p-4 ">
       {/* SEO Head */}
       <Helmet>
         {/* Page-specific SEO */}

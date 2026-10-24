@@ -15,6 +15,17 @@ const Root = () => {
   //
   const { hideNavBar } = useSettings();
 
+  const hour = new Date().getHours();
+
+  const bgImages = [
+    'url("/background/choose/coral-20080-16x9.png")', // 00:00 - 05:59
+    'url("/background/choose/aura-50749-16x9.png")', // 06:00 - 11:59
+    'url("/background/choose/terrain-3321-16x9.png")', // 12:00 - 17:59
+    'url("/background/choose/whorl-61437-16x9.png")', // 18:00 - 23:59
+  ];
+
+  const currentBg = bgImages[Math.floor(hour / 6)];
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       // 1. CRITICAL: Ignore if user is typing in input/textarea/contentEditable
@@ -162,7 +173,8 @@ const Root = () => {
      */
     <div
       // onClick={handleEvents}
-      className=" main_bg_img relative min-h-screen flex flex-col h-fit w-full mx-auto font-poppins ">
+      className=" main_bg_img relative min-h-screen flex flex-col h-fit w-full mx-auto font-poppins "
+      style={{ "--bg-url": currentBg }}>
       {/* Global SEO + Structured Data */}
       <Helmet>
         <title>All TV IPTV Player - 13K+ Live TV Channels</title>

@@ -3,7 +3,7 @@ import iptv from ".././../assets/Group 104.png";
 
 const About = () => {
   return (
-    <div className=" min-h-screen main_bg_img py-10 px-4">
+    <div className=" min-h-screen py-10 px-4">
       <Helmet>
         <title>About Us</title>
         <meta
