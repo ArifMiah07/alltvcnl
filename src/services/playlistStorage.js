@@ -1,3 +1,8 @@
+// src/services/playlistStorage.js
+
+/* // CODE WRITTEN BY GEMINI
+  // STARTS HERE
+*/
 import localforage from "localforage";
 
 localforage.config({
@@ -84,3 +89,7 @@ export const PlaylistStorage = {
     URL.revokeObjectURL(url);
   },
 };
+
+/* // CODE WRITTEN BY GEMINI
+  // ENDS HERE
+*/

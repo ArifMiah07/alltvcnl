@@ -61,7 +61,7 @@ const Streams = () => {
 
   // console.log(pagesArray);
   return (
-    <div className=" min-h-screen w-full p-4 ">
+    <div className=" min-h-screen w-full p-1 md:p-4 ">
       {/* SEO Head */}
       <Helmet>
         {/* Page-specific SEO */}
@@ -105,11 +105,29 @@ const Streams = () => {
       {/* toast */}
       {/* <Toaster richColors position="top-right" className="z-30" /> */}
       {/* <ClockPage /> */}
-      <div className="flex flex-col items-start gap-2 my-6">
-        <h1 className="shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-5 py-2 border text-lg font-normal dark:text-white">
+      <div className="flex flex-row flex-wrap md:flex-col items-start gap-1 md:gap-2 my-0 md:my-6">
+        <BackButton label=" " styles=" " />
+        <h1 className="shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-2 py-1 md:px-5 md:py-2 border text-lg font-normal dark:text-white">
           Iptv player {">"} Streaming
         </h1>
-        <BackButton label=" " styles=" " />
+      </div>
+      <div className=" flex flex-row flex-wrap md:flex-col items-start gap-1 md:gap-2 my-1 md:my-1 lg:hidden">
+        <h1 className="shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-2 py-1 md:px-5 md:py-2 border text-lg font-normal dark:text-white">
+          Current Page
+        </h1>
+        <h1 className="shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-2 py-1 md:px-5 md:py-2 border text-lg font-normal dark:text-white">
+          Controls
+        </h1>
+        <h1 className="shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-2 py-1 md:px-5 md:py-2 border text-lg font-normal dark:text-white">
+          Filters
+        </h1>
+        <h1 className="shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-2 py-1 md:px-5 md:py-2 border text-lg font-normal dark:text-white">
+          Next
+        </h1>
+        <h1 className="shadow-md bg-white/30 hover:bg-purple-600 hover:text-white backdrop-blur-md isolate px-2 py-1 md:px-5 md:py-2 border text-lg font-normal dark:text-white">
+          Previous
+        </h1>
+        {/* <BackButton label=" " styles=" " /> */}
       </div>
       {/* basic information and action */}
       {/* <div className="  flex flex-row gap-3 p-3 w-full">
