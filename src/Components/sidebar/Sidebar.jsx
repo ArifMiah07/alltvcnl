@@ -2,7 +2,7 @@
 
 import BasicControls from "./BasicControls";
 import BasicFilters from "./BasicFilters";
-import { useState } from "react";
+// import { useState } from "react";
 import BasicInfo from "./BasicInfo";
 
 import PropTypes from "prop-types";
@@ -31,9 +31,9 @@ const Sidebar = ({
   // handleToggleMoreChannelsLayout,
 }) => {
   // react states
-  const [expandBasicControls, setExpandBasicControls] = useState(false);
-  const [expandBasicInfo, setExpandBasicInfo] = useState(false);
-  const [expandBasicFilters, setExpandBasicFilters] = useState(false);
+  // const [expandBasicControls, setExpandBasicControls] = useState(false);
+  // const [expandBasicInfo, setExpandBasicInfo] = useState(false);
+  // const [expandBasicFilters, setExpandBasicFilters] = useState(false);
   const {
     // currentPage,
     // numbersOfPages,
@@ -49,25 +49,34 @@ const Sidebar = ({
     // totalItems,
     handleCurrentPage,
     // setTotalItems,
+    expandBasicControls,
+    // setExpandBasicControls,
+    expandBasicInfo,
+    // setExpandBasicInfo,
+    expandBasicFilters,
+    // setExpandBasicFilters,
+    toggleBasicControlsExpand,
+    toggleBasicInfoExpand,
+    toggleBasicFiltersExpand,
   } = usePagination();
   // use hooks
 
   // handler function
   // expand basic control
-  const toggleBasicControlsExpand = () => {
-    //
-    setExpandBasicControls(!expandBasicControls);
-  };
-  // expand basic control
-  const toggleBasicInfoExpand = () => {
-    //
-    setExpandBasicInfo(!expandBasicInfo);
-  };
+  // const toggleBasicControlsExpand = () => {
+  //   //
+  //   setExpandBasicControls(!expandBasicControls);
+  // };
+  // // expand basic control
+  // const toggleBasicInfoExpand = () => {
+  //   //
+  //   setExpandBasicInfo(!expandBasicInfo);
+  // };
 
-  const toggleBasicFiltersExpand = () => {
-    //
-    setExpandBasicFilters(!expandBasicFilters);
-  };
+  // const toggleBasicFiltersExpand = () => {
+  //   //
+  //   setExpandBasicFilters(!expandBasicFilters);
+  // };
 
   // ____UPDATED CODE FROM CHATGPT____ //
   /** ______START HERE______ */

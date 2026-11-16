@@ -28,6 +28,12 @@ export const PaginationProvider = ({ children }) => {
     },
   );
 
+  //
+
+  const [expandBasicControls, setExpandBasicControls] = useState(false);
+  const [expandBasicInfo, setExpandBasicInfo] = useState(false);
+  const [expandBasicFilters, setExpandBasicFilters] = useState(false);
+
   // playlist creation::
   const [addToPlaylist, setAddToPlaylist] = useState({});
   const [playlists, setPlaylists] = useState({ default: [], watch_later: [] });
@@ -54,6 +60,23 @@ export const PaginationProvider = ({ children }) => {
   }, []);
 
   // handler functions
+
+  //
+  // expand basic control
+  const toggleBasicControlsExpand = () => {
+    //
+    setExpandBasicControls(!expandBasicControls);
+  };
+  // expand basic control
+  const toggleBasicInfoExpand = () => {
+    //
+    setExpandBasicInfo(!expandBasicInfo);
+  };
+
+  const toggleBasicFiltersExpand = () => {
+    //
+    setExpandBasicFilters(!expandBasicFilters);
+  };
 
   // handle add playlist
   // const handleAdd = aysnc(e) => {
@@ -235,6 +258,15 @@ export const PaginationProvider = ({ children }) => {
     setPlaylistNameInput,
     handleAddPlatlists,
     loading,
+    expandBasicControls,
+    setExpandBasicControls,
+    expandBasicInfo,
+    setExpandBasicInfo,
+    expandBasicFilters,
+    setExpandBasicFilters,
+    toggleBasicControlsExpand,
+    toggleBasicInfoExpand,
+    toggleBasicFiltersExpand,
   };
   return (
     <PaginationContext.Provider value={getValues}>
