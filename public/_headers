@@ -1,7 +1,9 @@
 /*
-  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; frame-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' blob: data: https:; connect-src 'self' ws://localhost:5173 wss://localhost:5173 ws://127.0.0.1:5173 wss://127.0.0.1:5173 http://localhost:5000 https://iptv-player-server.vercel.app https://www.google-analytics.com https://www.googletagmanager.com https:; font-src 'self' data:; worker-src 'self' blob:
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Cross-Origin-Opener-Policy: same-origin
+  X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
 
 /*.js
@@ -12,6 +14,33 @@
 
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
+
+/gtag-init.js
+  Cache-Control: public, max-age=3600
+
+/analytics-loader.js
+  Cache-Control: public, max-age=3600
+
+/hash-migration.js
+  Cache-Control: public, max-age=3600
+
+/jsons/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/hero/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/background/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.webp
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/manifest.webmanifest
+  Cache-Control: public, max-age=86400
 
 /og-banner.webp
   Cache-Control: public, max-age=604800

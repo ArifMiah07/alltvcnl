@@ -1,54 +1,57 @@
 {
-  "name": "IPTV-Player",
+  "name": "alltvcnl",
+  "version": "0.0.2",
   "private": true,
-  "version": "0.0.02",
+  "type": "module",
   "main": "electron-main.js",
   "author": "Arif Miah 07",
-  "description": "IPTV Player Desktop App",
-  "type": "module",
+  "description": "Fast, secure IPTV player for web and desktop",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "packageManager": "npm@11.6.2",
   "scripts": {
     "dev": "vite",
-    "generate-sitemap": "node scripts/generate-sitemap.js",
-    "build": "vite build",
-    "package": "npm prune --production && electron-builder",
-    "postpackage": "npm install",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
+    "build": "npm run build:web && npm run build:electron && node scripts/generate-sitemap.mjs",
+    "build:web": "vite build && node scripts/generate-sitemap.mjs",
+    "build:electron": "vite build --mode electron",
+    "preview": "vite preview --outDir dist-web",
+    "generate-sitemap": "node scripts/generate-sitemap.mjs",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "electron-dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && cross-env ELECTRON_START_URL=http://localhost:5173 electron .\"",
-    "electron-build": "npm run build && electron .",
-    "dist": "npm run build && electron-builder",
-    "dist:win": "npm run build && electron-builder --win",
-    "dist:win-portable": "npm run build && electron-builder --win portable",
-    "dist:mac": "npm run build && electron-builder --mac",
-    "dist:linux": "npm run build && electron-builder --linux",
-    "release": "npm version patch && npm run dist:win-portable"
+    "electron-build": "npm run build:electron && electron .",
+    "dist": "npm run build:electron && electron-builder",
+    "dist:win": "npm run build:electron && electron-builder --win",
+    "dist:win-portable": "npm run build:electron && electron-builder --win portable",
+    "dist:mac": "npm run build:electron && electron-builder --mac",
+    "dist:linux": "npm run build:electron && electron-builder --linux"
   },
   "build": {
     "appId": "com.arifmiah.iptv-player",
     "productName": "IPTV-Player",
-    "icon": "assets/icon.png",
+    "icon": "public/favicon.png",
     "artifactName": "${productName}-${version}.${ext}",
     "directories": {
-      "buildResources": "assets",
+      "buildResources": "public",
       "output": "release"
     },
     "files": [
       "dist/**/*",
       "electron-main.js",
-      "package.json",
-      "!node_modules/**/*"
+      "preload.js",
+      "package.json"
     ],
     "extraMetadata": {
       "main": "electron-main.js"
     },
-    "asarUnpack": [],
     "win": {
       "target": [
         {
           "target": "nsis",
-          "arch": [
-            "x64"
-          ]
+          "arch": ["x64"]
         }
       ],
       "signAndEditExecutable": false
@@ -57,51 +60,34 @@
       "target": "dmg"
     },
     "linux": {
-      "target": [
-        "AppImage"
-      ],
-      "electronLanguages": [
-        "en-US"
-      ],
-      "category": "AudioVideo",
-      "maintainer": "Arif Miah 07 <your-email@example.com>",
-      "synopsis": "Watch IPTV channels",
-      "description": "IPTV Player Desktop App for watching live TV channels"
+      "target": ["AppImage"],
+      "category": "AudioVideo"
     }
   },
   "dependencies": {
-    "axios": "^1.20.0",
+    "@solidjs/meta": "^2.0.0",
+    "@solidjs/router": "^2.0.1",
+    "@solidjs/web": "^2.0.0",
     "hls.js": "^1.6.6",
-    "localforage": "^1.10.0",
-    "lucide-react": "^0.563.0",
-    "media-chrome": "^4.17.2",
-    "motion": "^12.23.26",
-    "prop-types": "^15.8.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-helmet-async": "^2.0.4",
-    "react-intersection-observer": "^9.16.0",
-    "react-router-dom": "^7.18.3",
-    "sonner": "^2.0.7"
+    "solid-js": "^2.0.3"
   },
   "devDependencies": {
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
-    "@vitejs/plugin-react": "^4.2.1",
-    "autoprefixer": "^10.4.19",
+    "@eslint/js": "^10.0.1",
+    "@solidjs/vite-plugin": "^3.0.1",
+    "@types/node": "^24.10.0",
+    "autoprefixer": "^10.4.20",
     "concurrently": "^9.2.1",
     "cross-env": "^10.1.0",
-    "daisyui": "^4.10.1",
     "electron": "^44.3.0",
-    "electron-builder": "^26.0.12",
-    "esbuild": "^0.28.2",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
-    "vite": "^8.3.0",
+    "electron-builder": "^26.15.3",
+    "eslint": "^10.15.0",
+    "eslint-plugin-solid": "^0.20.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.73.0",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1",
     "wait-on": "^9.0.4"
   }
 }

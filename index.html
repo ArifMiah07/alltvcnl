@@ -1,65 +1,63 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="google-site-verification" content="ugyyBMZKICctARHZ6bZvz3RIU3rMdxwLkaASEW7QISE" />
+    <meta name="theme-color" content="#a100ff" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' blob: data: https:; connect-src 'self' ws://localhost:5173 wss://localhost:5173 ws://127.0.0.1:5173 wss://127.0.0.1:5173 http://localhost:5000 https://iptv-player-server.vercel.app https://www.google-analytics.com https://www.googletagmanager.com https:; font-src 'self' data:; worker-src 'self' blob:" />
+    <link rel="preconnect" href="https://iptv-player-server.vercel.app" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hero/hero-img-Action-Hollywood-Movies.webp" fetchpriority="high" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="favicon.png" type="image/svg+xml" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPTV Player – 13K+ Live TV Channels | Fast, Responsive IPTV Web App</title>
+    <meta name="title" data-dh="meta:name:title" content="IPTV Player – 13K+ Live TV Channels | Fast, Responsive IPTV Web App" />
+    <meta name="description" data-dh="meta:name:description" content="Stream over 13,000+ live IPTV channels in a fast, fully responsive web app with real-time search, bookmarks, playlists, pagination, and an HLS player." />
+    <meta name="robots" data-dh="meta:name:robots" content="index, follow" />
+    <meta property="og:type" data-dh="meta:property:og:type" content="website" />
+    <meta property="og:site_name" data-dh="meta:property:og:site_name" content="IPTV Player" />
+    <meta property="og:locale" data-dh="meta:property:og:locale" content="en_US" />
+    <meta property="og:url" data-dh="meta:property:og:url" content="https://alltvcnl.netlify.app/" />
+    <meta property="og:title" data-dh="meta:property:og:title" content="IPTV Player – 13K+ Live TV Channels" />
+    <meta property="og:description" data-dh="meta:property:og:description" content="Fast IPTV streaming app with 13K+ live channels, bookmarking, playlists, pagination, and stream preview." />
+    <meta property="og:image" data-dh="meta:property:og:image" content="https://alltvcnl.netlify.app/og-banner.webp" />
+    <meta property="og:image:alt" data-dh="meta:property:og:image:alt" content="IPTV Player streaming interface" />
+    <meta property="og:image:width" data-dh="meta:property:og:image:width" content="1904" />
+    <meta property="og:image:height" data-dh="meta:property:og:image:height" content="969" />
 
-  <!-- Google Site Verification (Search Console) -->
-  <meta name="google-site-verification" content="ugyyBMZKICctARHZ6bZvz3RIU3rMdxwLkaASEW7QISE" />
+    <meta name="twitter:card" data-dh="meta:name:twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" data-dh="meta:name:twitter:url" content="https://alltvcnl.netlify.app/" />
+    <meta name="twitter:title" data-dh="meta:name:twitter:title" content="IPTV Player – 13K+ Live TV Channels" />
+    <meta name="twitter:description" data-dh="meta:name:twitter:description" content="Fast IPTV streaming app with 13K+ live channels, bookmarking, playlists, pagination, and stream preview." />
+    <meta name="twitter:image" data-dh="meta:name:twitter:image" content="https://alltvcnl.netlify.app/og-banner.webp" />
 
-  <title>IPTV Player – 13K+ Live TV Channels | Fast, Responsive IPTV Web App</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="title" content="IPTV Player – 13K+ Live TV Channels | Fast, Responsive IPTV Web App">
-  <meta name="description"
-    content="Stream over 13,000+ live IPTV channels in a fast, fully responsive React-based web app with real-time search, bookmarks, pagination, and HLS player.">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://alltvcnl.netlify.app/" />
-  <meta property="og:title" content="IPTV Player – 13K+ Live TV Channels" />
-  <meta property="og:description"
-    content="Fast IPTV streaming app with 13K+ live channels, bookmarking, pagination, and stream preview. Built with React and Tailwind." />
-  <meta property="og:image" content="https://alltvcnl.netlify.app/og-banner.webp" />
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://alltvcnl.netlify.app/" />
-  <meta property="twitter:title" content="IPTV Player – 13K+ Live TV Channels" />
-  <meta property="twitter:description"
-    content="Fast IPTV streaming app with 13K+ live channels, bookmarking, pagination, and stream preview. Built with React and Tailwind." />
-  <meta property="twitter:image" content="https://alltvcnl.netlify.app/og-banner.webp" />
-
-
-  <!-- Performance Hinting -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-01LW7JCZ6F"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-01LW7JCZ6F');
-  </script>
-</head>
-
-<body>
-  <div id="root"></div>
-  <script>
-    (function () {
-      const theme = localStorage.theme;
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-      if (theme === "dark" || (!theme && prefersDark)) {
-        document.documentElement.classList.add("dark");
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "IPTV Player",
+        "url": "https://alltvcnl.netlify.app",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://alltvcnl.netlify.app/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       }
-    })();
-  </script>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
+    </script>
 
+    <script src="/gtag-init.js"></script>
+    <script src="/analytics-loader.js" defer></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="/hash-migration.js"></script>
+    <script type="module" src="/src/app/index.tsx"></script>
+  </body>
 </html>
