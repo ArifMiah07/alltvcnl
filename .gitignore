@@ -12,11 +12,14 @@ node_modules
 
 # Vite build
 dist/
+dist-web/
 dist-ssr
+tmp/
 *.env
 .env
 .env.development
 .env.production
+.env.electron
 # Electron builds
 release/
 blocked.json

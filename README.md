@@ -1,217 +1,103 @@
-# alltvcnl (All tv channel) - 📺 IPTV Player
+# alltvcnl
 
-[![Release](https://img.shields.io/github/v/release/ArifMiah07/alltvcnl?label=Release)](https://github.com/ArifMiah07/alltvcnl/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/ArifMiah07/alltvcnl/total?label=Downloads)](https://github.com/ArifMiah07/alltvcnl/releases)
-[![License](https://img.shields.io/github/license/ArifMiah07/alltvcnl)](LICENSE)
-[![Website](https://img.shields.io/badge/Website-alltvcnl.netlify.app-blue)](https://alltvcnl.netlify.app)
+A fast IPTV player for web and desktop, built with Solid 2, TypeScript, Vite, Tailwind CSS, hls.js, and Electron.
 
-A modern, cross-platform IPTV player designed to stream **13,000+ live TV channels** from various sources. Built with React, Electron, and Node.js for web, desktop, and future mobile platforms.
+## Features
 
----
+- Web and Electron builds from one Solid 2 codebase
+- Paginated channel browsing from the production IPTV API
+- Verified streams, groups, search, China IPTV, and collected channel browsing
+- Single active HLS player with quality selection and automatic cleanup
+- Favorites and JSON playlists stored locally
+- Strict CSP headers and safe URL validation
+- SEO metadata, canonical URLs, structured data, Open Graph/Twitter cards, robots.txt, sitemap.xml, Google Search Console verification, GA4 page tracking, and legacy redirects
 
-## ⚡ Quick Download
+## Requirements
 
-| Platform | Download | Status |
-|----------|----------|--------|
-| 🐧 **Linux** | [AppImage (103 MB)](https://github.com/ArifMiah07/alltvcnl/releases/latest/download/IPTV-Player-0.0.2.AppImage) | ✅ Tested |
-| 🪟 **Windows** | [Portable .exe (86 MB)](https://github.com/ArifMiah07/alltvcnl/releases/latest/download/IPTV-Player-0.0.2.exe) | ⚠️ Untested |
-| 🌐 **Web** | [Live Demo](https://alltvcnl.netlify.app) | ✅ Online |
+- Node.js 22.12 or newer
+- npm 11 or newer
+- Local IPTV API at `http://localhost:5000` for development
 
----
+## Install
 
-## 🎯 Features
-
-### ✨ Current Features
-- 📡 **13,000+ Channels** - Stream from IPTV JSON sources
-- 🔍 **Real-time Search** - Filter by channel name, URL, or country
-- 📑 **Smart Pagination** - Section-based navigation with custom page sizes
-- ⭐ **Bookmarks** - Save favorite channels (LocalStorage)
-- 🎬 **Stream Preview** - Embedded HLS/M3U8 player with ReactPlayer
-- 📱 **Fully Responsive** - Modern UI with Tailwind CSS
-- 🖥️ **Cross-Platform** - Desktop (Electron) + Web + Mobile (coming soon)
-- 🎨 **Dynamic Controls** - Adjustable channels per page
-- 🔗 **URL State Management** - Deep linking for channel details
-
-### 🔜 Coming Soon
-- 🍎 macOS desktop app
-- 📱 Mobile apps (iOS/Android via React Native)
-- 🌍 Country flags and language tags
-- 🎙️ Voice search integration
-- 🧑‍🤝‍🧑 Multi-user bookmarking with database
-- 📊 Real-time viewer stats via WebSocket
-- 🧠 AI-powered stream validation and ranking
-
----
-
-## 🏗️ Architecture
-
-### Tech Stack
-
-| Component | Technology |
-|-----------|-----------|
-| **Frontend** | React 18, React Router, Tailwind CSS, DaisyUI |
-| **Desktop** | Electron 38, Node.js |
-| **Backend** | Node.js, Express.js |
-| **Player** | ReactPlayer (HLS, M3U8 support) |
-| **State** | React Hooks, LocalStorage |
-| **Icons** | React Icons, Lucide React |
-| **Build** | Vite, Electron Builder |
-| **Deployment** | Netlify (Web), Vercel (API), GitHub Releases (Desktop) |
-
-### Backend Features (Node.js/Express)
-
-✅ **Implemented:**
-- 🔁 Stream validation & caching (`NodeCache`)
-- 🔗 HLS `.m3u8` proxy (CORS bypass)
-- 🧠 Segment URL rewriting for `.ts` segments
-- 🔐 Custom header injection (`User-Agent`, `Referer`, `Origin`)
-- 📡 Batch stream validation
-- ⚙️ Rate limiting and CORS support
-- 🎯 Centralized error handling
-- 📦 M3U playlist parsing
-
-🔜 **Planned:**
-- 📡 Real-time Socket.IO for activity stats
-- 👥 User authentication and profiles
-- 📊 Analytics dashboard
-- 🔄 Auto-refresh broken streams
-
-**Backend Repository:** [iptv-player-server](https://github.com/ArifMiah07/iptv-player-server) (Private)
-
----
-
-## 🧩 App Sections
-
-- **Home** - Featured IPTV player and stream preview
-- **All Channels** - Paginated, searchable channel grid (13,000+ channels)
-- **Saved Channels** - View your locally saved favorites
-- **Channel Detail** - Route-based preview for selected channel
-- **Footer** - Contact info and branding
-
----
-
-## 🚀 Getting Started
-
-### Web Version
-Visit [alltvcnl.netlify.app](https://alltvcnl.netlify.app)
-
-### Desktop Version
-
-**Linux:**
 ```bash
-# Download from releases
-wget https://github.com/ArifMiah07/alltvcnl/releases/latest/download/IPTV-Player-0.0.2.AppImage
-
-# Make executable
-chmod +x IPTV-Player-0.0.2.AppImage
-
-# Run
-./IPTV-Player-0.0.2.AppImage --no-sandbox
+npm install
 ```
 
-**Windows:**
-1. Download `IPTV-Player-0.0.2.exe` from [releases](https://github.com/ArifMiah07/alltvcnl/releases/latest)
-2. Double-click to run (portable, no installation needed)
+## Environment
 
----
+Development uses a Vite proxy so the browser calls the local API as same-origin:
 
-## 🛠️ Development
+- `.env.development` sets `VITE_API_BASE_URL=/dev-api`
+- `/dev-api` proxies to `http://localhost:5000`
+- `.env.production` uses the production API by default
+- `.env.electron` sets the production API for desktop builds
+- `.env.example` lists all supported variables
 
-### Frontend Setup
+Copy `.env.example` only when you need custom values.
+
+## Run
+
 ```bash
-# Clone repository
-git clone https://github.com/ArifMiah07/alltvcnl.git
-cd alltvcnl
-
-# Install dependencies
-npm install
-
-# Run development server
 npm run dev
-
-# Run Electron app in dev mode
-npm run electron-dev
-
-# Build for production
-npm run build
-
-# Build desktop apps
-npm run dist:linux    # Linux AppImage
-npm run dist:win      # Windows installer
-npm run dist:mac      # macOS dmg
 ```
 
-### Backend Setup
+Open `http://localhost:5173`.
+
+Desktop development:
+
 ```bash
-# Clone backend repository (if you have access)
-git clone https://github.com/ArifMiah07/iptv-player-server.git
-cd iptv-player-server
-
-# Install dependencies
-npm install
-
-# Run server
-npm start
+npm run electron-dev
 ```
 
----
+## Test and verify
 
-## 📦 LocalStorage Data
+```bash
+npm run lint
+npm run typecheck
+npm test
+```
 
-The app uses LocalStorage for:
-- `bookmarkedChannels` - Array of saved favorite channels
-- `channelsPerPage` - User preference for pagination (default: 10)
-- `currentPage` - Current section for navigation state
+## Build
 
----
+```bash
+npm run build
+```
 
-## 🐛 Known Issues
+Outputs:
 
-- **Linux Desktop:** May have rendering issues on older integrated graphics (workaround: hardware acceleration disabled)
-- **Windows Desktop:** Build untested on real Windows - feedback welcome!
-- **Stream Quality:** Depends on source stream quality and internet connection
-- **CORS Issues:** Some streams may require backend proxy
+- `dist-web/` for static hosting
+- `dist/` for Electron packaging
 
----
+Desktop packages:
 
-## 💬 Feedback & Support
+```bash
+npm run dist:linux
+npm run dist:win
+npm run dist:mac
+```
 
-Found a bug? Have a feature request?
+## Deployment
 
-- 🐛 [Report Issues](https://github.com/ArifMiah07/alltvcnl/issues)
-- 💡 [Request Features](https://github.com/ArifMiah07/alltvcnl/issues/new)
-- ⭐ Star the repo if you like it!
-- 📧 Email: support@alltvcnl.com
-- 📞 Phone: +880-123-456-789
+Cloudflare Pages is recommended:
 
----
+- Build command: `npm run build:web`
+- Output directory: `dist-web`
 
-## 📊 Project Stats
+Netlify and Vercel work with the same command and output directory. `public/_redirects` and `public/_headers` provide SPA fallback and security headers on Netlify/Cloudflare-style hosts.
 
-- **Lines of Code:** ~8,000+ (Frontend) + Backend
-- **Channels:** 13,000+
-- **Platforms:** Web, Linux, Windows (Mac coming soon)
-- **Languages:** JavaScript, JSX, CSS
+## Architecture
 
----
+See [docs/architecture.md](docs/architecture.md).
 
-## 📝 License
+Legacy React bugs and migration notes are recorded in [docs/legacy-react-audit.md](docs/legacy-react-audit.md).
 
-MIT License © 2026 IPTV Player
+## Data and privacy
 
-See [LICENSE](LICENSE) file for details.
+Favorites, playlists, theme, pagination preference, and collected search are stored in localStorage. No account is required. Aggregate usage is measured with GA4 (`G-01LW7JCZ6F`); no personal channel data is sent.
 
----
+## Known issues
 
-## 🙏 Acknowledgments
-
-- Channel data from public IPTV sources
-- Built with React, Electron, and Node.js
-- Icons by React Icons and Lucide
-- Deployed on Netlify and Vercel
-
----
-
-**🚀 IPTV Player** – Your gateway to seamless entertainment.
-
-Made with ❤️ by [Arif Miah 07](https://github.com/ArifMiah07)
+- Stream availability and quality depend on public IPTV sources.
+- Some streams may fail without correct `Referer` or `User-Agent`; a backend proxy is the safest fix.
+- Some hosts require custom header rules because `public/_headers` is platform-specific.

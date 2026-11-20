@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --brand-purple: #a100ff;
+  --brand-blue: #225dc9;
+  --brand-magenta: #ff00ff;
+  --brand-green: #16a34a;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen overflow-x-hidden bg-[#f7f7f7] font-sans text-slate-900 antialiased dark:bg-[#0d0714] dark:text-white;
+    text-rendering: optimizeLegibility;
+  }
+
+  video {
+    background: #000;
+  }
+
+  ::selection {
+    @apply bg-brand-purple text-white;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply border border-brand-purple/35 bg-white/35 shadow-sm backdrop-blur-md dark:border-brand-purple/40 dark:bg-slate-900/45;
+  }
+
+  .glass-bar {
+    @apply border border-white/50 bg-white/35 shadow-md backdrop-blur-md dark:border-white/10 dark:bg-slate-900/55;
+  }
+
+  .watch-now-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded bg-brand-blue px-6 py-3 font-semibold text-white shadow-cta transition hover:-translate-y-0.5 hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple;
+  }
+
+  .learn-more-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded bg-white px-6 py-3 font-semibold text-slate-900 shadow-[2px_2px_0_rgba(0,128,255,0.44)] transition hover:-translate-y-0.5 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(161, 0, 255, 0.55);
+}
