@@ -2,12 +2,14 @@ import { For, createMemo, createSignal, onSettled } from "solid-js";
 import { Icon } from "../../components/ui/Icon";
 import { sitePath } from "../../lib/api/config";
 import { heroSlides } from "../../data/heroSlides";
+import { heroSrcSet, responsiveSrc } from "../../lib/images";
 
 export function HeroSlider() {
   const [index, setIndex] = createSignal(0);
   const active = () => heroSlides[index()];
   const watchHref = () =>
     sitePath(`/watch?url=${encodeURIComponent(active().url)}&title=${encodeURIComponent(active().title)}`);
+  let section!: HTMLElement;
 
   const go = (next: number) => setIndex((next + heroSlides.length) % heroSlides.length);
   const visibleSlides = createMemo(() => {
@@ -18,8 +20,11 @@ export function HeroSlider() {
 
   onSettled(() => {
     let timer: number | undefined;
+    let onScreen = true;
+    const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const canPlay = () => onScreen && !document.hidden && !reducedMotion();
     const start = () => {
-      if (timer !== undefined || document.hidden || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (timer !== undefined || !canPlay()) return;
       timer = window.setInterval(() => setIndex((current) => (current + 1) % heroSlides.length), 6500);
     };
     const stop = () => {
@@ -27,28 +32,45 @@ export function HeroSlider() {
       window.clearInterval(timer);
       timer = undefined;
     };
-    const onVisibility = () => (document.hidden ? stop() : start());
+    const onVisibility = () => (canPlay() ? start() : stop());
+    const observer = new IntersectionObserver(
+      (entries) => {
+        onScreen = entries[0]?.isIntersecting ?? false;
+        onVisibility();
+      },
+      { threshold: 0.01 },
+    );
 
     document.addEventListener("visibilitychange", onVisibility);
-    start();
+    observer.observe(section);
+    onVisibility();
     return () => {
       stop();
       document.removeEventListener("visibilitychange", onVisibility);
+      observer.disconnect();
     };
   });
 
   return (
-    <section class="relative min-h-[88vh] w-full overflow-hidden bg-slate-950 text-white" aria-label="Featured live channels">
+    <section ref={section} class="relative min-h-[88vh] w-full overflow-hidden bg-slate-950 text-white" aria-label="Featured live channels">
       <For each={visibleSlides()}>
         {(slide) => (
           <div
-            class={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${slide.id === active().id ? "opacity-100" : "opacity-0"}`}
-            style={{ "background-image": `linear-gradient(to right, rgba(0,0,0,0.86), rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.15)), url('${slide.imageUrl}')` }}
-            aria-hidden="true"
-          />
+            class={`absolute inset-0 transition-opacity duration-300 ${slide.id === active().id ? "opacity-100" : "opacity-0"}`}
+            aria-hidden="true">
+            <img
+              class="h-full w-full object-cover"
+              src={responsiveSrc(slide.imageBase)}
+              srcset={heroSrcSet(slide.imageBase)}
+              sizes="100vw"
+              alt=""
+              decoding="async"
+              loading={slide.id === active().id ? "eager" : "lazy"}
+            />
+            <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-black/20" />
+          </div>
         )}
       </For>
-      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" aria-hidden="true" />
 
       <div class="relative z-10 mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-center px-5 pb-24 pt-20 sm:px-8 lg:px-12">
         <div class="max-w-2xl animate-fadeUp">

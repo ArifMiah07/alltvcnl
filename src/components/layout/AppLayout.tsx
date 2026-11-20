@@ -5,6 +5,7 @@ import { Icon } from "../ui/Icon";
 import { appState } from "../../lib/stores";
 import { trackPageView } from "../../lib/analytics";
 import { sitePath } from "../../lib/api/config";
+import { backgroundSrcSet, responsiveSrc } from "../../lib/images";
 
 const links = [
   { href: "/home", label: "Home" },
@@ -19,10 +20,10 @@ const links = [
 ];
 
 const backgrounds = [
-  "/background/choose/coral-20080-16x9.webp",
-  "/background/choose/aura-50749-16x9.webp",
-  "/background/choose/terrain-3321-16x9.webp",
-  "/background/choose/whorl-61437-16x9.webp",
+  "/background/choose/coral-20080-16x9",
+  "/background/choose/aura-50749-16x9",
+  "/background/choose/terrain-3321-16x9",
+  "/background/choose/whorl-61437-16x9",
 ];
 
 export function AppLayout(props: { children?: JSX.Element }) {
@@ -58,16 +59,22 @@ export function AppLayout(props: { children?: JSX.Element }) {
 
   return (
     <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-      <div
-        class="pointer-events-none fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ "background-image": `url('${background()}')` }}
-        aria-hidden="true"
-      />
-      <div class="pointer-events-none fixed inset-0 z-0 bg-white/55 backdrop-blur-[1px] dark:bg-[#0d0714]/80" aria-hidden="true" />
+      <Show when={!isFullBleed()}>
+        <img
+          class="app-background pointer-events-none fixed inset-0 z-0 h-full w-full object-cover"
+          src={responsiveSrc(background())}
+          srcset={backgroundSrcSet(background())}
+          sizes="100vw"
+          alt=""
+          decoding="async"
+          aria-hidden="true"
+        />
+        <div class="app-background pointer-events-none fixed inset-0 z-0 bg-white/55 dark:bg-[#0d0714]/80" aria-hidden="true" />
+      </Show>
 
       <header class="sticky top-0 z-40 w-full px-2 pt-2 sm:px-4">
         <div
-          class={`glass-bar mx-auto flex items-center gap-2 transition-all duration-300 ${
+          class={`glass-bar header-bar mx-auto flex items-center gap-2 transition-all duration-300 ${
             scrolled()
               ? "max-w-5xl rounded-full px-3 py-1.5 sm:px-4"
               : "max-w-7xl rounded-2xl px-3 py-2.5 sm:px-4"

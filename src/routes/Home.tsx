@@ -7,11 +7,11 @@ import { HeroSlider } from "../features/home/HeroSlider";
 import { sitePath } from "../lib/api/config";
 import { SITE_DESCRIPTION, SITE_TITLE, homeSchema } from "../lib/seo";
 import { createResource } from "../lib/resource";
-import { getCollectedChannels } from "../lib/api/client";
+import { getFeaturedChannels } from "../lib/api/client";
 import { Icon } from "../components/ui/Icon";
 
 export default function Home() {
-  const state = createResource((signal) => getCollectedChannels(signal), () => "home");
+  const state = createResource((signal) => getFeaturedChannels(signal), () => "home");
 
   return (
     <>
@@ -39,7 +39,7 @@ export default function Home() {
         </div>
 
         <Show when={!state().loading && !state().error} fallback={<SkeletonGrid />}>
-          <ChannelGrid channels={(state().data ?? []).slice(0, 9)} />
+          <ChannelGrid channels={state().data ?? []} />
         </Show>
       </section>
     </>

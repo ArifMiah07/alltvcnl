@@ -41,15 +41,17 @@ All persisted values are versioned localStorage keys with migration from legacy 
 
 ## Player
 
-`HlsPlayer` dynamically imports hls.js only when native HLS is unavailable. It:
+`HlsPlayer` dynamically imports `hls.js/light` only when native HLS is unavailable. It:
 
 - validates stream URLs before use
+- shows the channel logo as a poster while the manifest loads
+- uses conditional green/purple/blue borders for loading, valid, and unreachable streams
 - keeps one active HLS instance per mounted player
 - destroys instances and clears video state on route/source changes
 - limits buffer length and retries
 - exposes quality levels when available
 
-`/watch` mounts the primary player. Expanded list cards mount visibility-gated players only while their card is near the viewport, so inactive offscreen cards do not create background media elements.
+`/watch` and `/playlist-player` are the only routes that mount players. Channel lists navigate to `/watch` instead of mounting HLS instances while scrolling.
 
 ## Security
 
@@ -73,9 +75,14 @@ All persisted values are versioned localStorage keys with migration from legacy 
 ## Performance
 
 - Fine-grained Solid reactivity instead of virtual-DOM reconciliation.
-- Lazy routes and dynamic hls.js import.
+- Lazy routes and dynamic `hls.js/light` import; HLS is no longer an initial route chunk.
 - No icon package at runtime; icons are inline SVG.
-- Static channel data is downloaded once and filtered locally.
+- Mobile disables backdrop blur, smooth scrolling, heavy card effects, and decorative background downloads; desktop keeps the glass look.
+- Channel cards use `content-visibility`, `contain`, flat backgrounds, and Set-based favorite lookups.
+- Mobile page size is capped at 24 even if a larger desktop preference was saved.
+- Hero, featured, and desktop background images ship as `sm`/`md`/`lg` WebP variants with `srcset`; the time-of-day background mapping is unchanged.
+- `/home` loads a 9-channel featured JSON instead of the full catalog.
+- The hero timer pauses when the slider is offscreen or the tab is hidden.
 - GA4 loads during idle and decorative backgrounds ship as cached WebP assets.
 - Search inputs are debounced before network requests.
 - Skeletons and error states avoid layout shifts.

@@ -1,11 +1,10 @@
-import { Show, createSignal, onSettled } from "solid-js";
+import { Show, createSignal } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import { appState } from "../../lib/stores";
 import { sitePath } from "../../lib/api/config";
 import type { Channel } from "../../lib/types";
 import { safeHref, safeMediaUrl } from "../../lib/validation/url";
 import { Icon } from "../../components/ui/Icon";
-import { HlsPlayer } from "../player/HlsPlayer";
 
 interface ChannelCardProps {
   channel: Channel;
@@ -20,25 +19,11 @@ export function ChannelCard(props: ChannelCardProps) {
   const streamUrl = () => props.channel.url || "";
   const externalHref = () => safeMediaUrl(streamUrl()) ?? "";
   const name = () => props.channel.name ?? "Channel";
-  const watchHref = () => sitePath(`/watch?url=${encodeURIComponent(streamUrl())}&title=${encodeURIComponent(name())}`);
-  const isFavorite = () => appState.isFavorite(props.channel);
+  const watchHref = () =>
+    sitePath(`/watch?url=${encodeURIComponent(streamUrl())}&title=${encodeURIComponent(name())}&logo=${encodeURIComponent(logo())}`);
+  const favoriteKey = () => String(props.channel.id || streamUrl() || name());
+  const isFavorite = () => appState.favoriteKeys().has(favoriteKey());
   const expanded = () => appState.videoCards() || (props.expanded ?? false);
-  const [inView, setInView] = createSignal(false);
-  const showPlayer = () => expanded() && inView();
-  let card!: HTMLElement;
-
-  onSettled(() => {
-    if (!("IntersectionObserver" in window)) {
-      setInView(true);
-      return;
-    }
-    const observer = new IntersectionObserver(
-      (entries) => setInView(entries[0]?.isIntersecting ?? false),
-      { rootMargin: "150px" },
-    );
-    observer.observe(card);
-    return () => observer.disconnect();
-  });
 
   const addToNewPlaylist = () => {
     const id = appState.createPlaylist(`${name()} playlist`);
@@ -50,8 +35,7 @@ export function ChannelCard(props: ChannelCardProps) {
 
   return (
     <article
-      ref={(element) => (card = element)}
-      class="group w-full overflow-hidden rounded-sm border border-rose-50 bg-[radial-gradient(circle_at_50%_75%,#e0f2fe_0%,#ede9fe_55%,#fae8ff_100%)] shadow-sm transition hover:border-brand-purple/40 hover:shadow-md dark:border-white/10 dark:bg-[radial-gradient(circle_at_50%_75%,#111827_0%,#1f1235_60%,#26102d_100%)]">
+      class="channel-card group w-full overflow-hidden rounded-sm border border-rose-50 bg-slate-50 shadow-sm dark:border-white/10 dark:bg-slate-900/60">
       <div class="flex w-full flex-row flex-nowrap items-center bg-white/30 shadow-md transition-colors hover:bg-brand-purple hover:text-white dark:bg-slate-900/35">
         <div class="shrink-0 p-1">
           <ChannelLogo src={logo()} />
@@ -113,14 +97,6 @@ export function ChannelCard(props: ChannelCardProps) {
 
       <Show when={expanded()}>
         <div class="border-t border-emerald-50 dark:border-white/10">
-          <Show when={showPlayer()}>
-            <Show
-              when={safeMediaUrl(streamUrl())}
-              fallback={<p class="p-3 text-xs font-semibold text-rose-700 dark:text-rose-300">No stream URL is available for this channel.</p>}>
-              {(url) => <HlsPlayer src={url()} title={name()} />}
-            </Show>
-          </Show>
-
           <dl class="grid grid-cols-1 gap-2 p-3 text-xs sm:grid-cols-2">
             <div>
               <dt class="font-bold uppercase tracking-wide text-slate-500 dark:text-white/50">Group</dt>
@@ -153,16 +129,18 @@ export function ChannelCard(props: ChannelCardProps) {
 
 function ChannelLogo(props: { src: string }) {
   const [failed, setFailed] = createSignal(false);
-  const source = () => (props.src && !failed() ? props.src : "/favicon.png");
+  const source = () => (props.src && !failed() ? props.src : "/logo-fallback.webp");
 
   return (
     <img
       src={source()}
       alt=""
+      width={64}
+      height={64}
       loading="lazy"
       decoding="async"
       referrerpolicy="no-referrer"
-      class="h-12 w-12 rounded p-1 shadow-md backdrop-blur-sm isolate border border-black/10 bg-white/30 object-contain dark:border-white/10 [filter:drop-shadow(0px_0px_1px_rgba(0,0,0,0.8))_drop-shadow(0px_0px_1px_rgba(255,255,255,0.8))] sm:h-16 sm:w-16 md:h-20 md:w-20"
+      class="h-12 w-12 rounded border border-black/10 bg-white/80 p-1 object-contain dark:border-white/10 dark:bg-slate-900/70 sm:h-16 sm:w-16 md:h-20 md:w-20"
       onError={() => setFailed(true)}
     />
   );

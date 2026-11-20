@@ -1,6 +1,7 @@
 import { For } from "solid-js";
 import { Icon } from "../../components/ui/Icon";
 import { sitePath } from "../../lib/api/config";
+import { heroSrcSet, responsiveSrc } from "../../lib/images";
 
 const features = [
   {
@@ -11,8 +12,8 @@ const features = [
     primaryHref: "/streams",
     secondary: "Learn more",
     secondaryHref: "/about",
-    firstImage: "/hero/hero-img-bbc-earth.webp",
-    secondImage: "/hero/hero-img-Action-Hollywood-Movies.webp",
+    firstImage: "/hero/hero-img-bbc-earth",
+    secondImage: "/hero/hero-img-Action-Hollywood-Movies",
     firstShadow: "shadow-purple",
     secondShadow: "shadow-pink",
   },
@@ -24,8 +25,8 @@ const features = [
     primaryHref: "/search",
     secondary: "Open favorites",
     secondaryHref: "/favorites",
-    firstImage: "/hero/hero-img-mr-bean.webp",
-    secondImage: "/hero/hero-img-heritage-plus.webp",
+    firstImage: "/hero/hero-img-mr-bean",
+    secondImage: "/hero/hero-img-heritage-plus",
     firstShadow: "shadow-pink",
     secondShadow: "shadow-purple",
   },
@@ -37,8 +38,8 @@ const features = [
     primaryHref: "/about",
     secondary: "Start watching",
     secondaryHref: "/streams",
-    firstImage: "/hero/hero-img-the-explorers.webp",
-    secondImage: "/background/choose/whorl-61437-16x9.webp",
+    firstImage: "/hero/hero-img-the-explorers",
+    secondImage: "/background/choose/whorl-61437-16x9",
     firstShadow: "shadow-purple",
     secondShadow: "shadow-pink",
   },
@@ -68,7 +69,11 @@ export function FeaturedSections() {
                       {feature.tag}
                     </span>
                     <img
-                      src={feature.firstImage}
+                      src={responsiveSrc(feature.firstImage)}
+                      srcset={heroSrcSet(feature.firstImage)}
+                      sizes="(max-width: 640px) 76vw, (max-width: 1024px) 340px, 420px"
+                      width={640}
+                      height={360}
                       alt=""
                       loading="lazy"
                       decoding="async"
@@ -77,7 +82,11 @@ export function FeaturedSections() {
                   </div>
                   <div class="absolute bottom-0 right-0 w-[70%] sm:w-[62%]">
                     <img
-                      src={feature.secondImage}
+                      src={responsiveSrc(feature.secondImage)}
+                      srcset={heroSrcSet(feature.secondImage)}
+                      sizes="(max-width: 640px) 70vw, (max-width: 1024px) 300px, 380px"
+                      width={640}
+                      height={360}
                       alt=""
                       loading="lazy"
                       decoding="async"

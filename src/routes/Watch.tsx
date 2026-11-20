@@ -1,13 +1,13 @@
-import { For, Show, createSignal } from "solid-js";
+import { For, Show, createSignal, onSettled } from "solid-js";
 import { useSearchParams } from "@solidjs/router";
 import { PageMeta } from "../components/ui/PageMeta";
 import { Button } from "../components/ui/Button";
 import { Select } from "../components/ui/Field";
 import { EmptyState } from "../components/ui/State";
 import { PageHeader } from "../features/channels/PageHeader";
-import { HlsPlayer } from "../features/player/HlsPlayer";
+import { HlsPlayer, preloadHls } from "../features/player/HlsPlayer";
 import { appState } from "../lib/stores";
-import { safeMediaUrl } from "../lib/validation/url";
+import { safeHref, safeMediaUrl } from "../lib/validation/url";
 import { cleanText } from "../lib/validation/text";
 import { Icon } from "../components/ui/Icon";
 
@@ -17,7 +17,10 @@ export default function Watch() {
   const [message, setMessage] = createSignal("");
   const src = () => safeMediaUrl(searchParams.url);
   const title = () => cleanText(searchParams.title, 120) || "Live channel";
-  const channel = () => ({ id: src(), name: title(), title: title(), url: src() });
+  const poster = () => safeHref(searchParams.logo);
+  const channel = () => ({ id: src(), name: title(), title: title(), url: src(), logo: poster() });
+
+  onSettled(preloadHls);
 
   const saveToPlaylist = () => {
     const playlist = appState.playlists().find((item) => item.id === playlistId()) ?? appState.playlists()[0];
@@ -37,7 +40,7 @@ export default function Watch() {
       <Show when={src()} fallback={<EmptyState title="No stream selected" message="Open a channel from any list to start watching." />}>
         {(url) => (
           <>
-            <HlsPlayer src={url()} title={title()} autoplay />
+            <HlsPlayer src={url()} poster={poster()} title={title()} autoplay />
             <div class="mt-4 flex flex-wrap items-center gap-2">
               <Button variant="secondary" onClick={() => appState.toggleFavorite(channel())}>
                 <Icon name={appState.isFavorite(channel()) ? "bookmark-filled" : "bookmark"} size={16} />

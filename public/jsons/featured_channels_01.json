@@ -1,0 +1,65 @@
+[
+  {
+    "name": "WION",
+    "logo": "https://pbs.twimg.com/profile_images/875597226747207681/0jkhMbbB_400x400.jpg",
+    "url": "https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8",
+    "group": "International News",
+    "useProxy": false
+  },
+  {
+    "name": "India Today",
+    "logo": "https://s3.aynaott.com/storage/49b496bca6d7c67d53431e9238f83397",
+    "url": "https://feeds.intoday.in/hltapps/api/master.m3u8",
+    "group": "News",
+    "useProxy": false
+  },
+  {
+    "name": "TV9 Bangla",
+    "logo": "https://images.tv9bangla.com/wp-content/themes/tv9bangla/images/tv9-bangla-logo.svg",
+    "url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9banaen8yq/liveabr/playlist.m3u8",
+    "group": "Bangla News",
+    "useProxy": false
+  },
+  {
+    "name": "News Nation",
+    "logo": "https://yt3.googleusercontent.com/tWgKmMIT4YwdmT0z5S1MN2bIvoFN8_RvIsAWZbLwQVIpq21RO-_Y4sDzVdpj9l6wWRRz8YeUSg=s72-c-k-c0x00ffffff-no-rj",
+    "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/6cd2f649739a45ca9de1daf81cc7d0f2/index.m3u8",
+    "group": "India",
+    "useProxy": false
+  },
+  {
+    "name": "InTravel",
+    "logo": "https://s3.aynaott.com/storage/b35e9c1bcde3e6876892a22f91a9c4b5",
+    "url": "https://amg00861-amg00861c10-rakuten-uk-3152.playouts.now.amagi.tv/playlist.m3u8",
+    "group": "Travel",
+    "useProxy": false
+  },
+  {
+    "name": "MovieSphere UK",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/3/3f/MovieSphere_2022_logo.svg",
+    "url": "https://moviesphereuk-samsunguk.amagi.tv/playlist.m3u8",
+    "group": "Movies",
+    "useProxy": false
+  },
+  {
+    "name": "DW News",
+    "logo": "https://s3.aynaott.com/storage/0ce159bdea29fce7e3e85d12bc8a10c5",
+    "url": "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/master.m3u8",
+    "group": "News",
+    "useProxy": false
+  },
+  {
+    "name": "Goal TV",
+    "logo": "https://media.unreel.me/prod/freelivesports/logo/3b9ff291-5825-4cd3-b8f0-5d03a3f1e3c1",
+    "url": "https://streams2.sofast.tv/sofastplayout/WiseM3U8_1/master.m3u8",
+    "group": "Sports",
+    "useProxy": false
+  },
+  {
+    "name": "4K Travel",
+    "logo": "https://a.jsrdn.com/hls/23064/4k-travel-tv/logo_20231219_183416_68.png",
+    "url": "https://streams2.sofast.tv/sofastplayout/33c31ac4-51fa-46ae-afd0-0d1fe5e60a80_0_HLS/master.m3u8",
+    "group": "Travel",
+    "useProxy": false
+  }
+]

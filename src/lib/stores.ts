@@ -2,11 +2,15 @@ import { createEffect, createMemo, createSignal } from "solid-js";
 import type { Channel, Playlist } from "./types";
 import { LEGACY_KEYS, normalizeFavoriteList, readJson, readMigratedJson, readMigratedNumber, readMigratedString, readString, writeJson, writeString } from "./storage";
 import { MAX_CHANNELS_PER_PLAYLIST, MAX_PLAYLISTS, normalizePlaylists } from "./validation/playlist";
+import { clampPageSize, maxPageSizeForDevice } from "./pagination";
 
 const [theme, setTheme] = createSignal<"light" | "dark">(readString("alltvcnl.theme.v1") === "dark" ? "dark" : "light");
-const [channelsPerPage, setChannelsPerPage] = createSignal(
-  readMigratedNumber("alltvcnl.channelsPerPage.v1", LEGACY_KEYS.channelsPerPage, 1, 200, 12),
+const [channelsPerPage, setChannelsPerPageState] = createSignal(
+  clampPageSize(readMigratedNumber("alltvcnl.channelsPerPage.v1", LEGACY_KEYS.channelsPerPage, 1, 200, 12), 12, maxPageSizeForDevice()),
 );
+const setChannelsPerPage = (value: number): void => {
+  setChannelsPerPageState(clampPageSize(value, 12, maxPageSizeForDevice()));
+};
 const [favorites, setFavoritesState] = createSignal<Channel[]>(
   normalizeFavoriteList(readMigratedJson<unknown>("alltvcnl.favorites.v1", LEGACY_KEYS.favorites, [])),
 );

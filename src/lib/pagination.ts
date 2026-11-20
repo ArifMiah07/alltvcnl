@@ -4,10 +4,15 @@ export function clampPage(value: unknown, totalPages: number): number {
   return Math.min(Math.max(Math.floor(page), 1), Math.max(totalPages, 1));
 }
 
-export function clampPageSize(value: unknown, fallback = 12): number {
+export function maxPageSizeForDevice(): number {
+  if (typeof window === "undefined" || !window.matchMedia) return 200;
+  return window.matchMedia("(max-width: 767px), (pointer: coarse)").matches ? 24 : 200;
+}
+
+export function clampPageSize(value: unknown, fallback = 12, max = 200): number {
   const size = Number(value);
-  if (!Number.isFinite(size)) return fallback;
-  return Math.min(Math.max(Math.floor(size), 1), 200);
+  if (!Number.isFinite(size)) return Math.min(fallback, Math.max(max, 1));
+  return Math.min(Math.max(Math.floor(size), 1), Math.max(max, 1));
 }
 
 export function paginate<T>(items: readonly T[], page: number, pageSize: number): T[] {

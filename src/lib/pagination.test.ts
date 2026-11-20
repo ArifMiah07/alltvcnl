@@ -6,6 +6,7 @@ describe("pagination", () => {
     expect(clampPage(0, 5)).toBe(1);
     expect(clampPage(9, 5)).toBe(5);
     expect(clampPageSize(999)).toBe(200);
+    expect(clampPageSize(999, 12, 24)).toBe(24);
     expect(clampPageSize(1)).toBe(1);
   });
 

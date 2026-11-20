@@ -1,7 +1,7 @@
 import { For, Show, createEffect, createSignal } from "solid-js";
 import { Icon } from "../../components/ui/Icon";
 import { Input, Select } from "../../components/ui/Field";
-import { clampPageSize, pageNumbers } from "../../lib/pagination";
+import { clampPageSize, maxPageSizeForDevice, pageNumbers } from "../../lib/pagination";
 import { appState } from "../../lib/stores";
 
 export function ChannelToolbar(props: {
@@ -25,7 +25,7 @@ export function ChannelToolbar(props: {
   );
 
   const applyPageSize = () => {
-    const size = clampPageSize(channelsInput(), props.pageSize);
+    const size = clampPageSize(channelsInput(), props.pageSize, maxPageSizeForDevice());
     props.onPageSize(size);
     setChannelsInput(String(size));
   };
@@ -54,7 +54,7 @@ export function ChannelToolbar(props: {
           class="w-20 text-center"
           type="number"
           min="1"
-          max="200"
+          max={maxPageSizeForDevice()}
           value={channelsInput()}
           onInput={(event) => setChannelsInput(event.currentTarget.value)}
           onKeyDown={(event) => {

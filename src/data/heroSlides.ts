@@ -1,6 +1,6 @@
 export interface HeroSlide {
   id: number;
-  imageUrl: string;
+  imageBase: string;
   title: string;
   description: string;
   category: string;
@@ -10,7 +10,7 @@ export interface HeroSlide {
 export const heroSlides: HeroSlide[] = [
   {
     id: 1,
-    imageUrl: "/hero/hero-img-Action-Hollywood-Movies.webp",
+    imageBase: "/hero/hero-img-Action-Hollywood-Movies",
     title: "Action Hollywood Movies",
     description: "Watch Hollywood movies from a decades-old archive, streaming live around the clock.",
     category: "Action",
@@ -18,7 +18,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: 2,
-    imageUrl: "/hero/hero-img-mr-bean.webp",
+    imageBase: "/hero/hero-img-mr-bean",
     title: "Mr. Bean Anime Italy",
     description: "Classic comedy and animation, collected in one easy live channel.",
     category: "2D Animation",
@@ -26,7 +26,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: 3,
-    imageUrl: "/hero/hero-img-bbc-earth.webp",
+    imageBase: "/hero/hero-img-bbc-earth",
     title: "BBC Earth UK",
     description: "Feel the rhythm of the natural world with stunning nature documentaries.",
     category: "Nature",
@@ -34,7 +34,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: 4,
-    imageUrl: "/hero/hero-img-heritage-plus.webp",
+    imageBase: "/hero/hero-img-heritage-plus",
     title: "HERITAGE+",
     description: "Discover heritage, history, and the stories behind the world's greatest wonders.",
     category: "History",
@@ -42,7 +42,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: 5,
-    imageUrl: "/hero/hero-img-the-explorers.webp",
+    imageBase: "/hero/hero-img-the-explorers",
     title: "The Explorers",
     description: "Travel to the most wonderful and beautiful places on Earth.",
     category: "Documentary",

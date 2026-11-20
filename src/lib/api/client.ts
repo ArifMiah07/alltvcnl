@@ -163,6 +163,10 @@ function localChannels(_signal?: AbortSignal): Promise<Channel[]> {
   return collectedChannels();
 }
 
+export async function getFeaturedChannels(signal?: AbortSignal): Promise<Channel[]> {
+  return channels(await requestLocalJson("jsons/featured_channels_01.json", signal));
+}
+
 function matchesTerm(channel: Channel, term: string): boolean {
   const needle = term.trim().toLowerCase();
   return !needle || `${channel.name} ${channel.group}`.toLowerCase().includes(needle);

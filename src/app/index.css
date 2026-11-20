@@ -21,7 +21,6 @@ html.dark {
 
   body {
     @apply min-h-screen overflow-x-hidden bg-[#f7f7f7] font-sans text-slate-900 antialiased dark:bg-[#0d0714] dark:text-white;
-    text-rendering: optimizeLegibility;
   }
 
   video {
@@ -77,4 +76,60 @@ html.dark {
 ::-webkit-scrollbar-thumb {
   border-radius: 999px;
   background: rgba(161, 0, 255, 0.55);
+}
+
+@layer utilities {
+  .channel-card {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 92px;
+    contain: layout paint style;
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .glass-panel,
+  .glass-bar,
+  [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .glass-panel,
+  .glass-bar {
+    background-color: rgb(255 255 255 / 92%);
+  }
+
+  html.dark .glass-panel,
+  html.dark .glass-bar {
+    background-color: rgb(15 23 42 / 94%);
+  }
+
+  .app-background {
+    display: none;
+  }
+
+  .header-bar {
+    max-width: 100% !important;
+    border-radius: 1rem !important;
+    padding: 0.5rem 0.75rem !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

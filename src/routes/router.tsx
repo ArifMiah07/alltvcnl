@@ -3,9 +3,9 @@ import { browserHistory, createRouter, defineRoutes, hashHistory } from "@solidj
 import { AppLayout } from "../components/layout/AppLayout";
 import { IS_ELECTRON } from "../lib/api/config";
 import LandingPage from "./LandingPage";
-import Home from "./Home";
-import Streams from "./Streams";
 
+const Home = lazy(() => import("./Home"));
+const Streams = lazy(() => import("./Streams"));
 const Verified = lazy(() => import("./Verified"));
 const Search = lazy(() => import("./Search"));
 const China = lazy(() => import("./China"));
