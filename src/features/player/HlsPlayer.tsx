@@ -48,7 +48,7 @@ export function HlsPlayer(props: { src: string; status?: boolean; autoplay?: boo
       }
 
       watchdog = window.setTimeout(() => {
-        if (!cancelled && !video.autoplay && video.readyState < 3) {
+        if (!cancelled && video.readyState < 3) {
           setStreamStatus((current) => (current === "purple" ? current : "blue"));
         }
       }, 15000);
@@ -77,7 +77,6 @@ export function HlsPlayer(props: { src: string; status?: boolean; autoplay?: boo
         });
       } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
         video.src = src;
-        clearWatchdog();
         if (value.autoplay) void video.play().catch(() => undefined);
       } else {
         clearWatchdog();

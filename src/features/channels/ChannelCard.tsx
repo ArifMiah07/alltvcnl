@@ -20,7 +20,10 @@ export function ChannelCard(props: ChannelCardProps) {
   const streamUrl = () => props.channel.url || "";
   const externalHref = () => safeMediaUrl(streamUrl()) ?? "";
   const name = () => props.channel.name ?? "Channel";
-  const watchHref = () => sitePath(`/watch?url=${encodeURIComponent(streamUrl())}&title=${encodeURIComponent(name())}`);
+  const watchHref = () =>
+    sitePath(
+      `/watch?url=${encodeURIComponent(streamUrl())}&title=${encodeURIComponent(name())}&status=${encodeURIComponent(String(props.channel.status ?? ""))}`,
+    );
   const favoriteKey = () => String(props.channel.id || streamUrl() || name());
   const isFavorite = () => appState.favoriteKeys().has(favoriteKey());
   const expanded = () => appState.videoCards() || (props.expanded ?? false);

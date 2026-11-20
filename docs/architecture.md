@@ -41,7 +41,7 @@ All persisted values are versioned localStorage keys with migration from legacy 
 
 ## Player
 
-`HlsPlayer` uses the original `hls.js` player behavior. It:
+`HlsPlayer` is the Solid port of the original `HlsVideoPlayer.jsx`. It keeps the original `hls.js` player behavior:
 
 - validates stream URLs before use
 - loads the stream as soon as the player mounts; no click is required to see the first frame

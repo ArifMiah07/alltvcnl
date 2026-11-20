@@ -17,7 +17,8 @@ export default function Watch() {
   const [message, setMessage] = createSignal("");
   const src = () => safeMediaUrl(searchParams.url);
   const title = () => cleanText(searchParams.title, 120) || "Live channel";
-  const channel = () => ({ id: src(), name: title(), title: title(), url: src() });
+  const status = () => searchParams.status === "true";
+  const channel = () => ({ id: src(), name: title(), title: title(), url: src(), status: status() });
 
   const saveToPlaylist = () => {
     const playlist = appState.playlists().find((item) => item.id === playlistId()) ?? appState.playlists()[0];
@@ -37,7 +38,7 @@ export default function Watch() {
       <Show when={src()} fallback={<EmptyState title="No stream selected" message="Open a channel from any list to start watching." />}>
         {(url) => (
           <>
-            <HlsPlayer src={url()} autoplay />
+            <HlsPlayer src={url()} status={status()} autoplay />
             <div class="mt-4 flex flex-wrap items-center gap-2">
               <Button variant="secondary" onClick={() => appState.toggleFavorite(channel())}>
                 <Icon name={appState.isFavorite(channel()) ? "bookmark-filled" : "bookmark"} size={16} />
