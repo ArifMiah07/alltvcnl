@@ -34,7 +34,12 @@ export function ChannelCard(props: ChannelCardProps) {
   };
 
   const actionClass =
-    "flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border border-brand-purple/25 bg-white text-brand-purple shadow-sm transition hover:bg-brand-purple hover:text-white group-hover:border-white/40 group-hover:bg-white/20 group-hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple dark:border-fuchsia-400/25 dark:bg-slate-800 dark:text-fuchsia-300 dark:shadow-none dark:hover:bg-fuchsia-600 dark:hover:text-white dark:group-hover:border-fuchsia-400/40 dark:group-hover:bg-fuchsia-600 dark:group-hover:text-white";
+    "flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border shadow-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple dark:shadow-none";
+
+  const actionToneClass = (active: boolean) =>
+    active
+      ? "border-brand-purple/60 bg-brand-purple text-white hover:bg-fuchsia-700 group-hover:border-white/40 group-hover:bg-brand-purple group-hover:text-white dark:border-fuchsia-400/50 dark:bg-fuchsia-600 dark:hover:bg-fuchsia-500 dark:group-hover:bg-fuchsia-600 dark:group-hover:text-white"
+      : "border-brand-purple/25 bg-white text-brand-purple hover:bg-brand-purple hover:text-white group-hover:border-white/40 group-hover:bg-white/20 group-hover:text-white dark:border-fuchsia-400/25 dark:bg-slate-800 dark:text-fuchsia-300 dark:hover:bg-fuchsia-600 dark:hover:text-white dark:group-hover:border-fuchsia-400/40 dark:group-hover:bg-fuchsia-600 dark:group-hover:text-white";
 
   return (
     <article
@@ -53,13 +58,13 @@ export function ChannelCard(props: ChannelCardProps) {
           </div>
 
           <div class="flex flex-wrap items-center gap-2 p-2">
-            <button type="button" class={actionClass} aria-label={`Open ${name()} in player`} onClick={() => navigate(watchHref())}>
+            <button type="button" class={`${actionClass} ${actionToneClass(false)}`} aria-label={`Open ${name()} in player`} onClick={() => navigate(watchHref())}>
               <Icon name="play" size={14} />
             </button>
 
             <Show when={externalHref()}>
               {(url) => (
-                <a class={actionClass} href={url()} target="_blank" rel="noopener noreferrer" aria-label={`Open ${name()} stream link`}>
+                <a class={`${actionClass} ${actionToneClass(false)}`} href={url()} target="_blank" rel="noopener noreferrer" aria-label={`Open ${name()} stream link`}>
                   <Icon name="external" size={14} />
                 </a>
               )}
@@ -67,7 +72,7 @@ export function ChannelCard(props: ChannelCardProps) {
 
             <button
               type="button"
-              class={`${actionClass} ${isFavorite() ? "bg-brand-purple text-white group-hover:bg-white group-hover:text-brand-purple dark:bg-fuchsia-600 dark:text-white dark:group-hover:bg-fuchsia-600 dark:group-hover:text-white" : ""}`}
+              class={`${actionClass} ${actionToneClass(isFavorite())}`}
               aria-label={isFavorite() ? `Remove ${name()} from favorites` : `Add ${name()} to favorites`}
               onClick={() => appState.toggleFavorite(props.channel)}>
               <Icon name={isFavorite() ? "bookmark-filled" : "bookmark"} size={14} />
@@ -75,7 +80,7 @@ export function ChannelCard(props: ChannelCardProps) {
 
             <button
               type="button"
-              class={actionClass}
+              class={`${actionClass} ${actionToneClass(false)}`}
               aria-label={`Create playlist for ${name()}`}
               title="Create playlist with this channel"
               onClick={addToNewPlaylist}>
@@ -84,7 +89,7 @@ export function ChannelCard(props: ChannelCardProps) {
 
             <button
               type="button"
-              class={actionClass}
+              class={`${actionClass} ${actionToneClass(false)}`}
               aria-expanded={expanded() ? "true" : "false"}
               aria-label={expanded() ? `Hide ${name()} details` : `Show ${name()} details`}
               onClick={() => props.onToggle?.()}>
