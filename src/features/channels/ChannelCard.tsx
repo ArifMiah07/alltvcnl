@@ -34,7 +34,7 @@ export function ChannelCard(props: ChannelCardProps) {
   };
 
   const actionClass =
-    "flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border border-brand-purple/25 bg-white text-brand-purple shadow-sm transition hover:bg-brand-purple hover:text-white group-hover:border-white/40 group-hover:bg-white/20 group-hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple";
+    "flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border border-brand-purple/25 bg-white text-brand-purple shadow-sm transition hover:bg-brand-purple hover:text-white group-hover:border-white/40 group-hover:bg-white/20 group-hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple dark:border-fuchsia-400/25 dark:bg-slate-800 dark:text-fuchsia-300 dark:shadow-none dark:hover:bg-fuchsia-600 dark:hover:text-white dark:group-hover:border-fuchsia-400/40 dark:group-hover:bg-fuchsia-600 dark:group-hover:text-white";
 
   return (
     <article
@@ -67,7 +67,7 @@ export function ChannelCard(props: ChannelCardProps) {
 
             <button
               type="button"
-              class={`${actionClass} ${isFavorite() ? "bg-brand-purple text-white group-hover:bg-white group-hover:text-brand-purple" : ""}`}
+              class={`${actionClass} ${isFavorite() ? "bg-brand-purple text-white group-hover:bg-white group-hover:text-brand-purple dark:bg-fuchsia-600 dark:text-white dark:group-hover:bg-fuchsia-600 dark:group-hover:text-white" : ""}`}
               aria-label={isFavorite() ? `Remove ${name()} from favorites` : `Add ${name()} to favorites`}
               onClick={() => appState.toggleFavorite(props.channel)}>
               <Icon name={isFavorite() ? "bookmark-filled" : "bookmark"} size={14} />
