@@ -98,7 +98,7 @@ export default function PlaylistPlayer() {
                     <Button variant="secondary" onClick={() => step(1)}>Next</Button>
                   </div>
                 </div>
-                <HlsPlayer src={channel().url ?? ""} poster={channel().logo} title={channel().name} autoplay={true} />
+                <HlsPlayer src={channel().url ?? ""} status={channel().status} autoplay={true} />
               </>
             )}
           </Show>

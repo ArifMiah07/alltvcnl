@@ -41,17 +41,16 @@ All persisted values are versioned localStorage keys with migration from legacy 
 
 ## Player
 
-`HlsPlayer` dynamically imports `hls.js/light` only when native HLS is unavailable. It:
+`HlsPlayer` uses the original `hls.js` player behavior. It:
 
 - validates stream URLs before use
-- shows the channel logo as a poster while the manifest loads
-- uses conditional green/purple/blue borders for loading, valid, and unreachable streams
+- loads the stream as soon as the player mounts; no click is required to see the first frame
+- uses the original conditional green/purple/blue borders for loading, valid, and unreachable streams
 - keeps one active HLS instance per mounted player
 - destroys instances and clears video state on route/source changes
-- limits buffer length and retries
-- exposes quality levels when available
+- keeps the original buffer and manifest retry settings
 
-`/watch` and `/playlist-player` mount full players. Channel lists stay player-free until Grid View is enabled and a card's play button is tapped; only one card can hold an active preview at a time, so scrolling never mounts background players.
+Grid View mounts an inline player on every channel card, matching the original app. Normal list view mounts a player only for an expanded card. `/watch` and `/playlist-player` mount full players.
 
 ## Security
 
@@ -75,7 +74,7 @@ All persisted values are versioned localStorage keys with migration from legacy 
 ## Performance
 
 - Fine-grained Solid reactivity instead of virtual-DOM reconciliation.
-- Lazy routes and dynamic `hls.js/light` import; HLS is no longer an initial route chunk.
+- Lazy routes keep catalog pages separate from the landing page.
 - No icon package at runtime; icons are inline SVG.
 - Mobile disables backdrop blur, smooth scrolling, heavy card effects, and decorative background downloads; desktop keeps the glass look.
 - Channel cards use `content-visibility`, `contain`, flat backgrounds, and Set-based favorite lookups.
