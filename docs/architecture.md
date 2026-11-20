@@ -51,7 +51,7 @@ All persisted values are versioned localStorage keys with migration from legacy 
 - limits buffer length and retries
 - exposes quality levels when available
 
-`/watch` and `/playlist-player` are the only routes that mount players. Channel lists navigate to `/watch` instead of mounting HLS instances while scrolling.
+`/watch` and `/playlist-player` mount full players. Channel lists stay player-free until Grid View is enabled and a card's play button is tapped; only one card can hold an active preview at a time, so scrolling never mounts background players.
 
 ## Security
 

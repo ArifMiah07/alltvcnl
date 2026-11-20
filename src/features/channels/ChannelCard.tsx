@@ -5,12 +5,15 @@ import { sitePath } from "../../lib/api/config";
 import type { Channel } from "../../lib/types";
 import { safeHref, safeMediaUrl } from "../../lib/validation/url";
 import { Icon } from "../../components/ui/Icon";
+import { HlsPlayer, preloadHls } from "../player/HlsPlayer";
 
 interface ChannelCardProps {
   channel: Channel;
   number?: number;
   expanded?: boolean;
+  preview?: boolean;
   onToggle?: () => void;
+  onPreview?: () => void;
 }
 
 export function ChannelCard(props: ChannelCardProps) {
@@ -24,6 +27,14 @@ export function ChannelCard(props: ChannelCardProps) {
   const favoriteKey = () => String(props.channel.id || streamUrl() || name());
   const isFavorite = () => appState.favoriteKeys().has(favoriteKey());
   const expanded = () => appState.videoCards() || (props.expanded ?? false);
+  const startPreview = () => {
+    if (!appState.videoCards()) {
+      navigate(watchHref());
+      return;
+    }
+    preloadHls();
+    props.onPreview?.();
+  };
 
   const addToNewPlaylist = () => {
     const id = appState.createPlaylist(`${name()} playlist`);
@@ -50,7 +61,12 @@ export function ChannelCard(props: ChannelCardProps) {
           </div>
 
           <div class="flex flex-wrap items-center gap-2 p-2">
-            <button type="button" class={actionClass} aria-label={`Open ${name()} in player`} onClick={() => navigate(watchHref())}>
+            <button
+              type="button"
+              class={actionClass}
+              aria-label={appState.videoCards() ? `Preview ${name()}` : `Open ${name()} in player`}
+              title={appState.videoCards() ? "Play preview in this card" : "Open full player"}
+              onClick={startPreview}>
               <Icon name="play" size={14} />
             </button>
 
@@ -97,6 +113,23 @@ export function ChannelCard(props: ChannelCardProps) {
 
       <Show when={expanded()}>
         <div class="border-t border-emerald-50 dark:border-white/10">
+          <Show when={props.preview}>
+            <div class="p-2">
+              <Show
+                when={safeMediaUrl(streamUrl())}
+                fallback={<p class="p-3 text-xs font-semibold text-rose-700 dark:text-rose-300">No stream URL is available for this channel.</p>}>
+                {(url) => (
+                  <>
+                    <HlsPlayer src={url()} poster={logo() || undefined} title={name()} autoplay />
+                    <a class="mt-2 inline-flex text-xs font-semibold text-brand-purple underline dark:text-fuchsia-300" href={watchHref()}>
+                      Open full player
+                    </a>
+                  </>
+                )}
+              </Show>
+            </div>
+          </Show>
+
           <dl class="grid grid-cols-1 gap-2 p-3 text-xs sm:grid-cols-2">
             <div>
               <dt class="font-bold uppercase tracking-wide text-slate-500 dark:text-white/50">Group</dt>
