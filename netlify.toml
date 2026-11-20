@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build:web"
+  publish = "dist-web"
+
+[build.environment]
+  NODE_VERSION = "22.12.0"
